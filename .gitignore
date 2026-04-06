@@ -1,1 +1,21 @@
-._.DS_Store
+# Python env
+.venv/
+venv/
+env/
+conda-env/
+*.egg-info/
+
+# Python cache
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/.ropeproject
+
+# Secrets / local config
+.env
+*.pem
+*.key

@@ -1,0 +1,1 @@
+date,source_path,source_file_name,frame,z_axis,channel,raw_tif_name,raw_csv_name,raw_png_name,x_pixel,y_pixel,micron_per_pixel_x,micron_per_pixel_y,estimated_object_diameter,quality_threshold

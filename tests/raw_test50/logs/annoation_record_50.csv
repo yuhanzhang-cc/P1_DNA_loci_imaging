@@ -1,0 +1,51 @@
+source_path,source_file_name,frame,z_axis,channel,raw_tif_name,raw_csv_name,raw_png_name,estimated_object_diameter,quality_threshold
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#004.nd2,20160612 MCP-VN+PCP-VC#004.nd2,20,0,0,test_1.tif,test_1_allspots.csv,test_1.png,1.5,272.768
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#007.nd2,20160612 MCP-VN+PCP-VC#007.nd2,7,0,0,test_2.tif,test_2_allspots.csv,test_2.png,1.5,125.32
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#015.nd2,20160612 MCP-VN+PCP-VC#015.nd2,25,0,0,test_3.tif,test_3_allspots.csv,test_3.png,1.5,154.68
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#019.nd2,20160612 MCP-VN+PCP-VC#019.nd2,75,0,0,test_4.tif,test_4_allspots.csv,test_4.png,1.6,138.063
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#020.nd2,20160612 MCP-VN+PCP-VC#020.nd2,44,0,0,test_5.tif,test_5_allspots.csv,test_5.png,1.8,84.832
+/Volumes/Shipeng Shao/2060907/20160612 MCP-VN+PCP-VC/20160612 MCP-VN+PCP-VC#021.nd2,20160612 MCP-VN+PCP-VC#021.nd2,83,0,0,test_6.tif,test_6_allspots.csv,test_6.png,1.2,78.451
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#024.nd2.tiff,20160612 MCP-VN+PCP-VC#024.nd2.tiff,35,0,0,test_7.tif,test_7_allspots.csv,test_7.png,1,186.005
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#025.nd2.tiff,20160612 MCP-VN+PCP-VC#025.nd2.tiff,29,0,0,test_8.tif,test_8_allspots.csv,test_8.png,1,114.168
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#034.nd2.tiff,20160612 MCP-VN+PCP-VC#034.nd2.tiff,78,0,0,test_9.tif,test_9_allspots.csv,test_9.png,1,121.721
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#035.nd2.tiff,20160612 MCP-VN+PCP-VC#035.nd2.tiff,10,0,0,test_10.tif,test_10_allspots.csv,test_10.png,1,64.96
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#037.nd2.tiff,20160612 MCP-VN+PCP-VC#037.nd2.tiff,37,0,0,test_11.tif,test_11_allspots.csv,test_11.png,1,39.03
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#040.nd2.tiff,20160612 MCP-VN+PCP-VC#040.nd2.tiff,32,0,0,test_12.tif,test_12_allspots.csv,test_12.png,1,90.868
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#041.nd2.tiff,20160612 MCP-VN+PCP-VC#041.nd2.tiff,35,0,0,test_13.tif,test_13_allspots.csv,test_13.png,1,73.9
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#044.nd2.tiff,20160612 MCP-VN+PCP-VC#044.nd2.tiff,1,0,0,test_14.tif,test_14_allspots.csv,test_14.png,0.8,409.525
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#045.nd2.tiff,20160612 MCP-VN+PCP-VC#045.nd2.tiff,20,0,0,test_15.tif,test_15_allspots.csv,test_15.png,1,176.477
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#030.nd2.tiff,20160612 MCP-VN+PCP-VC#030.nd2.tiff,46,0,0,test_16.tif,test_16_allspots.csv,test_16.png,1,58.228
+/Volumes/Shipeng Shao/2060907/20160612 Slpit GFP Telomere/20160612 MCP-VN+PCP-VC#033.nd2.tiff,20160612 MCP-VN+PCP-VC#033.nd2.tiff,34,0,0,test_17.tif,test_17_allspots.csv,test_17.png,1,36.195
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#001.nd2,20160612 Telomere suntag WT#001.nd2,1,0,0,test_18.tif,test_18_allspots.csv,test_18.png,1,54.021
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#008.nd2,20160612 Telomere suntag WT#008.nd2,227,0,0,test_19.tif,test_19_allspots.csv,test_19.png,1,60.653
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#011.nd2,20160612 Telomere suntag WT#011.nd2,26,0,0,test_20.tif,test_20_allspots.csv,test_20.png,1,124.331
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#012.nd2,20160612 Telomere suntag WT#012.nd2,1,0,0,test_21.tif,test_21_allspots.csv,test_21.png,1,179.85
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#014.nd2,20160612 Telomere suntag WT#014.nd2,1,0,0,test_22.tif,test_22_allspots.csv,test_22.png,1,60.259
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#018.nd2,20160612 Telomere suntag WT#018.nd2,188,0,0,test_23.tif,test_23_allspots.csv,test_23.png,1,59.538
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#025.nd2,20160612 Telomere suntag WT#025.nd2,451,0,0,test_24.tif,test_24_allspots.csv,test_24.png,1,45.345
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#016.nd2,20160612 Telomere suntag WT#016.nd2,750,0,0,test_25.tif,test_25_allspots.csv,test_25.png,1,98.899
+/Volumes/Shipeng Shao/2060907/20160612 Telomere suntag WT/20160612 Telomere suntag WT#026.nd2,20160612 Telomere suntag WT#026.nd2,1,0,0,test_26.tif,test_26_allspots.csv,test_26.png,1,100.1
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#002.nd2.tiff,IMR90-elec trans#002.nd2.tiff,1,0,0,test_27.tif,test_27_allspots.csv,test_27.png,10,42.343
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#005.nd2.tiff,IMR90-elec trans#005.nd2.tiff,1,0,0,test_28.tif,test_28_allspots.csv,test_28.png,10,151.717
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#008.nd2.tiff,IMR90-elec trans#008.nd2.tiff,1,0,0,test_29.tif,test_29_allspots.csv,test_29.png,10,26.638
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#010.nd2.tiff,IMR90-elec trans#010.nd2.tiff,1,0,0,test_30.tif,test_30_allspots.csv,test_30.png,10,168.735
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#014.nd2.tiff,IMR90-elec trans#014.nd2.tiff,1,0,0,test_31.tif,test_31_allspots.csv,test_31.png,10,111.849
+/Volumes/Shipeng Shao/2060907/20160730/IMR90-elec trans/IMR90-elec trans#016.nd2.tiff,IMR90-elec trans#016.nd2.tiff,1,0,0,test_32.tif,test_32_allspots.csv,test_32.png,10,52.584
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231-,0,35,1,test_33.tif,test_33_allspots.csv,test_33.png,1,1459.508
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 5,0,16,1,test_34.tif,test_34_allspots.csv,test_34.png,1,186.005
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 6,0,30,1,test_35.tif,test_35_allspots.csv,test_35.png,1,256.332
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231-,0,0,1,test_36.tif,test_36_allspots.csv,test_36.png,1,1473.982
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 2,0,0,1,test_37.tif,test_37_allspots.csv,test_37.png,1,340.288
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 4,0,0,1,test_38.tif,test_38_allspots.csv,test_38.png,1,692.09
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 5,0,0,1,test_39.tif,test_39_allspots.csv,test_39.png,1,186.005
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 6,0,0,1,test_40.tif,test_40_allspots.csv,test_40.png,1,473.697
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 7,0,0,1,test_41.tif,test_41_allspots.csv,test_41.png,1,906.381
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 8,0,0,1,test_42.tif,test_42_allspots.csv,test_42.png,1,185.926
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 9,0,0,1,test_43.tif,test_43_allspots.csv,test_43.png,1,702.449
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 10,0,0,1,test_44.tif,test_44_allspots.csv,test_44.png,1,556.874
+/Volumes/Shipeng Shao/20140825/20150824 coillin-GFP-231-/20150824 coillin-GFP-231-.mvd2,MAX_20150824 coillin-GFP-231-.mvd2 - 20150822 PCNA_231- 11,0,0,1,test_45.tif,test_45_allspots.csv,test_45.png,1,407.576
+/Volumes/Shipeng Shao/20140825/20150824 PCNA-231-/20150822 PCNA_231- 4 (cropped).tif,20150822 PCNA_231- 4 (cropped).tif,0,0,1,test_46.tif,test_46_allspots.csv,test_46.png,5,1047.605
+/Volumes/Shipeng Shao/20140825/20150824 PCNA-231-/20150822 PCNA_231- 7.tif,20150822 PCNA_231- 7.tif,0,0,1,test_47.tif,test_47_allspots.csv,test_47.png,7,1091.533
+/Volumes/Shipeng Shao/20140825/20150824 PCNA-231-/20150822 PCNA_231- 12.tif,20150822 PCNA_231- 12.tif,0,0,1,test_48.tif,test_48_allspots.csv,test_48.png,7,1146.871
+/Volumes/Shipeng Shao/20140825/20150824 PCNA-231-/20150822 PCNA_231- 13.tif,20150822 PCNA_231- 13.tif,0,0,1,test_49.tif,test_49_allspots.csv,test_49.png,5,1397.468
+/Volumes/Shipeng Shao/20140825/20150824 PCNA-231-/20150822 PCNA_231- 16.tif,20150822 PCNA_231- 16.tif,0,0,1,test_50.tif,test_50_allspots.csv,test_50.png,7,642.111
