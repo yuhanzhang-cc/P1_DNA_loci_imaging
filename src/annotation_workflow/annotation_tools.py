@@ -313,7 +313,7 @@ def spot_rows_from_xml(xml_path: Path) -> tuple[list[list[str]], dict[str, str]]
         time_units = model.attrib.get("timeunits", time_units)
     spatial_units = normalize_spatial_unit(spatial_units)
 
-    detector_settings = root.find("./Settings/DetectorSettings")
+    detector_settings = last_detector_settings(root)
     threshold = ""
     diameter = ""
     if detector_settings is not None:
@@ -362,6 +362,13 @@ def spot_rows_from_xml(xml_path: Path) -> tuple[list[list[str]], dict[str, str]]
         "quality_threshold": threshold,
     }
     return header_rows + rows, metadata
+
+
+def last_detector_settings(root: ET.Element) -> ET.Element | None:
+    detector_settings = list(root.iter("DetectorSettings"))
+    if not detector_settings:
+        return None
+    return detector_settings[-1]
 
 
 def write_spot_csv(csv_path: Path, rows: list[list[str]]) -> None:

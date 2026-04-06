@@ -83,7 +83,7 @@ python3 src/annotation_workflow/annotation_tools.py build-manifest /Volumes/你�
 这个宏会做这些事情：
 
 - 读取当前窗口的宽高像素和标定信息
-- 让你确认 `source_file_name`、channel、是否做 z 投影
+- 让你在一个对话框里确认 `source_path`、`source_file_name`、channel、是否做 z 投影
 - 自动保存单帧导出图为 `data/raw/tif/sample_N.tif`
 - 自动启动 TrackMate
 - 在 TrackMate 结束后保存带圈结果图为 `data/raw/png/sample_N.png`
@@ -93,16 +93,17 @@ python3 src/annotation_workflow/annotation_tools.py build-manifest /Volumes/你�
 
 宏运行后，你只需要按界面提示做交互：
 
-1. 选择这张图对应的原始源文件路径。
-2. 确认弹窗里的：
+1. 确认弹窗里的：
+   - `source_path`
    - `source_file_name`
    - `channel_index`
    - 是否应用 `Max Intensity z projection`
-3. TrackMate 打开后，手动调：
+2. TrackMate 打开后，手动调：
    - `estimated object diameter`
    - `quality threshold`
-4. 保存 TrackMate XML 到宏提示你的那个路径。
-5. 关闭 TrackMate，宏会继续保存 png 和 sidecar。
+3. 手动保存 TrackMate XML 到宏提示的路径。
+4. 关闭 TrackMate。
+5. 回到宏的确认框，按 `Enter` 或点击 `OK`，宏继续保存 png 和 sidecar。
 
 ## 第 4 步：批量收尾
 

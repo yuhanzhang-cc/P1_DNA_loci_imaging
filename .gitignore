@@ -13,7 +13,7 @@ __pycache__/
 
 # OS / editor
 .DS_Store
-.vscode/.ropeproject
+.vscode
 
 # Secrets / local config
 .env
