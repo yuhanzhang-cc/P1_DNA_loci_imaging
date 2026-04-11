@@ -1,0 +1,14 @@
+date=2026-04-11
+source_path=/Volumes/Shipeng Shao/20150126/20150126-HP1-GFP/20150126-HP1-GFP#004-1.nd2
+source_file_name=20150126-HP1-GFP#004-1.nd2.tiff
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_56.tif
+raw_csv_name=sample_56.csv
+raw_png_name=sample_56.png
+x_pixel=512
+y_pixel=512
+micron_per_pixel_x=1
+micron_per_pixel_y=1
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_56.xml

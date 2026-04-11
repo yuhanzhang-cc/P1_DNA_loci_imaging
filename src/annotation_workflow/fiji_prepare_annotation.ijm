@@ -204,14 +204,8 @@ function buildPreparedImage(originalId, sampleBase, selectedChannel, currentSlic
     // 回到原图。
     selectImage(originalId);
 
-    // 切到用户指定 channel。
-    Stack.setChannel(selectedChannel);
-
-    // 切到用户当前选中的 slice。
-    Stack.setSlice(currentSlice);
-
-    // 切到用户当前选中的 frame。
-    Stack.setFrame(currentFrame);
+    // 切到用户指定的 C/Z/T 位置。
+    Stack.setPosition(selectedChannel, currentSlice, currentFrame);
 
     // 如果需要做 z projection：
     if (doMaxProjection && slices > 1) {
@@ -246,13 +240,11 @@ function buildPreparedImage(originalId, sampleBase, selectedChannel, currentSlic
     }
 
     // 如果不做 z projection：
-    // 只提取当前 channel + 当前 slice + 当前 frame 的单平面。
-    run(
-        "Make Substack...",
-        "channels=" + selectedChannel +
-        " slices=" + currentSlice +
-        " frames=" + currentFrame
-    );
+    // 只复制当前显示的单平面。
+    // 注意：这里故意不传 "duplicate" 参数，因为该参数会勾选 Duplicate stack，
+    // 从而把整段 time series 复制出来，导致 frame 又回到错误的 stack 行为。
+    Stack.setPosition(selectedChannel, currentSlice, currentFrame);
+    run("Duplicate...", "title=" + sampleBase);
 
     // Substack 产生的新窗口会成为当前窗口。
     preparedId = getImageID();

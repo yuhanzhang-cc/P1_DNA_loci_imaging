@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrackMate version="7.14.0">
+  <Log>TrackMate v7.14.0 started on:
+周六, 11 4月 2026 04:10:18
+Please note that TrackMate is available through Fiji, and is based on a publication. If you use it successfully for your research please be so kind to cite our work:
+Ershov, D., Phan, MS., Pylvänäinen, J.W., Rigaud S.U., et al. TrackMate 7: integrating state-of-the-art segmentation algorithms into tracking pipelines. Nat Methods (2022). https://doi.org/10.1038/s41592-022-01507-1
+https://doi.org/10.1038/s41592-022-01507-1
+and / or:
+Tinevez, JY.; Perry, N. &amp; Schindelin, J. et al. (2017), 'TrackMate: An open and extensible platform for single-particle tracking.', Methods 115: 80-90, PMID 27713081.
+https://www.sciencedirect.com/science/article/pii/S1046202316303346
+
+Numerical feature analyzers:
+Spot feature analyzers:
+ - Manual spot color provides: Spot color; is manual.
+ - Spot intensity provides: Mean ch1, Median ch1, Min ch1, Max ch1, Sum ch1, Std ch1.
+ - Spot contrast and SNR provides: Ctrst ch1, SNR ch1.
+Edge feature analyzers:
+ - Directional change provides: γ rate.
+ - Edge speed provides: Speed, Disp.
+ - Edge target provides: Source ID, Target ID, Cost.
+ - Edge location provides: Edge T, Edge X, Edge Y, Edge Z.
+ - Manual edge color provides: Edge color; is manual.
+Track feature analyzers:
+ - Branching analyzer provides: N spots, N gaps, N splits, N merges, N complex, Lgst gap.
+ - Track duration provides: Duration, Track start, Track stop, Track disp.
+ - Track index provides: Index, ID.
+ - Track location provides: Track X, Track Y, Track Z.
+ - Track speed provides: Mean sp., Max speed, Min speed, Med. speed, Std speed.
+ - Track quality provides: Mean Q.
+ - Track motility analysis provides: Total dist., Max dist., Cfn. ratio, Mn. v. line, Fwd. progr., Mn. γ rate.
+
+Image region of interest:
+Image data:
+For the image named: sample_29.tif.
+Matching file sample_29.tif in folder: /Users/mac/Developer/P1_DNA_loci_imaging/data/raw/tif/
+Geometry:
+  X =    0 -  511, dx = 0.160000
+  Y =    0 -  511, dy = 0.160000
+  Z =    0 -    0, dz = 1.00000
+  T =    0 -    0, dt = 1.00000
+
+Configured detector LoG detector with settings:
+  - target channel: 1
+  - threshold: -42.95645246719019
+  - do median filtering: false
+  - radius: 0.5
+  - do subpixel localization: true
+
+Starting detection process using 8 threads.
+Detection processes 1 frame simultaneously and allocates 8 threads per frame.
+Found 4486 spots.
+Detection done in 0.0 s.
+Saving data...</Log>
+  <Model spatialunits="micron" timeunits="sec">
+    <FeatureDeclarations>
+      <SpotFeatures>
+        <Feature feature="QUALITY" name="Quality" shortname="Quality" dimension="QUALITY" isint="false" />
+        <Feature feature="POSITION_X" name="X" shortname="X" dimension="POSITION" isint="false" />
+        <Feature feature="POSITION_Y" name="Y" shortname="Y" dimension="POSITION" isint="false" />
+        <Feature feature="POSITION_Z" name="Z" shortname="Z" dimension="POSITION" isint="false" />
+        <Feature feature="POSITION_T" name="T" shortname="T" dimension="TIME" isint="false" />
+        <Feature feature="FRAME" name="Frame" shortname="Frame" dimension="NONE" isint="true" />
+        <Feature feature="RADIUS" name="Radius" shortname="R" dimension="LENGTH" isint="false" />
+        <Feature feature="VISIBILITY" name="Visibility" shortname="Visibility" dimension="NONE" isint="true" />
+      </SpotFeatures>
+      <EdgeFeatures>
+        <Feature feature="SPOT_SOURCE_ID" name="Source spot ID" shortname="Source ID" dimension="NONE" isint="true" />
+        <Feature feature="SPOT_TARGET_ID" name="Target spot ID" shortname="Target ID" dimension="NONE" isint="true" />
+        <Feature feature="LINK_COST" name="Edge cost" shortname="Cost" dimension="COST" isint="false" />
+      </EdgeFeatures>
+      <TrackFeatures>
+        <Feature feature="TRACK_INDEX" name="Track index" shortname="Index" dimension="NONE" isint="true" />
+        <Feature feature="TRACK_ID" name="Track ID" shortname="ID" dimension="NONE" isint="true" />
+      </TrackFeatures>
+    </FeatureDeclarations>
+    <AllSpots nspots="39">
+      <SpotsInFrame frame="0">
+        <Spot ID="443906" name="ID443906" STD_INTENSITY_CH1="107.16678225653328" QUALITY="29.333179473876953" POSITION_T="0.0" MIN_INTENSITY_CH1="519.0" TOTAL_INTENSITY_CH1="23826.0" CONTRAST_CH1="0.08256598945331912" SNR_CH1="0.9165708242579775" FRAME="0" MEDIAN_INTENSITY_CH1="615.0" VISIBILITY="1" RADIUS="0.5" POSITION_X="51.28" POSITION_Y="28.400000000000002" MEAN_INTENSITY_CH1="643.9459459459459" POSITION_Z="0.0" MAX_INTENSITY_CH1="1023.0" />
+        <Spot ID="442663" name="ID442663" VISIBILITY="1" RADIUS="0.5" QUALITY="72.80830383300781" POSITION_T="0.0" POSITION_X="40.583993633604145" POSITION_Y="22.402193861967127" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442660" name="ID442660" VISIBILITY="1" RADIUS="0.5" QUALITY="55.8167610168457" POSITION_T="0.0" POSITION_X="39.086650939090404" POSITION_Y="21.657357078133767" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442658" name="ID442658" VISIBILITY="1" RADIUS="0.5" QUALITY="210.640380859375" POSITION_T="0.0" POSITION_X="37.688476063351544" POSITION_Y="21.443246452524185" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443182" name="ID443182" VISIBILITY="1" RADIUS="0.5" QUALITY="33.02255630493164" POSITION_T="0.0" POSITION_X="48.37539959441495" POSITION_Y="23.04026945488118" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443178" name="ID443178" VISIBILITY="1" RADIUS="0.5" QUALITY="42.027706146240234" POSITION_T="0.0" POSITION_X="44.59522332267341" POSITION_Y="22.351176789980386" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443177" name="ID443177" VISIBILITY="1" RADIUS="0.5" QUALITY="117.8548583984375" POSITION_T="0.0" POSITION_X="42.30912655338449" POSITION_Y="22.354692353744912" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443188" name="ID443188" VISIBILITY="1" RADIUS="0.5" QUALITY="45.078468322753906" POSITION_T="0.0" POSITION_X="49.853749014411854" POSITION_Y="24.709042438179335" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443731" name="ID443731" VISIBILITY="1" RADIUS="0.5" QUALITY="41.407470703125" POSITION_T="0.0" POSITION_X="51.39198888127966" POSITION_Y="26.263321858530848" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442704" name="ID442704" VISIBILITY="1" RADIUS="0.5" QUALITY="480.3153381347656" POSITION_T="0.0" POSITION_X="35.31334681605177" POSITION_Y="29.420933292426902" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443740" name="ID443740" VISIBILITY="1" RADIUS="0.5" QUALITY="44.0047721862793" POSITION_T="0.0" POSITION_X="52.3535910074824" POSITION_Y="27.518604470689702" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443271" name="ID443271" VISIBILITY="1" RADIUS="0.5" QUALITY="48.47270965576172" POSITION_T="0.0" POSITION_X="47.275622436714094" POSITION_Y="41.227914742230645" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443779" name="ID443779" VISIBILITY="1" RADIUS="0.5" QUALITY="43.161922454833984" POSITION_T="0.0" POSITION_X="52.32297673133146" POSITION_Y="33.61205152018247" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442253" name="ID442253" VISIBILITY="1" RADIUS="0.5" QUALITY="389.59442138671875" POSITION_T="0.0" POSITION_X="30.445876395962966" POSITION_Y="36.43020590542327" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442251" name="ID442251" VISIBILITY="1" RADIUS="0.5" QUALITY="341.23358154296875" POSITION_T="0.0" POSITION_X="29.565864268283693" POSITION_Y="35.375337406310656" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443287" name="ID443287" VISIBILITY="1" RADIUS="0.5" QUALITY="125.78498840332031" POSITION_T="0.0" POSITION_X="41.70519900812847" POSITION_Y="44.44320831319587" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442773" name="ID442773" VISIBILITY="1" RADIUS="0.5" QUALITY="30.837430953979492" POSITION_T="0.0" POSITION_X="40.10800789442334" POSITION_Y="43.63894274299235" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442258" name="ID442258" VISIBILITY="1" RADIUS="0.5" QUALITY="201.8975372314453" POSITION_T="0.0" POSITION_X="23.798461526710977" POSITION_Y="37.2717713282196" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442771" name="ID442771" VISIBILITY="1" RADIUS="0.5" QUALITY="42.55589294433594" POSITION_T="0.0" POSITION_X="35.446983993019316" POSITION_Y="42.88008341333573" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443283" name="ID443283" VISIBILITY="1" RADIUS="0.5" QUALITY="79.35255432128906" POSITION_T="0.0" POSITION_X="43.93070751233757" POSITION_Y="43.56197532663453" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442768" name="ID442768" VISIBILITY="1" RADIUS="0.5" QUALITY="113.53146362304688" POSITION_T="0.0" POSITION_X="32.20715941993414" POSITION_Y="42.734576616579055" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442780" name="ID442780" VISIBILITY="1" RADIUS="0.5" QUALITY="76.4558334350586" POSITION_T="0.0" POSITION_X="31.288731999010697" POSITION_Y="45.17594821107464" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442777" name="ID442777" VISIBILITY="1" RADIUS="0.5" QUALITY="43.47745895385742" POSITION_T="0.0" POSITION_X="37.876986730275014" POSITION_Y="44.500777466178896" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="441761" name="ID441761" VISIBILITY="1" RADIUS="0.5" QUALITY="110.8228759765625" POSITION_T="0.0" POSITION_X="20.35348603804683" POSITION_Y="44.77557689016515" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442798" name="ID442798" VISIBILITY="1" RADIUS="0.5" QUALITY="57.41530227661133" POSITION_T="0.0" POSITION_X="35.72825010877124" POSITION_Y="48.58983388026244" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443310" name="ID443310" VISIBILITY="1" RADIUS="0.5" QUALITY="96.96858978271484" POSITION_T="0.0" POSITION_X="40.9724148548727" POSITION_Y="48.40752290370229" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442286" name="ID442286" VISIBILITY="1" RADIUS="0.5" QUALITY="186.14944458007812" POSITION_T="0.0" POSITION_X="27.42343476656684" POSITION_Y="43.32009680132929" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442797" name="ID442797" VISIBILITY="1" RADIUS="0.5" QUALITY="70.93052673339844" POSITION_T="0.0" POSITION_X="37.68310061252725" POSITION_Y="48.02189879145814" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442281" name="ID442281" VISIBILITY="1" RADIUS="0.5" QUALITY="55.06891632080078" POSITION_T="0.0" POSITION_X="21.083092798040138" POSITION_Y="42.43652419203804" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442805" name="ID442805" VISIBILITY="1" RADIUS="0.5" QUALITY="108.96013641357422" POSITION_T="0.0" POSITION_X="40.454456749506235" POSITION_Y="49.70430347047041" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442293" name="ID442293" VISIBILITY="1" RADIUS="0.5" QUALITY="32.057884216308594" POSITION_T="0.0" POSITION_X="29.141134462153293" POSITION_Y="44.63503416903206" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442801" name="ID442801" VISIBILITY="1" RADIUS="0.5" QUALITY="75.43798828125" POSITION_T="0.0" POSITION_X="35.119441711740706" POSITION_Y="49.41484961529542" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442808" name="ID442808" VISIBILITY="1" RADIUS="0.5" QUALITY="56.90568542480469" POSITION_T="0.0" POSITION_X="31.281297558706694" POSITION_Y="50.72762273367071" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="443085" name="ID443085" VISIBILITY="1" RADIUS="0.5" QUALITY="38.11668395996094" POSITION_T="0.0" POSITION_X="42.58150810018639" POSITION_Y="8.25203391051841" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442315" name="ID442315" VISIBILITY="1" RADIUS="0.5" QUALITY="101.22473907470703" POSITION_T="0.0" POSITION_X="21.5762064000106" POSITION_Y="49.158952584134816" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442325" name="ID442325" VISIBILITY="1" RADIUS="0.5" QUALITY="114.19307708740234" POSITION_T="0.0" POSITION_X="22.00772773628668" POSITION_Y="50.59067403995536" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442322" name="ID442322" VISIBILITY="1" RADIUS="0.5" QUALITY="39.7574462890625" POSITION_T="0.0" POSITION_X="28.457357514526677" POSITION_Y="50.257124821123426" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442335" name="ID442335" VISIBILITY="1" RADIUS="0.5" QUALITY="61.15425491333008" POSITION_T="0.0" POSITION_X="24.230584109684084" POSITION_Y="52.641611327154926" FRAME="0" POSITION_Z="0.0" />
+        <Spot ID="442332" name="ID442332" VISIBILITY="1" RADIUS="0.5" QUALITY="72.97794342041016" POSITION_T="0.0" POSITION_X="30.39185573044519" POSITION_Y="52.11524054970947" FRAME="0" POSITION_Z="0.0" />
+      </SpotsInFrame>
+    </AllSpots>
+    <AllTracks />
+    <FilteredTracks />
+  </Model>
+  <Settings>
+    <ImageData filename="sample_29.tif" folder="/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/tif/" width="512" height="512" nslices="1" nframes="1" pixelwidth="0.16" pixelheight="0.16" voxeldepth="1.0" timeinterval="1.0" />
+    <BasicSettings xstart="0" xend="511" ystart="0" yend="511" zstart="0" zend="0" tstart="0" tend="0" />
+    <DetectorSettings DETECTOR_NAME="LOG_DETECTOR" TARGET_CHANNEL="1" RADIUS="0.5" THRESHOLD="-42.95645246719019" DO_MEDIAN_FILTERING="false" DO_SUBPIXEL_LOCALIZATION="true" />
+    <InitialSpotFilter feature="QUALITY" value="0.0" isabove="true" />
+    <SpotFilterCollection />
+    <TrackerSettings TRACKER_NAME="SIMPLE_SPARSE_LAP_TRACKER" CUTOFF_PERCENTILE="0.9" ALTERNATIVE_LINKING_COST_FACTOR="1.05" BLOCKING_VALUE="Infinity">
+      <Linking LINKING_MAX_DISTANCE="15.0">
+        <FeaturePenalties />
+      </Linking>
+      <GapClosing ALLOW_GAP_CLOSING="true" GAP_CLOSING_MAX_DISTANCE="15.0" MAX_FRAME_GAP="2">
+        <FeaturePenalties />
+      </GapClosing>
+      <TrackSplitting ALLOW_TRACK_SPLITTING="false" SPLITTING_MAX_DISTANCE="15.0">
+        <FeaturePenalties />
+      </TrackSplitting>
+      <TrackMerging ALLOW_TRACK_MERGING="false" MERGING_MAX_DISTANCE="15.0">
+        <FeaturePenalties />
+      </TrackMerging>
+    </TrackerSettings>
+    <TrackFilterCollection />
+    <AnalyzerCollection>
+      <SpotAnalyzers>
+        <Analyzer key="Manual spot color" />
+        <Analyzer key="Spot intensity" />
+        <Analyzer key="Spot contrast and SNR" />
+      </SpotAnalyzers>
+      <EdgeAnalyzers>
+        <Analyzer key="Directional change" />
+        <Analyzer key="Edge speed" />
+        <Analyzer key="Edge target" />
+        <Analyzer key="Edge location" />
+        <Analyzer key="Manual edge color" />
+      </EdgeAnalyzers>
+      <TrackAnalyzers>
+        <Analyzer key="Branching analyzer" />
+        <Analyzer key="Track duration" />
+        <Analyzer key="Track index" />
+        <Analyzer key="Track location" />
+        <Analyzer key="Track speed" />
+        <Analyzer key="Track quality" />
+        <Analyzer key="Track motility analysis" />
+      </TrackAnalyzers>
+    </AnalyzerCollection>
+  </Settings>
+  <GUIState state="ConfigureDetector" />
+  <DisplaySettings>{
+  "name": "CurrentDisplaySettings",
+  "spotUniformColor": "204, 51, 204, 255",
+  "spotColorByType": "DEFAULT",
+  "spotColorByFeature": "UNIFORM_COLOR",
+  "spotDisplayRadius": 1.0,
+  "spotDisplayedAsRoi": true,
+  "spotMin": 0.0,
+  "spotMax": 10.0,
+  "spotShowName": false,
+  "trackMin": 0.0,
+  "trackMax": 10.0,
+  "trackColorByType": "TRACKS",
+  "trackColorByFeature": "TRACK_INDEX",
+  "trackUniformColor": "204, 204, 51, 255",
+  "undefinedValueColor": "0, 0, 0, 255",
+  "missingValueColor": "89, 89, 89, 255",
+  "highlightColor": "51, 230, 51, 255",
+  "trackDisplayMode": "FULL",
+  "colormap": "Jet",
+  "limitZDrawingDepth": false,
+  "drawingZDepth": 10.0,
+  "fadeTracks": true,
+  "fadeTrackRange": 30,
+  "useAntialiasing": true,
+  "spotVisible": true,
+  "trackVisible": true,
+  "font": {
+    "name": "Arial",
+    "style": 1,
+    "size": 12,
+    "pointSize": 12.0,
+    "fontSerializedDataVersion": 1
+  },
+  "lineThickness": 1.0,
+  "selectionLineThickness": 4.0,
+  "trackschemeBackgroundColor1": "128, 128, 128, 255",
+  "trackschemeBackgroundColor2": "192, 192, 192, 255",
+  "trackschemeForegroundColor": "0, 0, 0, 255",
+  "trackschemeDecorationColor": "0, 0, 0, 255",
+  "trackschemeFillBox": false,
+  "spotFilled": false,
+  "spotTransparencyAlpha": 1.0
+}</DisplaySettings>
+</TrackMate>
