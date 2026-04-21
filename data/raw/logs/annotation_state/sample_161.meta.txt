@@ -1,0 +1,14 @@
+date=2026-04-21
+source_path=/Volumes/Shipeng Shao/20150404 [orthogonal Cas9]/20150404 NM,SP,ST1,Telomere/20150404 NM,SP,ST1,Telomere #009.nd2
+source_file_name=20150404 NM,SP,ST1,Telomere #009.nd2
+frame=17
+z_axis=0
+channel=1
+raw_tif_name=sample_161.tif
+raw_csv_name=sample_161.csv
+raw_png_name=sample_161.png
+x_pixel=512
+y_pixel=512
+micron_per_pixel_x=0.16
+micron_per_pixel_y=0.16
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_161.xml

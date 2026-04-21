@@ -1,0 +1,14 @@
+date=2026-04-22
+source_path=/Volumes/Shipeng Shao/20150717/SSP/20150715 tdMCP-mCherry stable/20150715 tdMCP-mCherry stable#002.nd2
+source_file_name=20150715 tdMCP-mCherry stable#002.nd2
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_184.tif
+raw_csv_name=sample_184.csv
+raw_png_name=sample_184.png
+x_pixel=512
+y_pixel=512
+micron_per_pixel_x=0.16
+micron_per_pixel_y=0.16
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_184.xml

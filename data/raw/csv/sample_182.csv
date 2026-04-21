@@ -1,0 +1,5 @@
+LABEL,ID,TRACK_ID,QUALITY,POSITION_X,POSITION_Y,POSITION_Z,POSITION_T,FRAME,RADIUS,VISIBILITY
+Label,Spot ID,Track ID,Quality,X,Y,Z,T,Frame,Radius,Visibility
+Label,Spot ID,Track ID,Quality,X,Y,Z,T,Frame,R,Visibility
+,,,(quality),(micron),(micron),(micron),(sec),,(micron),
+ID76001,76001,,152.42759704589844,29.12,47.84,0.0,0.0,0,0.5,1

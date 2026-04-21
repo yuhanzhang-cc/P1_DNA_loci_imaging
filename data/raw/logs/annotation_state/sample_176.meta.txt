@@ -1,0 +1,14 @@
+date=2026-04-21
+source_path=/Volumes/Shipeng Shao/20150427/20150427.mvd2
+source_file_name=MAX_20150427.mvd2 - 20150427 Dual color #
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_176.tif
+raw_csv_name=sample_176.csv
+raw_png_name=sample_176.png
+x_pixel=512
+y_pixel=512
+micron_per_pixel_x=0.143
+micron_per_pixel_y=0.143
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_176.xml
