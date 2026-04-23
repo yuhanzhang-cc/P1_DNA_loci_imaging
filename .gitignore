@@ -24,3 +24,11 @@ __pycache__/
 *.dll 
 *.lib 
 .DS_Store 
+outputs/ 
+__pycache__/ 
+*.pyd 
+*.dll 
+*.lib 
+*.pyc 
+.venv/ 
+venv/ 
