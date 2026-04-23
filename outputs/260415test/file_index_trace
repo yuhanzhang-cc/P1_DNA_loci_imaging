@@ -1,0 +1,17 @@
+import numpy as np
+
+# 加载 npz
+data = np.load('dataset.npz', allow_pickle=True)
+
+x_test = data['x_test']
+y_test = data['y_test']
+
+print(f"x_test 类型: {type(x_test)}")
+print(f"x_test 形状: {x_test.shape}")  # 应该是 (31, 512, 512) 或类似
+print(f"x_test 数据类型: {x_test.dtype}")
+
+print(f"\ny_test 类型: {type(y_test)}")
+print(f"y_test 长度: {len(y_test)}")  # 应该是 31
+print(f"y_test[0] 类型: {type(y_test[0])}")
+print(f"y_test[0] 形状: {y_test[0].shape}")  # 应该是 (N, 2)
+print(f"y_test[0] 前5个点:\n{y_test[0][:5]}")
