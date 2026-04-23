@@ -18,4 +18,9 @@ __pycache__/
 # Secrets / local config
 .env
 *.pem
-*.key
+*.keyoutputs/ 
+__pycache__/ 
+*.pyd 
+*.dll 
+*.lib 
+.DS_Store 
