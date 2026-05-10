@@ -32,7 +32,6 @@ class _DeepBlinkBlock(nn.Module):
         l2: float,
     ) -> None:
         super().__init__()
-        del l2
 
         opts_conv = dict(OPTIONS_CONV)
 

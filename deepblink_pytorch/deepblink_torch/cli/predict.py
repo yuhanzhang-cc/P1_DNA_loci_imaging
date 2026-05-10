@@ -12,6 +12,8 @@ import torch
 from deepblink_torch import UNetDeepBlink
 from deepblink_torch import get_coordinate_list
 from deepblink_torch.data_protocol import next_power
+from ..utils.pixel_size import PixelSize
+from ..utils.pixel_size import read_pixel_size_or_default
 
 try:
     import tifffile
@@ -49,6 +51,13 @@ def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentP
         default="cuda",
         choices=["cuda", "cpu"],
         help="Inference device.",
+    )
+    parser.add_argument(
+        "--output-unit",
+        type=str,
+        default="px",
+        choices=["px", "micron"],
+        help="Coordinate unit written to CSV.",
     )
     return parser
 
@@ -95,8 +104,8 @@ def _normalize_image(image: np.ndarray) -> np.ndarray:
 def _pad_to_square_power2(image: np.ndarray) -> tuple[np.ndarray, tuple[int, int]]:
     height, width = image.shape
     target = next_power(max(height, width))
-    padded = np.zeros((target, target), dtype=np.float32)
-    padded[:height, :width] = image
+    pad_width = ((0, target - height), (0, target - width))
+    padded = np.pad(image, pad_width, mode="reflect").astype(np.float32, copy=False)
     return padded, (height, width)
 
 
@@ -148,11 +157,24 @@ def _coords_with_probabilities(
     return result
 
 
-def _write_csv(output_path: Path, coords_with_p: np.ndarray) -> None:
+def _convert_output_unit(coords_with_p: np.ndarray, pixel_size: PixelSize) -> np.ndarray:
+    if coords_with_p.size == 0:
+        return coords_with_p
+
+    converted = coords_with_p.copy()
+    converted[:, 0] *= float(pixel_size.y)
+    converted[:, 1] *= float(pixel_size.x)
+    return converted
+
+
+def _write_csv(output_path: Path, coords_with_p: np.ndarray, output_unit: str) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(["y", "x", "p"])
+        if output_unit == "micron":
+            writer.writerow(["y [um]", "x [um]", "p"])
+        else:
+            writer.writerow(["y", "x", "p"])
         for row in coords_with_p:
             writer.writerow([float(row[0]), float(row[1]), float(row[2])])
 
@@ -182,6 +204,7 @@ def run_predict(args: argparse.Namespace) -> None:
         image = _read_image(file_path)
         image = _normalize_image(image)
         padded, (orig_h, orig_w) = _pad_to_square_power2(image)
+        pixel_size = read_pixel_size_or_default(file_path)
 
         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
         with torch.no_grad():
@@ -192,13 +215,15 @@ def run_predict(args: argparse.Namespace) -> None:
             in_bounds = (coords[:, 0] < orig_h) & (coords[:, 1] < orig_w)
             coords = coords[in_bounds]
         coords_with_p = _coords_with_probabilities(pred, coords, cell_size=cell_size)
+        if args.output_unit == "micron":
+            coords_with_p = _convert_output_unit(coords_with_p, pixel_size)
 
         if output_is_dir:
             csv_path = output_path / f"{file_path.stem}.csv"
         else:
             csv_path = output_path
-        _write_csv(csv_path, coords_with_p)
-        print(f"Saved predictions: {csv_path}")
+        _write_csv(csv_path, coords_with_p, output_unit=args.output_unit)
+        print(f"Saved predictions: {csv_path} | output_unit={args.output_unit}")
 
 
 def main(argv: list[str] | None = None) -> None:
