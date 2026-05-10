@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 from pathlib import Path
 
 import numpy as np
@@ -57,7 +58,7 @@ def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentP
         type=str,
         default="px",
         choices=["px", "micron"],
-        help="Coordinate unit written to CSV.",
+        help="Coordinate unit written to CSV columns.",
     )
     return parser
 
@@ -174,9 +175,28 @@ def _write_csv(output_path: Path, coords_with_p: np.ndarray, output_unit: str) -
         if output_unit == "micron":
             writer.writerow(["y [um]", "x [um]", "p"])
         else:
-            writer.writerow(["y", "x", "p"])
+            writer.writerow(["y [px]", "x [px]", "p"])
         for row in coords_with_p:
             writer.writerow([float(row[0]), float(row[1]), float(row[2])])
+
+
+def _write_prediction_metadata(
+    csv_path: Path,
+    image_path: Path,
+    model_path: Path,
+    output_unit: str,
+) -> None:
+    metadata_path = csv_path.with_suffix(".meta.json")
+    metadata = {
+        "csv_file_name": csv_path.name,
+        "image_file_name": image_path.name,
+        "model_file_name": model_path.name,
+        "output_unit": output_unit,
+    }
+    metadata_path.write_text(
+        json.dumps(metadata, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 def run_predict(args: argparse.Namespace) -> None:
@@ -204,7 +224,6 @@ def run_predict(args: argparse.Namespace) -> None:
         image = _read_image(file_path)
         image = _normalize_image(image)
         padded, (orig_h, orig_w) = _pad_to_square_power2(image)
-        pixel_size = read_pixel_size_or_default(file_path)
 
         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
         with torch.no_grad():
@@ -216,6 +235,7 @@ def run_predict(args: argparse.Namespace) -> None:
             coords = coords[in_bounds]
         coords_with_p = _coords_with_probabilities(pred, coords, cell_size=cell_size)
         if args.output_unit == "micron":
+            pixel_size = read_pixel_size_or_default(file_path)
             coords_with_p = _convert_output_unit(coords_with_p, pixel_size)
 
         if output_is_dir:
@@ -223,6 +243,12 @@ def run_predict(args: argparse.Namespace) -> None:
         else:
             csv_path = output_path
         _write_csv(csv_path, coords_with_p, output_unit=args.output_unit)
+        _write_prediction_metadata(
+            csv_path=csv_path,
+            image_path=file_path,
+            model_path=model_path,
+            output_unit=args.output_unit,
+        )
         print(f"Saved predictions: {csv_path} | output_unit={args.output_unit}")
 
 

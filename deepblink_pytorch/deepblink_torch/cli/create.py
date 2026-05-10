@@ -9,6 +9,9 @@ from pathlib import Path
 
 import numpy as np
 
+from ..utils.pixel_size import PixelSize
+from ..utils.pixel_size import read_pixel_size_or_default
+
 try:
     import tifffile
 except ImportError as exc:  # pragma: no cover - import guard
@@ -32,6 +35,7 @@ def add_create_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPa
         required=True,
         help=(
             "Directory containing per-image CSV labels with matching file stem. "
+            "Coordinates are interpreted as microns and converted to pixels. "
             "Supported columns: (r,c), (y,x), (Y,X), (POSITION_Y,POSITION_X)."
         ),
     )
@@ -70,16 +74,21 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return parser.parse_args(argv)
 
 
-def _resolve_csv_columns(fieldnames: list[str]) -> tuple[str, str]:
+def _normalize_column_name(name: str) -> str:
+    return name.strip().lower()
+
+
+def _resolve_csv_column_indices(rows: list[list[str]]) -> tuple[int, int, int]:
     candidates = [
+        ("position_y", "position_x"),
         ("r", "c"),
         ("y", "x"),
-        ("Y", "X"),
-        ("POSITION_Y", "POSITION_X"),
     ]
-    for row_col, col_col in candidates:
-        if row_col in fieldnames and col_col in fieldnames:
-            return row_col, col_col
+    for header_idx, row in enumerate(rows):
+        normalized = {_normalize_column_name(name): idx for idx, name in enumerate(row)}
+        for row_col, col_col in candidates:
+            if row_col in normalized and col_col in normalized:
+                return header_idx, normalized[row_col], normalized[col_col]
     raise ValueError(
         "CSV must contain one of column pairs: "
         "(r,c), (y,x), (Y,X), (POSITION_Y,POSITION_X)."
@@ -88,16 +97,23 @@ def _resolve_csv_columns(fieldnames: list[str]) -> tuple[str, str]:
 
 def _read_coords(csv_path: Path) -> np.ndarray:
     with csv_path.open("r", newline="", encoding="utf-8") as handle:
-        reader = csv.DictReader(handle)
-        if reader.fieldnames is None:
+        rows = list(csv.reader(handle))
+        if not rows:
             return np.empty((0, 2), dtype=np.float32)
-        row_col, col_col = _resolve_csv_columns(reader.fieldnames)
+        header_idx, row_idx, col_idx = _resolve_csv_column_indices(rows)
 
         coords: list[list[float]] = []
-        for item in reader:
-            if item.get(row_col) in (None, "") or item.get(col_col) in (None, ""):
+        for item in rows[header_idx + 1 :]:
+            if len(item) <= max(row_idx, col_idx):
                 continue
-            coords.append([float(item[row_col]), float(item[col_col])])
+            row_value = item[row_idx].strip()
+            col_value = item[col_idx].strip()
+            if not row_value or not col_value:
+                continue
+            try:
+                coords.append([float(row_value), float(col_value)])
+            except ValueError:
+                continue
 
     if not coords:
         return np.empty((0, 2), dtype=np.float32)
@@ -201,6 +217,78 @@ def _gather_subset(
     return x, y
 
 
+def _convert_coords_to_pixels(coords: np.ndarray, pixel_size: PixelSize) -> np.ndarray:
+    if coords.size == 0:
+        return np.empty((0, 2), dtype=np.float32)
+    coords_px = np.asarray(coords, dtype=np.float32).copy()
+    coords_px[:, 0] /= float(pixel_size.y)
+    coords_px[:, 1] /= float(pixel_size.x)
+    return coords_px
+
+
+def _gather_pixel_sizes(
+    pixel_sizes: list[PixelSize],
+    subset_idx: list[int],
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    x_sizes = np.asarray([pixel_sizes[i].x for i in subset_idx], dtype=np.float32)
+    y_sizes = np.asarray([pixel_sizes[i].y for i in subset_idx], dtype=np.float32)
+    sources = np.asarray([pixel_sizes[i].source for i in subset_idx], dtype="<U32")
+    return x_sizes, y_sizes, sources
+
+
+def _gather_pair_metadata(
+    pairs: list[tuple[Path, Path]],
+    subset_idx: list[int],
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    sample_ids = np.asarray([pairs[i][0].stem for i in subset_idx], dtype="<U128")
+    image_names = np.asarray([pairs[i][0].name for i in subset_idx], dtype="<U256")
+    label_names = np.asarray([pairs[i][1].name for i in subset_idx], dtype="<U256")
+    source_indices = np.asarray(subset_idx, dtype=np.int32)
+    return sample_ids, image_names, label_names, source_indices
+
+
+def _write_split_manifest(
+    output_path: Path,
+    pairs: list[tuple[Path, Path]],
+    pixel_sizes: list[PixelSize],
+    split_indices: dict[str, list[int]],
+) -> Path:
+    manifest_path = output_path.with_suffix(".split.csv")
+    with manifest_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(
+            [
+                "subset",
+                "subset_index",
+                "source_index",
+                "sample_id",
+                "image_name",
+                "label_name",
+                "pixel_size_x",
+                "pixel_size_y",
+                "pixel_size_source",
+            ]
+        )
+        for subset, indices in split_indices.items():
+            for subset_index, source_index in enumerate(indices):
+                image_path, label_path = pairs[source_index]
+                pixel_size = pixel_sizes[source_index]
+                writer.writerow(
+                    [
+                        subset,
+                        subset_index,
+                        source_index,
+                        image_path.stem,
+                        image_path.name,
+                        label_path.name,
+                        float(pixel_size.x),
+                        float(pixel_size.y),
+                        pixel_size.source,
+                    ]
+                )
+    return manifest_path
+
+
 def run_create(args: argparse.Namespace) -> Path:
     """Create .npz dataset archive and return output path."""
     images_dir = Path(args.images).resolve()
@@ -215,6 +303,11 @@ def run_create(args: argparse.Namespace) -> Path:
     pairs = _collect_pairs(images_dir, labels_dir)
     images = [_read_image(image_path) for image_path, _ in pairs]
     coords = [_read_coords(csv_path) for _, csv_path in pairs]
+    pixel_sizes = [read_pixel_size_or_default(image_path) for image_path, _ in pairs]
+    coords = [
+        _convert_coords_to_pixels(coord, pixel_size)
+        for coord, pixel_size in zip(coords, pixel_sizes, strict=True)
+    ]
     _validate_image_shapes(images)
 
     train_idx, valid_idx, test_idx = _split_indices(
@@ -227,6 +320,30 @@ def run_create(args: argparse.Namespace) -> Path:
     x_train, y_train = _gather_subset(images, coords, train_idx)
     x_valid, y_valid = _gather_subset(images, coords, valid_idx)
     x_test, y_test = _gather_subset(images, coords, test_idx)
+    pixel_size_x_train, pixel_size_y_train, pixel_size_source_train = _gather_pixel_sizes(
+        pixel_sizes,
+        train_idx,
+    )
+    pixel_size_x_valid, pixel_size_y_valid, pixel_size_source_valid = _gather_pixel_sizes(
+        pixel_sizes,
+        valid_idx,
+    )
+    pixel_size_x_test, pixel_size_y_test, pixel_size_source_test = _gather_pixel_sizes(
+        pixel_sizes,
+        test_idx,
+    )
+    sample_id_train, image_name_train, label_name_train, source_index_train = _gather_pair_metadata(
+        pairs,
+        train_idx,
+    )
+    sample_id_valid, image_name_valid, label_name_valid, source_index_valid = _gather_pair_metadata(
+        pairs,
+        valid_idx,
+    )
+    sample_id_test, image_name_test, label_name_test, source_index_test = _gather_pair_metadata(
+        pairs,
+        test_idx,
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     np.savez(
@@ -237,10 +354,45 @@ def run_create(args: argparse.Namespace) -> Path:
         y_valid=y_valid,
         x_test=x_test,
         y_test=y_test,
+        pixel_size_x_train=pixel_size_x_train,
+        pixel_size_y_train=pixel_size_y_train,
+        pixel_size_source_train=pixel_size_source_train,
+        pixel_size_x_valid=pixel_size_x_valid,
+        pixel_size_y_valid=pixel_size_y_valid,
+        pixel_size_source_valid=pixel_size_source_valid,
+        pixel_size_x_test=pixel_size_x_test,
+        pixel_size_y_test=pixel_size_y_test,
+        pixel_size_source_test=pixel_size_source_test,
+        sample_id_train=sample_id_train,
+        image_name_train=image_name_train,
+        label_name_train=label_name_train,
+        source_index_train=source_index_train,
+        sample_id_valid=sample_id_valid,
+        image_name_valid=image_name_valid,
+        label_name_valid=label_name_valid,
+        source_index_valid=source_index_valid,
+        sample_id_test=sample_id_test,
+        image_name_test=image_name_test,
+        label_name_test=label_name_test,
+        source_index_test=source_index_test,
+        split_seed=np.asarray(args.seed, dtype=np.int32),
+        train_ratio=np.asarray(args.train_ratio, dtype=np.float32),
+        valid_ratio=np.asarray(args.valid_ratio, dtype=np.float32),
+    )
+    manifest_path = _write_split_manifest(
+        output_path=output_path,
+        pairs=pairs,
+        pixel_sizes=pixel_sizes,
+        split_indices={
+            "train": train_idx,
+            "valid": valid_idx,
+            "test": test_idx,
+        },
     )
     print(
         f"Saved dataset: {output_path} | "
-        f"train={len(x_train)}, valid={len(x_valid)}, test={len(x_test)}"
+        f"train={len(x_train)}, valid={len(x_valid)}, test={len(x_test)} | "
+        f"split_seed={args.seed} | manifest={manifest_path}"
     )
     return output_path
 
@@ -253,4 +405,3 @@ def main(argv: list[str] | None = None) -> None:
 
 if __name__ == "__main__":
     main()
-

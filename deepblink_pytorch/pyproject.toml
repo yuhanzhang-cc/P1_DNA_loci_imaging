@@ -10,6 +10,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "numpy>=1.26",
+  "matplotlib>=3.8",
+  "scipy>=1.13",
   "torch>=2.5.1",
   "tifffile>=2024.8.0",
 ]
@@ -23,4 +25,3 @@ include-package-data = true
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["deepblink_torch*"]
-

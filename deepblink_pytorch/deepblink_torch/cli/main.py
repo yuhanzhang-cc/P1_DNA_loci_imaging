@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 
 from . import create
+from . import evaluate
+from . import overlay
 from . import predict
 from . import train
 
@@ -23,6 +25,12 @@ def build_parser() -> argparse.ArgumentParser:
     predict_parser = subparsers.add_parser("predict", help="Run model inference on image(s).")
     predict.add_predict_arguments(predict_parser)
 
+    test_parser = subparsers.add_parser("test", help="Evaluate model on a dataset split.")
+    evaluate.add_test_arguments(test_parser)
+
+    overlay_parser = subparsers.add_parser("overlay", help="Render prediction CSV overlays.")
+    overlay.add_overlay_arguments(overlay_parser)
+
     return parser
 
 
@@ -40,10 +48,15 @@ def main(argv: list[str] | None = None) -> None:
     if args.command == "predict":
         predict.run_predict(args)
         return
+    if args.command == "test":
+        evaluate.run_test(args)
+        return
+    if args.command == "overlay":
+        overlay.run_overlay(args)
+        return
 
     raise ValueError(f"Unknown command: {args.command}")
 
 
 if __name__ == "__main__":
     main()
-

@@ -8,6 +8,8 @@ Behavioral notes
 ----------------
 - Input ``.npz`` files are expected to contain the standard deepBlink arrays:
   ``x_train``, ``y_train``, ``x_valid``, ``y_valid``, ``x_test``, ``y_test``.
+  Optional pixel-size metadata arrays are loaded for traceability and ignored
+  by model training.
 - Images are normalized to zero mean and unit standard deviation, matching the
   original ``normalize_image`` behavior.
 - Coordinate labels are converted into deepBlink prediction matrices via
@@ -54,7 +56,7 @@ def _normalize_image(image: np.ndarray) -> np.ndarray:
     return image.astype(np.float32)
 
 
-def _load_npz(fname: str | Path) -> Tuple[np.ndarray, ...]:
+def _load_npz(fname: str | Path) -> dict[str, np.ndarray]:
     """Load the standard deepBlink dataset archive.
 
     Parameters
@@ -64,8 +66,10 @@ def _load_npz(fname: str | Path) -> Tuple[np.ndarray, ...]:
 
     Returns
     -------
-    tuple[np.ndarray, ...]
-        ``(x_train, y_train, x_valid, y_valid, x_test, y_test)``
+    dict[str, np.ndarray]
+        All arrays stored in the archive. The standard deepBlink arrays are
+        required; optional metadata arrays are preserved for callers that need
+        traceability but are ignored by the training target conversion.
 
     Raises
     ------
@@ -76,7 +80,7 @@ def _load_npz(fname: str | Path) -> Tuple[np.ndarray, ...]:
     with np.load(fname, allow_pickle=True) as data:
         if not all(name in data.files for name in expected):
             raise ValueError(f"{expected} must be present. Only found {data.files}.")
-        return tuple(data[name] for name in expected)
+        return {name: data[name] for name in data.files}
 
 
 class SpotsDataset(Dataset):
@@ -138,6 +142,18 @@ class SpotsDataset(Dataset):
         self.y_valid = None
         self.x_test = None
         self.y_test = None
+        self.pixel_size_x_train = None
+        self.pixel_size_y_train = None
+        self.pixel_size_source_train = None
+        self.pixel_size_x_valid = None
+        self.pixel_size_y_valid = None
+        self.pixel_size_source_valid = None
+        self.pixel_size_x_test = None
+        self.pixel_size_y_test = None
+        self.pixel_size_source_test = None
+        self.pixel_size_x = None
+        self.pixel_size_y = None
+        self.pixel_size_source = None
 
         self.load_data()
         self.select_subset()
@@ -176,14 +192,23 @@ class SpotsDataset(Dataset):
 
     def load_data(self) -> None:
         """Load, encode, and normalize the full dataset archive."""
-        (
-            self.x_train,
-            self.y_train,
-            self.x_valid,
-            self.y_valid,
-            self.x_test,
-            self.y_test,
-        ) = _load_npz(self.data_filename)
+        data = _load_npz(self.data_filename)
+        self.x_train = data["x_train"]
+        self.y_train = data["y_train"]
+        self.x_valid = data["x_valid"]
+        self.y_valid = data["y_valid"]
+        self.x_test = data["x_test"]
+        self.y_test = data["y_test"]
+
+        self.pixel_size_x_train = data.get("pixel_size_x_train")
+        self.pixel_size_y_train = data.get("pixel_size_y_train")
+        self.pixel_size_source_train = data.get("pixel_size_source_train")
+        self.pixel_size_x_valid = data.get("pixel_size_x_valid")
+        self.pixel_size_y_valid = data.get("pixel_size_y_valid")
+        self.pixel_size_source_valid = data.get("pixel_size_source_valid")
+        self.pixel_size_x_test = data.get("pixel_size_x_test")
+        self.pixel_size_y_test = data.get("pixel_size_y_test")
+        self.pixel_size_source_test = data.get("pixel_size_source_test")
 
         self.prepare_data()
         self.normalize_dataset()
@@ -226,6 +251,27 @@ class SpotsDataset(Dataset):
             "test": (self.x_test, self.y_test),
         }
         self.x, self.y = mapping[self.subset]
+
+        pixel_size_mapping = {
+            "train": (
+                self.pixel_size_x_train,
+                self.pixel_size_y_train,
+                self.pixel_size_source_train,
+            ),
+            "valid": (
+                self.pixel_size_x_valid,
+                self.pixel_size_y_valid,
+                self.pixel_size_source_valid,
+            ),
+            "test": (
+                self.pixel_size_x_test,
+                self.pixel_size_y_test,
+                self.pixel_size_source_test,
+            ),
+        }
+        self.pixel_size_x, self.pixel_size_y, self.pixel_size_source = pixel_size_mapping[
+            self.subset
+        ]
 
     def __len__(self) -> int:
         """Return the number of items in the selected subset."""

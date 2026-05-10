@@ -1,0 +1,6 @@
+{
+  "csv_file_name": "sample_4.csv",
+  "image_file_name": "sample_4.tif",
+  "model_file_name": "model_5epoch.pt",
+  "output_unit": "px"
+}
