@@ -12,6 +12,7 @@ from .losses import dice_loss
 from .losses import focal_loss
 from .losses import rmse_loss
 from .networks import UNetDeepBlink
+from .networks import UNetDeepLociContext
 from .networks import conv_block
 from .networks import inception_block
 from .networks import residual_block
@@ -20,6 +21,7 @@ from .networks import upconv_block
 
 __all__ = [
     "UNetDeepBlink",
+    "UNetDeepLociContext",
     "conv_block",
     "inception_block",
     "residual_block",

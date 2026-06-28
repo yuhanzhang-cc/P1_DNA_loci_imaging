@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 from datetime import datetime
 from pathlib import Path
 from typing import Callable
@@ -19,6 +20,7 @@ from torch.utils.data import DataLoader
 from deepblink_torch import DEFAULT_RMSE_WEIGHT
 from deepblink_torch import SpotsDataset
 from deepblink_torch import UNetDeepBlink
+from deepblink_torch import UNetDeepLociContext
 from deepblink_torch import combined_dice_focal_rmse_loss
 from deepblink_torch import combined_dice_rmse_loss
 from deepblink_torch import combined_focal_rmse_loss
@@ -28,6 +30,7 @@ from deepblink_torch import rmse_loss
 
 LossFunction = Callable[[torch.Tensor, torch.Tensor], torch.Tensor]
 LOSS_CHOICES = ("dice_rmse", "focal_rmse", "dice_focal_rmse")
+MODEL_CHOICES = ("deepblink", "deeploci_context")
 
 
 def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -75,6 +78,12 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
         choices=LOSS_CHOICES,
         default="dice_rmse",
         help="Training loss composition. Defaults to the baseline dice_rmse.",
+    )
+    parser.add_argument(
+        "--model",
+        choices=MODEL_CHOICES,
+        default="deepblink",
+        help="Model architecture. Defaults to the baseline deepblink model.",
     )
     parser.add_argument(
         "--focal-alpha",
@@ -146,6 +155,71 @@ def _normalise_loss_name(loss_name: str) -> str:
     return loss_name
 
 
+def _normalise_model_name(model_name: str) -> str:
+    if model_name not in MODEL_CHOICES:
+        raise ValueError(
+            f"--model must be one of {MODEL_CHOICES}, but got {model_name!r}."
+        )
+    return model_name
+
+
+def _count_parameters(model: torch.nn.Module) -> int:
+    return int(sum(parameter.numel() for parameter in model.parameters()))
+
+
+def _build_model(
+    model_name: str,
+    *,
+    cell_size: int,
+    device: torch.device,
+) -> torch.nn.Module:
+    model_name = _normalise_model_name(model_name)
+    if model_name == "deepblink":
+        return UNetDeepBlink(cell_size=cell_size).to(device)
+    if model_name == "deeploci_context":
+        return UNetDeepLociContext(cell_size=cell_size).to(device)
+    raise ValueError(f"Unsupported model: {model_name}")
+
+
+def _architecture_config(model_name: str, model: torch.nn.Module) -> dict[str, object]:
+    config: dict[str, object] = {
+        "model_name": model_name,
+        "cell_size": int(getattr(model, "cell_size", 4)),
+        "output_layout": "channel_last",
+        "output_channels": 3,
+        "occupancy_channel": 0,
+        "offset_channels": [1, 2],
+        "backbone": "UNetDeepBlink",
+        "block": str(getattr(model, "block_name", "convolutional")),
+        "filters": int(getattr(model, "filters", 5)),
+        "ndown": int(getattr(model, "ndown", 2)),
+    }
+    if model_name == "deeploci_context":
+        config.update(
+            {
+                "head": "split_context_occupancy_offset",
+                "occupancy_context": {
+                    "conv3x3_channels": int(getattr(model, "context_channels", 32)),
+                    "dilated_conv3x3_channels": int(
+                        getattr(model, "context_channels", 32)
+                    ),
+                    "dilation": int(getattr(model, "context_dilation", 2)),
+                    "activation": "relu",
+                },
+                "offset_head": "1x1_conv",
+            }
+        )
+    else:
+        config.update(
+            {
+                "head": "shared_1x1_3_channel",
+                "occupancy_context": None,
+                "offset_head": "shared_1x1_conv",
+            }
+        )
+    return config
+
+
 def _build_loss_config(args: argparse.Namespace) -> dict[str, object]:
     loss_name = _normalise_loss_name(getattr(args, "loss", "dice_rmse"))
     focal_alpha = float(getattr(args, "focal_alpha", 0.25))
@@ -206,7 +280,7 @@ def _describe_loss(loss_config: dict[str, object]) -> str:
 
 
 def train_one_epoch(
-    model: UNetDeepBlink,
+    model: torch.nn.Module,
     loader: DataLoader,
     optimizer: torch.optim.Optimizer,
     device: torch.device,
@@ -235,7 +309,7 @@ def train_one_epoch(
 
 @torch.no_grad()
 def validate(
-    model: UNetDeepBlink,
+    model: torch.nn.Module,
     loader: DataLoader,
     device: torch.device,
     loss_fn: LossFunction = combined_dice_rmse_loss,
@@ -363,6 +437,7 @@ def run_training(args: argparse.Namespace) -> Path:
 
     loss_config = _build_loss_config(args)
     loss_fn = _build_loss_function(loss_config)
+    model_name = _normalise_model_name(getattr(args, "model", "deepblink"))
 
     device = resolve_device(args.device)
     train_loader, valid_loader = build_dataloaders(
@@ -371,7 +446,10 @@ def run_training(args: argparse.Namespace) -> Path:
         cell_size=4,
     )
 
-    model = UNetDeepBlink(cell_size=4).to(device)
+    model = _build_model(model_name, cell_size=4, device=device)
+    parameter_count = _count_parameters(model)
+    architecture_config = _architecture_config(model_name, model)
+    architecture_config_json = json.dumps(architecture_config, sort_keys=True)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     if args.checkpoint is None:
@@ -389,6 +467,7 @@ def run_training(args: argparse.Namespace) -> Path:
         f"Start training | device={device} | data={data_path} | epochs={args.epochs} "
         f"| batch_size={args.batch_size} | lr={args.lr} | cell_size=4"
     )
+    print(f"Selected model: {model_name} | parameters={parameter_count:,}")
     print(
         f"Selected loss: {loss_config['loss_name']} | "
         f"composition={_describe_loss(loss_config)}"
@@ -412,6 +491,9 @@ def run_training(args: argparse.Namespace) -> Path:
         history.append(
             {
                 "epoch": epoch,
+                "model_name": model_name,
+                "parameter_count": parameter_count,
+                "architecture_config": architecture_config_json,
                 "loss_name": loss_config["loss_name"],
                 "focal_alpha": loss_config["focal_alpha"],
                 "focal_gamma": loss_config["focal_gamma"],
@@ -436,6 +518,9 @@ def run_training(args: argparse.Namespace) -> Path:
                     "optimizer_state_dict": optimizer.state_dict(),
                     "best_val_loss": best_val_loss,
                     "cell_size": 4,
+                    "model_name": model_name,
+                    "architecture_config": architecture_config,
+                    "parameter_count": parameter_count,
                     "loss_name": loss_config["loss_name"],
                     "focal_alpha": loss_config["focal_alpha"],
                     "focal_gamma": loss_config["focal_gamma"],

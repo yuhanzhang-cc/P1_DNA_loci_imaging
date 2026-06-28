@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 import torch
@@ -63,6 +64,13 @@ def test_train_parser_accepts_loss_variants() -> None:
         assert args.loss == loss_name
 
 
+def test_train_parser_accepts_model_variants() -> None:
+    for model_name in train_cli.MODEL_CHOICES:
+        args = train_cli.parse_args(["--data", "dataset.npz", "--model", model_name])
+
+        assert args.model == model_name
+
+
 def test_run_training_places_artifacts_next_to_explicit_checkpoint(tmp_path: Path, monkeypatch) -> None:
     data_path = tmp_path / "dataset.npz"
     data_path.write_text("dummy", encoding="utf-8")
@@ -102,6 +110,11 @@ def test_run_training_places_artifacts_next_to_explicit_checkpoint(tmp_path: Pat
     assert captured["csv_path"] == checkpoint_path.resolve().parent / "training_metrics.csv"
     assert captured["png_path"] == checkpoint_path.resolve().parent / "training_curves.png"
     assert isinstance(captured["rows"], list)
+    assert captured["rows"][0]["model_name"] == "deepblink"
+    assert captured["rows"][0]["parameter_count"] == 1
+    architecture_config = json.loads(str(captured["rows"][0]["architecture_config"]))
+    assert architecture_config["model_name"] == "deepblink"
+    assert architecture_config["head"] == "shared_1x1_3_channel"
     assert captured["rows"][0]["loss_name"] == "dice_rmse"
     assert captured["rows"][0]["focal_alpha"] == 0.25
     assert captured["rows"][0]["focal_gamma"] == 2.0
@@ -109,6 +122,10 @@ def test_run_training_places_artifacts_next_to_explicit_checkpoint(tmp_path: Pat
     assert captured["rows"][0]["val_rmse"] == 4.0
 
     checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    assert checkpoint["model_name"] == "deepblink"
+    assert checkpoint["parameter_count"] == 1
+    assert checkpoint["architecture_config"]["model_name"] == "deepblink"
+    assert checkpoint["architecture_config"]["head"] == "shared_1x1_3_channel"
     assert checkpoint["loss_name"] == "dice_rmse"
     assert checkpoint["focal_alpha"] == 0.25
     assert checkpoint["focal_gamma"] == 2.0
