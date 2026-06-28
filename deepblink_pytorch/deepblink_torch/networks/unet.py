@@ -257,8 +257,8 @@ class UNetDeepBlink(nn.Module):
         if self.logit_conv.bias is not None:
             nn.init.zeros_(self.logit_conv.bias)
 
-    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
-        """Run forward pass.
+    def _forward_features(self, inputs: torch.Tensor) -> torch.Tensor:
+        """Return final decoder features before the prediction head.
 
         Parameters
         ----------
@@ -268,7 +268,7 @@ class UNetDeepBlink(nn.Module):
         Returns
         -------
         torch.Tensor
-            Prediction tensor with shape ``(B, H_grid, W_grid, 3)``.
+            Channel-first feature tensor with shape ``(B, C, H_grid, W_grid)``.
         """
         x = inputs
         skip_layers = []
@@ -288,7 +288,125 @@ class UNetDeepBlink(nn.Module):
             x = torch.cat([skip_bottom, x], dim=1)
 
         x = self.logit_block(x)
+        return x
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        """Run forward pass.
+
+        Parameters
+        ----------
+        inputs:
+            Input tensor with shape ``(B, 1, H, W)``.
+
+        Returns
+        -------
+        torch.Tensor
+            Prediction tensor with shape ``(B, H_grid, W_grid, 3)``.
+        """
+        x = self._forward_features(inputs)
         x = self.logit_conv(x)
         x = torch.sigmoid(x)
+
+        return x.permute(0, 2, 3, 1).contiguous()
+
+
+class UNetDeepLociContext(UNetDeepBlink):
+    """UNetDeepBlink backbone with a lightweight context-aware occupancy head.
+
+    The public output protocol is unchanged from ``UNetDeepBlink``:
+    channel-last ``(B, H_grid, W_grid, 3)`` with occupancy in channel 0 and
+    row/column offsets in channels 1/2.
+    """
+
+    def __init__(
+        self,
+        dropout: float = 0.3,
+        cell_size: int = 4,
+        filters: int = 5,
+        ndown: int = 2,
+        l2: float = 1e-6,
+        block: str = "convolutional",
+        context_channels: int = 32,
+        context_dilation: int = 2,
+    ) -> None:
+        super().__init__(
+            dropout=dropout,
+            cell_size=cell_size,
+            filters=filters,
+            ndown=ndown,
+            l2=l2,
+            block=block,
+        )
+
+        if context_channels < 1:
+            raise ValueError(
+                f"context_channels must be >= 1, but is {context_channels}."
+            )
+        if context_dilation < 1:
+            raise ValueError(
+                f"context_dilation must be >= 1, but is {context_dilation}."
+            )
+
+        head_channels = self.logit_block.out_channels
+        del self.logit_conv
+
+        self.context_channels = context_channels
+        self.context_dilation = context_dilation
+        self.occupancy_context = nn.Sequential(
+            nn.Conv2d(
+                in_channels=head_channels,
+                out_channels=context_channels,
+                kernel_size=3,
+                stride=1,
+                padding=1,
+            ),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(
+                in_channels=context_channels,
+                out_channels=context_channels,
+                kernel_size=3,
+                stride=1,
+                padding=context_dilation,
+                dilation=context_dilation,
+            ),
+            nn.ReLU(inplace=True),
+        )
+        self.occupancy_conv = nn.Conv2d(
+            in_channels=context_channels,
+            out_channels=1,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+        )
+        self.offset_conv = nn.Conv2d(
+            in_channels=head_channels,
+            out_channels=2,
+            kernel_size=1,
+            stride=1,
+            padding=0,
+        )
+
+        self._init_context_head()
+
+    def _init_context_head(self) -> None:
+        for module in self.occupancy_context:
+            if isinstance(module, nn.Conv2d):
+                nn.init.kaiming_normal_(module.weight, nonlinearity="relu")
+                if module.bias is not None:
+                    nn.init.zeros_(module.bias)
+
+        for module in (self.occupancy_conv, self.offset_conv):
+            nn.init.kaiming_normal_(module.weight, nonlinearity="sigmoid")
+            if module.bias is not None:
+                nn.init.zeros_(module.bias)
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        """Run forward pass with split occupancy and offset heads."""
+        features = self._forward_features(inputs)
+        occupancy = torch.sigmoid(
+            self.occupancy_conv(self.occupancy_context(features))
+        )
+        offsets = torch.sigmoid(self.offset_conv(features))
+        x = torch.cat([occupancy, offsets], dim=1)
 
         return x.permute(0, 2, 3, 1).contiguous()

@@ -11,6 +11,7 @@ import numpy as np
 import torch
 
 from deepblink_torch import UNetDeepBlink
+from deepblink_torch import UNetDeepLociContext
 from deepblink_torch import get_coordinate_list
 from deepblink_torch.data_protocol import next_power
 from ..utils.pixel_size import PixelSize
@@ -25,6 +26,7 @@ else:
     TIFF_IMPORT_ERROR = None
 
 IMAGE_EXTENSIONS = (".tif", ".tiff")
+MODEL_CHOICES = ("deepblink", "deeploci_context")
 
 
 def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -125,12 +127,60 @@ def _collect_images(path: Path) -> list[Path]:
     return files
 
 
-def _load_model(checkpoint_path: Path, device: torch.device) -> tuple[UNetDeepBlink, int]:
-    checkpoint = torch.load(checkpoint_path, map_location=device)
-    cell_size = int(checkpoint.get("cell_size", 4))
+def _normalise_model_name(model_name: object) -> str:
+    normalized = str(model_name or "deepblink")
+    if normalized not in MODEL_CHOICES:
+        raise ValueError(
+            f"Unsupported checkpoint model_name={normalized!r}. "
+            f"Expected one of {MODEL_CHOICES}."
+        )
+    return normalized
 
-    model = UNetDeepBlink(cell_size=cell_size).to(device)
-    if "model_state_dict" in checkpoint:
+
+def _checkpoint_model_name(checkpoint: object) -> str:
+    if not isinstance(checkpoint, dict):
+        return "deepblink"
+
+    raw_model_name = checkpoint.get("model_name")
+    if raw_model_name is None:
+        model_config = checkpoint.get("model_config")
+        if isinstance(model_config, dict):
+            raw_model_name = model_config.get("model_name")
+    if raw_model_name is None:
+        architecture_config = checkpoint.get("architecture_config")
+        if isinstance(architecture_config, dict):
+            raw_model_name = architecture_config.get("model_name")
+    if raw_model_name is None:
+        args = checkpoint.get("args")
+        if isinstance(args, dict):
+            raw_model_name = args.get("model")
+    return _normalise_model_name(raw_model_name or "deepblink")
+
+
+def _build_model_for_checkpoint(
+    model_name: str,
+    *,
+    cell_size: int,
+    device: torch.device,
+) -> torch.nn.Module:
+    if model_name == "deepblink":
+        return UNetDeepBlink(cell_size=cell_size).to(device)
+    if model_name == "deeploci_context":
+        return UNetDeepLociContext(cell_size=cell_size).to(device)
+    raise ValueError(f"Unsupported checkpoint model_name={model_name!r}.")
+
+
+def _load_model(checkpoint_path: Path, device: torch.device) -> tuple[torch.nn.Module, int]:
+    checkpoint = torch.load(checkpoint_path, map_location=device)
+    cell_size = int(checkpoint.get("cell_size", 4)) if isinstance(checkpoint, dict) else 4
+    model_name = _checkpoint_model_name(checkpoint)
+
+    model = _build_model_for_checkpoint(
+        model_name,
+        cell_size=cell_size,
+        device=device,
+    )
+    if isinstance(checkpoint, dict) and "model_state_dict" in checkpoint:
         model.load_state_dict(checkpoint["model_state_dict"])
     else:
         model.load_state_dict(checkpoint)
