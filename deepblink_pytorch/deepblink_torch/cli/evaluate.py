@@ -92,6 +92,14 @@ def add_test_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPars
         choices=overlay_cli.MODES,
         help="Overlay rendering mode for per-image PNGs.",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help=(
+            "Generate extra diagnostic plots: the legacy F1 curve, error CDF, "
+            "and localization-error-vs-confidence scatter plot."
+        ),
+    )
     return parser
 
 
@@ -272,6 +280,199 @@ def _write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _plot_precision_recall_curve(
+    output_path: Path,
+    recall: np.ndarray,
+    precision: np.ndarray,
+    average_precision: float,
+) -> None:
+    overlay_cli._require_matplotlib()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = overlay_cli.plt.subplots(figsize=(6, 4), dpi=150)
+    if len(recall) > 0:
+        ax.step(recall, precision, where="post", color="tab:blue", lw=2, label="PR curve")
+        marker_step = max(1, len(recall) // 20)
+        ax.scatter(
+            recall[::marker_step],
+            precision[::marker_step],
+            s=14,
+            color="tab:blue",
+            alpha=0.35,
+            edgecolors="none",
+        )
+        ax.set_xlim(0.0, 1.05)
+        ax.set_ylim(0.0, 1.05)
+        ax.set_xlabel("Recall")
+        ax.set_ylabel("Precision")
+        ax.set_title("Precision-Recall Curve")
+        ax.grid(True, alpha=0.25)
+        ap_text = f"AP = {average_precision:.4f}" if np.isfinite(average_precision) else "AP = n/a"
+        ax.text(
+            0.98,
+            0.98,
+            ap_text,
+            transform=ax.transAxes,
+            ha="right",
+            va="top",
+            bbox={"boxstyle": "round,pad=0.3", "facecolor": "white", "alpha": 0.85, "edgecolor": "none"},
+        )
+    else:
+        ax.text(0.5, 0.5, "No evaluation predictions", ha="center", va="center", transform=ax.transAxes)
+        ax.set_axis_off()
+
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0.02)
+    overlay_cli.plt.close(fig)
+
+
+def _plot_sorted_per_image_f1(output_path: Path, per_image_rows: list[dict[str, object]]) -> None:
+    overlay_cli._require_matplotlib()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = overlay_cli.plt.subplots(figsize=(12, 4.5), dpi=150)
+    if per_image_rows:
+        sorted_rows = sorted(per_image_rows, key=lambda row: (float(row["f1"]), str(row["sample_id"])))
+        x = np.arange(len(sorted_rows), dtype=np.int32)
+        f1_values = np.asarray([float(row["f1"]) for row in sorted_rows], dtype=np.float32)
+        ax.bar(x, f1_values, color="tab:purple", alpha=0.85, width=0.82)
+        ax.plot(x, f1_values, color="tab:purple", lw=1.2, alpha=0.9)
+        ax.axhline(float(np.mean(f1_values)), color="tab:gray", ls="--", lw=1, label="mean F1")
+        ax.axhline(float(np.median(f1_values)), color="tab:orange", ls=":", lw=1.2, label="median F1")
+        ax.set_ylim(0.0, 1.05)
+        ax.set_xlabel("Test images sorted by F1")
+        ax.set_ylabel("F1")
+        ax.set_title("Per-image F1 scores")
+        ax.grid(True, axis="y", alpha=0.25)
+        ax.legend(frameon=False, loc="upper left")
+
+        label_step = 1 if len(sorted_rows) <= 24 else max(1, len(sorted_rows) // 12)
+        tick_positions = x[::label_step]
+        tick_labels = [str(sorted_rows[index]["sample_id"]) for index in range(0, len(sorted_rows), label_step)]
+        if tick_positions[-1] != x[-1]:
+            tick_positions = np.append(tick_positions, x[-1])
+            tick_labels.append(str(sorted_rows[-1]["sample_id"]))
+        ax.set_xticks(tick_positions)
+        ax.set_xticklabels(tick_labels, rotation=75, ha="right", fontsize=8)
+    else:
+        ax.text(0.5, 0.5, "No evaluation samples", ha="center", va="center", transform=ax.transAxes)
+        ax.set_axis_off()
+
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0.02)
+    overlay_cli.plt.close(fig)
+
+
+def _plot_error_vs_confidence(
+    output_path: Path,
+    matched_confidences: np.ndarray,
+    matched_distances: np.ndarray,
+) -> None:
+    overlay_cli._require_matplotlib()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = overlay_cli.plt.subplots(figsize=(6, 4), dpi=150)
+    if len(matched_confidences) > 0:
+        ax.scatter(
+            matched_confidences,
+            matched_distances,
+            s=18,
+            alpha=0.6,
+            color="tab:green",
+            edgecolors="none",
+        )
+        ax.set_xlabel("Confidence")
+        ax.set_ylabel("Localization error (px)")
+        ax.set_title("Localization Error vs Confidence")
+        ax.grid(True, alpha=0.25)
+        ax.set_xlim(0.0, 1.05)
+    else:
+        ax.text(0.5, 0.5, "No matched detections", ha="center", va="center", transform=ax.transAxes)
+        ax.set_axis_off()
+
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0.02)
+    overlay_cli.plt.close(fig)
+
+
+def _compute_pr_curve(
+    sample_predictions: list[tuple[np.ndarray, np.ndarray]],
+    match_radius_px: float,
+) -> tuple[np.ndarray, np.ndarray, float, np.ndarray, np.ndarray]:
+    total_true = int(sum(len(truth_coords_px) for _, truth_coords_px in sample_predictions))
+    if total_true == 0:
+        return (
+            np.empty((0,), dtype=np.float32),
+            np.empty((0,), dtype=np.float32),
+            float("nan"),
+            np.empty((0,), dtype=np.float32),
+            np.empty((0,), dtype=np.float32),
+        )
+
+    matched_truth_flags = [np.zeros(len(truth_coords_px), dtype=bool) for _, truth_coords_px in sample_predictions]
+    flat_predictions: list[tuple[float, int, int]] = []
+    for sample_index, (pred_coords_with_p, _truth_coords_px) in enumerate(sample_predictions):
+        for pred_index, row in enumerate(np.asarray(pred_coords_with_p, dtype=np.float32)):
+            flat_predictions.append((float(row[2]), sample_index, pred_index))
+
+    if not flat_predictions:
+        return (
+            np.empty((0,), dtype=np.float32),
+            np.empty((0,), dtype=np.float32),
+            0.0,
+            np.empty((0,), dtype=np.float32),
+            np.empty((0,), dtype=np.float32),
+        )
+
+    flat_predictions.sort(key=lambda item: item[0], reverse=True)
+
+    true_positive = 0
+    false_positive = 0
+    precision_points: list[float] = []
+    recall_points: list[float] = []
+    matched_confidences: list[float] = []
+    matched_distances: list[float] = []
+
+    for score, sample_index, pred_index in flat_predictions:
+        pred_coords_with_p, truth_coords_px = sample_predictions[sample_index]
+        truth_coords = np.asarray(truth_coords_px, dtype=np.float32)
+        if len(truth_coords) == 0:
+            false_positive += 1
+        else:
+            used_mask = matched_truth_flags[sample_index]
+            available_indices = np.where(~used_mask)[0]
+            if len(available_indices) == 0:
+                false_positive += 1
+            else:
+                pred_xy = np.asarray(pred_coords_with_p[pred_index, :2], dtype=np.float32)
+                distances = np.linalg.norm(truth_coords[available_indices] - pred_xy[None, :], axis=1)
+                best_available = int(np.argmin(distances))
+                best_distance = float(distances[best_available])
+                if best_distance <= match_radius_px:
+                    best_true_index = int(available_indices[best_available])
+                    used_mask[best_true_index] = True
+                    true_positive += 1
+                    matched_confidences.append(float(score))
+                    matched_distances.append(best_distance)
+                else:
+                    false_positive += 1
+
+        precision_points.append(true_positive / max(1, true_positive + false_positive))
+        recall_points.append(true_positive / total_true)
+
+    recall_curve = np.concatenate(([0.0], np.asarray(recall_points, dtype=np.float32)))
+    precision_curve = np.concatenate(([1.0], np.asarray(precision_points, dtype=np.float32)))
+    precision_envelope = np.maximum.accumulate(precision_curve[::-1])[::-1]
+    average_precision = float(np.sum(np.diff(recall_curve) * precision_envelope[1:]))
+    return (
+        np.asarray(recall_points, dtype=np.float32),
+        np.asarray(precision_points, dtype=np.float32),
+        average_precision,
+        np.asarray(matched_confidences, dtype=np.float32),
+        np.asarray(matched_distances, dtype=np.float32),
+    )
+
+
 def _plot_f1_curve(
     output_path: Path,
     cutoffs_px: np.ndarray,
@@ -379,6 +580,7 @@ def run_test(args: argparse.Namespace) -> Path:
     figures_dir = output_dir / "figures"
 
     per_image_rows: list[dict[str, object]] = []
+    sample_predictions: list[tuple[np.ndarray, np.ndarray]] = []
     all_f1_scores: list[np.ndarray] = []
     all_error_distances: list[np.ndarray] = []
 
@@ -420,15 +622,18 @@ def run_test(args: argparse.Namespace) -> Path:
         truth_coords_px = np.asarray(sample.truth_coords_px, dtype=np.float32)
         match = match_coordinates(coords_with_p[:, :2], truth_coords_px, args.match_radius_px)
         metrics = metrics_from_match(match)
-        cutoff_limit = float(args.match_radius_px) if args.match_radius_px > 0 else 0.1
-        _cutoffs_px, f1_scores, f1_integral = f1_curve(
-            coords_with_p[:, :2],
-            truth_coords_px,
-            max_distance_px=cutoff_limit,
-            n_cutoffs=DEFAULT_N_CUTOFFS,
-        )
-        all_f1_scores.append(f1_scores)
-        all_error_distances.append(np.asarray(match.matched_distances, dtype=np.float32))
+        if args.verbose:
+            cutoff_limit = float(args.match_radius_px) if args.match_radius_px > 0 else 0.1
+            _cutoffs_px, f1_scores, f1_integral = f1_curve(
+                coords_with_p[:, :2],
+                truth_coords_px,
+                max_distance_px=cutoff_limit,
+                n_cutoffs=DEFAULT_N_CUTOFFS,
+            )
+            all_f1_scores.append(f1_scores)
+            all_error_distances.append(np.asarray(match.matched_distances, dtype=np.float32))
+        else:
+            f1_integral = float("nan")
 
         match_csv = matches_dir / f"{sample.sample_id}.csv"
         match_rows = _build_match_rows(coords_with_p, truth_coords_px, match)
@@ -460,6 +665,8 @@ def run_test(args: argparse.Namespace) -> Path:
             mode=args.overlay_mode,
             footer_text=footer_text,
         )
+
+        sample_predictions.append((coords_with_p, truth_coords_px))
 
         per_image_row = {
             "sample_id": sample.sample_id,
@@ -525,6 +732,12 @@ def run_test(args: argparse.Namespace) -> Path:
         }
     )
 
+    recall, precision, average_precision, matched_confidences, matched_distances = _compute_pr_curve(
+        sample_predictions,
+        float(args.match_radius_px),
+    )
+    summary["average_precision"] = average_precision
+
     summary_csv = summary_dir / "metrics_summary.csv"
     summary_json = summary_dir / "metrics_summary.json"
     per_image_csv = summary_dir / "per_image_metrics.csv"
@@ -537,19 +750,29 @@ def run_test(args: argparse.Namespace) -> Path:
         fieldnames=list(per_image_rows[0].keys()),
     )
 
-    cutoffs_px = np.linspace(
-        0.0,
-        float(args.match_radius_px) if args.match_radius_px > 0 else 0.1,
-        num=DEFAULT_N_CUTOFFS,
-        dtype=np.float32,
-    )
-    _plot_f1_curve(figures_dir / "f1_curve.png", cutoffs_px, all_f1_scores, float(args.match_radius_px))
-    _plot_error_cdf(figures_dir / "error_cdf.png", concatenated_errors)
+    _plot_precision_recall_curve(figures_dir / "pr_curve.png", recall, precision, average_precision)
+    _plot_sorted_per_image_f1(figures_dir / "per_image_f1_boxplot.png", per_image_rows)
+
+    if args.verbose:
+        cutoffs_px = np.linspace(
+            0.0,
+            float(args.match_radius_px) if args.match_radius_px > 0 else 0.1,
+            num=DEFAULT_N_CUTOFFS,
+            dtype=np.float32,
+        )
+        _plot_f1_curve(figures_dir / "f1_curve.png", cutoffs_px, all_f1_scores, float(args.match_radius_px))
+        _plot_error_cdf(figures_dir / "error_cdf.png", concatenated_errors)
+        _plot_error_vs_confidence(
+            figures_dir / "localization_error_vs_confidence.png",
+            matched_confidences,
+            matched_distances,
+        )
 
     print(
         f"Summary | precision={summary['micro_precision']:.4f} | recall={summary['micro_recall']:.4f} "
         f"| F1={summary['micro_f1']:.4f} | median_error_px={summary['median_error_px']:.4f} "
-        f"| mean_f1_integral={summary['mean_f1_integral']:.4f} | tp={summary['micro_tp']:.0f} "
+        f"| mean_f1_integral={summary['mean_f1_integral']:.4f} | AP={summary['average_precision']:.4f} "
+        f"| tp={summary['micro_tp']:.0f} "
         f"| fp={summary['micro_fp']:.0f} | fn={summary['micro_fn']:.0f}"
     )
     print(

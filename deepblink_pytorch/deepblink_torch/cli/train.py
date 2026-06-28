@@ -3,8 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import csv
+from datetime import datetime
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
@@ -52,7 +59,7 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
         default=None,
         help=(
             "Output checkpoint path. Defaults to "
-            "artifacts/checkpoints/best_model.pt relative to project root."
+            "./outputs/<experiment>/training_modification/best_model.pt."
         ),
     )
     return parser
@@ -139,12 +146,15 @@ def validate(
     model: UNetDeepBlink,
     loader: DataLoader,
     device: torch.device,
-) -> tuple[float, float, float]:
-    """Run validation and return average (combined, dice, rmse) losses."""
+) -> tuple[float, float, float, float, float, float]:
+    """Run validation and return average losses plus cell-level classification metrics."""
     model.eval()
     total_combined = 0.0
     total_dice = 0.0
     total_rmse = 0.0
+    total_tp = 0
+    total_fp = 0
+    total_fn = 0
     n_batches = 0
 
     for images, targets in loader:
@@ -155,6 +165,11 @@ def validate(
         combined = combined_dice_rmse_loss(targets, preds)
         dice = dice_loss(targets, preds)
         rmse = rmse_loss(targets, preds)
+        predicted_positive = preds[..., 0] > 0.5
+        true_positive = targets[..., 0] > 0.5
+        total_tp += int(torch.count_nonzero(predicted_positive & true_positive).item())
+        total_fp += int(torch.count_nonzero(predicted_positive & ~true_positive).item())
+        total_fn += int(torch.count_nonzero(~predicted_positive & true_positive).item())
 
         total_combined += combined.item()
         total_dice += dice.item()
@@ -162,7 +177,83 @@ def validate(
         n_batches += 1
 
     denom = max(1, n_batches)
-    return total_combined / denom, total_dice / denom, total_rmse / denom
+    precision = total_tp / (total_tp + total_fp) if (total_tp + total_fp) > 0 else 0.0
+    recall = total_tp / (total_tp + total_fn) if (total_tp + total_fn) > 0 else 0.0
+    if precision + recall > 0:
+        f1 = 2.0 * precision * recall / (precision + recall)
+    else:
+        f1 = 0.0
+    return (
+        total_combined / denom,
+        total_dice / denom,
+        total_rmse / denom,
+        float(precision),
+        float(recall),
+        float(f1),
+    )
+
+
+def _write_rows_csv(path: Path, rows: list[dict[str, object]]) -> None:
+    if not rows:
+        raise ValueError("rows must not be empty")
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+
+
+def _plot_training_curves(output_path: Path, history: list[dict[str, object]]) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    epochs = [int(row["epoch"]) for row in history]
+    train_loss = [float(row["train_loss"]) for row in history]
+    val_loss = [float(row["val_loss"]) for row in history]
+    val_f1 = [float(row["val_f1"]) for row in history]
+
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4), dpi=150)
+
+    axes[0].plot(epochs, train_loss, color="tab:blue", lw=1.8, label="train_loss")
+    axes[0].plot(epochs, val_loss, color="tab:red", lw=1.8, label="val_loss")
+    axes[0].set_xlabel("Epoch")
+    axes[0].set_ylabel("Loss")
+    axes[0].set_title("Loss Curves")
+    axes[0].grid(True, alpha=0.3)
+    axes[0].legend(frameon=False)
+
+    axes[1].plot(epochs, val_f1, color="tab:green", lw=1.8, label="val_f1")
+    axes[1].set_xlabel("Epoch")
+    axes[1].set_ylabel("F1")
+    axes[1].set_title("Validation F1")
+    axes[1].set_ylim(0.0, 1.0)
+    axes[1].grid(True, alpha=0.3)
+    axes[1].legend(frameon=False)
+
+    fig.tight_layout()
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0.02)
+    plt.close(fig)
+
+
+def _infer_experiment_name(reference_paths: list[Path]) -> str | None:
+    """Infer the current experiment name from a cwd or data path."""
+    for reference_path in reference_paths:
+        resolved = reference_path.resolve()
+        parts = resolved.parts
+        if "outputs" in parts:
+            outputs_index = parts.index("outputs")
+            if outputs_index + 1 < len(parts):
+                return parts[outputs_index + 1]
+    return None
+
+
+def _default_checkpoint_path(data_path: Path, project_root: Path | None = None) -> Path:
+    """Resolve the default checkpoint path for a training run."""
+    root = project_root or Path(__file__).resolve().parents[2]
+    experiment_name = _infer_experiment_name([Path.cwd(), data_path])
+    if experiment_name is None:
+        experiment_name = f"training_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    return root / "outputs" / experiment_name / "training_modification" / "best_model.pt"
 
 
 def run_training(args: argparse.Namespace) -> Path:
@@ -188,13 +279,15 @@ def run_training(args: argparse.Namespace) -> Path:
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     if args.checkpoint is None:
-        project_root = Path(__file__).resolve().parents[2]
-        checkpoint_path = project_root / "artifacts" / "checkpoints" / "best_model.pt"
+        checkpoint_path = _default_checkpoint_path(data_path)
     else:
         checkpoint_path = Path(args.checkpoint).resolve()
     checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+    metrics_csv_path = checkpoint_path.parent / "training_metrics.csv"
+    curves_png_path = checkpoint_path.parent / "training_curves.png"
 
     best_val_loss = float("inf")
+    history: list[dict[str, object]] = []
 
     print(
         f"Start training | device={device} | data={data_path} | epochs={args.epochs} "
@@ -208,10 +301,23 @@ def run_training(args: argparse.Namespace) -> Path:
             optimizer=optimizer,
             device=device,
         )
-        val_loss, val_dice_loss, val_rmse_loss = validate(
+        val_loss, val_dice_loss, val_rmse_loss, val_precision, val_recall, val_f1 = validate(
             model=model,
             loader=valid_loader,
             device=device,
+        )
+
+        history.append(
+            {
+                "epoch": epoch,
+                "train_loss": float(train_loss),
+                "val_loss": float(val_loss),
+                "val_dice_loss": float(val_dice_loss),
+                "val_rmse": float(val_rmse_loss),
+                "val_precision": float(val_precision),
+                "val_recall": float(val_recall),
+                "val_f1": float(val_f1),
+            }
         )
 
         is_best = val_loss < best_val_loss
@@ -233,11 +339,17 @@ def run_training(args: argparse.Namespace) -> Path:
             f"Epoch [{epoch:03d}/{args.epochs:03d}] "
             f"train_loss={train_loss:.6f} "
             f"val_loss={val_loss:.6f} "
+            f"val_f1={val_f1:.6f} "
             f"val_dice_loss={val_dice_loss:.6f} "
-            f"val_rmse_loss={val_rmse_loss:.6f} "
+            f"val_rmse={val_rmse_loss:.6f} "
             f"{'(best)' if is_best else ''}"
         )
 
+    _write_rows_csv(metrics_csv_path, history)
+    _plot_training_curves(curves_png_path, history)
+
+    print(f"Training metrics saved to: {metrics_csv_path}")
+    print(f"Training curves saved to: {curves_png_path}")
     print(f"Training completed. Best checkpoint: {checkpoint_path}")
     return checkpoint_path
 

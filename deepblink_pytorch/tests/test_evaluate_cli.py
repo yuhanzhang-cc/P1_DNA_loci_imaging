@@ -76,6 +76,7 @@ def test_run_test_writes_summary_predictions_and_visuals(tmp_path: Path, monkeyp
             "match_radius_px": 3.0,
             "device": "cpu",
             "overlay_mode": "single",
+            "verbose": False,
         },
     )()
 
@@ -89,8 +90,11 @@ def test_run_test_writes_summary_predictions_and_visuals(tmp_path: Path, monkeyp
     assert (output_dir / "predictions" / "sample_1.meta.json").exists()
     assert (output_dir / "matches" / "sample_1.csv").exists()
     assert (output_dir / "overlays" / "sample_1.png").exists()
-    assert (output_dir / "figures" / "f1_curve.png").exists()
-    assert (output_dir / "figures" / "error_cdf.png").exists()
+    assert (output_dir / "figures" / "pr_curve.png").exists()
+    assert (output_dir / "figures" / "per_image_f1_boxplot.png").exists()
+    assert not (output_dir / "figures" / "f1_curve.png").exists()
+    assert not (output_dir / "figures" / "error_cdf.png").exists()
+    assert not (output_dir / "figures" / "localization_error_vs_confidence.png").exists()
 
     summary_head = (output_dir / "summary" / "metrics_summary.csv").read_text(encoding="utf-8").splitlines()[0]
     assert "micro_precision" in summary_head
@@ -98,8 +102,64 @@ def test_run_test_writes_summary_predictions_and_visuals(tmp_path: Path, monkeyp
     assert "micro_f1" in summary_head
     assert "median_error_px" in summary_head
     assert "mean_f1_integral" in summary_head
+    assert "average_precision" in summary_head
 
     per_image_lines = (output_dir / "summary" / "per_image_metrics.csv").read_text(encoding="utf-8").splitlines()
     assert "sample_1" in per_image_lines[1]
     assert "predictions/sample_1.csv" in per_image_lines[1]
     assert "overlays/sample_1.png" in per_image_lines[1]
+
+
+def test_run_test_verbose_generates_legacy_diagnostics(tmp_path: Path, monkeypatch) -> None:
+    images_dir = tmp_path / "images"
+    images_dir.mkdir()
+    output_dir = tmp_path / "evaluation_verbose"
+    data_path = tmp_path / "dataset.npz"
+    model_path = tmp_path / "best_model.pt"
+    model_path.write_text("dummy checkpoint", encoding="utf-8")
+
+    image = np.zeros((4, 4), dtype=np.uint8)
+    image[1, 1] = 255
+    tifffile.imwrite(images_dir / "sample_1.tif", image)
+
+    truth = np.asarray([np.asarray([[1.0, 1.0]], dtype=np.float32)], dtype=object)
+    np.savez(
+        data_path,
+        x_test=np.asarray([image], dtype=np.float32),
+        y_test=truth,
+        sample_id_test=np.asarray(["sample_1"], dtype="<U32"),
+        image_name_test=np.asarray(["sample_1.tif"], dtype="<U64"),
+        label_name_test=np.asarray(["sample_1.csv"], dtype="<U64"),
+        source_index_test=np.asarray([0], dtype=np.int32),
+    )
+
+    monkeypatch.setattr(
+        evaluate.predict_cli,
+        "_load_model",
+        lambda checkpoint_path, device: (_DummyModel(), 4),
+    )
+
+    args = type(
+        "Args",
+        (),
+        {
+            "data": str(data_path),
+            "images": str(images_dir),
+            "model": str(model_path),
+            "output": str(output_dir),
+            "subset": "test",
+            "probability": 0.5,
+            "match_radius_px": 3.0,
+            "device": "cpu",
+            "overlay_mode": "single",
+            "verbose": True,
+        },
+    )()
+
+    evaluate.run_test(args)
+
+    assert (output_dir / "figures" / "pr_curve.png").exists()
+    assert (output_dir / "figures" / "per_image_f1_boxplot.png").exists()
+    assert (output_dir / "figures" / "f1_curve.png").exists()
+    assert (output_dir / "figures" / "error_cdf.png").exists()
+    assert (output_dir / "figures" / "localization_error_vs_confidence.png").exists()
