@@ -14,6 +14,7 @@ The three channels are interpreted as:
 Notes
 -----
 - ``dice_loss`` is applied to the probability channel only.
+- ``focal_loss`` is applied to the probability channel only.
 - ``rmse_loss`` is applied to the offset channels only.
 - ``combined_dice_rmse_loss`` follows the original deepBlink weighting:
   ``dice_loss + 2 * rmse_loss``.
@@ -22,6 +23,9 @@ Notes
 from __future__ import annotations
 
 import torch
+
+
+DEFAULT_RMSE_WEIGHT = 2.0
 
 
 def _validate_prediction_shape(y_true: torch.Tensor, y_pred: torch.Tensor) -> None:
@@ -96,6 +100,54 @@ def dice_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
     return 1.0 - dice_score(y_true[..., 0], y_pred[..., 0])
 
 
+def focal_loss(
+    y_true: torch.Tensor,
+    y_pred: torch.Tensor,
+    alpha: float = 0.25,
+    gamma: float = 2.0,
+    eps: float = 1e-6,
+) -> torch.Tensor:
+    """Probability-space focal loss on the occupancy channel.
+
+    The model output protocol already applies ``sigmoid`` in the network, so
+    this loss expects ``y_pred[..., 0]`` to be a probability rather than logits.
+
+    Parameters
+    ----------
+    y_true:
+        Ground-truth tensor with shape ``(B, H, W, 3)``.
+    y_pred:
+        Predicted tensor with shape ``(B, H, W, 3)``.
+    alpha:
+        Positive-class focal weighting term.
+    gamma:
+        Focusing exponent.
+    eps:
+        Probability clamp used to avoid ``log(0)``.
+
+    Returns
+    -------
+    torch.Tensor
+        Mean focal loss over the occupancy channel.
+    """
+    _validate_prediction_shape(y_true, y_pred)
+    if not 0.0 <= alpha <= 1.0:
+        raise ValueError(f"alpha must be in [0, 1], but got {alpha}.")
+    if gamma < 0.0:
+        raise ValueError(f"gamma must be >= 0, but got {gamma}.")
+    if not 0.0 < eps < 0.5:
+        raise ValueError(f"eps must be in (0, 0.5), but got {eps}.")
+
+    target = y_true[..., 0]
+    pred = torch.clamp(y_pred[..., 0], min=eps, max=1.0 - eps)
+
+    bce = -(target * torch.log(pred) + (1.0 - target) * torch.log(1.0 - pred))
+    p_t = target * pred + (1.0 - target) * (1.0 - pred)
+    alpha_t = target * alpha + (1.0 - target) * (1.0 - alpha)
+    loss = alpha_t * torch.pow(1.0 - p_t, gamma) * bce
+    return torch.mean(loss)
+
+
 def rmse_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
     """Compute deepBlink-style RMSE over relative offsets.
 
@@ -167,4 +219,32 @@ def combined_dice_rmse_loss(
         Scalar loss tensor equal to:
         ``dice_loss(y_true, y_pred) + 2 * rmse_loss(y_true, y_pred)``.
     """
-    return dice_loss(y_true, y_pred) + rmse_loss(y_true, y_pred) * 2.0
+    return dice_loss(y_true, y_pred) + rmse_loss(y_true, y_pred) * DEFAULT_RMSE_WEIGHT
+
+
+def combined_focal_rmse_loss(
+    y_true: torch.Tensor,
+    y_pred: torch.Tensor,
+    alpha: float = 0.25,
+    gamma: float = 2.0,
+    rmse_weight: float = DEFAULT_RMSE_WEIGHT,
+) -> torch.Tensor:
+    """Combine focal occupancy loss and RMSE offset loss."""
+    return focal_loss(y_true, y_pred, alpha=alpha, gamma=gamma) + rmse_loss(
+        y_true, y_pred
+    ) * rmse_weight
+
+
+def combined_dice_focal_rmse_loss(
+    y_true: torch.Tensor,
+    y_pred: torch.Tensor,
+    alpha: float = 0.25,
+    gamma: float = 2.0,
+    rmse_weight: float = DEFAULT_RMSE_WEIGHT,
+) -> torch.Tensor:
+    """Combine Dice, focal occupancy loss, and RMSE offset loss."""
+    return (
+        dice_loss(y_true, y_pred)
+        + focal_loss(y_true, y_pred, alpha=alpha, gamma=gamma)
+        + rmse_loss(y_true, y_pred) * rmse_weight
+    )

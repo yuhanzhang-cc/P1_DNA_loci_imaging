@@ -15,7 +15,7 @@ deepblink-torch create --images ./images --labels ./labels --output ./dataset.np
 deepblink-torch train --data ./dataset.npz --epochs 50 --batch-size 16 --lr 1e-3 --device cuda
 deepblink-torch predict --model ./artifacts/checkpoints/best_model.pt --images ./images --output ./predictions --probability 0.5 --device cuda --output-unit px
 deepblink-torch overlay --images ./images --csv ./predictions --output ./overlays --mode side-by-side
-deepblink-torch test --data ./dataset.npz --images ./images --model ./artifacts/checkpoints/best_model.pt --output ./evaluation --subset test --probability 0.5 --match-radius-px 3.0 --device cuda --overlay-mode side-by-side
+deepblink-torch test --data ./dataset.npz --images ./images --model ./artifacts/checkpoints/best_model.pt --output ./evaluation --subset test --probability-sweep 0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9 --match-radius-px 3.0 --device cuda --overlay-mode side-by-side
 ```
 
 `predict` defaults to pixel coordinates and writes CSV columns as
@@ -38,11 +38,16 @@ evaluation/
   summary/metrics_summary.csv
   summary/metrics_summary.json
   summary/per_image_metrics.csv
+  summary/threshold_metrics.csv  # only when --probability-sweep is provided
   predictions/*.csv
   matches/*.csv
   overlays/*.png
-  figures/f1_curve.png
-  figures/error_cdf.png
+  match_overlays/*.png
+  figures/pr_curve.png
+  figures/per_image_f1_boxplot.png
+  figures/f1_curve.png      # only with --verbose
+  figures/error_cdf.png      # only with --verbose
+  figures/localization_error_vs_confidence.png  # only with --verbose
 ```
 
 The console output highlights the numbers that are usually the first readout:
@@ -50,6 +55,15 @@ The console output highlights the numbers that are usually the first readout:
 the total `tp`, `fp`, and `fn` counts. The command also uses the split metadata
 stored in the `.npz` file, so the per-image outputs keep the original
 `sample_id` / `image_name` mapping visible.
+When `--probability-sweep` is provided without an explicit `--probability`,
+`test` uses the sweep threshold with the highest F1 that does not reduce
+precision below the p=0.5 reference point for `predictions/`, `matches/`, and
+overlays. If `--probability` is provided, that value remains the output
+threshold and the sweep is reported only as calibration metadata. The
+`threshold_metrics.csv` table marks the threshold used for outputs with
+`selected_for_outputs`.
+In addition to prediction-only overlays, `test` writes TP/FP/FN match overlays:
+TP is green, FP is red, and FN is blue.
 
 You can also run training directly:
 

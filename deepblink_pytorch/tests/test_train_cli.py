@@ -56,6 +56,13 @@ def test_default_checkpoint_path_falls_back_to_timestamp(tmp_path: Path, monkeyp
     assert checkpoint_path == project_root / "outputs" / "training_20260628_123456" / "training_modification" / "best_model.pt"
 
 
+def test_train_parser_accepts_loss_variants() -> None:
+    for loss_name in train_cli.LOSS_CHOICES:
+        args = train_cli.parse_args(["--data", "dataset.npz", "--loss", loss_name])
+
+        assert args.loss == loss_name
+
+
 def test_run_training_places_artifacts_next_to_explicit_checkpoint(tmp_path: Path, monkeypatch) -> None:
     data_path = tmp_path / "dataset.npz"
     data_path.write_text("dummy", encoding="utf-8")
@@ -95,4 +102,20 @@ def test_run_training_places_artifacts_next_to_explicit_checkpoint(tmp_path: Pat
     assert captured["csv_path"] == checkpoint_path.resolve().parent / "training_metrics.csv"
     assert captured["png_path"] == checkpoint_path.resolve().parent / "training_curves.png"
     assert isinstance(captured["rows"], list)
+    assert captured["rows"][0]["loss_name"] == "dice_rmse"
+    assert captured["rows"][0]["focal_alpha"] == 0.25
+    assert captured["rows"][0]["focal_gamma"] == 2.0
+    assert captured["rows"][0]["rmse_weight"] == 2.0
     assert captured["rows"][0]["val_rmse"] == 4.0
+
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    assert checkpoint["loss_name"] == "dice_rmse"
+    assert checkpoint["focal_alpha"] == 0.25
+    assert checkpoint["focal_gamma"] == 2.0
+    assert checkpoint["rmse_weight"] == 2.0
+    assert checkpoint["loss_config"] == {
+        "loss_name": "dice_rmse",
+        "focal_alpha": 0.25,
+        "focal_gamma": 2.0,
+        "rmse_weight": 2.0,
+    }
