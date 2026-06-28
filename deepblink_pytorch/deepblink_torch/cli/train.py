@@ -6,6 +6,7 @@ import argparse
 import csv
 from datetime import datetime
 from pathlib import Path
+from typing import Callable
 
 import matplotlib
 
@@ -15,11 +16,18 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 
+from deepblink_torch import DEFAULT_RMSE_WEIGHT
 from deepblink_torch import SpotsDataset
 from deepblink_torch import UNetDeepBlink
+from deepblink_torch import combined_dice_focal_rmse_loss
 from deepblink_torch import combined_dice_rmse_loss
+from deepblink_torch import combined_focal_rmse_loss
 from deepblink_torch import dice_loss
 from deepblink_torch import rmse_loss
+
+
+LossFunction = Callable[[torch.Tensor, torch.Tensor], torch.Tensor]
+LOSS_CHOICES = ("dice_rmse", "focal_rmse", "dice_focal_rmse")
 
 
 def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -61,6 +69,24 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
             "Output checkpoint path. Defaults to "
             "./outputs/<experiment>/training_modification/best_model.pt."
         ),
+    )
+    parser.add_argument(
+        "--loss",
+        choices=LOSS_CHOICES,
+        default="dice_rmse",
+        help="Training loss composition. Defaults to the baseline dice_rmse.",
+    )
+    parser.add_argument(
+        "--focal-alpha",
+        type=float,
+        default=0.25,
+        help="Focal loss positive-class alpha. Used by focal loss variants.",
+    )
+    parser.add_argument(
+        "--focal-gamma",
+        type=float,
+        default=2.0,
+        help="Focal loss focusing gamma. Used by focal loss variants.",
     )
     return parser
 
@@ -114,11 +140,77 @@ def build_dataloaders(
     return train_loader, valid_loader
 
 
+def _normalise_loss_name(loss_name: str) -> str:
+    if loss_name not in LOSS_CHOICES:
+        raise ValueError(f"--loss must be one of {LOSS_CHOICES}, but got {loss_name!r}.")
+    return loss_name
+
+
+def _build_loss_config(args: argparse.Namespace) -> dict[str, object]:
+    loss_name = _normalise_loss_name(getattr(args, "loss", "dice_rmse"))
+    focal_alpha = float(getattr(args, "focal_alpha", 0.25))
+    focal_gamma = float(getattr(args, "focal_gamma", 2.0))
+    if not 0.0 <= focal_alpha <= 1.0:
+        raise ValueError(f"--focal-alpha must be in [0, 1], but got {focal_alpha}")
+    if focal_gamma < 0.0:
+        raise ValueError(f"--focal-gamma must be >= 0, but got {focal_gamma}")
+    return {
+        "loss_name": loss_name,
+        "focal_alpha": focal_alpha,
+        "focal_gamma": focal_gamma,
+        "rmse_weight": DEFAULT_RMSE_WEIGHT,
+    }
+
+
+def _build_loss_function(loss_config: dict[str, object]) -> LossFunction:
+    loss_name = str(loss_config["loss_name"])
+    focal_alpha = float(loss_config["focal_alpha"])
+    focal_gamma = float(loss_config["focal_gamma"])
+    rmse_weight = float(loss_config["rmse_weight"])
+
+    if loss_name == "dice_rmse":
+        return combined_dice_rmse_loss
+    if loss_name == "focal_rmse":
+        return lambda y_true, y_pred: combined_focal_rmse_loss(
+            y_true,
+            y_pred,
+            alpha=focal_alpha,
+            gamma=focal_gamma,
+            rmse_weight=rmse_weight,
+        )
+    if loss_name == "dice_focal_rmse":
+        return lambda y_true, y_pred: combined_dice_focal_rmse_loss(
+            y_true,
+            y_pred,
+            alpha=focal_alpha,
+            gamma=focal_gamma,
+            rmse_weight=rmse_weight,
+        )
+    raise ValueError(f"Unsupported loss: {loss_name}")
+
+
+def _describe_loss(loss_config: dict[str, object]) -> str:
+    loss_name = str(loss_config["loss_name"])
+    rmse_weight = float(loss_config["rmse_weight"])
+    if loss_name == "dice_rmse":
+        return f"dice + {rmse_weight:g}*rmse"
+    if loss_name == "focal_rmse":
+        return (
+            f"focal(alpha={float(loss_config['focal_alpha']):g}, "
+            f"gamma={float(loss_config['focal_gamma']):g}) + {rmse_weight:g}*rmse"
+        )
+    return (
+        f"dice + focal(alpha={float(loss_config['focal_alpha']):g}, "
+        f"gamma={float(loss_config['focal_gamma']):g}) + {rmse_weight:g}*rmse"
+    )
+
+
 def train_one_epoch(
     model: UNetDeepBlink,
     loader: DataLoader,
     optimizer: torch.optim.Optimizer,
     device: torch.device,
+    loss_fn: LossFunction = combined_dice_rmse_loss,
 ) -> float:
     """Run one training epoch and return average train loss."""
     model.train()
@@ -131,7 +223,7 @@ def train_one_epoch(
 
         optimizer.zero_grad(set_to_none=True)
         preds = model(images)
-        loss = combined_dice_rmse_loss(targets, preds)
+        loss = loss_fn(targets, preds)
         loss.backward()
         optimizer.step()
 
@@ -146,6 +238,7 @@ def validate(
     model: UNetDeepBlink,
     loader: DataLoader,
     device: torch.device,
+    loss_fn: LossFunction = combined_dice_rmse_loss,
 ) -> tuple[float, float, float, float, float, float]:
     """Run validation and return average losses plus cell-level classification metrics."""
     model.eval()
@@ -162,7 +255,7 @@ def validate(
         targets = targets.to(device, non_blocking=True)
 
         preds = model(images)
-        combined = combined_dice_rmse_loss(targets, preds)
+        combined = loss_fn(targets, preds)
         dice = dice_loss(targets, preds)
         rmse = rmse_loss(targets, preds)
         predicted_positive = preds[..., 0] > 0.5
@@ -268,6 +361,9 @@ def run_training(args: argparse.Namespace) -> Path:
     if args.lr <= 0:
         raise ValueError(f"--lr must be > 0, but got {args.lr}")
 
+    loss_config = _build_loss_config(args)
+    loss_fn = _build_loss_function(loss_config)
+
     device = resolve_device(args.device)
     train_loader, valid_loader = build_dataloaders(
         data_path=data_path,
@@ -293,6 +389,10 @@ def run_training(args: argparse.Namespace) -> Path:
         f"Start training | device={device} | data={data_path} | epochs={args.epochs} "
         f"| batch_size={args.batch_size} | lr={args.lr} | cell_size=4"
     )
+    print(
+        f"Selected loss: {loss_config['loss_name']} | "
+        f"composition={_describe_loss(loss_config)}"
+    )
 
     for epoch in range(1, args.epochs + 1):
         train_loss = train_one_epoch(
@@ -300,16 +400,22 @@ def run_training(args: argparse.Namespace) -> Path:
             loader=train_loader,
             optimizer=optimizer,
             device=device,
+            loss_fn=loss_fn,
         )
         val_loss, val_dice_loss, val_rmse_loss, val_precision, val_recall, val_f1 = validate(
             model=model,
             loader=valid_loader,
             device=device,
+            loss_fn=loss_fn,
         )
 
         history.append(
             {
                 "epoch": epoch,
+                "loss_name": loss_config["loss_name"],
+                "focal_alpha": loss_config["focal_alpha"],
+                "focal_gamma": loss_config["focal_gamma"],
+                "rmse_weight": loss_config["rmse_weight"],
                 "train_loss": float(train_loss),
                 "val_loss": float(val_loss),
                 "val_dice_loss": float(val_dice_loss),
@@ -330,6 +436,11 @@ def run_training(args: argparse.Namespace) -> Path:
                     "optimizer_state_dict": optimizer.state_dict(),
                     "best_val_loss": best_val_loss,
                     "cell_size": 4,
+                    "loss_name": loss_config["loss_name"],
+                    "focal_alpha": loss_config["focal_alpha"],
+                    "focal_gamma": loss_config["focal_gamma"],
+                    "rmse_weight": loss_config["rmse_weight"],
+                    "loss_config": loss_config,
                     "args": vars(args),
                 },
                 checkpoint_path,

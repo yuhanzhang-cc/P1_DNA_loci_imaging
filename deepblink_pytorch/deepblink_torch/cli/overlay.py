@@ -221,6 +221,63 @@ def _draw_overlay_axes(ax, image: np.ndarray, coords: np.ndarray) -> None:
     ax.set_axis_off()
 
 
+def _scatter_match_points(
+    ax,
+    coords: np.ndarray,
+    *,
+    label: str,
+    color: str,
+    marker: str,
+) -> None:
+    if len(coords) == 0:
+        return
+    if marker == "o":
+        ax.scatter(
+            coords[:, 1],
+            coords[:, 0],
+            s=32,
+            marker=marker,
+            facecolors="none",
+            edgecolors=color,
+            linewidths=1.2,
+            label=label,
+        )
+    else:
+        ax.scatter(
+            coords[:, 1],
+            coords[:, 0],
+            s=34,
+            marker=marker,
+            c=color,
+            linewidths=1.2,
+            label=label,
+        )
+
+
+def _draw_match_overlay_axes(
+    ax,
+    image: np.ndarray,
+    tp_coords: np.ndarray,
+    fp_coords: np.ndarray,
+    fn_coords: np.ndarray,
+) -> None:
+    ax.imshow(image, cmap="gray", origin="upper")
+    _scatter_match_points(ax, tp_coords, label="TP", color="lime", marker="o")
+    _scatter_match_points(ax, fp_coords, label="FP", color="red", marker="x")
+    _scatter_match_points(ax, fn_coords, label="FN", color="deepskyblue", marker="o")
+    if len(tp_coords) + len(fp_coords) + len(fn_coords) > 0:
+        ax.legend(
+            loc="upper right",
+            frameon=True,
+            facecolor="black",
+            edgecolor="none",
+            framealpha=0.55,
+            fontsize=8,
+            labelcolor="white",
+        )
+    ax.set_axis_off()
+
+
 def _save_overlay_png(
     image: np.ndarray,
     coords: np.ndarray,
@@ -241,6 +298,38 @@ def _save_overlay_png(
         axes[0].set_axis_off()
         _draw_overlay_axes(axes[1], image, coords)
         axes[1].set_title("Prediction")
+    else:
+        raise ValueError(f"Unsupported overlay mode: {mode}")
+
+    fig.subplots_adjust(bottom=0.14)
+    fig.text(0.5, 0.03, footer_text, ha="center", va="bottom", fontsize=8)
+    fig.tight_layout(rect=(0, 0.08, 1, 1), pad=0.2)
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0.02)
+    plt.close(fig)
+
+
+def _save_match_overlay_png(
+    image: np.ndarray,
+    tp_coords: np.ndarray,
+    fp_coords: np.ndarray,
+    fn_coords: np.ndarray,
+    output_path: Path,
+    mode: str,
+    footer_text: str,
+) -> None:
+    _require_matplotlib()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if mode == "single":
+        fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
+        _draw_match_overlay_axes(ax, image, tp_coords, fp_coords, fn_coords)
+    elif mode == "side-by-side":
+        fig, axes = plt.subplots(1, 2, figsize=(10, 5), dpi=150)
+        axes[0].imshow(image, cmap="gray", origin="upper")
+        axes[0].set_title("Image")
+        axes[0].set_axis_off()
+        _draw_match_overlay_axes(axes[1], image, tp_coords, fp_coords, fn_coords)
+        axes[1].set_title("TP / FP / FN")
     else:
         raise ValueError(f"Unsupported overlay mode: {mode}")
 

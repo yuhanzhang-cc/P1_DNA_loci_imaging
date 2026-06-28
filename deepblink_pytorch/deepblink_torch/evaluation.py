@@ -62,6 +62,13 @@ def _nanmedian_or_nan(values: list[float]) -> float:
     return float(np.nanmedian(array))
 
 
+def _trapezoid_integral(y: np.ndarray, x: np.ndarray) -> float:
+    """Integrate with NumPy 1.x/2.x compatibility."""
+    if hasattr(np, "trapezoid"):
+        return float(np.trapezoid(y, x))
+    return float(np.trapz(y, x))
+
+
 def match_coordinates(pred_coords: np.ndarray, true_coords: np.ndarray, radius_px: float) -> MatchResult:
     """Match predicted and true coordinates using a Hungarian assignment.
 
@@ -186,7 +193,7 @@ def f1_curve(
         f1_scores.append(f1)
 
     f1_scores_array = np.asarray(f1_scores, dtype=np.float32)
-    f1_integral = float(np.trapz(f1_scores_array, cutoffs) / float(max_distance_px))
+    f1_integral = _trapezoid_integral(f1_scores_array, cutoffs) / float(max_distance_px)
     return cutoffs, f1_scores_array, f1_integral
 
 
