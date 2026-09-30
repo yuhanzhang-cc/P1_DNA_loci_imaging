@@ -1,0 +1,150 @@
+{
+  "baseline": {
+    "strategy": "baseline_threshold_from_evaluation",
+    "threshold": 0.4,
+    "top_n": "",
+    "max_n": "",
+    "precision": 0.883248730964467,
+    "recall": 0.8169014084507042,
+    "f1": 0.848780487804878,
+    "tp": 174,
+    "fp": 23,
+    "fn": 39,
+    "median_error_px": 0.21028155088424683,
+    "n_images": 12,
+    "n_pred_spots": 197,
+    "mean_pred_per_image": 16.416666666666668,
+    "recall_ceiling": "",
+    "notes": "Baseline threshold read from evaluation summary."
+  },
+  "threshold_best": {
+    "strategy": "threshold_only",
+    "threshold": 0.4,
+    "top_n": "",
+    "max_n": "",
+    "precision": 0.883248730964467,
+    "recall": 0.8169014084507042,
+    "f1": 0.848780487804878,
+    "tp": 174,
+    "fp": 23,
+    "fn": 39,
+    "median_error_px": 0.21028155088424683,
+    "n_images": 12,
+    "n_pred_spots": 197,
+    "mean_pred_per_image": 16.416666666666668,
+    "recall_ceiling": "",
+    "notes": ""
+  },
+  "threshold_precision_constrained": {
+    "strategy": "threshold_only",
+    "threshold": 0.4,
+    "top_n": "",
+    "max_n": "",
+    "precision": 0.883248730964467,
+    "recall": 0.8169014084507042,
+    "f1": 0.848780487804878,
+    "tp": 174,
+    "fp": 23,
+    "fn": 39,
+    "median_error_px": 0.21028155088424683,
+    "n_images": 12,
+    "n_pred_spots": 197,
+    "mean_pred_per_image": 16.416666666666668,
+    "recall_ceiling": "",
+    "notes": ""
+  },
+  "topn_best": {
+    "strategy": "fixed_top_n",
+    "threshold": "",
+    "top_n": 16,
+    "max_n": "",
+    "precision": 0.7916666666666666,
+    "recall": 0.7136150234741784,
+    "f1": 0.7506172839506172,
+    "tp": 152,
+    "fp": 40,
+    "fn": 61,
+    "median_error_px": 0.20821595191955566,
+    "n_images": 12,
+    "n_pred_spots": 192,
+    "mean_pred_per_image": 16.0,
+    "recall_ceiling": 0.878553335209682,
+    "notes": "Uses fixed per-image N; may cap recall for high-count images."
+  },
+  "hybrid_best": {
+    "strategy": "threshold_max_n",
+    "threshold": 0.4,
+    "top_n": "",
+    "max_n": 40,
+    "precision": 0.883248730964467,
+    "recall": 0.8169014084507042,
+    "f1": 0.848780487804878,
+    "tp": 174,
+    "fp": 23,
+    "fn": 39,
+    "median_error_px": 0.21028155088424683,
+    "n_images": 12,
+    "n_pred_spots": 197,
+    "mean_pred_per_image": 16.416666666666668,
+    "recall_ceiling": 1.0,
+    "notes": "Threshold first, then keep at most max_n predictions per image."
+  },
+  "prior_best": {
+    "strategy": "validation_prior_top_n",
+    "threshold": "",
+    "top_n": 17,
+    "max_n": "",
+    "precision": 0.7745098039215687,
+    "recall": 0.7417840375586855,
+    "f1": 0.7577937649880098,
+    "tp": 158,
+    "fp": 46,
+    "fn": 55,
+    "median_error_px": 0.20765012502670288,
+    "n_images": 12,
+    "n_pred_spots": 204,
+    "mean_pred_per_image": 17.0,
+    "recall_ceiling": 0.9022129186602871,
+    "notes": "Top-N from train/valid count prior: median."
+  },
+  "diagnostics": {
+    "event_counts": {
+      "TP": 174,
+      "FP": 23,
+      "FN": 39
+    },
+    "confidence_medians": {
+      "TP": 0.9999277591705322,
+      "FP": 0.9795525670051575,
+      "FN": NaN
+    },
+    "zscore_medians": {
+      "TP": 3.709104061126709,
+      "FP": 2.6156558990478516,
+      "FN": 1.6473419666290283
+    },
+    "contrast_medians": {
+      "TP": 1383.7734375,
+      "FP": 171.1995391845703,
+      "FN": 521.18603515625
+    },
+    "sharpness_medians": {
+      "TP": 1882.766357421875,
+      "FP": 344.5124816894531,
+      "FN": 974.1611328125
+    },
+    "fp_conf_lower": false,
+    "fn_low_z": true,
+    "fp_high_intensity_low_sharpness": false,
+    "recommendation": "Do not change the default inference strategy yet; use dice_rmse + current threshold sweep as default, and move to hard-negative mining / augmentation / context-aware model modification."
+  },
+  "ppt_outputs": {
+    "summary_figure": "figures_ppt/error_context_summary.png",
+    "confidence_scatter": "figures_ppt/confidence_localz_scatter.png",
+    "feature_distributions": "figures_ppt/tp_fp_fn_feature_distributions.png",
+    "postprocess_summary": "figures_ppt/postprocess_ablation_summary.png",
+    "patch_montage": "figures_ppt/patch_montage.png",
+    "takeaways": "ppt_takeaways.md",
+    "hard_examples": "hard_examples.csv"
+  }
+}
