@@ -34,3 +34,6 @@ deepBlink/
 deepBlink_reference/ 
 *.npz
 *.pt
+
+FOCI
+FOCI.zip

@@ -1,0 +1,14 @@
+date=2026-10-15
+source_path=/Users/mac/Developer/P1_DNA_loci_imaging/FOCI/250318-centromere-transfection/centromere plasmid transfection-006.nd2
+source_file_name=centromere plasmid transfection-006.nd2
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_208.tif
+raw_csv_name=sample_208.csv
+raw_png_name=sample_208.png
+x_pixel=256
+y_pixel=256
+micron_per_pixel_x=0.16
+micron_per_pixel_y=0.16
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_208.xml
