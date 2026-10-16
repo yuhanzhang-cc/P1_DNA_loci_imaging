@@ -1,0 +1,14 @@
+date=2026-10-16
+source_path=/Users/mac/Developer/P1_DNA_loci_imaging/FOCI/260108-confocal-TRF2/500.500-AF488-3.nd2
+source_file_name=500.500-AF488-3.nd2
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_280.tif
+raw_csv_name=sample_280.csv
+raw_png_name=sample_280.png
+x_pixel=512
+y_pixel=512
+micron_per_pixel_x=0.2072
+micron_per_pixel_y=0.2072
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_280.xml

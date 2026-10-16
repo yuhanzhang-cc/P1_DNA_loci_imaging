@@ -1,0 +1,14 @@
+date=2026-10-16
+source_path=/Users/mac/Developer/P1_DNA_loci_imaging/FOCI/250725/RNAtelomere_transfection008.nd2
+source_file_name=RNAtelomere_transfection008.nd2
+frame=1
+z_axis=0
+channel=1
+raw_tif_name=sample_270.tif
+raw_csv_name=sample_270.csv
+raw_png_name=sample_270.png
+x_pixel=256
+y_pixel=256
+micron_per_pixel_x=0.2667
+micron_per_pixel_y=0.2667
+xml_path=/Users/mac/Developer/P1_DNA_loci_imaging/data/raw/logs/trackmate_xml/sample_270.xml
