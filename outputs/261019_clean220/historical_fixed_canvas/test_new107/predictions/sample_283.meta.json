@@ -1,0 +1,6 @@
+{
+  "csv_file_name": "sample_283.csv",
+  "image_file_name": "sample_283.tif",
+  "model_file_name": "weights_fixed_canvas.pt",
+  "output_unit": "px"
+}

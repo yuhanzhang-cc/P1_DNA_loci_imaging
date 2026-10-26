@@ -1,0 +1,54 @@
+{
+  "n_images": 220,
+  "n_points": 5076,
+  "excluded": [
+    "sample_230",
+    "sample_286"
+  ],
+  "split_seed": 20261024,
+  "split_method": "pooled random image split; origin not used; all source groups unique",
+  "raw_hashes_verified": 440,
+  "splits": {
+    "train": {
+      "images": 176,
+      "points": 4156,
+      "sizes": {
+        "512": 103,
+        "256": 73
+      }
+    },
+    "valid": {
+      "images": 22,
+      "points": 372,
+      "sizes": {
+        "512": 15,
+        "256": 7
+      }
+    },
+    "test": {
+      "images": 22,
+      "points": 548,
+      "sizes": {
+        "512": 15,
+        "256": 7
+      }
+    }
+  },
+  "grid_collisions": [
+    {
+      "sample_id": "sample_277",
+      "subset": "train",
+      "grid_collision_loss": "1"
+    },
+    {
+      "sample_id": "sample_281",
+      "subset": "train",
+      "grid_collision_loss": "1"
+    },
+    {
+      "sample_id": "sample_282",
+      "subset": "train",
+      "grid_collision_loss": "4"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "protocol_id": "pooled220_methods_v2",
+  "args": {
+    "data": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\261024_clean220_random\\dna_clean220_random.npz",
+    "amp": true,
+    "development_only": true,
+    "channels_last": true,
+    "seed": 42,
+    "threads": 4,
+    "epochs": 100,
+    "batch_size": 8,
+    "lr": 0.001,
+    "device": "xpu",
+    "checkpoint": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v2\\02_architecture\\deeploci_evidence\\seed_42\\best_model.pt",
+    "loss": "dice_rmse",
+    "model": "deeploci_evidence",
+    "focal_alpha": 0.25,
+    "focal_gamma": 2.0
+  },
+  "n_train": 176,
+  "n_valid": 22,
+  "updates_per_epoch": 22,
+  "total_updates": 2200,
+  "role": "core_hypothesis",
+  "test_evaluated": false
+}

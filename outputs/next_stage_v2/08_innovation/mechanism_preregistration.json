@@ -1,0 +1,18 @@
+{
+  "weak_truth_local_zscore_q25": 2.4566830772038957,
+  "cutoff_source": "176 training images, finite truth-centered 21x21 patches",
+  "n_training_truth": 4156,
+  "off_peak_fp_cutoff_px": 3.0,
+  "point_radius_px": 3.0,
+  "patch_radius_px": 10,
+  "primary": "validation point micro F1 at registered validation threshold",
+  "mechanism": [
+    "off_peak_annotation_relative_fp_count",
+    "weak_truth_recall",
+    "annotation_relative_fp_with_probability_gt_0_9"
+  ],
+  "falsification": "No F1 gain, unchanged target errors, or weak recall tradeoff; compare simple head and center-fixed ablation",
+  "no_claim_of_background_segmentation_ground_truth": true,
+  "human_blinded_review_status": "pending",
+  "test_evaluated": false
+}

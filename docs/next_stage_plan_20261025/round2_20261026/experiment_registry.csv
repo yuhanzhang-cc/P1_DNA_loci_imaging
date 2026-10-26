@@ -1,0 +1,9 @@
+study_id,role,status,protocol,training_tasks_max,seeds,depends_on,planned_output,notes
+R2_AUDIT,development_QC,partly_complete_review_and_shift_audit_pending,pooled220_methods_v3_proposed,0,deterministic,,outputs/next_stage_v3/00_audit,Existing validation threshold frontier saved in evidence_snapshot.json; blinded annotation review not completed
+R2_R0,paired_reference,proposed_not_run,pooled220_methods_v3_proposed,1,42,R2_AUDIT,outputs/next_stage_v3/01_screen/R0,New sampler and checkpoint rule require a new baseline; old weights are historical evidence
+R2_H0,strong_dense_reference,proposed_not_run,pooled220_methods_v3_proposed,1,42,R2_AUDIT,outputs/next_stage_v3/01_screen/H0,Full resolution heatmap offset; representation and supervision change; not core novelty
+R2_R1,primary_core_hypothesis,proposed_not_run,pooled220_methods_v3_proposed,1,42,R2_R0,outputs/next_stage_v3/01_screen/R1,Detail route with position selection; no new auxiliary supervision
+R2_S1,simple_mechanism_control,proposed_not_run,pooled220_methods_v3_proposed,1,42,R2_R0,outputs/next_stage_v3/01_screen/S1,Same detail inputs and supervision; plain position preserving projection
+R2_R2,conditional_core_hypothesis,conditional_not_run,pooled220_methods_v3_proposed,1,42,R2_R1|R2_S1,outputs/next_stage_v3/01_screen/R2,Only with documented remaining context question; no R1 R2 combination
+R2_S2,conditional_mechanism_control,conditional_not_run,pooled220_methods_v3_proposed,1,42,R2_R2,outputs/next_stage_v3/01_screen/S2,Same context branches; fixed equal scale weights and active projection
+R2_REPEAT,one_route_seed_extension,conditional_not_run,pooled220_methods_v3_proposed,6,43|44,one_eligible_route,outputs/next_stage_v3/02_repeat,R0 full route and corresponding simple control; at most six additional runs

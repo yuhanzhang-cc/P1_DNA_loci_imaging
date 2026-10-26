@@ -16,6 +16,10 @@ from deepblink_torch import get_coordinate_list
 from deepblink_torch.data_protocol import next_power
 from ..utils.pixel_size import PixelSize
 from ..utils.pixel_size import read_pixel_size_or_default
+from ..preprocessing import prepare_image
+from ..networks.evidence import UNetDeepLociEvidence, UNetDeepLociLocal
+from ..networks.feature_evidence import UNetDeepLociFeatureEvidence
+from ..networks.masked_se import UNetDeepBlinkMaskedSE
 
 try:
     import tifffile
@@ -26,7 +30,8 @@ else:
     TIFF_IMPORT_ERROR = None
 
 IMAGE_EXTENSIONS = (".tif", ".tiff")
-MODEL_CHOICES = ("deepblink", "deeploci_context")
+MODEL_CHOICES = ("deepblink", "deeploci_context", "deeploci_evidence", "deeploci_local",
+                 "deeploci_feature_evidence", "deepblink_masked_se")
 
 
 def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -52,7 +57,7 @@ def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentP
         "--device",
         type=str,
         default="cuda",
-        choices=["cuda", "cpu"],
+        choices=["cuda", "cpu", "xpu"],
         help="Inference device.",
     )
     parser.add_argument(
@@ -74,6 +79,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def resolve_device(requested: str) -> torch.device:
     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
+    if requested == "xpu" and not torch.xpu.is_available():
+        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
     if requested == "cuda" and not torch.cuda.is_available():
         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
         return torch.device("cpu")
@@ -167,6 +174,14 @@ def _build_model_for_checkpoint(
         return UNetDeepBlink(cell_size=cell_size).to(device)
     if model_name == "deeploci_context":
         return UNetDeepLociContext(cell_size=cell_size).to(device)
+    if model_name == "deeploci_evidence":
+        return UNetDeepLociEvidence(cell_size=cell_size).to(device)
+    if model_name == "deeploci_local":
+        return UNetDeepLociLocal(cell_size=cell_size).to(device)
+    if model_name == "deeploci_feature_evidence":
+        return UNetDeepLociFeatureEvidence(cell_size=cell_size).to(device)
+    if model_name == "deepblink_masked_se":
+        return UNetDeepBlinkMaskedSE(cell_size=cell_size).to(device)
     raise ValueError(f"Unsupported checkpoint model_name={model_name!r}.")
 
 
@@ -185,7 +200,16 @@ def _load_model(checkpoint_path: Path, device: torch.device) -> tuple[torch.nn.M
     else:
         model.load_state_dict(checkpoint)
     model.eval()
+    model.input_size = checkpoint.get("input_size") if isinstance(checkpoint, dict) else None
     return model, cell_size
+
+
+def _forward_with_geometry(model, tensor, orig_h, orig_w):
+    if getattr(model, "requires_valid_mask", False):
+        mask = torch.zeros_like(tensor)
+        mask[..., :orig_h, :orig_w] = 1
+        return model(tensor, valid_mask=mask)
+    return model(tensor)
 
 
 def _coords_with_probabilities(
@@ -206,6 +230,19 @@ def _coords_with_probabilities(
         cell_c = min(max_c, int(np.floor(c)) // cell_size)
         result[idx, 2] = pred_matrix[cell_r, cell_c, 0]
     return result
+
+
+def _decode_with_scores(pred_matrix, *, cell_size, probability, orig_h, orig_w):
+    """Keep source grid scores when offsets round to a neighboring boundary.
+
+    A coordinate alone cannot distinguish offset=1 in one cell from offset=0
+    in its neighbor. Preserve the selected cell indices through decoding.
+    """
+    rows, cols = np.nonzero(pred_matrix[..., 0] > probability)
+    coords = (np.column_stack([rows, cols]) + pred_matrix[rows, cols, 1:]) * cell_size
+    scores = pred_matrix[rows, cols, 0]
+    inside = ((coords >= 0).all(axis=1) & (coords[:, 0] < orig_h) & (coords[:, 1] < orig_w))
+    return np.column_stack([coords[inside], scores[inside]]).astype(np.float32)
 
 
 def _convert_output_unit(coords_with_p: np.ndarray, pixel_size: PixelSize) -> np.ndarray:
@@ -272,18 +309,15 @@ def run_predict(args: argparse.Namespace) -> None:
 
     for file_path in image_files:
         image = _read_image(file_path)
-        image = _normalize_image(image)
-        padded, (orig_h, orig_w) = _pad_to_square_power2(image)
+        orig_h, orig_w = image.shape
+        padded = prepare_image(image, getattr(model, "input_size", None))
 
         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
         with torch.no_grad():
-            pred = model(tensor).squeeze(0).detach().cpu().numpy()
+            pred = _forward_with_geometry(model, tensor, orig_h, orig_w).squeeze(0).detach().cpu().numpy()
 
-        coords = get_coordinate_list(pred, cell_size=cell_size, probability=args.probability)
-        if len(coords) > 0:
-            in_bounds = (coords[:, 0] < orig_h) & (coords[:, 1] < orig_w)
-            coords = coords[in_bounds]
-        coords_with_p = _coords_with_probabilities(pred, coords, cell_size=cell_size)
+        coords_with_p = _decode_with_scores(pred, cell_size=cell_size, probability=args.probability,
+                                            orig_h=orig_h, orig_w=orig_w)
         if args.output_unit == "micron":
             pixel_size = read_pixel_size_or_default(file_path)
             coords_with_p = _convert_output_unit(coords_with_p, pixel_size)

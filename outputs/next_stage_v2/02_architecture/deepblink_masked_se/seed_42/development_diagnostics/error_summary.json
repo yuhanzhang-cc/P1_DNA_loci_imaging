@@ -1,0 +1,37 @@
+{
+  "n_validation_images": 22,
+  "threshold": 0.025,
+  "weak_truth_count": 96,
+  "weak_truth_tp": 51,
+  "weak_truth_recall": 0.53125,
+  "off_peak_fp_count": 24,
+  "high_confidence_fp_count": 28,
+  "test_evaluated": false,
+  "human_blinded_review_status": "pending",
+  "events": {
+    "TP": {
+      "count": 309,
+      "medians": {
+        "local_zscore": 3.770633543099481,
+        "peak_offset_px": 0.9148511104517716,
+        "peak_component_size_px": 39.0
+      }
+    },
+    "FP": {
+      "count": 77,
+      "medians": {
+        "local_zscore": 2.9151169043583276,
+        "peak_offset_px": 1.197568238747842,
+        "peak_component_size_px": 33.0
+      }
+    },
+    "FN": {
+      "count": 63,
+      "medians": {
+        "local_zscore": 1.647341912303205,
+        "peak_offset_px": 4.999969482421875,
+        "peak_component_size_px": 40.0
+      }
+    }
+  }
+}

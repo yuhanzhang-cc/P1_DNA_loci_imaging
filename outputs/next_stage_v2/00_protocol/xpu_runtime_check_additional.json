@@ -1,0 +1,32 @@
+[
+  {
+    "model": "deeploci_feature_evidence",
+    "loss": 1.7402070760726929,
+    "parameters": 1263660,
+    "full_batch_shape": [
+      8,
+      1,
+      512,
+      512
+    ],
+    "backward_finite": true,
+    "seconds_including_first_compile": 6.6602703999960795,
+    "amp": "bfloat16",
+    "evidence_sampling_precision": "float32"
+  },
+  {
+    "model": "deepblink_masked_se",
+    "loss": 1.7363218069076538,
+    "parameters": 1258723,
+    "full_batch_shape": [
+      8,
+      1,
+      512,
+      512
+    ],
+    "backward_finite": true,
+    "seconds_including_first_compile": 1.4944359000073746,
+    "amp": "bfloat16",
+    "evidence_sampling_precision": "float32"
+  }
+]

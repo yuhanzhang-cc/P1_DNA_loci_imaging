@@ -1,0 +1,7 @@
+{
+  "torch": "2.11.0+cpu",
+  "device": "cpu",
+  "input_size": 512,
+  "cell_size": 4,
+  "shared_environment_unchanged": true
+}

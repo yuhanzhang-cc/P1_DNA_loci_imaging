@@ -261,6 +261,10 @@ def _load_samples(
         sample_id = str(sample_ids[index])
         image_name = str(image_names[index])
         image = np.asarray(images[index], dtype=np.float32)
+        shapes = data.get(_subset_key(subset, "original_shape"))
+        if shapes is not None:
+            height, width = map(int, shapes[index])
+            image = image[:height, :width]
         if images_dir is not None:
             image_file = _find_image_file(images_dir, image_name, sample_id)
             if image_file is not None:
@@ -307,11 +311,11 @@ def _run_dense_inference(
     model, cell_size = predict_cli._load_model(model_path, device)
     predictions: list[SamplePrediction] = []
     for sample in samples:
-        normalized = predict_cli._normalize_image(sample.image)
-        padded, (orig_h, orig_w) = predict_cli._pad_to_square_power2(normalized)
+        orig_h, orig_w = sample.image.shape
+        padded = predict_cli.prepare_image(sample.image, getattr(model, "input_size", None))
         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
         with torch.no_grad():
-            pred_matrix = model(tensor).squeeze(0).detach().cpu().numpy()
+            pred_matrix = predict_cli._forward_with_geometry(model, tensor, orig_h, orig_w).squeeze(0).detach().cpu().numpy()
         predictions.append(
             SamplePrediction(
                 sample=sample,

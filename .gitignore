@@ -37,3 +37,30 @@ deepBlink_reference/
 
 FOCI
 FOCI.zip
+
+# Frozen clean220 checkpoints and prediction grids (not image archives).
+!outputs/261019_clean220/seed_4[234]/best_model.pt
+!outputs/261019_clean220/recommended_model.pt
+!outputs/261019_clean220/historical_fixed_canvas/weights_fixed_canvas.pt
+!outputs/261024_clean220_random/seed_4[234]/best_model.pt
+!outputs/261024_clean220_random/selected_model.pt
+!outputs/261025_clean220_control/seed_4[234]/best_model.pt
+!outputs/261025_clean220_control/selected_control_model.pt
+!outputs/next_stage_v2/02_architecture/*/seed_42/best_model.pt
+!outputs/next_stage_v2/02_architecture/*/seed_42/validation_v2/prediction_grids.npz
+!outputs/next_stage_v2/00_protocol/reference_seed_4[234]/prediction_grids.npz
+
+# Rebuildable image previews and local process state stay outside the release.
+outputs/261019_clean220/**/overlays/
+outputs/261019_clean220/**/match_overlays/
+outputs/261019_clean220/review_overlays/
+outputs/261024_clean220_random/**/overlays/
+outputs/261024_clean220_random/**/match_overlays/
+outputs/261025_clean220_control/**/overlays/
+outputs/261025_clean220_control/**/match_overlays/
+outputs/next_stage_v2/**/development_patches.png
+outputs/next_stage_v2/execution_pid.txt
+outputs/261025_clean220_control/training_pid.json
+
+# Local application documents are outside the training/model package.
+/docs/*.doc

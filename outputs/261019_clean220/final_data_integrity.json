@@ -1,0 +1,25 @@
+{
+  "raw_hash_mismatches": [],
+  "raw_files_checked": 440,
+  "split_counts": {
+    "train": {
+      "images": 166,
+      "points": 3831
+    },
+    "valid": {
+      "images": 22,
+      "points": 566
+    },
+    "test": {
+      "images": 32,
+      "points": 679
+    }
+  },
+  "archive_counts": {
+    "train": 166,
+    "valid": 22,
+    "test": 32
+  },
+  "train_ratio": 0.7545454502105713,
+  "input_size": 512
+}

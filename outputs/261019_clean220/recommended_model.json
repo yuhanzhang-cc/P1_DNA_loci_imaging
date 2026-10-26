@@ -1,0 +1,10 @@
+{
+  "selected_seed": "seed_42",
+  "epoch": 71,
+  "validation_loss": 0.5980949600537618,
+  "probability": 0.55,
+  "input_size": 512,
+  "model": "UNetDeepBlink",
+  "parameter_count": 1258723,
+  "inference_note": "Pass --probability explicitly; checkpoint stores calibrated_probability for provenance."
+}

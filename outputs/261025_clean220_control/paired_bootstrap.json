@@ -1,0 +1,13 @@
+{
+  "delta_mean_micro_f1": 0.12768234282891644,
+  "percentile_95_ci": [
+    0.0704422250095132,
+    0.18577667210886492
+  ],
+  "n_resamples": 10000,
+  "seed": 20261025,
+  "n_images": 22,
+  "n_fixed_training_seeds": 3,
+  "method": "paired image-cluster percentile bootstrap; shared image resamples across seeds and arms",
+  "limitation": "Conditional on trained models and one already observed split; image exchangeability assumed, biological/batch independence not established; no p-value."
+}

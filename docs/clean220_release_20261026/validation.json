@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-26",
+  "scope": "archive_precommit_validation",
+  "python": "3.12.13",
+  "torch": "2.11.0+cpu",
+  "targeted_tests_passed": 48,
+  "full_legacy_suite_run": false,
+  "checkpoint_cpu_load_and_finite_state_checks": [
+    {
+      "path": "outputs/261019_clean220/historical_fixed_canvas/weights_fixed_canvas.pt",
+      "model_name": "deepblink",
+      "epoch": 83,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261019_clean220/recommended_model.pt",
+      "model_name": "deepblink",
+      "epoch": 71,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261019_clean220/seed_42/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 71,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261019_clean220/seed_43/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 75,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261019_clean220/seed_44/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 85,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261024_clean220_random/seed_42/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 94,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261024_clean220_random/seed_43/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 85,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261024_clean220_random/seed_44/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 98,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261024_clean220_random/selected_model.pt",
+      "model_name": "deepblink",
+      "epoch": 94,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261025_clean220_control/seed_42/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 83,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261025_clean220_control/seed_43/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 37,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261025_clean220_control/seed_44/best_model.pt",
+      "model_name": "deepblink",
+      "epoch": 71,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/261025_clean220_control/selected_control_model.pt",
+      "model_name": "deepblink",
+      "epoch": 71,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deepblink_masked_se/seed_42/best_model.pt",
+      "model_name": "deepblink_masked_se",
+      "epoch": 87,
+      "input_size": 512,
+      "state_entries": 72,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_evidence/seed_42/best_model.pt",
+      "model_name": "deeploci_evidence",
+      "epoch": 81,
+      "input_size": 512,
+      "state_entries": 79,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_feature_evidence/seed_42/best_model.pt",
+      "model_name": "deeploci_feature_evidence",
+      "epoch": 98,
+      "input_size": 512,
+      "state_entries": 83,
+      "finite_model_state": true
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_local/seed_42/best_model.pt",
+      "model_name": "deeploci_local",
+      "epoch": 52,
+      "input_size": 512,
+      "state_entries": 76,
+      "finite_model_state": true
+    }
+  ],
+  "validation_prediction_grid_checks": [
+    {
+      "path": "outputs/next_stage_v2/00_protocol/reference_seed_42/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/00_protocol/reference_seed_43/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/00_protocol/reference_seed_44/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deepblink_masked_se/seed_42/validation_v2/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_evidence/seed_42/validation_v2/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_feature_evidence/seed_42/validation_v2/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    },
+    {
+      "path": "outputs/next_stage_v2/02_architecture/deeploci_local/seed_42/validation_v2/prediction_grids.npz",
+      "arrays": [
+        "grids",
+        "sample_id",
+        "original_shape"
+      ],
+      "validation_images": 22,
+      "finite": true,
+      "raw_images_included": false
+    }
+  ],
+  "models_or_predictions_recomputed": false,
+  "new_training": false,
+  "new_raw_data_staged": false,
+  "strong_secret_pattern_scan": "no matches in selected text files",
+  "artifact_checksum_files_verified": 2332,
+  "artifact_checksum_failures": 0,
+  "markdown_local_links_checked": 77,
+  "selected_files": 2397,
+  "largest_selected_file_bytes": 15422465,
+  "frozen_artifact_hashes_verified_in_git_index": 2332,
+  "source_and_documentation_git_diff_check": "passed",
+  "frozen_artifact_line_endings": "byte_preserved_with_cr_at_eol_whitespace_rule",
+  "frozen_output_whitespace_findings": 1146,
+  "frozen_output_whitespace_note": "Historical patch context, logs and source bytes are retained; source and documentation checks pass separately."
+}

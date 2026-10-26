@@ -1,0 +1,4 @@
+match_status,pred_index,true_index,pred_y_px,pred_x_px,pred_p,true_y_px,true_x_px,distance_px
+fn,,0,,,,362.9999084472656,323.2499084472656,
+fn,,1,,,,287.99993896484375,250.99993896484375,
+fn,,2,,,,337.4999084472656,313.2499084472656,

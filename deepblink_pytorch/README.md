@@ -70,3 +70,83 @@ You can also run training directly:
 ```bash
 python train.py --data ./dataset.npz --epochs 50 --batch-size 16 --lr 1e-3 --device cuda
 ```
+
+## Mixed-size clean220 experiment
+
+The current version-training protocol pools all 220 samples before a new random
+176/22/22 split, without using old/new origin to assign subsets. From the repo
+root run `python deepblink_pytorch/scripts/run_clean220_random.py` in the isolated
+XPU environment. The output is `outputs/261024_clean220_random/`. All three seeds
+train from scratch on the same frozen split. Checkpoints and thresholds are
+selected on validation before testing. Historical113 scores retain their own
+original test split and are not a matched-test estimate of data-size effects.
+Use `--prepare-only` to inspect the new manifest before training.
+
+For a same-holdout data-expansion comparison, run
+`python deepblink_pytorch/scripts/run_clean220_control.py` in that same isolated
+XPU environment. It trains only the 89 original-batch images within the frozen
+176-image training split and reuses the completed 176-image arm after checking
+input hashes, core-code hashes and training arguments. Both arms share the exact
+22-image validation and 22-image test arrays, three seeds and 100-epoch recipe.
+The output is `outputs/261025_clean220_control/`. The primary endpoint is the
+mean paired-seed micro-F1 difference, with a paired image bootstrap interval.
+Equal epochs mean different optimizer-update counts (1200 versus 2200). The
+test was already observed; this is an internal controlled comparison, not a new
+blind test or a pure sample-count experiment. `--prepare-only` audits without
+starting training; partial runs require investigation before restarting.
+
+The earlier protocol below is retained for historical reproducibility:
+
+From the repository root, run `python deepblink_pytorch/scripts/run_clean220.py`.
+This audits 220 paired samples, excludes `sample_230` and `sample_286`, preserves
+the old113 split, and freezes a size-stratified new107 split before training.
+The output is `outputs/261019_clean220/`; raw images and CSVs are never changed.
+Use `--prepare-only` to audit and create the archives without training.
+
+The new archive stores original image shapes and a fixed `input_size=512`.
+Images are normalized using original pixels, then zero-padded on the right and
+bottom. Pixel coordinates are unchanged. Artificial cells use occupancy `-1`
+and are excluded from all training losses and validation classification metrics.
+Original, unencoded coordinates remain the evaluation truth, including grid
+collisions. TrackMate descriptor rows distinguish pixel from micron CSVs.
+
+New checkpoints store the input size so prediction and evaluation use the same
+preprocessing and discard coordinates outside the original image. Checkpoints
+without that metadata retain the legacy native-size/reflect-padding behavior.
+`create --input-size 512 --exclude-samples sample_230,sample_286
+--split-manifest frozen_split.csv` exposes the preparation options independently.
+
+The experiment trains three seeds for 100 epochs, selects checkpoints by minimum
+validation loss, and locks thresholds on validation before testing. Old12 and
+new20 test results are reported separately. The frozen historical checkpoint is
+evaluated on the same held-out images for comparison. Historical test results
+are regression checks because they were used in earlier development.
+
+`--device xpu` supports Intel GPUs when an XPU PyTorch build is installed.
+The optional `requirements-xpu.txt` is for an isolated environment; do not
+replace the team's shared environment. The experiment runner auto-selects an
+available CUDA/XPU device, otherwise CPU. Training progress CSVs are written
+after every epoch, and completed seeds are not trained again on rerun.
+
+## Frozen clean220 delivery and first architecture screen
+
+See [the clean220 release index](../docs/clean220_release_20261026/README.md)
+for checkpoint locations, artifact hashes, inference and archive reconstruction.
+The pooled220 three-seed model and the old89 matched-holdout control are complete.
+The subsequent v2 screen uses train/validation only and four 100-epoch seed42
+prototypes: geometric masked-SE, a local occupancy head, radial image evidence
+and learned feature evidence. None exceeds the same-seed DeepBlink reference
+under the registered v2 validation calibration. These are retained negative
+results, not a completed architecture contribution or a new test-set benchmark.
+
+The v2 runner is `scripts/optimize_v2.py`; `--development-only` in the train CLI
+loads no test arrays. Prediction/evaluation load prototype types from checkpoint
+metadata and apply geometry-only masks when required. The point matcher maximizes
+the number of in-radius matches before minimizing distance, and decoding retains
+the source cell's probability at offset boundaries. The release keeps legacy
+reports unchanged and labels their evaluation rules separately.
+
+Checkpoint metadata does not override the prediction CLI's default probability.
+Pass the intended calibrated `--probability` explicitly. Future v3 selection,
+detail-routing and adaptive-context designs are scope documents only; their
+proposed runner and networks are not part of this release.

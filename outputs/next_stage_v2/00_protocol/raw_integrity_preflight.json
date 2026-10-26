@@ -1,0 +1,9 @@
+{
+  "raw_hashes_verified": 440,
+  "n_pairs": 220,
+  "excluded": [
+    "sample_230",
+    "sample_286"
+  ],
+  "status": "passed"
+}

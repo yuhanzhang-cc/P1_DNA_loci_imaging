@@ -1,0 +1,6 @@
+{
+  "probability": 0.8,
+  "selected_on": "valid",
+  "rule": "validation F1 with precision >= validation precision at p=0.5",
+  "locked_before_test": true
+}

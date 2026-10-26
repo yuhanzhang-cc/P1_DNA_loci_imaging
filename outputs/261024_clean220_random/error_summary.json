@@ -1,0 +1,21 @@
+{
+  "TP": {
+    "n": 429,
+    "median_local_zscore": 3.6464110220123485,
+    "median_peak_offset_px": 0.8910012648998155,
+    "median_probability": 0.9999895095825195
+  },
+  "FP": {
+    "n": 86,
+    "median_local_zscore": 2.466637723476272,
+    "median_peak_offset_px": 1.738819538106619,
+    "median_probability": 0.999477744102478
+  },
+  "FN": {
+    "n": 119,
+    "median_local_zscore": 2.1403392799419994,
+    "median_peak_offset_px": 6.708210756451172,
+    "median_probability": null
+  },
+  "interpretation": "Posthoc descriptive analysis only; TP/FP patches centered on prediction, FN on truth; no causal or biological identity inference."
+}

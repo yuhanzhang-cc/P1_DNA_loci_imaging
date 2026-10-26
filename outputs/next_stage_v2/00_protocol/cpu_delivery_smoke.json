@@ -1,0 +1,82 @@
+[
+  {
+    "model": "deepblink",
+    "sample_id": "sample_207",
+    "original_size": 256,
+    "n_predictions": 10,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deepblink",
+    "sample_id": "sample_111",
+    "original_size": 512,
+    "n_predictions": 25,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_evidence",
+    "sample_id": "sample_207",
+    "original_size": 256,
+    "n_predictions": 10,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_evidence",
+    "sample_id": "sample_111",
+    "original_size": 512,
+    "n_predictions": 27,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_local",
+    "sample_id": "sample_207",
+    "original_size": 256,
+    "n_predictions": 10,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_local",
+    "sample_id": "sample_111",
+    "original_size": 512,
+    "n_predictions": 26,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_feature_evidence",
+    "sample_id": "sample_207",
+    "original_size": 256,
+    "n_predictions": 11,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deeploci_feature_evidence",
+    "sample_id": "sample_111",
+    "original_size": 512,
+    "n_predictions": 26,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deepblink_masked_se",
+    "sample_id": "sample_207",
+    "original_size": 256,
+    "n_predictions": 7,
+    "finite": true,
+    "in_bounds": true
+  },
+  {
+    "model": "deepblink_masked_se",
+    "sample_id": "sample_111",
+    "original_size": 512,
+    "n_predictions": 28,
+    "finite": true,
+    "in_bounds": true
+  }
+]

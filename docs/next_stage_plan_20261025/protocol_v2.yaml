@@ -1,0 +1,211 @@
+# Planning specification only. No training or evaluation is launched by this file.
+plan_date: '2026-10-25'
+plan_revision: '2.1_architecture_innovation_first'
+plan_status: initial_development_screen_complete_no_core_gain
+protocol_id: pooled220_methods_v2
+protocol_lock_status: locked_for_initial_development_screen
+execution_authorized_by_this_file: false
+execution_authorization_source: user_request_to_begin_optimization
+execution_record: docs/next_stage_plan_20261025/execution.md
+completed_screening_trials: 4
+core_architecture_gain_established: false
+
+stage_order:
+  - scope_00_protocol_and_reference
+  - scope_08_problem_and_innovation_gate
+  - scope_02_core_architecture_prototype
+  - scope_01_architecture_specific_training_optimization
+  - scope_03_fair_baselines
+  - scope_04_core_mechanism_ablation
+  - scope_05_generalization_and_statistics
+  - scope_06_claims_and_delivery
+
+innovation:
+  research_route: architecture_method
+  current_core_novelty_status: unconfirmed
+  substantive_effective_structural_change_required: true
+  diagnostic_modules_are_not_automatically_core_contributions: true
+  do_not_transfer_data_gain_to_architecture_claim: true
+  related_work_matrix_and_design_card_required: true
+  valid_training_signal_without_assumed_extra_labels_required: true
+  falsifiable_mechanism_and_simple_alternative_controls_required: true
+  auxiliary_objective_and_structural_effects_separately_controlled: true
+  same_data_training_and_calibration_attribution_required: true
+  no_structural_gain_outcome: core_architecture_goal_not_established
+  baseline_only_or_tuning_only_cannot_complete_this_route: true
+  first_core_hypothesis: structured_background_and_point_evidence_interaction_pending_prior_art_and_design
+
+data:
+  pairs: 220
+  truth_points: 5076
+  excluded_samples: [sample_230, sample_286]
+  preserve_raw_files: true
+  split_manifest: outputs/261024_clean220_random/frozen_split.csv
+  split_seed: 20261024
+  train_images: 176
+  validation_images: 22
+  internal_test_images: 22
+  split_by_old_new_origin: false
+  internal_test_status: previously_observed_internal_benchmark
+  development_images_total: 198
+  biological_group_independence: unknown_requires_metadata_review
+  independent_test_status: not_yet_available_or_verified
+
+coordinate_protocol:
+  order: y_x
+  unit: original_image_pixels
+  match_radius_px: 3.0
+  radius_sensitivity_px: [1.0, 2.0, 3.0]
+  retain_unencoded_truth: true
+  remove_padded_region_predictions: true
+  physical_unit_metrics: calibrated_subset_only
+
+internal_model_preprocessing:
+  canvas_size: 512
+  normalization: zero_mean_unit_std_on_original_valid_pixels
+  padding: constant_zero_right_bottom
+  coordinate_scaling: none
+  invalid_occupancy_label: -1
+  augmentation_order: transform_original_image_coordinates_and_mask_then_pad
+
+selection:
+  within_internal_run_checkpoint: minimum_native_validation_objective
+  external_checkpoint_rule: official_validation_rule_declared_before_training
+  across_candidate_configs: validation_point_micro_f1
+  never_compare_raw_loss_between_methods: true
+  main_table_seed_policy: all_three_seeds_mean_and_sample_sd
+  representative_delivery_seed: highest_validation_point_micro_f1
+  test_used_for_selection: false
+
+calibration:
+  split: validation_only
+  global_per_model_threshold: true
+  objective: maximum_validation_point_micro_f1
+  tie_break: [higher_precision, more_conservative_threshold]
+  max_threshold_candidates: 31
+  probability_score_candidates: predetermined_linear_grid_plus_keep_all_drop_all
+  nonprobability_score_candidates: predetermined_quantiles_including_high_score_tail_plus_boundaries
+  dense_sparse_score_coverage_audit: required
+  candidate_generation_floor_and_nms: registered_development_hyperparameters
+  legacy_probability_0_5_precision_floor: false
+  rescore_legacy_weights_under_v2_before_new_main_table: true
+
+optimization:
+  screening_seed: 42
+  final_seeds: [42, 43, 44]
+  max_candidates_per_trainable_method_family: 8
+  full_training_tuning_after_core_prototype_screen: true
+  architecture_and_diagnostic_candidates_max: 4
+  training_recipe_candidates_per_architecture_max: 4
+  direct_baseline_initial_recipe_candidates: 4
+  direct_baseline_additional_candidates_max: 4
+  weight_reuse_across_different_architectures: false
+  screening_epochs_max: 100
+  common_batch_size: 8
+  common_learning_rates: [0.001, 0.0003]
+  common_weight_decays: [0.0, 0.00001]
+  common_loss: dice_plus_2_rmse
+  training_recipe_grid_augmentation: disabled
+  common_device: xpu_if_verified
+  common_amp: bfloat16
+  common_channels_last: true
+  common_threads: 4
+  external_training_recipe: method_appropriate_and_fully_registered
+  epoch_definition_and_updates_must_be_logged: true
+  fixed_candidate_count_is_not_equal_compute: true
+  saturation_review_last_valid_candidates: 4
+  saturation_review_development_f1_gain: 0.005
+  saturation_review_is_not_significance_test: true
+
+reference_training_recipe:
+  name: T_ref
+  learning_rate: 0.001
+  weight_decay: 0.0
+  epochs: 100
+  batch_size: 8
+  seed: 42
+  loss: dice_plus_2_rmse
+  augmentation: false
+  hard_example_mining: false
+  purpose: common_conditions_for_diagnostic_and_core_structure_screening
+  auxiliary_objectives: only_if_declared_in_core_design_and_separately_controlled
+  reference_is_part_of_baseline_grid_not_extra_trial: true
+  final_ablation_recipe: T_star_selected_for_retained_core
+  optimized_baseline_recipe: T_base_selected_independently
+
+method_families:
+  - optimized_deepblink_baseline
+  - proposed_core_architecture
+  - full_resolution_unet_heatmap_offset
+  - spotiflow_from_scratch_pending_feasibility
+traditional_references: [log, dog]
+traditional_scale_nms_configs_per_method_max: 24
+optional_reproduction: tensorflow_original_deepblink_same_method_family
+pretrained_reference: separate_transfer_or_zero_shot_table
+
+architecture_candidates:
+  diagnostic_controls:
+    A: geometric_valid_mask_aware_se_pooling
+    B: occupancy_3x3_hidden16_nonlinearity_1x1_offset_unchanged
+  core_hypotheses:
+    D: point_background_interaction_graph_and_supervision_pending_innovation_gate
+    D2: offset_conditioned_learned_local_feature_contrast_revision_completed
+  deferred_outside_default_slots:
+    - generic_A_plus_B_stacking
+    - shallow_high_resolution_C_without_specific_novelty_case
+  cell_size: 4
+  unchanged_baseline_parameter_count: 1258723
+
+ablation:
+  common_training_recipe: T_star
+  core_minimum_matrix: [base_T_star, capacity_matched_simple_control, D_minus, D_full]
+  factorial_only_if_mechanisms_independently_defined: true
+  D_minus_must_remain_legitimately_trainable: true
+  seeds: [42, 43, 44]
+  train_from_scratch: true
+  capacity_and_simple_alternative_controls_for_core: required_or_claim_limited
+  extra_training_tasks_max: 12
+  failed_or_null_components_reported: true
+
+budget:
+  neural_screening_tasks_max: 32
+  final_seed_extension_tasks_max: 8
+  main_comparison_training_tasks_max: 40
+  additional_ablation_training_tasks_max: 12
+  default_total_new_training_tasks_max: 52
+  previous_48_task_discount_removed_reason: different_architectures_cannot_share_a_training_run
+  immutable_config_hash_required_for_reuse: true
+  learning_curve_and_fixed_step_extensions: separate_budget_version
+  cpu_gpu_environment_changes: isolated_and_recorded
+
+statistics:
+  primary_contrast: proposed_minus_optimized_deepblink_mean_micro_f1
+  structural_attribution_contrast: core_T_star_minus_baseline_T_star
+  data_training_calibration_and_structure_effects_separately_reported: true
+  resampling_unit: image_or_verified_higher_level_group
+  paired_shared_indices_across_methods_and_seeds: true
+  bootstrap_resamples: 10000
+  bootstrap_seed: 20261025
+  interval: percentile_95
+  trained_seeds_resampled_in_image_interval: false
+  seed_sd_separately_reported: true
+  point_count_is_not_independent_sample_size: true
+  default_p_values: not_planned
+  secondary_formal_tests: multiplicity_and_dependence_plan_required
+
+optional_fixed_update_extension:
+  nested_training_sizes: [44, 88, 132, 176]
+  updates: 2200
+  validation_every_updates: 110
+  old_new_split_for_subsets: false
+  status: not_in_default_budget
+
+artifacts:
+  new_output_root: outputs/next_stage_v2
+  overwrite_prior_experiments: false
+  retain_failed_trials: true
+  report_protocol_version_for_every_metric: true
+  independent_model_lock_before_external_prediction: true
+  production_retraining_after_benchmark: separate_model_and_evidence
+  innovation_gate_report: outputs/next_stage_v2/08_innovation/innovation_gate_report.md
+  innovation_evidence_ledger: outputs/next_stage_v2/06_release/innovation_evidence.csv

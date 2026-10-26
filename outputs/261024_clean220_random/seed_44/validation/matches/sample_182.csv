@@ -1,0 +1,2 @@
+match_status,pred_index,true_index,pred_y_px,pred_x_px,pred_p,true_y_px,true_x_px,distance_px
+tp,0,0,298.91656494140625,182.00860595703125,0.9995542168617249,299.0,182.00001525878906,0.08387615531682968

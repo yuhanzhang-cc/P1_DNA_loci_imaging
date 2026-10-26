@@ -1,0 +1,8 @@
+{
+  "n_image_threshold_comparisons": 132,
+  "comparisons_with_tp_changes": 0,
+  "old_source_sha256": "055ebf3e8c7b1e88d542bf6d9f34ac434b00707ef2606a7e85e3397fd29b7056",
+  "scope": "validation_only",
+  "pathological_regression_case_fixed": true,
+  "historical_test_scores_not_recomputed": true
+}

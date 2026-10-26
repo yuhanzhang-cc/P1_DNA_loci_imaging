@@ -72,29 +72,36 @@ def _trapezoid_integral(y: np.ndarray, x: np.ndarray) -> float:
 def match_coordinates(pred_coords: np.ndarray, true_coords: np.ndarray, radius_px: float) -> MatchResult:
     """Match predicted and true coordinates using a Hungarian assignment.
 
-    Pairs farther than ``radius_px`` are treated as unmatched.
+    Maximize the number of pairs within ``radius_px``, then minimize their
+    total distance. Dummy columns let every truth remain unmatched without
+    allocating a square matrix with one row per dense predicted candidate.
     """
-    if radius_px < 0:
+    if not np.isfinite(radius_px) or radius_px < 0:
         raise ValueError(f"radius_px must be >= 0, got {radius_px}.")
 
     pred = _as_coords(pred_coords)
     true = _as_coords(true_coords)
     n_pred = len(pred)
     n_true = len(true)
+    if not np.isfinite(pred).all() or not np.isfinite(true).all():
+        raise ValueError("Coordinates must be finite.")
 
     if n_pred == 0 and n_true == 0:
         empty = np.empty((0,), dtype=np.int32)
         empty_f = np.empty((0,), dtype=np.float32)
         return MatchResult(0, 0, 0, empty, empty, empty_f, empty, empty)
 
-    size = max(n_pred, n_true)
-    dummy_cost = float(radius_px) + 1.0
-    cost = np.full((size, size), dummy_cost, dtype=np.float64)
+    # One extra match must outweigh any change in distances of all other
+    # matches. A radius+1 penalty alone does not guarantee that property.
+    dummy_cost = (min(n_pred, n_true) + 1) * (float(radius_px) + 1.0)
+    cost = np.full((n_true, n_pred + n_true), dummy_cost, dtype=np.float64)
 
     distances = None
     if n_pred > 0 and n_true > 0:
         distances = np.linalg.norm(true[:, None, :] - pred[None, :, :], axis=2)
-        cost[:n_true, :n_pred] = np.where(distances <= radius_px, distances, dummy_cost)
+        cost[:, :n_pred] = np.where(
+            distances <= radius_px, distances, 2.0 * dummy_cost
+        )
 
     row_ind, col_ind = linear_sum_assignment(cost)
 

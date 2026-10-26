@@ -28,6 +28,16 @@ import torch
 DEFAULT_RMSE_WEIGHT = 2.0
 
 
+def valid_loss_inputs(y_true: torch.Tensor, y_pred: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+    """Exclude artificial canvas cells marked with occupancy -1."""
+    valid = y_true[..., 0] >= 0
+    if bool(torch.all(valid)):
+        return y_true, y_pred
+    if not bool(torch.any(valid)):
+        raise ValueError("Batch contains no valid image cells.")
+    return y_true[valid].reshape(1, 1, -1, 3), y_pred[valid].reshape(1, 1, -1, 3)
+
+
 def _validate_prediction_shape(y_true: torch.Tensor, y_pred: torch.Tensor) -> None:
     """Validate that tensors follow the deepBlink channel-last protocol."""
     if y_true.ndim != 4 or y_pred.ndim != 4:
@@ -97,6 +107,7 @@ def dice_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
         Scalar loss tensor equal to ``1 - dice_score`` on ``[..., 0]``.
     """
     _validate_prediction_shape(y_true, y_pred)
+    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
     return 1.0 - dice_score(y_true[..., 0], y_pred[..., 0])
 
 
@@ -131,6 +142,7 @@ def focal_loss(
         Mean focal loss over the occupancy channel.
     """
     _validate_prediction_shape(y_true, y_pred)
+    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
     if not 0.0 <= alpha <= 1.0:
         raise ValueError(f"alpha must be in [0, 1], but got {alpha}.")
     if gamma < 0.0:
@@ -177,6 +189,8 @@ def rmse_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
         Scalar RMSE tensor.
     """
     _validate_prediction_shape(y_true, y_pred)
+
+    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
 
     y_true_offsets = y_true[..., 1:]
     y_pred_offsets = y_pred[..., 1:]

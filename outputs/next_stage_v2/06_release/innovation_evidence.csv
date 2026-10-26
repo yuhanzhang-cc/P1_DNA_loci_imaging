@@ -1,0 +1,4 @@
+contribution,status,evidence,limitation
+data_expansion,legacy_internal_support,+12.77 pp historical matched-control mean F1,not architecture gain
+evaluation,implementation_verified,maximum-cardinality point matcher and validation-only v2 calibration,no architecture claim
+structure_core_candidates,single_seed_development_screen_complete,best core deeploci_evidence validation F1 0.807588; delta -2.064 pp,repeatability and structural attribution and independent validation pending

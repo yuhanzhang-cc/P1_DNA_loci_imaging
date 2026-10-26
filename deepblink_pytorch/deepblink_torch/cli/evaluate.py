@@ -108,7 +108,7 @@ def add_test_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPars
         "--device",
         type=str,
         default="cuda",
-        choices=["cuda", "cpu"],
+        choices=["cuda", "cpu", "xpu"],
         help="Inference device.",
     )
     parser.add_argument(
@@ -138,6 +138,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def resolve_device(requested: str) -> torch.device:
     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
+    if requested == "xpu" and not torch.xpu.is_available():
+        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
     if requested == "cuda" and not torch.cuda.is_available():
         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
         return torch.device("cpu")
@@ -281,15 +283,8 @@ def _decode_prediction_with_probability(
     orig_h: int,
     orig_w: int,
 ) -> np.ndarray:
-    coords = predict_cli.get_coordinate_list(
-        pred,
-        cell_size=cell_size,
-        probability=probability,
-    )
-    if len(coords) > 0:
-        in_bounds = (coords[:, 0] < orig_h) & (coords[:, 1] < orig_w)
-        coords = coords[in_bounds]
-    return predict_cli._coords_with_probabilities(pred, coords, cell_size=cell_size)
+    return predict_cli._decode_with_scores(pred, cell_size=cell_size, probability=probability,
+                                           orig_h=orig_h, orig_w=orig_w)
 
 
 def _match_overlay_coords(
@@ -812,12 +807,12 @@ def run_test(args: argparse.Namespace) -> Path:
     for sample in samples:
         image_path = _find_image_file(images_dir, sample.image_name, sample.sample_id)
         image = predict_cli._read_image(image_path)
-        normalized = predict_cli._normalize_image(image)
-        padded, (orig_h, orig_w) = predict_cli._pad_to_square_power2(normalized)
+        orig_h, orig_w = image.shape
+        padded = predict_cli.prepare_image(image, getattr(model, "input_size", None))
 
         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
         with torch.no_grad():
-            pred = model(tensor).squeeze(0).detach().cpu().numpy()
+            pred = predict_cli._forward_with_geometry(model, tensor, orig_h, orig_w).squeeze(0).detach().cpu().numpy()
 
         truth_coords_px = np.asarray(sample.truth_coords_px, dtype=np.float32)
         eval_predictions.append(

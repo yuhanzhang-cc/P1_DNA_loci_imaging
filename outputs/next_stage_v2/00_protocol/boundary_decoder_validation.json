@@ -1,0 +1,10 @@
+{
+  "command": "python -m pytest tests/test_boundary_scores.py tests/test_predict_output_unit.py tests/test_evaluate_cli.py -q",
+  "passed": 11,
+  "new_tests": 2,
+  "rechecked_related": 9,
+  "distinct_total_with_prior_batch": 48,
+  "score_boundary_case_fixed": true,
+  "affects_v2_calibration_scores": false,
+  "recorded_unix": 1792994134.1768777
+}

@@ -1,0 +1,35 @@
+{
+  "raw_files_checked": 440,
+  "raw_hash_mismatches": [],
+  "all_training_epochs_finite": true,
+  "disjoint_splits": true,
+  "splits": {
+    "train": {
+      "images": 176,
+      "points": 4156,
+      "shape": [
+        176,
+        512,
+        512
+      ]
+    },
+    "valid": {
+      "images": 22,
+      "points": 372,
+      "shape": [
+        22,
+        512,
+        512
+      ]
+    },
+    "test": {
+      "images": 22,
+      "points": 548,
+      "shape": [
+        22,
+        512,
+        512
+      ]
+    }
+  }
+}

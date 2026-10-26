@@ -45,6 +45,17 @@ def add_create_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPa
         help="Output .npz path.",
     )
     parser.add_argument(
+        "--input-size", type=int, default=None,
+        help="Optional fixed square canvas; normalize originals before padding at loading time.",
+    )
+    parser.add_argument(
+        "--exclude-samples", default="", help="Comma-separated sample stems to exclude explicitly."
+    )
+    parser.add_argument(
+        "--split-manifest", default=None,
+        help="Frozen CSV with sample_id,subset columns; must cover all included samples exactly.",
+    )
+    parser.add_argument(
         "--train-ratio",
         type=float,
         default=0.8,
@@ -138,7 +149,7 @@ def _read_image(image_path: Path) -> np.ndarray:
     return image.astype(np.float32, copy=False)
 
 
-def _collect_pairs(images_dir: Path, labels_dir: Path) -> list[tuple[Path, Path]]:
+def _collect_pairs(images_dir: Path, labels_dir: Path, excluded: set[str] | None = None) -> list[tuple[Path, Path]]:
     image_files = []
     for ext in IMAGE_EXTENSIONS:
         image_files.extend(sorted(images_dir.glob(f"*{ext}")))
@@ -150,6 +161,8 @@ def _collect_pairs(images_dir: Path, labels_dir: Path) -> list[tuple[Path, Path]
     pairs: list[tuple[Path, Path]] = []
     missing = []
     for image_path in image_files:
+        if image_path.stem in (excluded or set()):
+            continue
         csv_path = labels_dir / f"{image_path.stem}.csv"
         if not csv_path.exists():
             missing.append(csv_path.name)
@@ -300,14 +313,32 @@ def run_create(args: argparse.Namespace) -> Path:
     if not labels_dir.is_dir():
         raise NotADirectoryError(f"Labels directory not found: {labels_dir}")
 
-    pairs = _collect_pairs(images_dir, labels_dir)
+    excluded = {s.strip() for s in getattr(args, "exclude_samples", "").split(",") if s.strip()}
+    pairs = _collect_pairs(images_dir, labels_dir, excluded)
     images = [_read_image(image_path) for image_path, _ in pairs]
     coords = [_read_coords(csv_path) for _, csv_path in pairs]
     pixel_sizes = [read_pixel_size_or_default(image_path) for image_path, _ in pairs]
-    coords = [
-        _convert_coords_to_pixels(coord, pixel_size)
-        for coord, pixel_size in zip(coords, pixel_sizes, strict=True)
-    ]
+    # TrackMate exports declare units in the descriptor rows. Pixel CSVs
+    # must not be divided by physical pixel size a second time.
+    units = []
+    for _, csv_path in pairs:
+        with csv_path.open(encoding="utf-8-sig", newline="") as handle:
+            rows = list(csv.reader(handle))[:4]
+        units.append("pixel" if any("(pixel)" in row or "(pixels)" in row for row in rows) else "micron")
+    coords = [coord if unit == "pixel" else _convert_coords_to_pixels(coord, pixel_size)
+              for coord, pixel_size, unit in zip(coords, pixel_sizes, units, strict=True)]
+    original_shapes = np.asarray([image.shape for image in images], dtype=np.int32)
+    input_size = getattr(args, "input_size", None)
+    if input_size is not None:
+        if input_size < 4 or input_size & (input_size - 1):
+            raise ValueError("--input-size must be a power of two >= 4.")
+        for image, coord in zip(images, coords, strict=True):
+            height, width = image.shape
+            if height % 4 or width % 4 or max(height, width) > input_size:
+                raise ValueError("Original dimensions must be multiples of 4 and fit the canvas.")
+            if not np.isfinite(coord).all() or np.any(coord < 0) or np.any(coord >= [height, width]):
+                raise ValueError("Coordinates must be finite and within the original image.")
+        images = [np.pad(image, ((0, input_size-image.shape[0]), (0, input_size-image.shape[1]))) for image in images]
     _validate_image_shapes(images)
 
     train_idx, valid_idx, test_idx = _split_indices(
@@ -316,6 +347,19 @@ def run_create(args: argparse.Namespace) -> Path:
         valid_ratio=args.valid_ratio,
         seed=args.seed,
     )
+    split_manifest = getattr(args, "split_manifest", None)
+    if split_manifest:
+        with Path(split_manifest).open(encoding="utf-8-sig", newline="") as handle:
+            split_rows = list(csv.DictReader(handle))
+        assignments = {row["sample_id"]: row["subset"] for row in split_rows}
+        if len(assignments) != len(split_rows) or set(assignments) != {p.stem for p, _ in pairs}:
+            raise ValueError("Frozen split manifest must cover included samples exactly, without duplicates.")
+        if any(subset not in ("train", "valid", "test") for subset in assignments.values()):
+            raise ValueError("Invalid subset in frozen split manifest.")
+        train_idx, valid_idx, test_idx = ([i for i, (p, _) in enumerate(pairs) if assignments[p.stem] == subset]
+                                        for subset in ("train", "valid", "test"))
+        if not all((train_idx, valid_idx, test_idx)):
+            raise ValueError("All three frozen splits must be nonempty.")
 
     x_train, y_train = _gather_subset(images, coords, train_idx)
     x_valid, y_valid = _gather_subset(images, coords, valid_idx)
@@ -376,8 +420,15 @@ def run_create(args: argparse.Namespace) -> Path:
         label_name_test=label_name_test,
         source_index_test=source_index_test,
         split_seed=np.asarray(args.seed, dtype=np.int32),
-        train_ratio=np.asarray(args.train_ratio, dtype=np.float32),
-        valid_ratio=np.asarray(args.valid_ratio, dtype=np.float32),
+        train_ratio=np.asarray(len(train_idx)/len(pairs) if split_manifest else args.train_ratio, dtype=np.float32),
+        valid_ratio=np.asarray(len(valid_idx)/len(pairs) if split_manifest else args.valid_ratio, dtype=np.float32),
+        split_method=np.asarray("frozen_manifest" if split_manifest else "random_image_split"),
+        **({"input_size": np.asarray(input_size),
+            "original_shape_train": original_shapes[train_idx],
+            "original_shape_valid": original_shapes[valid_idx],
+            "original_shape_test": original_shapes[test_idx],
+            "preprocessing": np.asarray("normalize_original_then_zero_pad_right_bottom")}
+           if input_size is not None else {}),
     )
     manifest_path = _write_split_manifest(
         output_path=output_path,

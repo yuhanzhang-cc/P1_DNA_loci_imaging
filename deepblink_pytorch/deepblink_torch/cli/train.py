@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import random
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Callable
@@ -26,11 +28,15 @@ from deepblink_torch import combined_dice_rmse_loss
 from deepblink_torch import combined_focal_rmse_loss
 from deepblink_torch import dice_loss
 from deepblink_torch import rmse_loss
+from deepblink_torch.networks.evidence import UNetDeepLociEvidence, UNetDeepLociLocal
+from deepblink_torch.networks.feature_evidence import UNetDeepLociFeatureEvidence
+from deepblink_torch.networks.masked_se import UNetDeepBlinkMaskedSE
 
 
 LossFunction = Callable[[torch.Tensor, torch.Tensor], torch.Tensor]
 LOSS_CHOICES = ("dice_rmse", "focal_rmse", "dice_focal_rmse")
-MODEL_CHOICES = ("deepblink", "deeploci_context")
+MODEL_CHOICES = ("deepblink", "deeploci_context", "deeploci_evidence", "deeploci_local",
+                 "deeploci_feature_evidence", "deepblink_masked_se")
 
 
 def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -39,6 +45,21 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
         "--data",
         required=True,
         help="Path to deepBlink .npz dataset containing train/valid/test splits.",
+    )
+    parser.add_argument(
+        "--amp", action="store_true", help="Use bfloat16 autocast on CUDA/XPU; losses remain float32."
+    )
+    parser.add_argument(
+        "--development-only", action="store_true", help="Load train/valid arrays only; never read test arrays."
+    )
+    parser.add_argument(
+        "--channels-last", action="store_true", help="Use channels-last convolution memory layout."
+    )
+    parser.add_argument(
+        "--seed", type=int, default=42, help="Python, NumPy and PyTorch training seed."
+    )
+    parser.add_argument(
+        "--threads", type=int, default=4, help="PyTorch CPU intra-op threads."
     )
     parser.add_argument(
         "--epochs",
@@ -62,7 +83,7 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
         "--device",
         type=str,
         default="cuda",
-        choices=["cuda", "cpu"],
+        choices=["cuda", "cpu", "xpu"],
         help="Training device.",
     )
     parser.add_argument(
@@ -109,6 +130,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def resolve_device(requested: str) -> torch.device:
     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
+    if requested == "xpu" and not torch.xpu.is_available():
+        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
     if requested == "cuda" and not torch.cuda.is_available():
         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
         return torch.device("cpu")
@@ -119,17 +142,20 @@ def build_dataloaders(
     data_path: Path,
     batch_size: int,
     cell_size: int = 4,
+    development_only: bool = False,
 ) -> tuple[DataLoader, DataLoader]:
     """Create train/valid DataLoaders from one deepBlink npz file."""
     train_dataset = SpotsDataset(
         name=data_path,
         cell_size=cell_size,
         subset="train",
+        development_only=development_only,
     )
     valid_dataset = SpotsDataset(
         name=data_path,
         cell_size=cell_size,
         subset="valid",
+        development_only=development_only,
     )
 
     train_loader = DataLoader(
@@ -178,6 +204,14 @@ def _build_model(
         return UNetDeepBlink(cell_size=cell_size).to(device)
     if model_name == "deeploci_context":
         return UNetDeepLociContext(cell_size=cell_size).to(device)
+    if model_name == "deeploci_evidence":
+        return UNetDeepLociEvidence(cell_size=cell_size).to(device)
+    if model_name == "deeploci_local":
+        return UNetDeepLociLocal(cell_size=cell_size).to(device)
+    if model_name == "deeploci_feature_evidence":
+        return UNetDeepLociFeatureEvidence(cell_size=cell_size).to(device)
+    if model_name == "deepblink_masked_se":
+        return UNetDeepBlinkMaskedSE(cell_size=cell_size).to(device)
     raise ValueError(f"Unsupported model: {model_name}")
 
 
@@ -194,7 +228,24 @@ def _architecture_config(model_name: str, model: torch.nn.Module) -> dict[str, o
         "filters": int(getattr(model, "filters", 5)),
         "ndown": int(getattr(model, "ndown", 2)),
     }
-    if model_name == "deeploci_context":
+    if model_name == "deeploci_feature_evidence":
+        config.update(head="offset_conditioned_learned_feature_contrast_residual",
+                      radii_original_px=[1.5, 3., 6.], angular_samples=8,
+                      image_embedding_channels=8, image_embedding_convs=2,
+                      evidence_channels=51, feature_channels=16, fusion_channels=32,
+                      valid_mask="explicit_geometric_region", auxiliary_losses=[])
+    elif model_name == "deepblink_masked_se":
+        config.update(head="shared_1x1_3_channel", offset_head="shared_1x1_conv",
+                      squeeze_pooling="geometric_mask_weighted_mean",
+                      valid_mask="explicit_geometric_region")
+    elif model_name == "deeploci_evidence":
+        config.update(head="offset_conditioned_radial_image_evidence_residual",
+                      radii_original_px=[1.5, 3., 6.], angular_samples=8,
+                      evidence_channels=12, feature_channels=16, fusion_channels=32,
+                      valid_mask="explicit_geometric_region", auxiliary_losses=[])
+    elif model_name == "deeploci_local":
+        config.update(head="occupancy_3x3_hidden16_relu_1x1", offset_head="1x1_conv")
+    elif model_name == "deeploci_context":
         config.update(
             {
                 "head": "split_context_occupancy_offset",
@@ -279,6 +330,15 @@ def _describe_loss(loss_config: dict[str, object]) -> str:
     )
 
 
+def _forward_training(model, images, targets):
+    """Derive geometry solely from ignored cells, never positive locations."""
+    if getattr(model, "requires_valid_mask", False):
+        mask = torch.nn.functional.interpolate(
+            (targets[..., 0] >= 0).float().unsqueeze(1), size=images.shape[-2:], mode="nearest")
+        return model(images, valid_mask=mask)
+    return model(images)
+
+
 def train_one_epoch(
     model: torch.nn.Module,
     loader: DataLoader,
@@ -296,8 +356,15 @@ def train_one_epoch(
         targets = targets.to(device, non_blocking=True)
 
         optimizer.zero_grad(set_to_none=True)
-        preds = model(images)
+        if getattr(model, "channels_last_input", False):
+            images = images.contiguous(memory_format=torch.channels_last)
+        with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
+                            enabled=bool(getattr(model, "amp_enabled", False))):
+            preds = _forward_training(model, images, targets)
+        preds = preds.float()
         loss = loss_fn(targets, preds)
+        if not torch.isfinite(loss):
+            raise FloatingPointError("Non-finite training loss; checkpoint is not updated.")
         loss.backward()
         optimizer.step()
 
@@ -328,11 +395,17 @@ def validate(
         images = images.to(device, non_blocking=True)
         targets = targets.to(device, non_blocking=True)
 
-        preds = model(images)
+        if getattr(model, "channels_last_input", False):
+            images = images.contiguous(memory_format=torch.channels_last)
+        with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
+                            enabled=bool(getattr(model, "amp_enabled", False))):
+            preds = _forward_training(model, images, targets)
+        preds = preds.float()
         combined = loss_fn(targets, preds)
         dice = dice_loss(targets, preds)
         rmse = rmse_loss(targets, preds)
-        predicted_positive = preds[..., 0] > 0.5
+        valid_cells = targets[..., 0] >= 0
+        predicted_positive = (preds[..., 0] > 0.5) & valid_cells
         true_positive = targets[..., 0] > 0.5
         total_tp += int(torch.count_nonzero(predicted_positive & true_positive).item())
         total_fp += int(torch.count_nonzero(predicted_positive & ~true_positive).item())
@@ -392,7 +465,7 @@ def _plot_training_curves(output_path: Path, history: list[dict[str, object]]) -
     axes[1].plot(epochs, val_f1, color="tab:green", lw=1.8, label="val_f1")
     axes[1].set_xlabel("Epoch")
     axes[1].set_ylabel("F1")
-    axes[1].set_title("Validation F1")
+    axes[1].set_title("Validation grid F1 (p=0.5)")
     axes[1].set_ylim(0.0, 1.0)
     axes[1].grid(True, alpha=0.3)
     axes[1].legend(frameon=False)
@@ -438,18 +511,37 @@ def run_training(args: argparse.Namespace) -> Path:
     loss_config = _build_loss_config(args)
     loss_fn = _build_loss_function(loss_config)
     model_name = _normalise_model_name(getattr(args, "model", "deepblink"))
+    seed = int(getattr(args, "seed", 42))
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.set_num_threads(int(getattr(args, "threads", 4)))
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    if torch.xpu.is_available():
+        torch.xpu.manual_seed_all(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
 
     device = resolve_device(args.device)
     train_loader, valid_loader = build_dataloaders(
         data_path=data_path,
         batch_size=args.batch_size,
         cell_size=4,
+        development_only=bool(getattr(args, "development_only", False)),
     )
 
     model = _build_model(model_name, cell_size=4, device=device)
+    model.amp_enabled = bool(getattr(args, "amp", False))
+    model.channels_last_input = bool(getattr(args, "channels_last", False))
+    if model.amp_enabled and device.type not in ("cuda", "xpu"):
+        raise ValueError("--amp requires CUDA or XPU.")
+    if model.channels_last_input:
+        model = model.to(memory_format=torch.channels_last)
     parameter_count = _count_parameters(model)
     architecture_config = _architecture_config(model_name, model)
     architecture_config_json = json.dumps(architecture_config, sort_keys=True)
+    input_size = getattr(getattr(train_loader, "dataset", None), "input_size", None)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 
     if args.checkpoint is None:
@@ -474,6 +566,7 @@ def run_training(args: argparse.Namespace) -> Path:
     )
 
     for epoch in range(1, args.epochs + 1):
+        epoch_start = time.perf_counter()
         train_loss = train_one_epoch(
             model=model,
             loader=train_loader,
@@ -491,6 +584,8 @@ def run_training(args: argparse.Namespace) -> Path:
         history.append(
             {
                 "epoch": epoch,
+                "seed": seed,
+                "epoch_seconds": time.perf_counter() - epoch_start,
                 "model_name": model_name,
                 "parameter_count": parameter_count,
                 "architecture_config": architecture_config_json,
@@ -518,6 +613,9 @@ def run_training(args: argparse.Namespace) -> Path:
                     "optimizer_state_dict": optimizer.state_dict(),
                     "best_val_loss": best_val_loss,
                     "cell_size": 4,
+                    "input_size": input_size,
+                    "preprocessing": "normalize_original_then_zero_pad_right_bottom" if input_size else "legacy",
+                    "seed": seed,
                     "model_name": model_name,
                     "architecture_config": architecture_config,
                     "parameter_count": parameter_count,
@@ -530,6 +628,9 @@ def run_training(args: argparse.Namespace) -> Path:
                 },
                 checkpoint_path,
             )
+
+        # Persist progress even if a long training job is interrupted.
+        _write_rows_csv(metrics_csv_path, history)
 
         print(
             f"Epoch [{epoch:03d}/{args.epochs:03d}] "

@@ -1,0 +1,42 @@
+{
+  "n_images": 220,
+  "n_points": 5076,
+  "excluded": [
+    "sample_230",
+    "sample_286"
+  ],
+  "split_counts": {
+    "train": 166,
+    "test": 32,
+    "valid": 22
+  },
+  "cohort_splits": {
+    "old113/train": 90,
+    "old113/test": 12,
+    "old113/valid": 11,
+    "new107/train": 76,
+    "new107/test": 20,
+    "new107/valid": 11
+  },
+  "grid_collisions": [
+    {
+      "sample_id": "sample_277",
+      "n_points": 55,
+      "grid_collision_loss": 1
+    },
+    {
+      "sample_id": "sample_281",
+      "n_points": 47,
+      "grid_collision_loss": 1
+    },
+    {
+      "sample_id": "sample_282",
+      "n_points": 36,
+      "grid_collision_loss": 4
+    }
+  ],
+  "grouping": "source_path + source_file_name; biological independence is not established",
+  "split_seed": 20261019,
+  "input_size": 512,
+  "preprocessing": "normalize original pixels; constant zero padding right/bottom; ignore padded loss cells"
+}

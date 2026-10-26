@@ -1,0 +1,14 @@
+{
+  "selected_model": "seed_44",
+  "validation_losses": {
+    "seed_42": 0.7185581922531128,
+    "seed_43": 0.7159731785456339,
+    "seed_44": 0.6935754418373108
+  },
+  "thresholds": {
+    "seed_42": 0.55,
+    "seed_43": 0.9,
+    "seed_44": 0.5
+  },
+  "rule": "minimum validation loss; validation-only thresholds"
+}

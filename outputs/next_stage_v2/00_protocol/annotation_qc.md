@@ -1,0 +1,11 @@
+# 标注与分组证据边界
+
+来源核查：仓库`src/annotation_workflow/README.md`描述人工选择frame/channel/z投影，在TrackMate中手动调整estimated object diameter与quality threshold，再导出XML/CSV。原始CSV也含QUALITY和RADIUS等TrackMate字段。此流程支持“人工调参的TrackMate导出注释”，不能直接等同为每个点经过独立人工核验的金标准。
+
+现有模型训练和比较仍使用冻结注释。自动错误诊断不修改标签，不将未匹配预测直接认定为真实背景。当前成绩描述对这些注释的检测表现；不能单凭更贴合此参考就证明优于TrackMate或更接近生物学真值。
+
+独立盲法逐点复核尚未验证完成。40张开发图随机复核队列和误报不确定清单已保存，后续应核查漏标、背景样结构、相邻多峰、模糊边界及标注者一致性。新的独立评价图最好在查看任何模型预测前，由独立复核者冻结标签与争议处理规则，避免以当前模型分数指导重新标注。
+
+分组：220个文件/series键来自215个原始容器，其中2个容器的不同series横跨划分。`group_metadata.csv`保留容器路径和series名，biological_individual与verified_biological_batch明确为unknown；不能以文件/series键唯一就宣称生物学独立。详见annotation_group_audit.json；容器共享是来源相关性线索，不自动证明重复像素或泄漏。
+
+当前随机176/22/22按已批准协议保留；不为提高分数重新划分。manifest和哈希固定，本轮P2是内部开发筛查。未来泛化scope需补充分组信息和独立新采集数据。

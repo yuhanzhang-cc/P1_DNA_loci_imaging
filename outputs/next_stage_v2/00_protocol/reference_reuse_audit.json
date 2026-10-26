@@ -1,0 +1,65 @@
+[
+  {
+    "seed": 42,
+    "checkpoint": "outputs\\261024_clean220_random\\seed_42\\best_model.pt",
+    "sha256": "b7b61f827b2741485f3561664a6d7c9350bf2edfce4f4f0d8d68c533b785c6d8",
+    "observed": {
+      "epochs": 100,
+      "batch_size": 8,
+      "lr": 0.001,
+      "weight_decay": 0,
+      "seed": 42,
+      "model_name": "deepblink",
+      "input_size": 512,
+      "loss_name": "dice_rmse",
+      "amp": true,
+      "channels_last": true
+    },
+    "recipe_matches_T_ref": true,
+    "retrained_in_v2": false,
+    "best_epoch": 94,
+    "parameter_count": 1258723
+  },
+  {
+    "seed": 43,
+    "checkpoint": "outputs\\261024_clean220_random\\seed_43\\best_model.pt",
+    "sha256": "222c8633cb0a1fcfff279f0d0e6574719d897c6a2b4e1f0a26c024b0597dfafb",
+    "observed": {
+      "epochs": 100,
+      "batch_size": 8,
+      "lr": 0.001,
+      "weight_decay": 0,
+      "seed": 43,
+      "model_name": "deepblink",
+      "input_size": 512,
+      "loss_name": "dice_rmse",
+      "amp": true,
+      "channels_last": true
+    },
+    "recipe_matches_T_ref": true,
+    "retrained_in_v2": false,
+    "best_epoch": 85,
+    "parameter_count": 1258723
+  },
+  {
+    "seed": 44,
+    "checkpoint": "outputs\\261024_clean220_random\\seed_44\\best_model.pt",
+    "sha256": "8e7749dc3bd8878176946a32cdda4e791d9ccc79bf2c78ab8ed9d17439759ec8",
+    "observed": {
+      "epochs": 100,
+      "batch_size": 8,
+      "lr": 0.001,
+      "weight_decay": 0,
+      "seed": 44,
+      "model_name": "deepblink",
+      "input_size": 512,
+      "loss_name": "dice_rmse",
+      "amp": true,
+      "channels_last": true
+    },
+    "recipe_matches_T_ref": true,
+    "retrained_in_v2": false,
+    "best_epoch": 98,
+    "parameter_count": 1258723
+  }
+]

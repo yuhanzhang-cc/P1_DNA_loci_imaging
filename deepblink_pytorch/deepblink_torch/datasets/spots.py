@@ -33,6 +33,8 @@ from torch.utils.data import Dataset
 
 from ..data_protocol import get_prediction_matrix
 from ..data_protocol import next_power
+from ..preprocessing import normalize_image
+from ..preprocessing import prepare_image
 
 
 def _normalize_image(image: np.ndarray) -> np.ndarray:
@@ -52,11 +54,10 @@ def _normalize_image(image: np.ndarray) -> np.ndarray:
     np.ndarray
         Normalized ``float32`` image with the same spatial shape.
     """
-    image = (image - image.mean()) / image.std()
-    return image.astype(np.float32)
+    return normalize_image(image)
 
 
-def _load_npz(fname: str | Path) -> dict[str, np.ndarray]:
+def _load_npz(fname: str | Path, development_only: bool = False) -> dict[str, np.ndarray]:
     """Load the standard deepBlink dataset archive.
 
     Parameters
@@ -77,10 +78,17 @@ def _load_npz(fname: str | Path) -> dict[str, np.ndarray]:
         If the archive does not contain all required arrays.
     """
     expected = ["x_train", "y_train", "x_valid", "y_valid", "x_test", "y_test"]
+    if development_only:
+        expected = expected[:4]
     with np.load(fname, allow_pickle=True) as data:
         if not all(name in data.files for name in expected):
             raise ValueError(f"{expected} must be present. Only found {data.files}.")
-        return {name: data[name] for name in data.files}
+        result = {name: data[name] for name in data.files
+                  if not (development_only and name.endswith("_test"))}
+        if development_only:
+            result["x_test"] = np.empty((0, *result["x_train"].shape[1:]), dtype=np.float32)
+            result["y_test"] = np.empty(0, dtype=object)
+        return result
 
 
 class SpotsDataset(Dataset):
@@ -123,11 +131,15 @@ class SpotsDataset(Dataset):
         cell_size: int,
         subset: str = "train",
         smooth_factor: float = 1.0,
+        development_only: bool = False,
     ) -> None:
         super().__init__()
         self.name = str(name)
         self.cell_size = cell_size
         self.smooth_factor = smooth_factor
+        self.development_only = development_only
+        if development_only and subset == "test":
+            raise ValueError("development_only cannot expose the test split.")
 
         valid_subsets = {"train", "valid", "test"}
         if subset not in valid_subsets:
@@ -192,13 +204,18 @@ class SpotsDataset(Dataset):
 
     def load_data(self) -> None:
         """Load, encode, and normalize the full dataset archive."""
-        data = _load_npz(self.data_filename)
+        data = _load_npz(self.data_filename, development_only=self.development_only)
         self.x_train = data["x_train"]
         self.y_train = data["y_train"]
         self.x_valid = data["x_valid"]
         self.y_valid = data["y_valid"]
         self.x_test = data["x_test"]
         self.y_test = data["y_test"]
+        self.original_shapes = {
+            subset: data.get(f"original_shape_{subset}")
+            for subset in ("train", "valid", "test")
+        }
+        self.input_size = int(data["input_size"]) if "input_size" in data else None
 
         self.pixel_size_x_train = data.get("pixel_size_x_train")
         self.pixel_size_y_train = data.get("pixel_size_y_train")
@@ -230,6 +247,14 @@ class SpotsDataset(Dataset):
         self.y_train = _convert(self.y_train, image_size, self.cell_size)
         self.y_valid = _convert(self.y_valid, image_size, self.cell_size)
         self.y_test = _convert(self.y_test, image_size, self.cell_size)
+        for subset in ("train", "valid", "test"):
+            shapes = self.original_shapes[subset]
+            if shapes is not None:
+                targets = getattr(self, f"y_{subset}")
+                for target, (height, width) in zip(targets, shapes):
+                    # -1 is an ignored occupancy target, never a negative example.
+                    target[int(height)//self.cell_size:, :, 0] = -1
+                    target[:, int(width)//self.cell_size:, 0] = -1
 
     def normalize_dataset(self) -> None:
         """Normalize all images to zero mean and unit standard deviation."""
@@ -239,9 +264,17 @@ class SpotsDataset(Dataset):
                 [_normalize_image(image) for image in dataset], dtype=np.float32
             )
 
-        self.x_train = _normalize(self.x_train)
-        self.x_valid = _normalize(self.x_valid)
-        self.x_test = _normalize(self.x_test)
+        for subset in ("train", "valid", "test"):
+            images = getattr(self, f"x_{subset}")
+            shapes = self.original_shapes[subset]
+            if shapes is None:
+                normalized = _normalize(images)
+            else:
+                normalized = np.asarray([
+                    prepare_image(image[:int(height), :int(width)], self.input_size)
+                    for image, (height, width) in zip(images, shapes)
+                ], dtype=np.float32)
+            setattr(self, f"x_{subset}", normalized)
 
     def select_subset(self) -> None:
         """Select the requested split and expose it as ``self.x`` / ``self.y``."""

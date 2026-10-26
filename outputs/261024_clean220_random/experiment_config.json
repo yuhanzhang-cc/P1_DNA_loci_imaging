@@ -1,0 +1,24 @@
+{
+  "split_seed": 20261024,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs": 100,
+  "batch_size": 8,
+  "lr": 0.001,
+  "device": "xpu",
+  "amp": true,
+  "channels_last": true,
+  "threads": 4,
+  "architecture": "UNetDeepBlink",
+  "loss": "dice_rmse",
+  "split_counts": [
+    176,
+    22,
+    22
+  ],
+  "selection": "minimum validation loss; validation sweep with p=0.5 precision floor",
+  "test_policy": "one pooled random test; no origin-specific evaluation"
+}

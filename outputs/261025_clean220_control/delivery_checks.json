@@ -1,0 +1,22 @@
+{
+  "raw_files_verified": 440,
+  "expanded_artifacts_verified": 25,
+  "source_files_verified": 21,
+  "holdout_arrays_identical": true,
+  "disjoint_control_splits": true,
+  "finite_training_epochs": 300,
+  "finite_model_states": true,
+  "checkpoint_selection_matches_minimum_validation_loss": true,
+  "control_selection_saved_before_test_summaries": true,
+  "every_test_images": 22,
+  "every_test_truth_points": 548,
+  "candidate_metadata_matches_checkpoint": true,
+  "temporary_awake_released": true,
+  "temporary_display_guard_released": true,
+  "bootstrap_scope": "paired image resampling, conditional on three fitted seed pairs",
+  "targeted_tests": "5 passed (control experiment and pooled split); syntax checks passed",
+  "cpu_inference_success": true,
+  "cpu_prediction_finite_and_in_bounds": true,
+  "paired_plot_visually_checked": true,
+  "all_three_paired_f1_deltas_positive": true
+}

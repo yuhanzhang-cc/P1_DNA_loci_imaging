@@ -1,0 +1,2 @@
+{"model": "deeploci_evidence", "loss": 1.8060095310211182, "parameters": 1261748, "full_batch_shape": [8, 1, 512, 512], "backward_finite": true, "seconds_including_first_compile": 7.164405400049873, "amp": "bfloat16", "evidence_sampling_precision": "float32"}
+{"model": "deeploci_local", "loss": 1.8032342195510864, "parameters": 1277059, "full_batch_shape": [8, 1, 512, 512], "backward_finite": true, "seconds_including_first_compile": 2.2298662000102922, "amp": "bfloat16", "evidence_sampling_precision": "float32"}

@@ -1,0 +1,35 @@
+{
+  "completed_unix": 1792994649.2522106,
+  "scope": "first_P0_P1_P2_screen_only",
+  "trials": [
+    {
+      "model": "deepblink_masked_se",
+      "status": "complete",
+      "elapsed_seconds": 2386.3538370132446
+    },
+    {
+      "model": "deeploci_evidence",
+      "status": "complete",
+      "elapsed_seconds": 2253.5351490974426
+    },
+    {
+      "model": "deeploci_feature_evidence",
+      "status": "complete",
+      "elapsed_seconds": 2635.398280620575
+    },
+    {
+      "model": "deeploci_local",
+      "status": "complete",
+      "elapsed_seconds": 2340.9341974258423
+    }
+  ],
+  "trained_architecture_candidates": 4,
+  "epochs": 400,
+  "source_files_archived": 45,
+  "gpu_training_processes_live": [],
+  "wake_requests_released": true,
+  "raw_and_model_checks": "delivery_checks.json",
+  "best_reference": "deepblink seed42",
+  "architecture_gain_established": false,
+  "next_stages": "core design review and annotation review before further search; P3-P7 not complete"
+}

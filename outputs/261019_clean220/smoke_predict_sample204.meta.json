@@ -1,0 +1,6 @@
+{
+  "csv_file_name": "smoke_predict_sample204.csv",
+  "image_file_name": "sample_204.tif",
+  "model_file_name": "recommended_model.pt",
+  "output_unit": "px"
+}

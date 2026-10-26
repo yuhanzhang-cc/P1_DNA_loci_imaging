@@ -1,0 +1,135 @@
+# Design specification only; no runner consumes this file yet.
+plan_date: '2026-10-26'
+plan_revision: '2.2_failure_informed_detail_and_context'
+protocol_id: pooled220_methods_v3_proposed
+status: proposed_not_implemented_not_run
+execution_authorized_by_this_file: false
+historical_protocol_preserved: pooled220_methods_v2
+historical_completed_training_tasks: 4
+new_output_root_if_implemented: outputs/next_stage_v3
+
+data:
+  split_manifest: outputs/261024_clean220_random/frozen_split.csv
+  split_seed: 20261024
+  train_images: 176
+  validation_images: 22
+  internal_test_images: 22
+  development_only: true
+  split_by_old_new_origin: false
+  test_inference_during_search: false
+  internal_test_status: previously_observed_internal_benchmark
+  labels: unchanged_trackmate_reference_pending_independent_review
+  label_change_requires_new_data_version_and_all_method_retraining: true
+  biological_independence: unverified
+  preprocessing: original_valid_pixel_zscore_then_right_bottom_zero_pad_512
+  invalid_occupancy: -1
+  coordinates: original_pixels_yx
+  match_radius_px: 3.0
+  matching: maximum_cardinality_then_minimum_distance
+  weak_truth_cutoff_source: outputs/next_stage_v2/08_innovation/mechanism_preregistration.json
+  weak_truth_local_zscore_q25: 2.4566830772038957
+  unknown_pixel_size_handling: missing_not_physical_one_micron
+
+training:
+  recipe_name: T_dev_v3
+  epochs: 100
+  batch_size: 8
+  learning_rate: 0.001
+  optimizer: Adam
+  weight_decay: 0.0
+  dropout: 0.3
+  grid_model_loss: dice_plus_2_rmse
+  H0_loss: valid_pixel_soft_dice_plus_bce_logits_plus_2_positive_anchor_offset_rmse
+  augmentation: false
+  hard_example_mining: false
+  device: verified_xpu
+  amp: bfloat16
+  channels_last: true
+  threads: 4
+  screening_seed: 42
+  extension_seeds: [43, 44]
+  sampler_generator: independent_cpu_generator_seeded_by_training_seed
+  model_initialization_cannot_change_image_order: true
+  save_epoch_order_and_config_source_environment_hashes: true
+  inherited_v2_weights_not_primary_paired_reference: true
+
+checkpoint_and_calibration:
+  # One fixed rule for R0, H0, R1, S1, R2 and S2.
+  checkpoint_epochs: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+  checkpoint_candidates_per_run: 20
+  threshold_candidates_per_checkpoint: 31
+  threshold_formula: '[0] + sigmoid(linspace(-9, 9, 29)) + [1]'
+  score_computation_for_calibration: float32_inference
+  numerical_zero_keep_all: true
+  numerical_one_drop_all: true
+  primary_selection: maximum_validation_point_micro_f1_over_registered_epoch_threshold_pairs
+  tie_break: [higher_precision, earlier_epoch, higher_threshold]
+  primary_epoch_threshold_pairs_max_per_run: 620
+  secondary_native_loss_selection: minimum_native_validation_loss_among_the_same_20_checkpoints_then_same_31_thresholds
+  secondary_result_cannot_replace_primary_after_results: true
+  no_union_with_v2_thresholds_or_model_specific_extra_search: true
+  compare_architectures_under_same_v3_only: true
+  old_v2_table_is_separate_historical_evidence: true
+  selection_and_calibration_improvement_is_not_architecture_gain: true
+  validation_selection_optimism_must_be_reported: true
+
+candidates:
+  R0: retrained_original_deepblink_under_T_dev_v3
+  H0: full_resolution_heatmap_and_subpixel_offset_reference
+  R1: full_resolution_detail_route_with_context_conditioned_16_position_selection
+  S1: position_preserving_detail_concatenation_and_plain_projection_control
+  R2: coverage_aware_per_position_context_scale_selection
+  S2: same_three_context_branches_with_fixed_equal_scale_weights_and_active_projection_control
+  combinations_R1_R2: outside_this_round
+  H0_novelty_role: strong_reference_not_core_innovation
+
+H0_targets_and_decoder:
+  anchor: floor_continuous_original_pixel_coordinate
+  heatmap: maximum_of_integer_anchor_centered_gaussians
+  gaussian_sigma_px: 1.0
+  gaussian_radial_truncation_px: 3.0
+  offset: continuous_coordinate_minus_integer_anchor
+  same_pixel_collisions: audit_never_silently_overwrite
+  peak_extraction: fixed_3_by_3_local_maximum_with_deterministic_ties
+  filter_padded_and_out_of_bounds_points: true
+  candidate_floor: no_probability_prefilter_before_registered_calibration
+
+screening_gates:
+  same_seed_reference: R0
+  f1_gain_min: 0.005
+  weak_truth_recall_change_min: -0.02
+  R1_mechanism_target_weak_recall_gain_at_reference_fp_budget: 0.05
+  R2_mechanism_target_fp_fractional_reduction_at_selected_operating_point: 0.10
+  practical_targets_are_not_significance_thresholds: true
+  original_registered_thresholds_only_for_fp_budget_comparison: true
+  only_one_route_selected_for_multi_seed_followup: true
+  eligible_route_ranking: [higher_validation_point_micro_f1, lower_synchronized_forward_time]
+  no_eligible_route: stop_and_report_no_supported_core_gain
+
+budget:
+  phase_1_screening_tasks_max: 4
+  phase_1: [R0, H0, R1, S1]
+  phase_2_conditional_screening_tasks_max: 2
+  phase_2: [R2, S2]
+  phase_2_requires_documented_remaining_context_error_and_no_unresolved_data_or_implementation_block: true
+  final_extension_tasks_max: 6
+  extension_targets: [R0, one_selected_full_route, its_simple_control]
+  total_new_training_tasks_max: 12
+  total_new_epochs_max: 1200
+  historical_plus_this_round_training_tasks_ceiling: 16
+  old_52_task_full_study_projection: remaining_stages_on_hold_not_automatically_added
+  baseline_full_tuning_and_formal_ablation: separately_rebudget_after_route_selection
+  failures_count_as_attempts: true
+  identical_configuration_infrastructure_recovery_logged_separately: true
+  no_extra_lr_loss_width_augmentation_or_combination_search: true
+
+reporting:
+  primary: point_micro_f1
+  secondary: [precision, recall, weak_truth_recall, recall_at_reference_fp_budget, count_mae, tp_conditional_localization_error]
+  report_all_three_seed_results_not_best_seed_only: true
+  structural_contrast: same_protocol_same_recipe_R1_or_R2_minus_R0
+  mechanism_contrast: full_route_minus_its_retrained_simple_control
+  heatmap_result: representation_supervision_and_structure_joint_reference
+  independent_blind_validation: required_for_independent_generalization_claim
+  frozen_source_and_prediction_artifacts_required: true
+  checkpoint_calibration_label_and_architecture_changes_separately_attributed: true

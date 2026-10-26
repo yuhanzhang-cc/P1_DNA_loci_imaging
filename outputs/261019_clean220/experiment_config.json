@@ -1,0 +1,20 @@
+{
+  "epochs": 100,
+  "batch_size": 8,
+  "lr": 0.001,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "threads": 4,
+  "device": "xpu",
+  "amp": true,
+  "channels_last": true,
+  "model": "deepblink",
+  "loss": "dice_rmse",
+  "checkpoint_selection": "minimum validation loss, independently per seed",
+  "threshold_selection": "validation F1 with precision >= validation precision at p=0.5",
+  "primary_endpoint": "micro F1 at radius 3 px on new107 held-out 20 images",
+  "historical_endpoint": "old113 12-image test; previously reused, regression only"
+}

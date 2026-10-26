@@ -1,0 +1,6 @@
+# Optional Intel GPU backend, installed ONLY in a separate virtual environment.
+# python -m venv --system-site-packages .venv/clean220_xpu
+# .venv/clean220_xpu/Scripts/python -m pip install -r deepblink_pytorch/requirements-xpu.txt
+# The normal pyproject.toml dependencies remain required (inherited here).
+--index-url https://download.pytorch.org/whl/xpu
+torch==2.11.0+xpu

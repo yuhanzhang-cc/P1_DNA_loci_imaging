@@ -1,0 +1,48 @@
+{
+  "seed_42": {
+    "TP": {
+      "n": 332,
+      "median_confidence": 0.9999638795852661,
+      "median_local_zscore": 4.270538173818425,
+      "median_local_contrast": 156.98184204101562,
+      "median_peak_sharpness": 224.4217529296875
+    },
+    "FP": {
+      "n": 28,
+      "median_confidence": 0.9907452464103699,
+      "median_local_zscore": 2.6418053593482203,
+      "median_local_contrast": 5.184806823730469,
+      "median_peak_sharpness": 7.724491119384766
+    },
+    "FN": {
+      "n": 134,
+      "median_confidence": null,
+      "median_local_zscore": 2.471152970163252,
+      "median_local_contrast": 117.72994995117188,
+      "median_peak_sharpness": 180.6258544921875
+    }
+  },
+  "historical_baseline": {
+    "TP": {
+      "n": 150,
+      "median_confidence": 0.9989951848983765,
+      "median_local_zscore": 4.723966074956788,
+      "median_local_contrast": 209.46145629882812,
+      "median_peak_sharpness": 259.7981872558594
+    },
+    "FP": {
+      "n": 12,
+      "median_confidence": 0.6824966669082642,
+      "median_local_zscore": 2.1122080675188575,
+      "median_local_contrast": 85.2420654296875,
+      "median_peak_sharpness": 186.40676879882812
+    },
+    "FN": {
+      "n": 316,
+      "median_confidence": null,
+      "median_local_zscore": 3.244995952479091,
+      "median_local_contrast": 125.74943542480469,
+      "median_peak_sharpness": 191.23696899414062
+    }
+  }
+}

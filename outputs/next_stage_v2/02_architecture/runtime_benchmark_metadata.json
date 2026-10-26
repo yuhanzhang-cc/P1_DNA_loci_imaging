@@ -1,0 +1,10 @@
+{
+  "device": "Intel(R) Arc(TM) 140T GPU (16GB)",
+  "torch": "2.11.0+xpu",
+  "threads": 4,
+  "excludes": "disk IO and normalization and decoding and overlays",
+  "synchronized": true,
+  "channels_last": false,
+  "test_access": false,
+  "limitation": "Initial local resource estimate; shared host and two development FOVs only"
+}

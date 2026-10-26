@@ -1,0 +1,10 @@
+{
+  "validation_only": true,
+  "retrained_ablations": false,
+  "device": "cpu",
+  "precision": "float32",
+  "full_counts_agree_with_primary_xpu": true,
+  "thresholds_recalibrated_for_interventions": false,
+  "mean_image_mean_abs_logit_correction": 55.32269287109375,
+  "interpretation": "Acute dependence only; distribution shift possible; cannot establish structural attribution"
+}

@@ -1,0 +1,29 @@
+{
+  "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:16:45) [MSC v.1942 64 bit (AMD64)]",
+  "torch": "2.11.0+xpu",
+  "xpu": "Intel(R) Arc(TM) 140T GPU (16GB)",
+  "source_sha256": {
+    "deepblink_pytorch\\deepblink_torch\\data_protocol.py": "a71a8f5aef3464a5380068d648acb2717cab1f948a47f42e2c86bf69c2b615c0",
+    "deepblink_pytorch\\deepblink_torch\\evaluation.py": "055ebf3e8c7b1e88d542bf6d9f34ac434b00707ef2606a7e85e3397fd29b7056",
+    "deepblink_pytorch\\deepblink_torch\\losses.py": "303d1563a985e71adcbe09a45e3d7ec105bf6c6f53f97ee3ccc823dc5b4a948b",
+    "deepblink_pytorch\\deepblink_torch\\preprocessing.py": "b601ac9fcf5b88b02901762791ebe98a3ac6529bb9c18c3619aab8267d00741b",
+    "deepblink_pytorch\\deepblink_torch\\__init__.py": "d69fd84160fceb05b43d84d5d88ce0e00345c9582c776dcd7fe86cc6265e5c0d",
+    "deepblink_pytorch\\deepblink_torch\\cli\\create.py": "30df2988b7332dba3fcc242cc36bd8f8845ef89ec855d2065fe33cbe9b2f4a1c",
+    "deepblink_pytorch\\deepblink_torch\\cli\\evaluate.py": "8a83bdb67b3772baf91ee0633f46f0012d0b802f96ad4854238e94ef92f5dd22",
+    "deepblink_pytorch\\deepblink_torch\\cli\\main.py": "a7338db93d7ac6bbba7d46bc28ad9c142222cde7d8d1ff49dd9576abe8d1b14c",
+    "deepblink_pytorch\\deepblink_torch\\cli\\overlay.py": "3454813fbb8e041ead28dc9345ee955cf6d628052e3174b6725ad856dbb1f154",
+    "deepblink_pytorch\\deepblink_torch\\cli\\predict.py": "f71ba538478c72582cf2c7ca7ee86624a41f083a1637563dbae3f2d20ff765da",
+    "deepblink_pytorch\\deepblink_torch\\cli\\train.py": "9d768eaf38d291119746355c2596c3afeb6ae0165da818659b7d9856d28af688",
+    "deepblink_pytorch\\deepblink_torch\\cli\\__init__.py": "9008767cffedb22f382613c2a2299a834213e65faaf240f656a73d9f24b9bf29",
+    "deepblink_pytorch\\deepblink_torch\\datasets\\spots.py": "5e3204aa72f718db290ccc8d5345a4e13c7b647724cc1e910a479ab158e841be",
+    "deepblink_pytorch\\deepblink_torch\\datasets\\__init__.py": "bbc50ff366b94813c9e7a800f01d36cfed2a195d260b12249bc8e5427bad4f57",
+    "deepblink_pytorch\\deepblink_torch\\networks\\unet.py": "d2ed17b0e5293740a2a09a055efcd478bc4eeaae05df3ec1bf9439de9064546c",
+    "deepblink_pytorch\\deepblink_torch\\networks\\_networks.py": "13b769c591fe748eac1f053ac91698416ced1fac1308eb1a411e5646fcd42ee4",
+    "deepblink_pytorch\\deepblink_torch\\networks\\__init__.py": "ba0e331daeb5f5439791de11bb3b79891cff9702754929f2a7f388c72bc9f289",
+    "deepblink_pytorch\\deepblink_torch\\utils\\pixel_size.py": "3a52e7f27ae43595556d6fc9085ebf61abbadf301afeaa8825902f77a916140e",
+    "deepblink_pytorch\\deepblink_torch\\utils\\__init__.py": "54b5957620cb35cc9fb8c5f0595239568d878de11e132b74ca66a3048e33a8c3",
+    "deepblink_pytorch\\scripts\\run_clean220_control.py": "9fbbbb3e5eebc50360dd77584e9d2a0d999cec0f09f86af04b15f26751332f21",
+    "deepblink_pytorch\\scripts\\run_clean220.py": "c347452576e828fe10b96572e8838752e7e6e50a63312fe0dca352adaccc7880"
+  },
+  "git_revision": "903bbaa2b49e907f485f588ab5ab41fbf2fe1e98"
+}

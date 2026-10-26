@@ -1,0 +1,72 @@
+[
+  {
+    "folder": "00_protocol\\reference_seed_42",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.12678571428571428,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "00_protocol\\reference_seed_43",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.7035714285714285,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "00_protocol\\reference_seed_44",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.6357142857142857,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "02_architecture\\deepblink_masked_se\\seed_42\\validation_v2",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.025,
+    "selected_lowest_interior": true,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "02_architecture\\deeploci_evidence\\seed_42\\validation_v2",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.5678571428571428,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "02_architecture\\deeploci_feature_evidence\\seed_42\\validation_v2",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.9410714285714286,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  },
+  {
+    "folder": "02_architecture\\deeploci_local\\seed_42\\validation_v2",
+    "candidates": 31,
+    "tp_fp_monotonic": true,
+    "selected_threshold": 0.6017857142857143,
+    "selected_lowest_interior": false,
+    "selected_highest_interior": false,
+    "extra_thresholds_evaluated": false,
+    "scope": "best_of_registered_grid_not_global_optimum"
+  }
+]

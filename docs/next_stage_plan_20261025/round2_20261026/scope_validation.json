@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-26",
+  "scope": "documentation_and_read_only_existing_validation_derivation",
+  "status": "passed",
+  "markdown_documents": 11,
+  "local_links_checked": 62,
+  "yaml_and_csv_consistent": true,
+  "new_training_cap": 12,
+  "selection_epoch_threshold_pairs_cap_per_run": 620,
+  "historical_protocol_and_metric_hashes_unchanged": true,
+  "new_model_implementation": false,
+  "new_training": false,
+  "new_inference": false,
+  "test_arrays_loaded": false,
+  "dependencies_changed": false
+}

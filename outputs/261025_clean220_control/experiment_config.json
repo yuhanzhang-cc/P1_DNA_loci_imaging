@@ -1,0 +1,31 @@
+{
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs": 100,
+  "batch_size": 8,
+  "lr": 0.001,
+  "device": "xpu",
+  "amp": true,
+  "channels_last": true,
+  "threads": 4,
+  "architecture": "UNetDeepBlink",
+  "loss": "dice_rmse",
+  "date": "2026-10-25",
+  "expanded_directory": "outputs\\261024_clean220_random",
+  "control_train_images": 89,
+  "expanded_train_images": 176,
+  "added_train_images": 87,
+  "valid_images": 22,
+  "test_images": 22,
+  "match_radius_px": 3,
+  "checkpoint_rule": "minimum validation loss, separately per seed",
+  "threshold_rule": "validation F1 with precision >= validation precision at p=0.5",
+  "selected_seed_rule": "minimum validation loss among seeds, separately per arm",
+  "primary_endpoint": "expanded minus control mean test micro-F1 across the three paired seeds",
+  "uncertainty": "10000 paired image-cluster bootstrap resamples, seed 20261025; training seeds held fixed",
+  "test_policy": "already observed pooled test; no threshold/seed selection on test",
+  "budget_note": "100 epochs and batch size 8 in both arms; 12 versus 22 optimizer updates per epoch (1200 vs 2200 total). This measures the same-recipe data expansion effect, not a fixed-update data-only effect."
+}

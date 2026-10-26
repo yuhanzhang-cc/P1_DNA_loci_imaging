@@ -1,0 +1,550 @@
+diff --git a/deepblink_pytorch/README.md b/deepblink_pytorch/README.md
+index c275a3a..ebc0ea9 100644
+--- a/deepblink_pytorch/README.md
++++ b/deepblink_pytorch/README.md
+@@ -70,3 +70,47 @@ You can also run training directly:
+ ```bash
+ python train.py --data ./dataset.npz --epochs 50 --batch-size 16 --lr 1e-3 --device cuda
+ ```
++
++## Mixed-size clean220 experiment
++
++The current version-training protocol pools all 220 samples before a new random
++176/22/22 split, without using old/new origin to assign subsets. From the repo
++root run `python deepblink_pytorch/scripts/run_clean220_random.py` in the isolated
++XPU environment. The output is `outputs/261024_clean220_random/`. All three seeds
++train from scratch on the same frozen split. Checkpoints and thresholds are
++selected on validation before testing. Historical113 scores retain their own
++original test split and are not a matched-test estimate of data-size effects.
++Use `--prepare-only` to inspect the new manifest before training.
++
++The earlier protocol below is retained for historical reproducibility:
++
++From the repository root, run `python deepblink_pytorch/scripts/run_clean220.py`.
++This audits 220 paired samples, excludes `sample_230` and `sample_286`, preserves
++the old113 split, and freezes a size-stratified new107 split before training.
++The output is `outputs/261019_clean220/`; raw images and CSVs are never changed.
++Use `--prepare-only` to audit and create the archives without training.
++
++The new archive stores original image shapes and a fixed `input_size=512`.
++Images are normalized using original pixels, then zero-padded on the right and
++bottom. Pixel coordinates are unchanged. Artificial cells use occupancy `-1`
++and are excluded from all training losses and validation classification metrics.
++Original, unencoded coordinates remain the evaluation truth, including grid
++collisions. TrackMate descriptor rows distinguish pixel from micron CSVs.
++
++New checkpoints store the input size so prediction and evaluation use the same
++preprocessing and discard coordinates outside the original image. Checkpoints
++without that metadata retain the legacy native-size/reflect-padding behavior.
++`create --input-size 512 --exclude-samples sample_230,sample_286
++--split-manifest frozen_split.csv` exposes the preparation options independently.
++
++The experiment trains three seeds for 100 epochs, selects checkpoints by minimum
++validation loss, and locks thresholds on validation before testing. Old12 and
++new20 test results are reported separately. The frozen historical checkpoint is
++evaluated on the same held-out images for comparison. Historical test results
++are regression checks because they were used in earlier development.
++
++`--device xpu` supports Intel GPUs when an XPU PyTorch build is installed.
++The optional `requirements-xpu.txt` is for an isolated environment; do not
++replace the team's shared environment. The experiment runner auto-selects an
++available CUDA/XPU device, otherwise CPU. Training progress CSVs are written
++after every epoch, and completed seeds are not trained again on rerun.
+diff --git a/deepblink_pytorch/deepblink_torch/cli/create.py b/deepblink_pytorch/deepblink_torch/cli/create.py
+index 404c090..35169b1 100644
+--- a/deepblink_pytorch/deepblink_torch/cli/create.py
++++ b/deepblink_pytorch/deepblink_torch/cli/create.py
+@@ -44,6 +44,17 @@ def add_create_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPa
+         required=True,
+         help="Output .npz path.",
+     )
++    parser.add_argument(
++        "--input-size", type=int, default=None,
++        help="Optional fixed square canvas; normalize originals before padding at loading time.",
++    )
++    parser.add_argument(
++        "--exclude-samples", default="", help="Comma-separated sample stems to exclude explicitly."
++    )
++    parser.add_argument(
++        "--split-manifest", default=None,
++        help="Frozen CSV with sample_id,subset columns; must cover all included samples exactly.",
++    )
+     parser.add_argument(
+         "--train-ratio",
+         type=float,
+@@ -138,7 +149,7 @@ def _read_image(image_path: Path) -> np.ndarray:
+     return image.astype(np.float32, copy=False)
+ 
+ 
+-def _collect_pairs(images_dir: Path, labels_dir: Path) -> list[tuple[Path, Path]]:
++def _collect_pairs(images_dir: Path, labels_dir: Path, excluded: set[str] | None = None) -> list[tuple[Path, Path]]:
+     image_files = []
+     for ext in IMAGE_EXTENSIONS:
+         image_files.extend(sorted(images_dir.glob(f"*{ext}")))
+@@ -150,6 +161,8 @@ def _collect_pairs(images_dir: Path, labels_dir: Path) -> list[tuple[Path, Path]
+     pairs: list[tuple[Path, Path]] = []
+     missing = []
+     for image_path in image_files:
++        if image_path.stem in (excluded or set()):
++            continue
+         csv_path = labels_dir / f"{image_path.stem}.csv"
+         if not csv_path.exists():
+             missing.append(csv_path.name)
+@@ -300,14 +313,32 @@ def run_create(args: argparse.Namespace) -> Path:
+     if not labels_dir.is_dir():
+         raise NotADirectoryError(f"Labels directory not found: {labels_dir}")
+ 
+-    pairs = _collect_pairs(images_dir, labels_dir)
++    excluded = {s.strip() for s in getattr(args, "exclude_samples", "").split(",") if s.strip()}
++    pairs = _collect_pairs(images_dir, labels_dir, excluded)
+     images = [_read_image(image_path) for image_path, _ in pairs]
+     coords = [_read_coords(csv_path) for _, csv_path in pairs]
+     pixel_sizes = [read_pixel_size_or_default(image_path) for image_path, _ in pairs]
+-    coords = [
+-        _convert_coords_to_pixels(coord, pixel_size)
+-        for coord, pixel_size in zip(coords, pixel_sizes, strict=True)
+-    ]
++    # TrackMate exports declare units in the descriptor rows. Pixel CSVs
++    # must not be divided by physical pixel size a second time.
++    units = []
++    for _, csv_path in pairs:
++        with csv_path.open(encoding="utf-8-sig", newline="") as handle:
++            rows = list(csv.reader(handle))[:4]
++        units.append("pixel" if any("(pixel)" in row or "(pixels)" in row for row in rows) else "micron")
++    coords = [coord if unit == "pixel" else _convert_coords_to_pixels(coord, pixel_size)
++              for coord, pixel_size, unit in zip(coords, pixel_sizes, units, strict=True)]
++    original_shapes = np.asarray([image.shape for image in images], dtype=np.int32)
++    input_size = getattr(args, "input_size", None)
++    if input_size is not None:
++        if input_size < 4 or input_size & (input_size - 1):
++            raise ValueError("--input-size must be a power of two >= 4.")
++        for image, coord in zip(images, coords, strict=True):
++            height, width = image.shape
++            if height % 4 or width % 4 or max(height, width) > input_size:
++                raise ValueError("Original dimensions must be multiples of 4 and fit the canvas.")
++            if not np.isfinite(coord).all() or np.any(coord < 0) or np.any(coord >= [height, width]):
++                raise ValueError("Coordinates must be finite and within the original image.")
++        images = [np.pad(image, ((0, input_size-image.shape[0]), (0, input_size-image.shape[1]))) for image in images]
+     _validate_image_shapes(images)
+ 
+     train_idx, valid_idx, test_idx = _split_indices(
+@@ -316,6 +347,19 @@ def run_create(args: argparse.Namespace) -> Path:
+         valid_ratio=args.valid_ratio,
+         seed=args.seed,
+     )
++    split_manifest = getattr(args, "split_manifest", None)
++    if split_manifest:
++        with Path(split_manifest).open(encoding="utf-8-sig", newline="") as handle:
++            split_rows = list(csv.DictReader(handle))
++        assignments = {row["sample_id"]: row["subset"] for row in split_rows}
++        if len(assignments) != len(split_rows) or set(assignments) != {p.stem for p, _ in pairs}:
++            raise ValueError("Frozen split manifest must cover included samples exactly, without duplicates.")
++        if any(subset not in ("train", "valid", "test") for subset in assignments.values()):
++            raise ValueError("Invalid subset in frozen split manifest.")
++        train_idx, valid_idx, test_idx = ([i for i, (p, _) in enumerate(pairs) if assignments[p.stem] == subset]
++                                        for subset in ("train", "valid", "test"))
++        if not all((train_idx, valid_idx, test_idx)):
++            raise ValueError("All three frozen splits must be nonempty.")
+ 
+     x_train, y_train = _gather_subset(images, coords, train_idx)
+     x_valid, y_valid = _gather_subset(images, coords, valid_idx)
+@@ -376,8 +420,15 @@ def run_create(args: argparse.Namespace) -> Path:
+         label_name_test=label_name_test,
+         source_index_test=source_index_test,
+         split_seed=np.asarray(args.seed, dtype=np.int32),
+-        train_ratio=np.asarray(args.train_ratio, dtype=np.float32),
+-        valid_ratio=np.asarray(args.valid_ratio, dtype=np.float32),
++        train_ratio=np.asarray(len(train_idx)/len(pairs) if split_manifest else args.train_ratio, dtype=np.float32),
++        valid_ratio=np.asarray(len(valid_idx)/len(pairs) if split_manifest else args.valid_ratio, dtype=np.float32),
++        split_method=np.asarray("frozen_manifest" if split_manifest else "random_image_split"),
++        **({"input_size": np.asarray(input_size),
++            "original_shape_train": original_shapes[train_idx],
++            "original_shape_valid": original_shapes[valid_idx],
++            "original_shape_test": original_shapes[test_idx],
++            "preprocessing": np.asarray("normalize_original_then_zero_pad_right_bottom")}
++           if input_size is not None else {}),
+     )
+     manifest_path = _write_split_manifest(
+         output_path=output_path,
+diff --git a/deepblink_pytorch/deepblink_torch/cli/evaluate.py b/deepblink_pytorch/deepblink_torch/cli/evaluate.py
+index 07a4440..f6dbdae 100644
+--- a/deepblink_pytorch/deepblink_torch/cli/evaluate.py
++++ b/deepblink_pytorch/deepblink_torch/cli/evaluate.py
+@@ -108,7 +108,7 @@ def add_test_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPars
+         "--device",
+         type=str,
+         default="cuda",
+-        choices=["cuda", "cpu"],
++        choices=["cuda", "cpu", "xpu"],
+         help="Inference device.",
+     )
+     parser.add_argument(
+@@ -138,6 +138,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+ 
+ def resolve_device(requested: str) -> torch.device:
+     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
++    if requested == "xpu" and not torch.xpu.is_available():
++        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
+     if requested == "cuda" and not torch.cuda.is_available():
+         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
+         return torch.device("cpu")
+@@ -812,8 +814,8 @@ def run_test(args: argparse.Namespace) -> Path:
+     for sample in samples:
+         image_path = _find_image_file(images_dir, sample.image_name, sample.sample_id)
+         image = predict_cli._read_image(image_path)
+-        normalized = predict_cli._normalize_image(image)
+-        padded, (orig_h, orig_w) = predict_cli._pad_to_square_power2(normalized)
++        orig_h, orig_w = image.shape
++        padded = predict_cli.prepare_image(image, getattr(model, "input_size", None))
+ 
+         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
+         with torch.no_grad():
+diff --git a/deepblink_pytorch/deepblink_torch/cli/predict.py b/deepblink_pytorch/deepblink_torch/cli/predict.py
+index 8d0c725..cd081bc 100644
+--- a/deepblink_pytorch/deepblink_torch/cli/predict.py
++++ b/deepblink_pytorch/deepblink_torch/cli/predict.py
+@@ -16,6 +16,7 @@ from deepblink_torch import get_coordinate_list
+ from deepblink_torch.data_protocol import next_power
+ from ..utils.pixel_size import PixelSize
+ from ..utils.pixel_size import read_pixel_size_or_default
++from ..preprocessing import prepare_image
+ 
+ try:
+     import tifffile
+@@ -52,7 +53,7 @@ def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentP
+         "--device",
+         type=str,
+         default="cuda",
+-        choices=["cuda", "cpu"],
++        choices=["cuda", "cpu", "xpu"],
+         help="Inference device.",
+     )
+     parser.add_argument(
+@@ -74,6 +75,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+ 
+ def resolve_device(requested: str) -> torch.device:
+     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
++    if requested == "xpu" and not torch.xpu.is_available():
++        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
+     if requested == "cuda" and not torch.cuda.is_available():
+         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
+         return torch.device("cpu")
+@@ -185,6 +188,7 @@ def _load_model(checkpoint_path: Path, device: torch.device) -> tuple[torch.nn.M
+     else:
+         model.load_state_dict(checkpoint)
+     model.eval()
++    model.input_size = checkpoint.get("input_size") if isinstance(checkpoint, dict) else None
+     return model, cell_size
+ 
+ 
+@@ -272,8 +276,8 @@ def run_predict(args: argparse.Namespace) -> None:
+ 
+     for file_path in image_files:
+         image = _read_image(file_path)
+-        image = _normalize_image(image)
+-        padded, (orig_h, orig_w) = _pad_to_square_power2(image)
++        orig_h, orig_w = image.shape
++        padded = prepare_image(image, getattr(model, "input_size", None))
+ 
+         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
+         with torch.no_grad():
+diff --git a/deepblink_pytorch/deepblink_torch/cli/train.py b/deepblink_pytorch/deepblink_torch/cli/train.py
+index e6b4a6b..a0ca4a8 100644
+--- a/deepblink_pytorch/deepblink_torch/cli/train.py
++++ b/deepblink_pytorch/deepblink_torch/cli/train.py
+@@ -5,6 +5,8 @@ from __future__ import annotations
+ import argparse
+ import csv
+ import json
++import random
++import time
+ from datetime import datetime
+ from pathlib import Path
+ from typing import Callable
+@@ -40,6 +42,18 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
+         required=True,
+         help="Path to deepBlink .npz dataset containing train/valid/test splits.",
+     )
++    parser.add_argument(
++        "--amp", action="store_true", help="Use bfloat16 autocast on CUDA/XPU; losses remain float32."
++    )
++    parser.add_argument(
++        "--channels-last", action="store_true", help="Use channels-last convolution memory layout."
++    )
++    parser.add_argument(
++        "--seed", type=int, default=42, help="Python, NumPy and PyTorch training seed."
++    )
++    parser.add_argument(
++        "--threads", type=int, default=4, help="PyTorch CPU intra-op threads."
++    )
+     parser.add_argument(
+         "--epochs",
+         type=int,
+@@ -62,7 +76,7 @@ def add_train_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentPar
+         "--device",
+         type=str,
+         default="cuda",
+-        choices=["cuda", "cpu"],
++        choices=["cuda", "cpu", "xpu"],
+         help="Training device.",
+     )
+     parser.add_argument(
+@@ -109,6 +123,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+ 
+ def resolve_device(requested: str) -> torch.device:
+     """Resolve runtime device, falling back to CPU if CUDA is unavailable."""
++    if requested == "xpu" and not torch.xpu.is_available():
++        raise RuntimeError("Intel XPU requested but unavailable in this environment.")
+     if requested == "cuda" and not torch.cuda.is_available():
+         print("Requested device=cuda but CUDA is unavailable; falling back to cpu.")
+         return torch.device("cpu")
+@@ -296,8 +312,15 @@ def train_one_epoch(
+         targets = targets.to(device, non_blocking=True)
+ 
+         optimizer.zero_grad(set_to_none=True)
+-        preds = model(images)
++        if getattr(model, "channels_last_input", False):
++            images = images.contiguous(memory_format=torch.channels_last)
++        with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
++                            enabled=bool(getattr(model, "amp_enabled", False))):
++            preds = model(images)
++        preds = preds.float()
+         loss = loss_fn(targets, preds)
++        if not torch.isfinite(loss):
++            raise FloatingPointError("Non-finite training loss; checkpoint is not updated.")
+         loss.backward()
+         optimizer.step()
+ 
+@@ -328,11 +351,17 @@ def validate(
+         images = images.to(device, non_blocking=True)
+         targets = targets.to(device, non_blocking=True)
+ 
+-        preds = model(images)
++        if getattr(model, "channels_last_input", False):
++            images = images.contiguous(memory_format=torch.channels_last)
++        with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
++                            enabled=bool(getattr(model, "amp_enabled", False))):
++            preds = model(images)
++        preds = preds.float()
+         combined = loss_fn(targets, preds)
+         dice = dice_loss(targets, preds)
+         rmse = rmse_loss(targets, preds)
+-        predicted_positive = preds[..., 0] > 0.5
++        valid_cells = targets[..., 0] >= 0
++        predicted_positive = (preds[..., 0] > 0.5) & valid_cells
+         true_positive = targets[..., 0] > 0.5
+         total_tp += int(torch.count_nonzero(predicted_positive & true_positive).item())
+         total_fp += int(torch.count_nonzero(predicted_positive & ~true_positive).item())
+@@ -392,7 +421,7 @@ def _plot_training_curves(output_path: Path, history: list[dict[str, object]]) -
+     axes[1].plot(epochs, val_f1, color="tab:green", lw=1.8, label="val_f1")
+     axes[1].set_xlabel("Epoch")
+     axes[1].set_ylabel("F1")
+-    axes[1].set_title("Validation F1")
++    axes[1].set_title("Validation grid F1 (p=0.5)")
+     axes[1].set_ylim(0.0, 1.0)
+     axes[1].grid(True, alpha=0.3)
+     axes[1].legend(frameon=False)
+@@ -438,6 +467,17 @@ def run_training(args: argparse.Namespace) -> Path:
+     loss_config = _build_loss_config(args)
+     loss_fn = _build_loss_function(loss_config)
+     model_name = _normalise_model_name(getattr(args, "model", "deepblink"))
++    seed = int(getattr(args, "seed", 42))
++    random.seed(seed)
++    np.random.seed(seed)
++    torch.manual_seed(seed)
++    torch.set_num_threads(int(getattr(args, "threads", 4)))
++    if torch.cuda.is_available():
++        torch.cuda.manual_seed_all(seed)
++    if torch.xpu.is_available():
++        torch.xpu.manual_seed_all(seed)
++    torch.backends.cudnn.benchmark = False
++    torch.backends.cudnn.deterministic = True
+ 
+     device = resolve_device(args.device)
+     train_loader, valid_loader = build_dataloaders(
+@@ -447,9 +487,16 @@ def run_training(args: argparse.Namespace) -> Path:
+     )
+ 
+     model = _build_model(model_name, cell_size=4, device=device)
++    model.amp_enabled = bool(getattr(args, "amp", False))
++    model.channels_last_input = bool(getattr(args, "channels_last", False))
++    if model.amp_enabled and device.type not in ("cuda", "xpu"):
++        raise ValueError("--amp requires CUDA or XPU.")
++    if model.channels_last_input:
++        model = model.to(memory_format=torch.channels_last)
+     parameter_count = _count_parameters(model)
+     architecture_config = _architecture_config(model_name, model)
+     architecture_config_json = json.dumps(architecture_config, sort_keys=True)
++    input_size = getattr(getattr(train_loader, "dataset", None), "input_size", None)
+     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+ 
+     if args.checkpoint is None:
+@@ -474,6 +521,7 @@ def run_training(args: argparse.Namespace) -> Path:
+     )
+ 
+     for epoch in range(1, args.epochs + 1):
++        epoch_start = time.perf_counter()
+         train_loss = train_one_epoch(
+             model=model,
+             loader=train_loader,
+@@ -491,6 +539,8 @@ def run_training(args: argparse.Namespace) -> Path:
+         history.append(
+             {
+                 "epoch": epoch,
++                "seed": seed,
++                "epoch_seconds": time.perf_counter() - epoch_start,
+                 "model_name": model_name,
+                 "parameter_count": parameter_count,
+                 "architecture_config": architecture_config_json,
+@@ -518,6 +568,9 @@ def run_training(args: argparse.Namespace) -> Path:
+                     "optimizer_state_dict": optimizer.state_dict(),
+                     "best_val_loss": best_val_loss,
+                     "cell_size": 4,
++                    "input_size": input_size,
++                    "preprocessing": "normalize_original_then_zero_pad_right_bottom" if input_size else "legacy",
++                    "seed": seed,
+                     "model_name": model_name,
+                     "architecture_config": architecture_config,
+                     "parameter_count": parameter_count,
+@@ -531,6 +584,9 @@ def run_training(args: argparse.Namespace) -> Path:
+                 checkpoint_path,
+             )
+ 
++        # Persist progress even if a long training job is interrupted.
++        _write_rows_csv(metrics_csv_path, history)
++
+         print(
+             f"Epoch [{epoch:03d}/{args.epochs:03d}] "
+             f"train_loss={train_loss:.6f} "
+diff --git a/deepblink_pytorch/deepblink_torch/datasets/spots.py b/deepblink_pytorch/deepblink_torch/datasets/spots.py
+index b6f5130..bec6a51 100644
+--- a/deepblink_pytorch/deepblink_torch/datasets/spots.py
++++ b/deepblink_pytorch/deepblink_torch/datasets/spots.py
+@@ -33,6 +33,8 @@ from torch.utils.data import Dataset
+ 
+ from ..data_protocol import get_prediction_matrix
+ from ..data_protocol import next_power
++from ..preprocessing import normalize_image
++from ..preprocessing import prepare_image
+ 
+ 
+ def _normalize_image(image: np.ndarray) -> np.ndarray:
+@@ -52,8 +54,7 @@ def _normalize_image(image: np.ndarray) -> np.ndarray:
+     np.ndarray
+         Normalized ``float32`` image with the same spatial shape.
+     """
+-    image = (image - image.mean()) / image.std()
+-    return image.astype(np.float32)
++    return normalize_image(image)
+ 
+ 
+ def _load_npz(fname: str | Path) -> dict[str, np.ndarray]:
+@@ -199,6 +200,11 @@ class SpotsDataset(Dataset):
+         self.y_valid = data["y_valid"]
+         self.x_test = data["x_test"]
+         self.y_test = data["y_test"]
++        self.original_shapes = {
++            subset: data.get(f"original_shape_{subset}")
++            for subset in ("train", "valid", "test")
++        }
++        self.input_size = int(data["input_size"]) if "input_size" in data else None
+ 
+         self.pixel_size_x_train = data.get("pixel_size_x_train")
+         self.pixel_size_y_train = data.get("pixel_size_y_train")
+@@ -230,6 +236,14 @@ class SpotsDataset(Dataset):
+         self.y_train = _convert(self.y_train, image_size, self.cell_size)
+         self.y_valid = _convert(self.y_valid, image_size, self.cell_size)
+         self.y_test = _convert(self.y_test, image_size, self.cell_size)
++        for subset in ("train", "valid", "test"):
++            shapes = self.original_shapes[subset]
++            if shapes is not None:
++                targets = getattr(self, f"y_{subset}")
++                for target, (height, width) in zip(targets, shapes):
++                    # -1 is an ignored occupancy target, never a negative example.
++                    target[int(height)//self.cell_size:, :, 0] = -1
++                    target[:, int(width)//self.cell_size:, 0] = -1
+ 
+     def normalize_dataset(self) -> None:
+         """Normalize all images to zero mean and unit standard deviation."""
+@@ -239,9 +253,17 @@ class SpotsDataset(Dataset):
+                 [_normalize_image(image) for image in dataset], dtype=np.float32
+             )
+ 
+-        self.x_train = _normalize(self.x_train)
+-        self.x_valid = _normalize(self.x_valid)
+-        self.x_test = _normalize(self.x_test)
++        for subset in ("train", "valid", "test"):
++            images = getattr(self, f"x_{subset}")
++            shapes = self.original_shapes[subset]
++            if shapes is None:
++                normalized = _normalize(images)
++            else:
++                normalized = np.asarray([
++                    prepare_image(image[:int(height), :int(width)], self.input_size)
++                    for image, (height, width) in zip(images, shapes)
++                ], dtype=np.float32)
++            setattr(self, f"x_{subset}", normalized)
+ 
+     def select_subset(self) -> None:
+         """Select the requested split and expose it as ``self.x`` / ``self.y``."""
+diff --git a/deepblink_pytorch/deepblink_torch/losses.py b/deepblink_pytorch/deepblink_torch/losses.py
+index 6ea404c..db7bdd5 100644
+--- a/deepblink_pytorch/deepblink_torch/losses.py
++++ b/deepblink_pytorch/deepblink_torch/losses.py
+@@ -28,6 +28,16 @@ import torch
+ DEFAULT_RMSE_WEIGHT = 2.0
+ 
+ 
++def valid_loss_inputs(y_true: torch.Tensor, y_pred: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
++    """Exclude artificial canvas cells marked with occupancy -1."""
++    valid = y_true[..., 0] >= 0
++    if bool(torch.all(valid)):
++        return y_true, y_pred
++    if not bool(torch.any(valid)):
++        raise ValueError("Batch contains no valid image cells.")
++    return y_true[valid].reshape(1, 1, -1, 3), y_pred[valid].reshape(1, 1, -1, 3)
++
++
+ def _validate_prediction_shape(y_true: torch.Tensor, y_pred: torch.Tensor) -> None:
+     """Validate that tensors follow the deepBlink channel-last protocol."""
+     if y_true.ndim != 4 or y_pred.ndim != 4:
+@@ -97,6 +107,7 @@ def dice_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
+         Scalar loss tensor equal to ``1 - dice_score`` on ``[..., 0]``.
+     """
+     _validate_prediction_shape(y_true, y_pred)
++    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
+     return 1.0 - dice_score(y_true[..., 0], y_pred[..., 0])
+ 
+ 
+@@ -131,6 +142,7 @@ def focal_loss(
+         Mean focal loss over the occupancy channel.
+     """
+     _validate_prediction_shape(y_true, y_pred)
++    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
+     if not 0.0 <= alpha <= 1.0:
+         raise ValueError(f"alpha must be in [0, 1], but got {alpha}.")
+     if gamma < 0.0:
+@@ -178,6 +190,8 @@ def rmse_loss(y_true: torch.Tensor, y_pred: torch.Tensor) -> torch.Tensor:
+     """
+     _validate_prediction_shape(y_true, y_pred)
+ 
++    y_true, y_pred = valid_loss_inputs(y_true, y_pred)
++
+     y_true_offsets = y_true[..., 1:]
+     y_pred_offsets = y_pred[..., 1:]
+ 
+diff --git a/deepblink_pytorch/scripts/error_context_diagnostics.py b/deepblink_pytorch/scripts/error_context_diagnostics.py
+index 1c4e7e0..841f327 100644
+--- a/deepblink_pytorch/scripts/error_context_diagnostics.py
++++ b/deepblink_pytorch/scripts/error_context_diagnostics.py
+@@ -307,8 +307,8 @@ def _run_dense_inference(
+     model, cell_size = predict_cli._load_model(model_path, device)
+     predictions: list[SamplePrediction] = []
+     for sample in samples:
+-        normalized = predict_cli._normalize_image(sample.image)
+-        padded, (orig_h, orig_w) = predict_cli._pad_to_square_power2(normalized)
++        orig_h, orig_w = sample.image.shape
++        padded = predict_cli.prepare_image(sample.image, getattr(model, "input_size", None))
+         tensor = torch.from_numpy(padded).unsqueeze(0).unsqueeze(0).to(device)
+         with torch.no_grad():
+             pred_matrix = model(tensor).squeeze(0).detach().cpu().numpy()

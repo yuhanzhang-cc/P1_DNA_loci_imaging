@@ -1,0 +1,6 @@
+{
+  "csv_file_name": "sample_278.csv",
+  "image_file_name": "sample_278.tif",
+  "model_file_name": "best_model.pt",
+  "output_unit": "px"
+}

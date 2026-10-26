@@ -1,0 +1,11 @@
+# Preserve frozen experiment bytes, including recorded source snapshots/hashes.
+# -text disables newline conversion; ordinary textual diffs remain available.
+# Some frozen CSV/JSON files use CRLF; recognize CR as part of the line ending.
+outputs/261019_clean220/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+outputs/261024_clean220_random/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+outputs/261025_clean220_control/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+outputs/next_stage_v2/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+outputs/next_stage_v2_*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+outputs/261024_clean220_random_prepare.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/next_stage_plan_20261025/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/clean220_release_20261026/artifact_manifest.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

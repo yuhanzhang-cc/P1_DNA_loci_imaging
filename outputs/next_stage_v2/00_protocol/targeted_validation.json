@@ -1,0 +1,13 @@
+{
+  "targeted_tests_passed": 46,
+  "failed": 0,
+  "full_legacy_suite_claimed": false,
+  "command": "python -m pytest tests/test_additional_architectures.py tests/test_diagnostics_geometry.py tests/test_evidence_architecture.py tests/test_matching_cardinality.py tests/test_optimization_protocol.py tests/test_fixed_canvas.py tests/test_pooled_split.py tests/test_control_experiment.py tests/test_train_cli.py tests/test_evaluate_cli.py tests/test_predict_output_unit.py tests/test_losses.py -q",
+  "elapsed_seconds": 5.02,
+  "recorded_unix": 1792988124.9587398,
+  "cpu_and_xpu_architecture_smoke": true,
+  "runtime_checks": [
+    "xpu_runtime_check.json",
+    "xpu_runtime_check_additional.json"
+  ]
+}

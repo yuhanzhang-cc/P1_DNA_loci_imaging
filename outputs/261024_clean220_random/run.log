@@ -1,0 +1,659 @@
+Start training | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | epochs=100 | batch_size=8 | lr=0.001 | cell_size=4
+Selected model: deepblink | parameters=1,258,723
+Selected loss: dice_rmse | composition=dice + 2*rmse
+Epoch [001/100] train_loss=1.795018 val_loss=1.694871 val_f1=0.002827 val_dice_loss=0.997164 val_rmse=0.348853 (best)
+Epoch [002/100] train_loss=1.606189 val_loss=1.499794 val_f1=0.002710 val_dice_loss=0.996366 val_rmse=0.251714 (best)
+Epoch [003/100] train_loss=1.504434 val_loss=1.510073 val_f1=0.002717 val_dice_loss=0.996318 val_rmse=0.256877 
+Epoch [004/100] train_loss=1.452897 val_loss=1.382271 val_f1=0.002748 val_dice_loss=0.995954 val_rmse=0.193159 (best)
+Epoch [005/100] train_loss=1.368581 val_loss=1.341872 val_f1=0.045114 val_dice_loss=0.993528 val_rmse=0.174172 (best)
+Epoch [006/100] train_loss=1.189198 val_loss=0.929236 val_f1=0.489121 val_dice_loss=0.553604 val_rmse=0.187816 (best)
+Epoch [007/100] train_loss=0.863816 val_loss=0.780054 val_f1=0.607059 val_dice_loss=0.399375 val_rmse=0.190339 (best)
+Epoch [008/100] train_loss=0.797616 val_loss=0.755230 val_f1=0.611819 val_dice_loss=0.409709 val_rmse=0.172761 (best)
+Epoch [009/100] train_loss=0.762690 val_loss=0.700886 val_f1=0.639405 val_dice_loss=0.377574 val_rmse=0.161656 (best)
+Epoch [010/100] train_loss=0.732416 val_loss=0.718352 val_f1=0.635328 val_dice_loss=0.389517 val_rmse=0.164417 
+Epoch [011/100] train_loss=0.729123 val_loss=0.729932 val_f1=0.635328 val_dice_loss=0.377112 val_rmse=0.176410 
+Epoch [012/100] train_loss=0.713903 val_loss=0.676260 val_f1=0.644370 val_dice_loss=0.360629 val_rmse=0.157816 (best)
+Epoch [013/100] train_loss=0.704771 val_loss=0.682913 val_f1=0.651163 val_dice_loss=0.344573 val_rmse=0.169170 
+Epoch [014/100] train_loss=0.674682 val_loss=0.711092 val_f1=0.616883 val_dice_loss=0.375794 val_rmse=0.167649 
+Epoch [015/100] train_loss=0.679788 val_loss=0.699014 val_f1=0.631453 val_dice_loss=0.358154 val_rmse=0.170430 
+Epoch [016/100] train_loss=0.651055 val_loss=0.680825 val_f1=0.666667 val_dice_loss=0.363212 val_rmse=0.158807 
+Epoch [017/100] train_loss=0.641721 val_loss=0.668723 val_f1=0.660352 val_dice_loss=0.345956 val_rmse=0.161383 (best)
+Epoch [018/100] train_loss=0.615189 val_loss=0.642128 val_f1=0.659924 val_dice_loss=0.336177 val_rmse=0.152976 (best)
+Epoch [019/100] train_loss=0.610864 val_loss=0.641414 val_f1=0.670116 val_dice_loss=0.332412 val_rmse=0.154501 (best)
+Epoch [020/100] train_loss=0.609388 val_loss=0.659366 val_f1=0.664812 val_dice_loss=0.352234 val_rmse=0.153566 
+Epoch [021/100] train_loss=0.588868 val_loss=0.679733 val_f1=0.660112 val_dice_loss=0.352404 val_rmse=0.163665 
+Epoch [022/100] train_loss=0.605891 val_loss=0.649433 val_f1=0.651572 val_dice_loss=0.342745 val_rmse=0.153344 
+Epoch [023/100] train_loss=0.588104 val_loss=0.678004 val_f1=0.638537 val_dice_loss=0.368538 val_rmse=0.154733 
+Epoch [024/100] train_loss=0.566981 val_loss=0.670405 val_f1=0.656676 val_dice_loss=0.356125 val_rmse=0.157140 
+Epoch [025/100] train_loss=0.565047 val_loss=0.653423 val_f1=0.665734 val_dice_loss=0.341024 val_rmse=0.156200 
+Epoch [026/100] train_loss=0.545284 val_loss=0.628660 val_f1=0.665726 val_dice_loss=0.337229 val_rmse=0.145715 (best)
+Epoch [027/100] train_loss=0.566472 val_loss=0.640584 val_f1=0.672464 val_dice_loss=0.349782 val_rmse=0.145401 
+Epoch [028/100] train_loss=0.568398 val_loss=0.661390 val_f1=0.650873 val_dice_loss=0.347843 val_rmse=0.156773 
+Epoch [029/100] train_loss=0.528323 val_loss=0.643402 val_f1=0.679045 val_dice_loss=0.333582 val_rmse=0.154910 
+Epoch [030/100] train_loss=0.524555 val_loss=0.647081 val_f1=0.674764 val_dice_loss=0.334703 val_rmse=0.156189 
+Epoch [031/100] train_loss=0.528017 val_loss=0.650443 val_f1=0.682014 val_dice_loss=0.337149 val_rmse=0.156647 
+Epoch [032/100] train_loss=0.526228 val_loss=0.641099 val_f1=0.662824 val_dice_loss=0.351778 val_rmse=0.144661 
+Epoch [033/100] train_loss=0.499469 val_loss=0.614466 val_f1=0.678481 val_dice_loss=0.315340 val_rmse=0.149563 (best)
+Epoch [034/100] train_loss=0.508521 val_loss=0.613663 val_f1=0.684967 val_dice_loss=0.319462 val_rmse=0.147100 (best)
+Epoch [035/100] train_loss=0.503027 val_loss=0.634097 val_f1=0.676590 val_dice_loss=0.329067 val_rmse=0.152515 
+Epoch [036/100] train_loss=0.491392 val_loss=0.627664 val_f1=0.677419 val_dice_loss=0.325704 val_rmse=0.150980 
+Epoch [037/100] train_loss=0.502479 val_loss=0.636194 val_f1=0.677507 val_dice_loss=0.328756 val_rmse=0.153719 
+Epoch [038/100] train_loss=0.480837 val_loss=0.632590 val_f1=0.680441 val_dice_loss=0.331000 val_rmse=0.150795 
+Epoch [039/100] train_loss=0.486374 val_loss=0.601330 val_f1=0.697561 val_dice_loss=0.305478 val_rmse=0.147926 (best)
+Epoch [040/100] train_loss=0.490931 val_loss=0.638322 val_f1=0.683432 val_dice_loss=0.328379 val_rmse=0.154972 
+Epoch [041/100] train_loss=0.472481 val_loss=0.592148 val_f1=0.706667 val_dice_loss=0.292516 val_rmse=0.149816 (best)
+Epoch [042/100] train_loss=0.473323 val_loss=0.611899 val_f1=0.698454 val_dice_loss=0.301918 val_rmse=0.154991 
+Epoch [043/100] train_loss=0.468632 val_loss=0.592785 val_f1=0.727273 val_dice_loss=0.290885 val_rmse=0.150950 
+Epoch [044/100] train_loss=0.476155 val_loss=0.601807 val_f1=0.699875 val_dice_loss=0.303578 val_rmse=0.149114 
+Epoch [045/100] train_loss=0.457588 val_loss=0.606185 val_f1=0.707521 val_dice_loss=0.307912 val_rmse=0.149136 
+Epoch [046/100] train_loss=0.441758 val_loss=0.588971 val_f1=0.712221 val_dice_loss=0.295693 val_rmse=0.146639 (best)
+Epoch [047/100] train_loss=0.439397 val_loss=0.586211 val_f1=0.709677 val_dice_loss=0.296725 val_rmse=0.144743 (best)
+Epoch [048/100] train_loss=0.435922 val_loss=0.584608 val_f1=0.716120 val_dice_loss=0.289728 val_rmse=0.147440 (best)
+Epoch [049/100] train_loss=0.421343 val_loss=0.567590 val_f1=0.728261 val_dice_loss=0.279319 val_rmse=0.144136 (best)
+Epoch [050/100] train_loss=0.434127 val_loss=0.551345 val_f1=0.737120 val_dice_loss=0.264180 val_rmse=0.143583 (best)
+Epoch [051/100] train_loss=0.427899 val_loss=0.563851 val_f1=0.732725 val_dice_loss=0.273821 val_rmse=0.145015 
+Epoch [052/100] train_loss=0.422990 val_loss=0.593809 val_f1=0.703063 val_dice_loss=0.292653 val_rmse=0.150578 
+Epoch [053/100] train_loss=0.405483 val_loss=0.568884 val_f1=0.712975 val_dice_loss=0.286016 val_rmse=0.141434 
+Epoch [054/100] train_loss=0.390110 val_loss=0.588798 val_f1=0.715308 val_dice_loss=0.295304 val_rmse=0.146747 
+Epoch [055/100] train_loss=0.404656 val_loss=0.565684 val_f1=0.741890 val_dice_loss=0.271269 val_rmse=0.147207 
+Epoch [056/100] train_loss=0.389308 val_loss=0.576667 val_f1=0.721826 val_dice_loss=0.287260 val_rmse=0.144704 
+Epoch [057/100] train_loss=0.368957 val_loss=0.568103 val_f1=0.726046 val_dice_loss=0.280038 val_rmse=0.144032 
+Epoch [058/100] train_loss=0.375800 val_loss=0.592133 val_f1=0.716814 val_dice_loss=0.292689 val_rmse=0.149722 
+Epoch [059/100] train_loss=0.379959 val_loss=0.556816 val_f1=0.727517 val_dice_loss=0.276927 val_rmse=0.139944 
+Epoch [060/100] train_loss=0.385148 val_loss=0.570994 val_f1=0.726519 val_dice_loss=0.278338 val_rmse=0.146328 
+Epoch [061/100] train_loss=0.364689 val_loss=0.566237 val_f1=0.715470 val_dice_loss=0.280707 val_rmse=0.142765 
+Epoch [062/100] train_loss=0.360031 val_loss=0.572303 val_f1=0.724138 val_dice_loss=0.283803 val_rmse=0.144250 
+Epoch [063/100] train_loss=0.361330 val_loss=0.572992 val_f1=0.716688 val_dice_loss=0.281901 val_rmse=0.145546 
+Epoch [064/100] train_loss=0.367326 val_loss=0.565755 val_f1=0.738636 val_dice_loss=0.269422 val_rmse=0.148166 
+Epoch [065/100] train_loss=0.365855 val_loss=0.586272 val_f1=0.709239 val_dice_loss=0.284986 val_rmse=0.150643 
+Epoch [066/100] train_loss=0.357951 val_loss=0.576394 val_f1=0.722617 val_dice_loss=0.279339 val_rmse=0.148527 
+Epoch [067/100] train_loss=0.328746 val_loss=0.583216 val_f1=0.743169 val_dice_loss=0.262685 val_rmse=0.160265 
+Epoch [068/100] train_loss=0.338493 val_loss=0.562232 val_f1=0.732782 val_dice_loss=0.268232 val_rmse=0.147000 
+Epoch [069/100] train_loss=0.330842 val_loss=0.571484 val_f1=0.731241 val_dice_loss=0.274958 val_rmse=0.148263 
+Epoch [070/100] train_loss=0.339836 val_loss=0.576766 val_f1=0.722071 val_dice_loss=0.279177 val_rmse=0.148795 
+Epoch [071/100] train_loss=0.334226 val_loss=0.567647 val_f1=0.724234 val_dice_loss=0.276757 val_rmse=0.145445 
+Epoch [072/100] train_loss=0.317559 val_loss=0.570950 val_f1=0.741160 val_dice_loss=0.267855 val_rmse=0.151548 
+Epoch [073/100] train_loss=0.324425 val_loss=0.554701 val_f1=0.740940 val_dice_loss=0.264170 val_rmse=0.145265 
+Epoch [074/100] train_loss=0.319649 val_loss=0.564431 val_f1=0.734637 val_dice_loss=0.272100 val_rmse=0.146166 
+Epoch [075/100] train_loss=0.320002 val_loss=0.565816 val_f1=0.742069 val_dice_loss=0.271692 val_rmse=0.147062 
+Epoch [076/100] train_loss=0.317865 val_loss=0.574860 val_f1=0.717730 val_dice_loss=0.280909 val_rmse=0.146975 
+Epoch [077/100] train_loss=0.322061 val_loss=0.560384 val_f1=0.739011 val_dice_loss=0.268960 val_rmse=0.145712 
+Epoch [078/100] train_loss=0.306368 val_loss=0.560088 val_f1=0.737446 val_dice_loss=0.271738 val_rmse=0.144175 
+Epoch [079/100] train_loss=0.306650 val_loss=0.563827 val_f1=0.727513 val_dice_loss=0.272225 val_rmse=0.145801 
+Epoch [080/100] train_loss=0.302172 val_loss=0.553536 val_f1=0.740845 val_dice_loss=0.256846 val_rmse=0.148345 
+Epoch [081/100] train_loss=0.286899 val_loss=0.545226 val_f1=0.737789 val_dice_loss=0.264378 val_rmse=0.140424 (best)
+Epoch [082/100] train_loss=0.307800 val_loss=0.583549 val_f1=0.729592 val_dice_loss=0.270622 val_rmse=0.156464 
+Epoch [083/100] train_loss=0.304800 val_loss=0.555144 val_f1=0.745269 val_dice_loss=0.264165 val_rmse=0.145489 
+Epoch [084/100] train_loss=0.298600 val_loss=0.553873 val_f1=0.740028 val_dice_loss=0.263977 val_rmse=0.144948 
+Epoch [085/100] train_loss=0.286328 val_loss=0.563585 val_f1=0.726776 val_dice_loss=0.271947 val_rmse=0.145819 
+Epoch [086/100] train_loss=0.286804 val_loss=0.575648 val_f1=0.726508 val_dice_loss=0.279274 val_rmse=0.148187 
+Epoch [087/100] train_loss=0.273954 val_loss=0.559885 val_f1=0.737997 val_dice_loss=0.267458 val_rmse=0.146214 
+Epoch [088/100] train_loss=0.280158 val_loss=0.572321 val_f1=0.733624 val_dice_loss=0.278819 val_rmse=0.146751 
+Epoch [089/100] train_loss=0.266145 val_loss=0.570757 val_f1=0.730412 val_dice_loss=0.278492 val_rmse=0.146133 
+Epoch [090/100] train_loss=0.273676 val_loss=0.554607 val_f1=0.731915 val_dice_loss=0.266732 val_rmse=0.143938 
+Epoch [091/100] train_loss=0.263724 val_loss=0.581530 val_f1=0.708520 val_dice_loss=0.290907 val_rmse=0.145312 
+Epoch [092/100] train_loss=0.273763 val_loss=0.567183 val_f1=0.727510 val_dice_loss=0.275776 val_rmse=0.145704 
+Epoch [093/100] train_loss=0.275258 val_loss=0.591502 val_f1=0.706422 val_dice_loss=0.300377 val_rmse=0.145563 
+Epoch [094/100] train_loss=0.269695 val_loss=0.543584 val_f1=0.748619 val_dice_loss=0.255821 val_rmse=0.143882 (best)
+Epoch [095/100] train_loss=0.275549 val_loss=0.576183 val_f1=0.733333 val_dice_loss=0.271498 val_rmse=0.152342 
+Epoch [096/100] train_loss=0.266489 val_loss=0.558814 val_f1=0.731507 val_dice_loss=0.273675 val_rmse=0.142569 
+Epoch [097/100] train_loss=0.253416 val_loss=0.567304 val_f1=0.727007 val_dice_loss=0.273491 val_rmse=0.146907 
+Epoch [098/100] train_loss=0.253357 val_loss=0.549174 val_f1=0.739377 val_dice_loss=0.267354 val_rmse=0.140910 
+Epoch [099/100] train_loss=0.246449 val_loss=0.570434 val_f1=0.732782 val_dice_loss=0.275218 val_rmse=0.147608 
+Epoch [100/100] train_loss=0.256766 val_loss=0.553983 val_f1=0.746099 val_dice_loss=0.258996 val_rmse=0.147494 
+Training metrics saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\training_metrics.csv
+Training curves saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\training_curves.png
+Training completed. Best checkpoint: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\best_model.pt
+Start training | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | epochs=100 | batch_size=8 | lr=0.001 | cell_size=4
+Selected model: deepblink | parameters=1,258,723
+Selected loss: dice_rmse | composition=dice + 2*rmse
+Epoch [001/100] train_loss=1.798034 val_loss=1.742544 val_f1=0.002707 val_dice_loss=0.997233 val_rmse=0.372655 (best)
+Epoch [002/100] train_loss=1.587052 val_loss=1.478710 val_f1=0.002707 val_dice_loss=0.996377 val_rmse=0.241166 (best)
+Epoch [003/100] train_loss=1.458855 val_loss=1.421743 val_f1=0.002708 val_dice_loss=0.996168 val_rmse=0.212787 (best)
+Epoch [004/100] train_loss=1.405733 val_loss=1.387380 val_f1=0.299769 val_dice_loss=0.992682 val_rmse=0.197349 (best)
+Epoch [005/100] train_loss=1.233764 val_loss=0.895626 val_f1=0.525316 val_dice_loss=0.493263 val_rmse=0.201182 (best)
+Epoch [006/100] train_loss=0.899790 val_loss=0.765091 val_f1=0.601840 val_dice_loss=0.409366 val_rmse=0.177863 (best)
+Epoch [007/100] train_loss=0.839693 val_loss=0.769487 val_f1=0.596178 val_dice_loss=0.408043 val_rmse=0.180722 
+Epoch [008/100] train_loss=0.804958 val_loss=0.753151 val_f1=0.606132 val_dice_loss=0.400409 val_rmse=0.176371 (best)
+Epoch [009/100] train_loss=0.753326 val_loss=0.715843 val_f1=0.623921 val_dice_loss=0.392116 val_rmse=0.161864 (best)
+Epoch [010/100] train_loss=0.734752 val_loss=0.716195 val_f1=0.621656 val_dice_loss=0.381795 val_rmse=0.167200 
+Epoch [011/100] train_loss=0.697257 val_loss=0.733225 val_f1=0.612059 val_dice_loss=0.391775 val_rmse=0.170725 
+Epoch [012/100] train_loss=0.690838 val_loss=0.682196 val_f1=0.633452 val_dice_loss=0.367527 val_rmse=0.157335 (best)
+Epoch [013/100] train_loss=0.682506 val_loss=0.709883 val_f1=0.645349 val_dice_loss=0.377891 val_rmse=0.165996 
+Epoch [014/100] train_loss=0.691456 val_loss=0.701850 val_f1=0.629834 val_dice_loss=0.371016 val_rmse=0.165417 
+Epoch [015/100] train_loss=0.657107 val_loss=0.675225 val_f1=0.631702 val_dice_loss=0.365973 val_rmse=0.154626 (best)
+Epoch [016/100] train_loss=0.633080 val_loss=0.715047 val_f1=0.605236 val_dice_loss=0.383776 val_rmse=0.165636 
+Epoch [017/100] train_loss=0.650574 val_loss=0.671222 val_f1=0.659401 val_dice_loss=0.353239 val_rmse=0.158992 (best)
+Epoch [018/100] train_loss=0.630167 val_loss=0.659589 val_f1=0.649189 val_dice_loss=0.347977 val_rmse=0.155806 (best)
+Epoch [019/100] train_loss=0.595265 val_loss=0.661974 val_f1=0.661438 val_dice_loss=0.346963 val_rmse=0.157505 
+Epoch [020/100] train_loss=0.600689 val_loss=0.671917 val_f1=0.651921 val_dice_loss=0.337080 val_rmse=0.167418 
+Epoch [021/100] train_loss=0.596110 val_loss=0.673425 val_f1=0.656250 val_dice_loss=0.342313 val_rmse=0.165556 
+Epoch [022/100] train_loss=0.583806 val_loss=0.650525 val_f1=0.667516 val_dice_loss=0.338281 val_rmse=0.156122 (best)
+Epoch [023/100] train_loss=0.573390 val_loss=0.662068 val_f1=0.641555 val_dice_loss=0.349893 val_rmse=0.156087 
+Epoch [024/100] train_loss=0.580922 val_loss=0.653827 val_f1=0.642393 val_dice_loss=0.355474 val_rmse=0.149177 
+Epoch [025/100] train_loss=0.579229 val_loss=0.656400 val_f1=0.661417 val_dice_loss=0.352044 val_rmse=0.152178 
+Epoch [026/100] train_loss=0.554919 val_loss=0.643611 val_f1=0.668456 val_dice_loss=0.337284 val_rmse=0.153164 (best)
+Epoch [027/100] train_loss=0.580006 val_loss=0.674632 val_f1=0.659287 val_dice_loss=0.342753 val_rmse=0.165940 
+Epoch [028/100] train_loss=0.556665 val_loss=0.640182 val_f1=0.675497 val_dice_loss=0.335273 val_rmse=0.152454 (best)
+Epoch [029/100] train_loss=0.550369 val_loss=0.643768 val_f1=0.675177 val_dice_loss=0.344644 val_rmse=0.149562 
+Epoch [030/100] train_loss=0.531822 val_loss=0.648384 val_f1=0.673267 val_dice_loss=0.326526 val_rmse=0.160929 
+Epoch [031/100] train_loss=0.534188 val_loss=0.661098 val_f1=0.661499 val_dice_loss=0.336796 val_rmse=0.162151 
+Epoch [032/100] train_loss=0.519583 val_loss=0.636938 val_f1=0.670157 val_dice_loss=0.333211 val_rmse=0.151864 (best)
+Epoch [033/100] train_loss=0.501187 val_loss=0.642809 val_f1=0.665765 val_dice_loss=0.341923 val_rmse=0.150443 
+Epoch [034/100] train_loss=0.499995 val_loss=0.647676 val_f1=0.666667 val_dice_loss=0.347787 val_rmse=0.149945 
+Epoch [035/100] train_loss=0.492468 val_loss=0.640856 val_f1=0.671018 val_dice_loss=0.332251 val_rmse=0.154302 
+Epoch [036/100] train_loss=0.494702 val_loss=0.649375 val_f1=0.661247 val_dice_loss=0.354713 val_rmse=0.147331 
+Epoch [037/100] train_loss=0.521986 val_loss=0.617264 val_f1=0.681319 val_dice_loss=0.316175 val_rmse=0.150545 (best)
+Epoch [038/100] train_loss=0.479122 val_loss=0.657258 val_f1=0.651656 val_dice_loss=0.349168 val_rmse=0.154045 
+Epoch [039/100] train_loss=0.471204 val_loss=0.619532 val_f1=0.685494 val_dice_loss=0.328629 val_rmse=0.145452 
+Epoch [040/100] train_loss=0.476931 val_loss=0.637241 val_f1=0.670157 val_dice_loss=0.338971 val_rmse=0.149135 
+Epoch [041/100] train_loss=0.455492 val_loss=0.635839 val_f1=0.666667 val_dice_loss=0.335435 val_rmse=0.150202 
+Epoch [042/100] train_loss=0.454390 val_loss=0.654839 val_f1=0.669468 val_dice_loss=0.341416 val_rmse=0.156712 
+Epoch [043/100] train_loss=0.463965 val_loss=0.630930 val_f1=0.678014 val_dice_loss=0.338341 val_rmse=0.146295 
+Epoch [044/100] train_loss=0.451897 val_loss=0.616706 val_f1=0.671569 val_dice_loss=0.321621 val_rmse=0.147542 (best)
+Epoch [045/100] train_loss=0.470662 val_loss=0.606052 val_f1=0.690955 val_dice_loss=0.307239 val_rmse=0.149406 (best)
+Epoch [046/100] train_loss=0.467507 val_loss=0.643091 val_f1=0.666667 val_dice_loss=0.347285 val_rmse=0.147903 
+Epoch [047/100] train_loss=0.453376 val_loss=0.640659 val_f1=0.670256 val_dice_loss=0.339542 val_rmse=0.150559 
+Epoch [048/100] train_loss=0.437677 val_loss=0.636867 val_f1=0.666667 val_dice_loss=0.344324 val_rmse=0.146272 
+Epoch [049/100] train_loss=0.436350 val_loss=0.626356 val_f1=0.675159 val_dice_loss=0.320921 val_rmse=0.152717 
+Epoch [050/100] train_loss=0.440486 val_loss=0.631702 val_f1=0.662983 val_dice_loss=0.340477 val_rmse=0.145612 
+Epoch [051/100] train_loss=0.452214 val_loss=0.616204 val_f1=0.678304 val_dice_loss=0.321234 val_rmse=0.147485 
+Epoch [052/100] train_loss=0.440689 val_loss=0.640625 val_f1=0.668486 val_dice_loss=0.338226 val_rmse=0.151199 
+Epoch [053/100] train_loss=0.421864 val_loss=0.633450 val_f1=0.675712 val_dice_loss=0.341271 val_rmse=0.146089 
+Epoch [054/100] train_loss=0.428764 val_loss=0.630567 val_f1=0.648649 val_dice_loss=0.336460 val_rmse=0.147053 
+Epoch [055/100] train_loss=0.441757 val_loss=0.623999 val_f1=0.680519 val_dice_loss=0.323798 val_rmse=0.150101 
+Epoch [056/100] train_loss=0.417929 val_loss=0.605915 val_f1=0.678284 val_dice_loss=0.321308 val_rmse=0.142304 (best)
+Epoch [057/100] train_loss=0.401627 val_loss=0.631657 val_f1=0.664968 val_dice_loss=0.327936 val_rmse=0.151861 
+Epoch [058/100] train_loss=0.395407 val_loss=0.622164 val_f1=0.664011 val_dice_loss=0.335267 val_rmse=0.143449 
+Epoch [059/100] train_loss=0.391774 val_loss=0.641141 val_f1=0.668547 val_dice_loss=0.348636 val_rmse=0.146252 
+Epoch [060/100] train_loss=0.401490 val_loss=0.610176 val_f1=0.674102 val_dice_loss=0.323543 val_rmse=0.143316 
+Epoch [061/100] train_loss=0.420361 val_loss=0.650755 val_f1=0.654402 val_dice_loss=0.342285 val_rmse=0.154235 
+Epoch [062/100] train_loss=0.396430 val_loss=0.621665 val_f1=0.671290 val_dice_loss=0.330048 val_rmse=0.145808 
+Epoch [063/100] train_loss=0.379834 val_loss=0.637729 val_f1=0.671408 val_dice_loss=0.341489 val_rmse=0.148120 
+Epoch [064/100] train_loss=0.384718 val_loss=0.638172 val_f1=0.670407 val_dice_loss=0.344052 val_rmse=0.147060 
+Epoch [065/100] train_loss=0.368564 val_loss=0.625633 val_f1=0.671252 val_dice_loss=0.332989 val_rmse=0.146322 
+Epoch [066/100] train_loss=0.353476 val_loss=0.616884 val_f1=0.680384 val_dice_loss=0.324249 val_rmse=0.146318 
+Epoch [067/100] train_loss=0.369703 val_loss=0.607494 val_f1=0.681013 val_dice_loss=0.317927 val_rmse=0.144784 
+Epoch [068/100] train_loss=0.362389 val_loss=0.618976 val_f1=0.670918 val_dice_loss=0.330933 val_rmse=0.144022 
+Epoch [069/100] train_loss=0.363264 val_loss=0.629154 val_f1=0.668539 val_dice_loss=0.336898 val_rmse=0.146128 
+Epoch [070/100] train_loss=0.344368 val_loss=0.640804 val_f1=0.663743 val_dice_loss=0.352654 val_rmse=0.144075 
+Epoch [071/100] train_loss=0.351643 val_loss=0.614960 val_f1=0.690027 val_dice_loss=0.320207 val_rmse=0.147376 
+Epoch [072/100] train_loss=0.348472 val_loss=0.630388 val_f1=0.671271 val_dice_loss=0.332105 val_rmse=0.149142 
+Epoch [073/100] train_loss=0.332920 val_loss=0.614420 val_f1=0.678474 val_dice_loss=0.327583 val_rmse=0.143418 
+Epoch [074/100] train_loss=0.334795 val_loss=0.618058 val_f1=0.678899 val_dice_loss=0.320987 val_rmse=0.148535 
+Epoch [075/100] train_loss=0.346590 val_loss=0.607484 val_f1=0.674389 val_dice_loss=0.321063 val_rmse=0.143210 
+Epoch [076/100] train_loss=0.346182 val_loss=0.623425 val_f1=0.678112 val_dice_loss=0.330233 val_rmse=0.146596 
+Epoch [077/100] train_loss=0.333663 val_loss=0.629329 val_f1=0.671290 val_dice_loss=0.335255 val_rmse=0.147037 
+Epoch [078/100] train_loss=0.317239 val_loss=0.610761 val_f1=0.690027 val_dice_loss=0.318662 val_rmse=0.146049 
+Epoch [079/100] train_loss=0.313322 val_loss=0.605589 val_f1=0.684564 val_dice_loss=0.316344 val_rmse=0.144623 (best)
+Epoch [080/100] train_loss=0.314271 val_loss=0.609323 val_f1=0.689840 val_dice_loss=0.312484 val_rmse=0.148419 
+Epoch [081/100] train_loss=0.318451 val_loss=0.589056 val_f1=0.710027 val_dice_loss=0.296779 val_rmse=0.146138 (best)
+Epoch [082/100] train_loss=0.311185 val_loss=0.617699 val_f1=0.681287 val_dice_loss=0.326660 val_rmse=0.145520 
+Epoch [083/100] train_loss=0.306658 val_loss=0.579015 val_f1=0.711462 val_dice_loss=0.287994 val_rmse=0.145511 (best)
+Epoch [084/100] train_loss=0.304473 val_loss=0.594199 val_f1=0.706349 val_dice_loss=0.300415 val_rmse=0.146892 
+Epoch [085/100] train_loss=0.321589 val_loss=0.575237 val_f1=0.721649 val_dice_loss=0.286695 val_rmse=0.144271 (best)
+Epoch [086/100] train_loss=0.305259 val_loss=0.600029 val_f1=0.699187 val_dice_loss=0.305072 val_rmse=0.147479 
+Epoch [087/100] train_loss=0.291138 val_loss=0.597047 val_f1=0.700280 val_dice_loss=0.304361 val_rmse=0.146343 
+Epoch [088/100] train_loss=0.283156 val_loss=0.598306 val_f1=0.707042 val_dice_loss=0.307119 val_rmse=0.145593 
+Epoch [089/100] train_loss=0.276926 val_loss=0.599303 val_f1=0.707989 val_dice_loss=0.304777 val_rmse=0.147263 
+Epoch [090/100] train_loss=0.277576 val_loss=0.601274 val_f1=0.702628 val_dice_loss=0.302995 val_rmse=0.149139 
+Epoch [091/100] train_loss=0.267613 val_loss=0.604819 val_f1=0.696403 val_dice_loss=0.316739 val_rmse=0.144040 
+Epoch [092/100] train_loss=0.279697 val_loss=0.575850 val_f1=0.717477 val_dice_loss=0.290715 val_rmse=0.142567 
+Epoch [093/100] train_loss=0.270938 val_loss=0.589458 val_f1=0.712951 val_dice_loss=0.295304 val_rmse=0.147077 
+Epoch [094/100] train_loss=0.268488 val_loss=0.604587 val_f1=0.692737 val_dice_loss=0.314530 val_rmse=0.145029 
+Epoch [095/100] train_loss=0.263418 val_loss=0.613338 val_f1=0.691156 val_dice_loss=0.316421 val_rmse=0.148459 
+Epoch [096/100] train_loss=0.269039 val_loss=0.628022 val_f1=0.680851 val_dice_loss=0.327206 val_rmse=0.150408 
+Epoch [097/100] train_loss=0.275010 val_loss=0.578858 val_f1=0.713681 val_dice_loss=0.297185 val_rmse=0.140837 
+Epoch [098/100] train_loss=0.252674 val_loss=0.577462 val_f1=0.714286 val_dice_loss=0.290287 val_rmse=0.143588 
+Epoch [099/100] train_loss=0.271594 val_loss=0.591741 val_f1=0.712517 val_dice_loss=0.295058 val_rmse=0.148341 
+Epoch [100/100] train_loss=0.272089 val_loss=0.607658 val_f1=0.696629 val_dice_loss=0.313939 val_rmse=0.146859 
+Training metrics saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\training_metrics.csv
+Training curves saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\training_curves.png
+Training completed. Best checkpoint: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\best_model.pt
+Start training | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | epochs=100 | batch_size=8 | lr=0.001 | cell_size=4
+Selected model: deepblink | parameters=1,258,723
+Selected loss: dice_rmse | composition=dice + 2*rmse
+Epoch [001/100] train_loss=1.792813 val_loss=1.672634 val_f1=0.002707 val_dice_loss=0.997095 val_rmse=0.337770 (best)
+Epoch [002/100] train_loss=1.591316 val_loss=1.489592 val_f1=0.002708 val_dice_loss=0.996144 val_rmse=0.246724 (best)
+Epoch [003/100] train_loss=1.472471 val_loss=1.445175 val_f1=0.002707 val_dice_loss=0.996217 val_rmse=0.224479 (best)
+Epoch [004/100] train_loss=1.429828 val_loss=1.393470 val_f1=0.002708 val_dice_loss=0.996343 val_rmse=0.198564 (best)
+Epoch [005/100] train_loss=1.402243 val_loss=1.395905 val_f1=0.009243 val_dice_loss=0.995646 val_rmse=0.200130 
+Epoch [006/100] train_loss=1.376052 val_loss=1.309634 val_f1=0.301758 val_dice_loss=0.967918 val_rmse=0.170858 (best)
+Epoch [007/100] train_loss=1.053898 val_loss=0.838991 val_f1=0.563107 val_dice_loss=0.460777 val_rmse=0.189107 (best)
+Epoch [008/100] train_loss=0.867768 val_loss=0.762694 val_f1=0.627737 val_dice_loss=0.400429 val_rmse=0.181132 (best)
+Epoch [009/100] train_loss=0.782014 val_loss=0.731077 val_f1=0.623853 val_dice_loss=0.391648 val_rmse=0.169715 (best)
+Epoch [010/100] train_loss=0.723240 val_loss=0.752688 val_f1=0.599696 val_dice_loss=0.423460 val_rmse=0.164614 
+Epoch [011/100] train_loss=0.711836 val_loss=0.732473 val_f1=0.629310 val_dice_loss=0.386215 val_rmse=0.173129 
+Epoch [012/100] train_loss=0.727945 val_loss=0.715159 val_f1=0.631835 val_dice_loss=0.365338 val_rmse=0.174911 (best)
+Epoch [013/100] train_loss=0.695532 val_loss=0.687872 val_f1=0.648336 val_dice_loss=0.379862 val_rmse=0.154005 (best)
+Epoch [014/100] train_loss=0.700830 val_loss=0.701304 val_f1=0.648336 val_dice_loss=0.370265 val_rmse=0.165520 
+Epoch [015/100] train_loss=0.668392 val_loss=0.714604 val_f1=0.634483 val_dice_loss=0.369531 val_rmse=0.172536 
+Epoch [016/100] train_loss=0.647632 val_loss=0.669924 val_f1=0.630752 val_dice_loss=0.360549 val_rmse=0.154687 (best)
+Epoch [017/100] train_loss=0.630352 val_loss=0.637631 val_f1=0.658762 val_dice_loss=0.347526 val_rmse=0.145052 (best)
+Epoch [018/100] train_loss=0.635391 val_loss=0.746065 val_f1=0.592000 val_dice_loss=0.431726 val_rmse=0.157170 
+Epoch [019/100] train_loss=0.616111 val_loss=0.666762 val_f1=0.650538 val_dice_loss=0.358661 val_rmse=0.154051 
+Epoch [020/100] train_loss=0.591708 val_loss=0.644090 val_f1=0.648837 val_dice_loss=0.346930 val_rmse=0.148580 
+Epoch [021/100] train_loss=0.591943 val_loss=0.653677 val_f1=0.649262 val_dice_loss=0.346838 val_rmse=0.153420 
+Epoch [022/100] train_loss=0.584248 val_loss=0.659336 val_f1=0.668317 val_dice_loss=0.340020 val_rmse=0.159658 
+Epoch [023/100] train_loss=0.561371 val_loss=0.641318 val_f1=0.660025 val_dice_loss=0.345867 val_rmse=0.147725 
+Epoch [024/100] train_loss=0.566383 val_loss=0.662642 val_f1=0.655977 val_dice_loss=0.372682 val_rmse=0.144980 
+Epoch [025/100] train_loss=0.560956 val_loss=0.653335 val_f1=0.648148 val_dice_loss=0.353429 val_rmse=0.149953 
+Epoch [026/100] train_loss=0.563687 val_loss=0.683902 val_f1=0.628272 val_dice_loss=0.368348 val_rmse=0.157777 
+Epoch [027/100] train_loss=0.543127 val_loss=0.638091 val_f1=0.665025 val_dice_loss=0.334124 val_rmse=0.151983 
+Epoch [028/100] train_loss=0.544443 val_loss=0.638611 val_f1=0.665793 val_dice_loss=0.337759 val_rmse=0.150426 
+Epoch [029/100] train_loss=0.516061 val_loss=0.646199 val_f1=0.656020 val_dice_loss=0.341367 val_rmse=0.152416 
+Epoch [030/100] train_loss=0.516614 val_loss=0.654377 val_f1=0.659713 val_dice_loss=0.350100 val_rmse=0.152139 
+Epoch [031/100] train_loss=0.508662 val_loss=0.640035 val_f1=0.669221 val_dice_loss=0.342552 val_rmse=0.148742 
+Epoch [032/100] train_loss=0.531786 val_loss=0.643336 val_f1=0.669333 val_dice_loss=0.339870 val_rmse=0.151733 
+Epoch [033/100] train_loss=0.518015 val_loss=0.638483 val_f1=0.662050 val_dice_loss=0.346432 val_rmse=0.146025 
+Epoch [034/100] train_loss=0.508500 val_loss=0.630388 val_f1=0.665880 val_dice_loss=0.329079 val_rmse=0.150655 (best)
+Epoch [035/100] train_loss=0.500239 val_loss=0.647751 val_f1=0.674635 val_dice_loss=0.338935 val_rmse=0.154408 
+Epoch [036/100] train_loss=0.478379 val_loss=0.620597 val_f1=0.665775 val_dice_loss=0.340249 val_rmse=0.140174 (best)
+Epoch [037/100] train_loss=0.482460 val_loss=0.631740 val_f1=0.660000 val_dice_loss=0.348578 val_rmse=0.141581 
+Epoch [038/100] train_loss=0.471825 val_loss=0.634142 val_f1=0.665012 val_dice_loss=0.332821 val_rmse=0.150660 
+Epoch [039/100] train_loss=0.484251 val_loss=0.614902 val_f1=0.673469 val_dice_loss=0.332716 val_rmse=0.141093 (best)
+Epoch [040/100] train_loss=0.478511 val_loss=0.627714 val_f1=0.681520 val_dice_loss=0.325987 val_rmse=0.150864 
+Epoch [041/100] train_loss=0.460764 val_loss=0.653990 val_f1=0.660274 val_dice_loss=0.349893 val_rmse=0.152049 
+Epoch [042/100] train_loss=0.472566 val_loss=0.612921 val_f1=0.679198 val_dice_loss=0.314382 val_rmse=0.149269 (best)
+Epoch [043/100] train_loss=0.440579 val_loss=0.619697 val_f1=0.674731 val_dice_loss=0.337739 val_rmse=0.140979 
+Epoch [044/100] train_loss=0.445263 val_loss=0.614392 val_f1=0.676393 val_dice_loss=0.336458 val_rmse=0.138967 
+Epoch [045/100] train_loss=0.446974 val_loss=0.620032 val_f1=0.675643 val_dice_loss=0.325510 val_rmse=0.147261 
+Epoch [046/100] train_loss=0.427875 val_loss=0.630521 val_f1=0.667594 val_dice_loss=0.345587 val_rmse=0.142467 
+Epoch [047/100] train_loss=0.441729 val_loss=0.606837 val_f1=0.680152 val_dice_loss=0.318180 val_rmse=0.144328 (best)
+Epoch [048/100] train_loss=0.442475 val_loss=0.633096 val_f1=0.669504 val_dice_loss=0.345162 val_rmse=0.143967 
+Epoch [049/100] train_loss=0.437031 val_loss=0.633414 val_f1=0.664132 val_dice_loss=0.328320 val_rmse=0.152547 
+Epoch [050/100] train_loss=0.432429 val_loss=0.620436 val_f1=0.685484 val_dice_loss=0.322322 val_rmse=0.149057 
+Epoch [051/100] train_loss=0.418680 val_loss=0.605346 val_f1=0.688742 val_dice_loss=0.313280 val_rmse=0.146033 (best)
+Epoch [052/100] train_loss=0.418733 val_loss=0.606006 val_f1=0.680798 val_dice_loss=0.317488 val_rmse=0.144259 
+Epoch [053/100] train_loss=0.434521 val_loss=0.610269 val_f1=0.690196 val_dice_loss=0.309219 val_rmse=0.150525 
+Epoch [054/100] train_loss=0.439994 val_loss=0.628519 val_f1=0.688525 val_dice_loss=0.324419 val_rmse=0.152050 
+Epoch [055/100] train_loss=0.413928 val_loss=0.612510 val_f1=0.685112 val_dice_loss=0.326537 val_rmse=0.142986 
+Epoch [056/100] train_loss=0.387489 val_loss=0.628975 val_f1=0.675516 val_dice_loss=0.345909 val_rmse=0.141533 
+Epoch [057/100] train_loss=0.390935 val_loss=0.613116 val_f1=0.683784 val_dice_loss=0.317909 val_rmse=0.147604 
+Epoch [058/100] train_loss=0.387328 val_loss=0.599779 val_f1=0.697987 val_dice_loss=0.309086 val_rmse=0.145346 (best)
+Epoch [059/100] train_loss=0.370735 val_loss=0.604520 val_f1=0.698592 val_dice_loss=0.315986 val_rmse=0.144267 
+Epoch [060/100] train_loss=0.364854 val_loss=0.613068 val_f1=0.690751 val_dice_loss=0.323447 val_rmse=0.144810 
+Epoch [061/100] train_loss=0.374991 val_loss=0.612806 val_f1=0.685871 val_dice_loss=0.319091 val_rmse=0.146857 
+Epoch [062/100] train_loss=0.360926 val_loss=0.614295 val_f1=0.680162 val_dice_loss=0.324284 val_rmse=0.145005 
+Epoch [063/100] train_loss=0.346189 val_loss=0.620451 val_f1=0.692629 val_dice_loss=0.316872 val_rmse=0.151790 
+Epoch [064/100] train_loss=0.352005 val_loss=0.623059 val_f1=0.685315 val_dice_loss=0.324616 val_rmse=0.149222 
+Epoch [065/100] train_loss=0.350520 val_loss=0.605013 val_f1=0.689655 val_dice_loss=0.316040 val_rmse=0.144487 
+Epoch [066/100] train_loss=0.346534 val_loss=0.620612 val_f1=0.677778 val_dice_loss=0.331607 val_rmse=0.144502 
+Epoch [067/100] train_loss=0.373355 val_loss=0.643140 val_f1=0.678014 val_dice_loss=0.329950 val_rmse=0.156595 
+Epoch [068/100] train_loss=0.353239 val_loss=0.601823 val_f1=0.697674 val_dice_loss=0.308282 val_rmse=0.146771 
+Epoch [069/100] train_loss=0.339173 val_loss=0.610280 val_f1=0.691563 val_dice_loss=0.321183 val_rmse=0.144549 
+Epoch [070/100] train_loss=0.334038 val_loss=0.610369 val_f1=0.691751 val_dice_loss=0.323078 val_rmse=0.143646 
+Epoch [071/100] train_loss=0.357110 val_loss=0.606030 val_f1=0.694626 val_dice_loss=0.307475 val_rmse=0.149277 
+Epoch [072/100] train_loss=0.341607 val_loss=0.600563 val_f1=0.686327 val_dice_loss=0.309922 val_rmse=0.145320 
+Epoch [073/100] train_loss=0.338860 val_loss=0.611462 val_f1=0.700690 val_dice_loss=0.305182 val_rmse=0.153140 
+Epoch [074/100] train_loss=0.327392 val_loss=0.606540 val_f1=0.693642 val_dice_loss=0.313942 val_rmse=0.146299 
+Epoch [075/100] train_loss=0.318823 val_loss=0.613113 val_f1=0.689855 val_dice_loss=0.322958 val_rmse=0.145078 
+Epoch [076/100] train_loss=0.312523 val_loss=0.615410 val_f1=0.680217 val_dice_loss=0.322378 val_rmse=0.146516 
+Epoch [077/100] train_loss=0.314471 val_loss=0.606260 val_f1=0.703911 val_dice_loss=0.304204 val_rmse=0.151028 
+Epoch [078/100] train_loss=0.308161 val_loss=0.637280 val_f1=0.688478 val_dice_loss=0.317390 val_rmse=0.159945 
+Epoch [079/100] train_loss=0.316560 val_loss=0.600261 val_f1=0.701408 val_dice_loss=0.306478 val_rmse=0.146892 
+Epoch [080/100] train_loss=0.309308 val_loss=0.618656 val_f1=0.692654 val_dice_loss=0.325502 val_rmse=0.146577 
+Epoch [081/100] train_loss=0.311456 val_loss=0.593299 val_f1=0.705394 val_dice_loss=0.297696 val_rmse=0.147801 (best)
+Epoch [082/100] train_loss=0.293081 val_loss=0.611734 val_f1=0.691643 val_dice_loss=0.316084 val_rmse=0.147825 
+Epoch [083/100] train_loss=0.295925 val_loss=0.585436 val_f1=0.713115 val_dice_loss=0.292794 val_rmse=0.146321 (best)
+Epoch [084/100] train_loss=0.285061 val_loss=0.610521 val_f1=0.684288 val_dice_loss=0.320969 val_rmse=0.144776 
+Epoch [085/100] train_loss=0.280314 val_loss=0.613333 val_f1=0.686391 val_dice_loss=0.325899 val_rmse=0.143717 
+Epoch [086/100] train_loss=0.275942 val_loss=0.607736 val_f1=0.686478 val_dice_loss=0.323634 val_rmse=0.142051 
+Epoch [087/100] train_loss=0.286422 val_loss=0.599826 val_f1=0.694286 val_dice_loss=0.313577 val_rmse=0.143124 
+Epoch [088/100] train_loss=0.286562 val_loss=0.605193 val_f1=0.699140 val_dice_loss=0.308810 val_rmse=0.148191 
+Epoch [089/100] train_loss=0.281439 val_loss=0.584861 val_f1=0.714090 val_dice_loss=0.295559 val_rmse=0.144651 (best)
+Epoch [090/100] train_loss=0.266311 val_loss=0.587420 val_f1=0.706371 val_dice_loss=0.302876 val_rmse=0.142272 
+Epoch [091/100] train_loss=0.280494 val_loss=0.582572 val_f1=0.714083 val_dice_loss=0.294336 val_rmse=0.144118 (best)
+Epoch [092/100] train_loss=0.276669 val_loss=0.600169 val_f1=0.705015 val_dice_loss=0.306420 val_rmse=0.146874 
+Epoch [093/100] train_loss=0.262300 val_loss=0.622546 val_f1=0.696429 val_dice_loss=0.318635 val_rmse=0.151955 
+Epoch [094/100] train_loss=0.276955 val_loss=0.602508 val_f1=0.699001 val_dice_loss=0.311462 val_rmse=0.145523 
+Epoch [095/100] train_loss=0.270964 val_loss=0.575642 val_f1=0.719788 val_dice_loss=0.289556 val_rmse=0.143043 (best)
+Epoch [096/100] train_loss=0.260544 val_loss=0.592974 val_f1=0.713043 val_dice_loss=0.295103 val_rmse=0.148935 
+Epoch [097/100] train_loss=0.267558 val_loss=0.618634 val_f1=0.682493 val_dice_loss=0.326047 val_rmse=0.146293 
+Epoch [098/100] train_loss=0.252274 val_loss=0.566144 val_f1=0.725067 val_dice_loss=0.281320 val_rmse=0.142412 (best)
+Epoch [099/100] train_loss=0.254414 val_loss=0.605264 val_f1=0.696532 val_dice_loss=0.315761 val_rmse=0.144751 
+Epoch [100/100] train_loss=0.244210 val_loss=0.573579 val_f1=0.718367 val_dice_loss=0.284562 val_rmse=0.144509 
+Training metrics saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\training_metrics.csv
+Training curves saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\training_curves.png
+Training completed. Best checkpoint: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\best_model.pt
+Evaluating split=valid | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.5 | match_radius_px=3.0
+Inferred sample_111 | true=25
+Inferred sample_133 | true=14
+Inferred sample_135 | true=25
+Inferred sample_139 | true=17
+Inferred sample_14 | true=15
+Inferred sample_142 | true=34
+Inferred sample_174 | true=40
+Inferred sample_178 | true=11
+Inferred sample_182 | true=1
+Inferred sample_207 | true=10
+Inferred sample_213 | true=12
+Inferred sample_222 | true=12
+Inferred sample_236 | true=27
+Inferred sample_240 | true=10
+Inferred sample_250 | true=3
+Inferred sample_253 | true=3
+Inferred sample_278 | true=21
+Inferred sample_73 | true=17
+Inferred sample_77 | true=19
+Inferred sample_81 | true=16
+Inferred sample_89 | true=24
+Inferred sample_96 | true=16
+Best threshold from sweep: p=0.55, using it for overlays (precision floor from p=0.5: 0.8470).
+Using probability=0.55 for predictions, matches, and overlays | source=sweep_best_f1_precision_constrained
+Evaluated sample_111 | true=25 | pred=25 | tp=23 | fp=2 | fn=2 | f1=0.9200 | median_error_px=0.3007 | probability=0.55
+Evaluated sample_133 | true=14 | pred=20 | tp=11 | fp=9 | fn=3 | f1=0.6471 | median_error_px=0.4311 | probability=0.55
+Evaluated sample_135 | true=25 | pred=23 | tp=20 | fp=3 | fn=5 | f1=0.8333 | median_error_px=0.2771 | probability=0.55
+Evaluated sample_139 | true=17 | pred=13 | tp=13 | fp=0 | fn=4 | f1=0.8667 | median_error_px=0.2155 | probability=0.55
+Evaluated sample_14 | true=15 | pred=17 | tp=11 | fp=6 | fn=4 | f1=0.6875 | median_error_px=0.2481 | probability=0.55
+Evaluated sample_142 | true=34 | pred=30 | tp=28 | fp=2 | fn=6 | f1=0.8750 | median_error_px=0.2803 | probability=0.55
+Evaluated sample_174 | true=40 | pred=40 | tp=36 | fp=4 | fn=4 | f1=0.9000 | median_error_px=0.3586 | probability=0.55
+Evaluated sample_178 | true=11 | pred=15 | tp=9 | fp=6 | fn=2 | f1=0.6923 | median_error_px=0.6281 | probability=0.55
+Evaluated sample_182 | true=1 | pred=1 | tp=1 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.2673 | probability=0.55
+Evaluated sample_207 | true=10 | pred=9 | tp=9 | fp=0 | fn=1 | f1=0.9474 | median_error_px=0.5300 | probability=0.55
+Evaluated sample_213 | true=12 | pred=9 | tp=9 | fp=0 | fn=3 | f1=0.8571 | median_error_px=0.4631 | probability=0.55
+Evaluated sample_222 | true=12 | pred=11 | tp=8 | fp=3 | fn=4 | f1=0.6957 | median_error_px=0.8036 | probability=0.55
+Evaluated sample_236 | true=27 | pred=32 | tp=27 | fp=5 | fn=0 | f1=0.9153 | median_error_px=0.2028 | probability=0.55
+Evaluated sample_240 | true=10 | pred=8 | tp=7 | fp=1 | fn=3 | f1=0.7778 | median_error_px=0.4872 | probability=0.55
+Evaluated sample_250 | true=3 | pred=4 | tp=3 | fp=1 | fn=0 | f1=0.8571 | median_error_px=0.2104 | probability=0.55
+Evaluated sample_253 | true=3 | pred=3 | tp=3 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.5125 | probability=0.55
+Evaluated sample_278 | true=21 | pred=10 | tp=10 | fp=0 | fn=11 | f1=0.6452 | median_error_px=0.4410 | probability=0.55
+Evaluated sample_73 | true=17 | pred=15 | tp=9 | fp=6 | fn=8 | f1=0.5625 | median_error_px=0.5371 | probability=0.55
+Evaluated sample_77 | true=19 | pred=15 | tp=14 | fp=1 | fn=5 | f1=0.8235 | median_error_px=0.2349 | probability=0.55
+Evaluated sample_81 | true=16 | pred=13 | tp=12 | fp=1 | fn=4 | f1=0.8276 | median_error_px=0.2364 | probability=0.55
+Evaluated sample_89 | true=24 | pred=20 | tp=20 | fp=0 | fn=4 | f1=0.9091 | median_error_px=0.3334 | probability=0.55
+Evaluated sample_96 | true=16 | pred=18 | tp=16 | fp=2 | fn=0 | f1=0.9412 | median_error_px=0.3460 | probability=0.55
+Summary | precision=0.8519 | recall=0.8038 | F1=0.8271 | median_error_px=0.3306 | mean_f1_integral=0.7042 | AP=0.7646 | tp=299 | fp=52 | fn=73
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\figures
+Threshold sweep saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\validation\summary\threshold_metrics.csv
+Evaluating split=valid | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.5 | match_radius_px=3.0
+Inferred sample_111 | true=25
+Inferred sample_133 | true=14
+Inferred sample_135 | true=25
+Inferred sample_139 | true=17
+Inferred sample_14 | true=15
+Inferred sample_142 | true=34
+Inferred sample_174 | true=40
+Inferred sample_178 | true=11
+Inferred sample_182 | true=1
+Inferred sample_207 | true=10
+Inferred sample_213 | true=12
+Inferred sample_222 | true=12
+Inferred sample_236 | true=27
+Inferred sample_240 | true=10
+Inferred sample_250 | true=3
+Inferred sample_253 | true=3
+Inferred sample_278 | true=21
+Inferred sample_73 | true=17
+Inferred sample_77 | true=19
+Inferred sample_81 | true=16
+Inferred sample_89 | true=24
+Inferred sample_96 | true=16
+Best threshold from sweep: p=0.7, using it for overlays (precision floor from p=0.5: 0.7704).
+Using probability=0.7 for predictions, matches, and overlays | source=sweep_best_f1_precision_constrained
+Evaluated sample_111 | true=25 | pred=28 | tp=24 | fp=4 | fn=1 | f1=0.9057 | median_error_px=0.1913 | probability=0.7
+Evaluated sample_133 | true=14 | pred=29 | tp=11 | fp=18 | fn=3 | f1=0.5116 | median_error_px=0.1870 | probability=0.7
+Evaluated sample_135 | true=25 | pred=23 | tp=19 | fp=4 | fn=6 | f1=0.7917 | median_error_px=0.2963 | probability=0.7
+Evaluated sample_139 | true=17 | pred=15 | tp=14 | fp=1 | fn=3 | f1=0.8750 | median_error_px=0.3789 | probability=0.7
+Evaluated sample_14 | true=15 | pred=13 | tp=10 | fp=3 | fn=5 | f1=0.7143 | median_error_px=0.3267 | probability=0.7
+Evaluated sample_142 | true=34 | pred=33 | tp=28 | fp=5 | fn=6 | f1=0.8358 | median_error_px=0.1941 | probability=0.7
+Evaluated sample_174 | true=40 | pred=43 | tp=37 | fp=6 | fn=3 | f1=0.8916 | median_error_px=0.4537 | probability=0.7
+Evaluated sample_178 | true=11 | pred=18 | tp=11 | fp=7 | fn=0 | f1=0.7586 | median_error_px=0.5963 | probability=0.7
+Evaluated sample_182 | true=1 | pred=1 | tp=1 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.5086 | probability=0.7
+Evaluated sample_207 | true=10 | pred=11 | tp=10 | fp=1 | fn=0 | f1=0.9524 | median_error_px=0.4365 | probability=0.7
+Evaluated sample_213 | true=12 | pred=13 | tp=11 | fp=2 | fn=1 | f1=0.8800 | median_error_px=0.5110 | probability=0.7
+Evaluated sample_222 | true=12 | pred=9 | tp=9 | fp=0 | fn=3 | f1=0.8571 | median_error_px=0.7809 | probability=0.7
+Evaluated sample_236 | true=27 | pred=30 | tp=25 | fp=5 | fn=2 | f1=0.8772 | median_error_px=0.3070 | probability=0.7
+Evaluated sample_240 | true=10 | pred=13 | tp=7 | fp=6 | fn=3 | f1=0.6087 | median_error_px=0.3962 | probability=0.7
+Evaluated sample_250 | true=3 | pred=5 | tp=3 | fp=2 | fn=0 | f1=0.7500 | median_error_px=0.1762 | probability=0.7
+Evaluated sample_253 | true=3 | pred=3 | tp=3 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.5176 | probability=0.7
+Evaluated sample_278 | true=21 | pred=11 | tp=9 | fp=2 | fn=12 | f1=0.5625 | median_error_px=0.5272 | probability=0.7
+Evaluated sample_73 | true=17 | pred=18 | tp=12 | fp=6 | fn=5 | f1=0.6857 | median_error_px=0.5423 | probability=0.7
+Evaluated sample_77 | true=19 | pred=19 | tp=15 | fp=4 | fn=4 | f1=0.7895 | median_error_px=0.3303 | probability=0.7
+Evaluated sample_81 | true=16 | pred=11 | tp=10 | fp=1 | fn=6 | f1=0.7407 | median_error_px=0.1525 | probability=0.7
+Evaluated sample_89 | true=24 | pred=23 | tp=22 | fp=1 | fn=2 | f1=0.9362 | median_error_px=0.2067 | probability=0.7
+Evaluated sample_96 | true=16 | pred=19 | tp=16 | fp=3 | fn=0 | f1=0.9143 | median_error_px=0.3540 | probability=0.7
+Summary | precision=0.7912 | recall=0.8253 | F1=0.8079 | median_error_px=0.3265 | mean_f1_integral=0.6905 | AP=0.7830 | tp=307 | fp=81 | fn=65
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\figures
+Threshold sweep saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\validation\summary\threshold_metrics.csv
+Evaluating split=valid | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.5 | match_radius_px=3.0
+Inferred sample_111 | true=25
+Inferred sample_133 | true=14
+Inferred sample_135 | true=25
+Inferred sample_139 | true=17
+Inferred sample_14 | true=15
+Inferred sample_142 | true=34
+Inferred sample_174 | true=40
+Inferred sample_178 | true=11
+Inferred sample_182 | true=1
+Inferred sample_207 | true=10
+Inferred sample_213 | true=12
+Inferred sample_222 | true=12
+Inferred sample_236 | true=27
+Inferred sample_240 | true=10
+Inferred sample_250 | true=3
+Inferred sample_253 | true=3
+Inferred sample_278 | true=21
+Inferred sample_73 | true=17
+Inferred sample_77 | true=19
+Inferred sample_81 | true=16
+Inferred sample_89 | true=24
+Inferred sample_96 | true=16
+Best threshold from sweep: p=0.65, using it for overlays (precision floor from p=0.5: 0.8211).
+Using probability=0.65 for predictions, matches, and overlays | source=sweep_best_f1_precision_constrained
+Evaluated sample_111 | true=25 | pred=23 | tp=21 | fp=2 | fn=4 | f1=0.8750 | median_error_px=0.2054 | probability=0.65
+Evaluated sample_133 | true=14 | pred=23 | tp=12 | fp=11 | fn=2 | f1=0.6486 | median_error_px=0.2597 | probability=0.65
+Evaluated sample_135 | true=25 | pred=26 | tp=21 | fp=5 | fn=4 | f1=0.8235 | median_error_px=0.3110 | probability=0.65
+Evaluated sample_139 | true=17 | pred=18 | tp=15 | fp=3 | fn=2 | f1=0.8571 | median_error_px=0.2575 | probability=0.65
+Evaluated sample_14 | true=15 | pred=14 | tp=11 | fp=3 | fn=4 | f1=0.7586 | median_error_px=0.2554 | probability=0.65
+Evaluated sample_142 | true=34 | pred=31 | tp=28 | fp=3 | fn=6 | f1=0.8615 | median_error_px=0.1766 | probability=0.65
+Evaluated sample_174 | true=40 | pred=45 | tp=39 | fp=6 | fn=1 | f1=0.9176 | median_error_px=0.4615 | probability=0.65
+Evaluated sample_178 | true=11 | pred=16 | tp=11 | fp=5 | fn=0 | f1=0.8148 | median_error_px=0.5431 | probability=0.65
+Evaluated sample_182 | true=1 | pred=1 | tp=1 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.0839 | probability=0.65
+Evaluated sample_207 | true=10 | pred=10 | tp=10 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.5643 | probability=0.65
+Evaluated sample_213 | true=12 | pred=12 | tp=11 | fp=1 | fn=1 | f1=0.9167 | median_error_px=0.4804 | probability=0.65
+Evaluated sample_222 | true=12 | pred=12 | tp=8 | fp=4 | fn=4 | f1=0.6667 | median_error_px=0.6835 | probability=0.65
+Evaluated sample_236 | true=27 | pred=30 | tp=23 | fp=7 | fn=4 | f1=0.8070 | median_error_px=0.2644 | probability=0.65
+Evaluated sample_240 | true=10 | pred=7 | tp=6 | fp=1 | fn=4 | f1=0.7059 | median_error_px=0.4034 | probability=0.65
+Evaluated sample_250 | true=3 | pred=5 | tp=3 | fp=2 | fn=0 | f1=0.7500 | median_error_px=0.1314 | probability=0.65
+Evaluated sample_253 | true=3 | pred=3 | tp=3 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.5577 | probability=0.65
+Evaluated sample_278 | true=21 | pred=11 | tp=10 | fp=1 | fn=11 | f1=0.6250 | median_error_px=0.5442 | probability=0.65
+Evaluated sample_73 | true=17 | pred=13 | tp=10 | fp=3 | fn=7 | f1=0.6667 | median_error_px=0.4585 | probability=0.65
+Evaluated sample_77 | true=19 | pred=16 | tp=15 | fp=1 | fn=4 | f1=0.8571 | median_error_px=0.2817 | probability=0.65
+Evaluated sample_81 | true=16 | pred=11 | tp=11 | fp=0 | fn=5 | f1=0.8148 | median_error_px=0.1745 | probability=0.65
+Evaluated sample_89 | true=24 | pred=20 | tp=19 | fp=1 | fn=5 | f1=0.8636 | median_error_px=0.2622 | probability=0.65
+Evaluated sample_96 | true=16 | pred=14 | tp=13 | fp=1 | fn=3 | f1=0.8667 | median_error_px=0.2158 | probability=0.65
+Summary | precision=0.8338 | recall=0.8091 | F1=0.8213 | median_error_px=0.3221 | mean_f1_integral=0.7115 | AP=0.7686 | tp=301 | fp=60 | fn=71
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\figures
+Threshold sweep saved to: D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\validation\summary\threshold_metrics.csv
+Evaluating split=test | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.55 | match_radius_px=3.0
+Inferred sample_104 | true=14
+Inferred sample_115 | true=19
+Inferred sample_119 | true=36
+Inferred sample_122 | true=13
+Inferred sample_143 | true=22
+Inferred sample_16 | true=27
+Inferred sample_206 | true=11
+Inferred sample_214 | true=54
+Inferred sample_216 | true=12
+Inferred sample_231 | true=51
+Inferred sample_257 | true=3
+Inferred sample_260 | true=32
+Inferred sample_263 | true=33
+Inferred sample_272 | true=31
+Inferred sample_279 | true=55
+Inferred sample_285 | true=74
+Inferred sample_296 | true=3
+Inferred sample_297 | true=4
+Inferred sample_37 | true=2
+Inferred sample_42 | true=4
+Inferred sample_76 | true=36
+Inferred sample_94 | true=12
+Using probability=0.55 for predictions, matches, and overlays | source=specified
+Evaluated sample_104 | true=14 | pred=12 | tp=11 | fp=1 | fn=3 | f1=0.8462 | median_error_px=0.3391 | probability=0.55
+Evaluated sample_115 | true=19 | pred=21 | tp=19 | fp=2 | fn=0 | f1=0.9500 | median_error_px=0.2897 | probability=0.55
+Evaluated sample_119 | true=36 | pred=34 | tp=31 | fp=3 | fn=5 | f1=0.8857 | median_error_px=0.1917 | probability=0.55
+Evaluated sample_122 | true=13 | pred=10 | tp=10 | fp=0 | fn=3 | f1=0.8696 | median_error_px=0.2678 | probability=0.55
+Evaluated sample_143 | true=22 | pred=23 | tp=20 | fp=3 | fn=2 | f1=0.8889 | median_error_px=0.3108 | probability=0.55
+Evaluated sample_16 | true=27 | pred=21 | tp=18 | fp=3 | fn=9 | f1=0.7500 | median_error_px=0.2634 | probability=0.55
+Evaluated sample_206 | true=11 | pred=13 | tp=11 | fp=2 | fn=0 | f1=0.9167 | median_error_px=0.4105 | probability=0.55
+Evaluated sample_214 | true=54 | pred=42 | tp=36 | fp=6 | fn=18 | f1=0.7500 | median_error_px=0.3460 | probability=0.55
+Evaluated sample_216 | true=12 | pred=10 | tp=7 | fp=3 | fn=5 | f1=0.6364 | median_error_px=0.9334 | probability=0.55
+Evaluated sample_231 | true=51 | pred=50 | tp=39 | fp=11 | fn=12 | f1=0.7723 | median_error_px=0.3380 | probability=0.55
+Evaluated sample_257 | true=3 | pred=5 | tp=3 | fp=2 | fn=0 | f1=0.7500 | median_error_px=0.7166 | probability=0.55
+Evaluated sample_260 | true=32 | pred=23 | tp=21 | fp=2 | fn=11 | f1=0.7636 | median_error_px=0.2657 | probability=0.55
+Evaluated sample_263 | true=33 | pred=37 | tp=32 | fp=5 | fn=1 | f1=0.9143 | median_error_px=0.3969 | probability=0.55
+Evaluated sample_272 | true=31 | pred=25 | tp=24 | fp=1 | fn=7 | f1=0.8571 | median_error_px=0.2401 | probability=0.55
+Evaluated sample_279 | true=55 | pred=59 | tp=43 | fp=16 | fn=12 | f1=0.7544 | median_error_px=0.2829 | probability=0.55
+Evaluated sample_285 | true=74 | pred=67 | tp=57 | fp=10 | fn=17 | f1=0.8085 | median_error_px=0.3077 | probability=0.55
+Evaluated sample_296 | true=3 | pred=11 | tp=1 | fp=10 | fn=2 | f1=0.1429 | median_error_px=0.0980 | probability=0.55
+Evaluated sample_297 | true=4 | pred=4 | tp=4 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.1236 | probability=0.55
+Evaluated sample_37 | true=2 | pred=1 | tp=1 | fp=0 | fn=1 | f1=0.6667 | median_error_px=0.3348 | probability=0.55
+Evaluated sample_42 | true=4 | pred=7 | tp=3 | fp=4 | fn=1 | f1=0.5455 | median_error_px=0.4566 | probability=0.55
+Evaluated sample_76 | true=36 | pred=28 | tp=28 | fp=0 | fn=8 | f1=0.8750 | median_error_px=0.3715 | probability=0.55
+Evaluated sample_94 | true=12 | pred=12 | tp=10 | fp=2 | fn=2 | f1=0.8333 | median_error_px=0.1789 | probability=0.55
+Summary | precision=0.8330 | recall=0.7828 | F1=0.8071 | median_error_px=0.3054 | mean_f1_integral=0.6778 | AP=0.7299 | tp=429 | fp=86 | fn=119
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_42\test\figures
+Evaluating split=test | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.7 | match_radius_px=3.0
+Inferred sample_104 | true=14
+Inferred sample_115 | true=19
+Inferred sample_119 | true=36
+Inferred sample_122 | true=13
+Inferred sample_143 | true=22
+Inferred sample_16 | true=27
+Inferred sample_206 | true=11
+Inferred sample_214 | true=54
+Inferred sample_216 | true=12
+Inferred sample_231 | true=51
+Inferred sample_257 | true=3
+Inferred sample_260 | true=32
+Inferred sample_263 | true=33
+Inferred sample_272 | true=31
+Inferred sample_279 | true=55
+Inferred sample_285 | true=74
+Inferred sample_296 | true=3
+Inferred sample_297 | true=4
+Inferred sample_37 | true=2
+Inferred sample_42 | true=4
+Inferred sample_76 | true=36
+Inferred sample_94 | true=12
+Using probability=0.7 for predictions, matches, and overlays | source=specified
+Evaluated sample_104 | true=14 | pred=13 | tp=11 | fp=2 | fn=3 | f1=0.8148 | median_error_px=0.2069 | probability=0.7
+Evaluated sample_115 | true=19 | pred=18 | tp=18 | fp=0 | fn=1 | f1=0.9730 | median_error_px=0.2770 | probability=0.7
+Evaluated sample_119 | true=36 | pred=32 | tp=29 | fp=3 | fn=7 | f1=0.8529 | median_error_px=0.1753 | probability=0.7
+Evaluated sample_122 | true=13 | pred=20 | tp=13 | fp=7 | fn=0 | f1=0.7879 | median_error_px=0.2660 | probability=0.7
+Evaluated sample_143 | true=22 | pred=22 | tp=19 | fp=3 | fn=3 | f1=0.8636 | median_error_px=0.2592 | probability=0.7
+Evaluated sample_16 | true=27 | pred=16 | tp=13 | fp=3 | fn=14 | f1=0.6047 | median_error_px=0.2617 | probability=0.7
+Evaluated sample_206 | true=11 | pred=15 | tp=11 | fp=4 | fn=0 | f1=0.8462 | median_error_px=0.4625 | probability=0.7
+Evaluated sample_214 | true=54 | pred=38 | tp=28 | fp=10 | fn=26 | f1=0.6087 | median_error_px=0.4050 | probability=0.7
+Evaluated sample_216 | true=12 | pred=7 | tp=6 | fp=1 | fn=6 | f1=0.6316 | median_error_px=0.5860 | probability=0.7
+Evaluated sample_231 | true=51 | pred=49 | tp=36 | fp=13 | fn=15 | f1=0.7200 | median_error_px=0.4613 | probability=0.7
+Evaluated sample_257 | true=3 | pred=3 | tp=2 | fp=1 | fn=1 | f1=0.6667 | median_error_px=0.5057 | probability=0.7
+Evaluated sample_260 | true=32 | pred=20 | tp=20 | fp=0 | fn=12 | f1=0.7692 | median_error_px=0.3333 | probability=0.7
+Evaluated sample_263 | true=33 | pred=43 | tp=30 | fp=13 | fn=3 | f1=0.7895 | median_error_px=0.4638 | probability=0.7
+Evaluated sample_272 | true=31 | pred=20 | tp=20 | fp=0 | fn=11 | f1=0.7843 | median_error_px=0.3368 | probability=0.7
+Evaluated sample_279 | true=55 | pred=44 | tp=33 | fp=11 | fn=22 | f1=0.6667 | median_error_px=0.3488 | probability=0.7
+Evaluated sample_285 | true=74 | pred=64 | tp=48 | fp=16 | fn=26 | f1=0.6957 | median_error_px=0.2309 | probability=0.7
+Evaluated sample_296 | true=3 | pred=16 | tp=2 | fp=14 | fn=1 | f1=0.2105 | median_error_px=0.8812 | probability=0.7
+Evaluated sample_297 | true=4 | pred=5 | tp=4 | fp=1 | fn=0 | f1=0.8889 | median_error_px=0.2786 | probability=0.7
+Evaluated sample_37 | true=2 | pred=1 | tp=1 | fp=0 | fn=1 | f1=0.6667 | median_error_px=0.2979 | probability=0.7
+Evaluated sample_42 | true=4 | pred=9 | tp=4 | fp=5 | fn=0 | f1=0.6154 | median_error_px=0.5031 | probability=0.7
+Evaluated sample_76 | true=36 | pred=33 | tp=30 | fp=3 | fn=6 | f1=0.8696 | median_error_px=0.2828 | probability=0.7
+Evaluated sample_94 | true=12 | pred=14 | tp=12 | fp=2 | fn=0 | f1=0.9231 | median_error_px=0.3067 | probability=0.7
+Summary | precision=0.7769 | recall=0.7117 | F1=0.7429 | median_error_px=0.2978 | mean_f1_integral=0.6432 | AP=0.6599 | tp=390 | fp=112 | fn=158
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_43\test\figures
+Evaluating split=test | device=xpu | data=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\dna_clean220_random.npz | model=best_model.pt | samples=22 | probability=0.65 | match_radius_px=3.0
+Inferred sample_104 | true=14
+Inferred sample_115 | true=19
+Inferred sample_119 | true=36
+Inferred sample_122 | true=13
+Inferred sample_143 | true=22
+Inferred sample_16 | true=27
+Inferred sample_206 | true=11
+Inferred sample_214 | true=54
+Inferred sample_216 | true=12
+Inferred sample_231 | true=51
+Inferred sample_257 | true=3
+Inferred sample_260 | true=32
+Inferred sample_263 | true=33
+Inferred sample_272 | true=31
+Inferred sample_279 | true=55
+Inferred sample_285 | true=74
+Inferred sample_296 | true=3
+Inferred sample_297 | true=4
+Inferred sample_37 | true=2
+Inferred sample_42 | true=4
+Inferred sample_76 | true=36
+Inferred sample_94 | true=12
+Using probability=0.65 for predictions, matches, and overlays | source=specified
+Evaluated sample_104 | true=14 | pred=10 | tp=10 | fp=0 | fn=4 | f1=0.8333 | median_error_px=0.2715 | probability=0.65
+Evaluated sample_115 | true=19 | pred=19 | tp=18 | fp=1 | fn=1 | f1=0.9474 | median_error_px=0.2398 | probability=0.65
+Evaluated sample_119 | true=36 | pred=41 | tp=34 | fp=7 | fn=2 | f1=0.8831 | median_error_px=0.1866 | probability=0.65
+Evaluated sample_122 | true=13 | pred=15 | tp=12 | fp=3 | fn=1 | f1=0.8571 | median_error_px=0.2640 | probability=0.65
+Evaluated sample_143 | true=22 | pred=21 | tp=20 | fp=1 | fn=2 | f1=0.9302 | median_error_px=0.2754 | probability=0.65
+Evaluated sample_16 | true=27 | pred=17 | tp=15 | fp=2 | fn=12 | f1=0.6818 | median_error_px=0.3088 | probability=0.65
+Evaluated sample_206 | true=11 | pred=12 | tp=10 | fp=2 | fn=1 | f1=0.8696 | median_error_px=0.3642 | probability=0.65
+Evaluated sample_214 | true=54 | pred=38 | tp=33 | fp=5 | fn=21 | f1=0.7174 | median_error_px=0.5122 | probability=0.65
+Evaluated sample_216 | true=12 | pred=7 | tp=6 | fp=1 | fn=6 | f1=0.6316 | median_error_px=0.5740 | probability=0.65
+Evaluated sample_231 | true=51 | pred=43 | tp=35 | fp=8 | fn=16 | f1=0.7447 | median_error_px=0.3498 | probability=0.65
+Evaluated sample_257 | true=3 | pred=5 | tp=3 | fp=2 | fn=0 | f1=0.7500 | median_error_px=1.0942 | probability=0.65
+Evaluated sample_260 | true=32 | pred=19 | tp=18 | fp=1 | fn=14 | f1=0.7059 | median_error_px=0.2825 | probability=0.65
+Evaluated sample_263 | true=33 | pred=32 | tp=27 | fp=5 | fn=6 | f1=0.8308 | median_error_px=0.3689 | probability=0.65
+Evaluated sample_272 | true=31 | pred=18 | tp=18 | fp=0 | fn=13 | f1=0.7347 | median_error_px=0.2036 | probability=0.65
+Evaluated sample_279 | true=55 | pred=52 | tp=37 | fp=15 | fn=18 | f1=0.6916 | median_error_px=0.3686 | probability=0.65
+Evaluated sample_285 | true=74 | pred=62 | tp=50 | fp=12 | fn=24 | f1=0.7353 | median_error_px=0.2366 | probability=0.65
+Evaluated sample_296 | true=3 | pred=13 | tp=2 | fp=11 | fn=1 | f1=0.2500 | median_error_px=0.6998 | probability=0.65
+Evaluated sample_297 | true=4 | pred=4 | tp=4 | fp=0 | fn=0 | f1=1.0000 | median_error_px=0.2944 | probability=0.65
+Evaluated sample_37 | true=2 | pred=1 | tp=1 | fp=0 | fn=1 | f1=0.6667 | median_error_px=0.6248 | probability=0.65
+Evaluated sample_42 | true=4 | pred=8 | tp=3 | fp=5 | fn=1 | f1=0.5000 | median_error_px=0.4265 | probability=0.65
+Evaluated sample_76 | true=36 | pred=27 | tp=26 | fp=1 | fn=10 | f1=0.8254 | median_error_px=0.3206 | probability=0.65
+Evaluated sample_94 | true=12 | pred=13 | tp=10 | fp=3 | fn=2 | f1=0.8000 | median_error_px=0.1693 | probability=0.65
+Summary | precision=0.8218 | recall=0.7153 | F1=0.7649 | median_error_px=0.2925 | mean_f1_integral=0.6518 | AP=0.6741 | tp=392 | fp=85 | fn=156
+Outputs | summary=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\summary | predictions=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\predictions | matches=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\matches | overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\overlays | match_overlays=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\match_overlays | figures=D:\Projects\P1_DNA_loci_imaging\outputs\261024_clean220_random\seed_44\test\figures
+FINAL RESULTS [
+  {
+    "model": "seed_42",
+    "best_epoch": 94,
+    "validation_loss": 0.5435840487480164,
+    "probability": 0.55,
+    "n_images": 22,
+    "precision": 0.8330097087378641,
+    "recall": 0.7828467153284672,
+    "f1": 0.8071495766698025,
+    "macro_f1": 0.7807683944702148,
+    "tp": 429.0,
+    "fp": 86.0,
+    "fn": 119.0,
+    "median_error_px": 0.30544397234916687
+  },
+  {
+    "model": "seed_43",
+    "best_epoch": 85,
+    "validation_loss": 0.5752368569374084,
+    "probability": 0.7,
+    "n_images": 22,
+    "precision": 0.7768924302788844,
+    "recall": 0.7116788321167883,
+    "f1": 0.7428571428571429,
+    "macro_f1": 0.7386108040809631,
+    "tp": 390.0,
+    "fp": 112.0,
+    "fn": 158.0,
+    "median_error_px": 0.29775023460388184
+  },
+  {
+    "model": "seed_44",
+    "best_epoch": 98,
+    "validation_loss": 0.5661442677179972,
+    "probability": 0.65,
+    "n_images": 22,
+    "precision": 0.8218029350104822,
+    "recall": 0.7153284671532847,
+    "f1": 0.7648780487804879,
+    "macro_f1": 0.7539327144622803,
+    "tp": 392.0,
+    "fp": 85.0,
+    "fn": 156.0,
+    "median_error_px": 0.29250574111938477
+  }
+] REPLICATES {'mean_f1': 0.7716282561024778, 'sd_f1': 0.03267343317675979, 'min_f1': 0.7428571428571429, 'max_f1': 0.8071495766698025}

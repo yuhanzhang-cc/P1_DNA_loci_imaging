@@ -1,0 +1,101 @@
+{
+  "created_date": "2026-10-26",
+  "role": "read_only_derivation_of_existing_validation_results_for_scope_design",
+  "new_training_or_inference_performed": false,
+  "test_loaded": false,
+  "original_grid_only_not_continuous_PR_envelope": true,
+  "source_protocol": "pooled220_methods_v2",
+  "source_checksums": {
+    "docs/next_stage_plan_20261025/protocol_v2.yaml": "e8a2691ff748064908a927054cacb2b68906d5a8f66c92e97c174cbf1554e4d8",
+    "outputs/next_stage_v2/00_protocol/lock.json": "f56df248106afb83b32671b12d67f97b219c54063dcae409665960d1e66c9866",
+    "outputs/next_stage_v2/validation_comparison.json": "8a30e984b3e6de37a1a92d9f1fc375745cb68e10e1ee8a39c9723999bb899967"
+  },
+  "reference_validation_truths": 372,
+  "reference_counts": {
+    "tp": 311,
+    "fp": 68,
+    "fn": 61
+  },
+  "f1_tradeoff": {
+    "definition": "L fewer TP and R fewer FP relative to reference; F1 increases iff R > L * (TP+FP+FN)/TP",
+    "fp_reduction_per_lost_tp_strict_lower_bound": 1.414790996784566,
+    "not_a_significance_threshold": true
+  },
+  "original_grid_frontier": [
+    {
+      "model": "deepblink",
+      "source": "outputs/next_stage_v2/00_protocol/reference_seed_42/threshold_metrics.csv",
+      "source_sha256": "8cbb88fc8bae290d07657d62e998180dff01934bc5501cfb03d059e73fcca5d4",
+      "threshold_candidates": 31,
+      "max_tp_with_fp_le_68": {
+        "threshold": 0.12678571428571428,
+        "tp": 311.0,
+        "fp": 68.0,
+        "fn": 61.0,
+        "precision": 0.820580474934037,
+        "recall": 0.8360215053763441,
+        "f1": 0.8282290279627164
+      }
+    },
+    {
+      "model": "deepblink_masked_se",
+      "source": "outputs/next_stage_v2/02_architecture/deepblink_masked_se/seed_42/validation_v2/threshold_metrics.csv",
+      "source_sha256": "98639a0c2ddaf289c1e13a3e6de76bcb35d61c653ee187581e0dec69cc3a77e0",
+      "threshold_candidates": 31,
+      "max_tp_with_fp_le_68": {
+        "threshold": 0.05892857142857143,
+        "tp": 299.0,
+        "fp": 67.0,
+        "fn": 73.0,
+        "precision": 0.8169398907103825,
+        "recall": 0.803763440860215,
+        "f1": 0.8102981029810298
+      }
+    },
+    {
+      "model": "deeploci_local",
+      "source": "outputs/next_stage_v2/02_architecture/deeploci_local/seed_42/validation_v2/threshold_metrics.csv",
+      "source_sha256": "656a1950afd4f09cf606ff277c6ecd379f07d96a9ab33f69c4d0dada4585b61b",
+      "threshold_candidates": 31,
+      "max_tp_with_fp_le_68": {
+        "threshold": 0.33035714285714285,
+        "tp": 286.0,
+        "fp": 68.0,
+        "fn": 86.0,
+        "precision": 0.807909604519774,
+        "recall": 0.7688172043010753,
+        "f1": 0.7878787878787878
+      }
+    },
+    {
+      "model": "deeploci_evidence",
+      "source": "outputs/next_stage_v2/02_architecture/deeploci_evidence/seed_42/validation_v2/threshold_metrics.csv",
+      "source_sha256": "b614fc1b2c3368acfcb03a9185060c71b714306ec88359c09c14ea416b587140",
+      "threshold_candidates": 31,
+      "max_tp_with_fp_le_68": {
+        "threshold": 0.5678571428571428,
+        "tp": 298.0,
+        "fp": 68.0,
+        "fn": 74.0,
+        "precision": 0.8142076502732241,
+        "recall": 0.8010752688172043,
+        "f1": 0.8075880758807588
+      }
+    },
+    {
+      "model": "deeploci_feature_evidence",
+      "source": "outputs/next_stage_v2/02_architecture/deeploci_feature_evidence/seed_42/validation_v2/threshold_metrics.csv",
+      "source_sha256": "c1a84c3c590972d6b1eca87476d1dc81b2890e8c2a8d85c871135a18a94ddfaf",
+      "threshold_candidates": 31,
+      "max_tp_with_fp_le_68": {
+        "threshold": 0.4660714285714286,
+        "tp": 288.0,
+        "fp": 65.0,
+        "fn": 84.0,
+        "precision": 0.8158640226628895,
+        "recall": 0.7741935483870968,
+        "f1": 0.7944827586206896
+      }
+    }
+  ]
+}

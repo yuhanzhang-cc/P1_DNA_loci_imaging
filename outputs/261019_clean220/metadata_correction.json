@@ -1,0 +1,7 @@
+{
+  "reason": "Frozen manifest ratios must describe actual parent split",
+  "train": 166,
+  "valid": 22,
+  "test": 32,
+  "training_arrays_changed": false
+}

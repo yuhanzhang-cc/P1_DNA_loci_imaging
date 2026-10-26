@@ -1,0 +1,12 @@
+{
+  "protocol_id": "pooled220_methods_v2",
+  "stage": "initial_P0_P1_P2_screen",
+  "full_training_trials_completed": 4,
+  "architecture_slots_used": 4,
+  "architecture_slots_max": 4,
+  "core_single_seed_validation_gain": false,
+  "structural_contribution_established": false,
+  "independent_validation": false,
+  "test_evaluated": false,
+  "blind_annotation_review": "pending"
+}

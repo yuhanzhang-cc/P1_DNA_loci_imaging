@@ -1,0 +1,11 @@
+{
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "epochs_per_seed": 100,
+  "data_audit": "data_audit.json",
+  "results": "arm_seed_metrics.csv",
+  "uncertainty": "paired_bootstrap.json"
+}
