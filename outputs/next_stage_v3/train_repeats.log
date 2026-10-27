@@ -1,0 +1,728 @@
+AC-only temporary display/system request active=True
+EPOCH R0 seed=43 1/100 loss=1.711442 val=1.505267 seconds=27.62
+EPOCH R0 seed=43 2/100 loss=1.516169 val=1.455613 seconds=21.89
+EPOCH R0 seed=43 3/100 loss=1.453119 val=1.403795 seconds=21.89
+EPOCH R0 seed=43 4/100 loss=1.405352 val=1.368340 seconds=21.88
+CHECKPOINT R0 seed=43 epoch=5 F1=0.404636 P=0.3328 R=0.5161 weak=0.1250 p=0.9793089
+EPOCH R0 seed=43 5/100 loss=1.386600 val=1.520481 seconds=21.93
+EPOCH R0 seed=43 6/100 loss=1.106282 val=0.808774 seconds=21.81
+EPOCH R0 seed=43 7/100 loss=0.863728 val=0.798075 seconds=21.81
+EPOCH R0 seed=43 8/100 loss=0.793888 val=0.817912 seconds=21.84
+EPOCH R0 seed=43 9/100 loss=0.786477 val=0.827554 seconds=21.87
+CHECKPOINT R0 seed=43 epoch=10 F1=0.706827 P=0.7040 R=0.7097 weak=0.2604 p=0.9613683
+EPOCH R0 seed=43 10/100 loss=0.737009 val=0.734119 seconds=21.82
+EPOCH R0 seed=43 11/100 loss=0.727318 val=0.713236 seconds=21.81
+EPOCH R0 seed=43 12/100 loss=0.725271 val=0.699273 seconds=21.83
+EPOCH R0 seed=43 13/100 loss=0.684532 val=0.677132 seconds=21.81
+EPOCH R0 seed=43 14/100 loss=0.642757 val=0.661849 seconds=21.79
+CHECKPOINT R0 seed=43 epoch=15 F1=0.736181 P=0.6910 R=0.7876 weak=0.3750 p=0.9290000
+EPOCH R0 seed=43 15/100 loss=0.646205 val=0.657796 seconds=21.88
+EPOCH R0 seed=43 16/100 loss=0.658521 val=0.710634 seconds=21.85
+EPOCH R0 seed=43 17/100 loss=0.670712 val=0.663963 seconds=21.82
+EPOCH R0 seed=43 18/100 loss=0.632887 val=0.687763 seconds=21.82
+EPOCH R0 seed=43 19/100 loss=0.593938 val=0.645686 seconds=21.83
+CHECKPOINT R0 seed=43 epoch=20 F1=0.736691 P=0.7926 R=0.6882 weak=0.2083 p=0.9290000
+EPOCH R0 seed=43 20/100 loss=0.585709 val=0.648606 seconds=21.83
+EPOCH R0 seed=43 21/100 loss=0.563873 val=0.631860 seconds=21.86
+EPOCH R0 seed=43 22/100 loss=0.577466 val=0.653481 seconds=21.84
+EPOCH R0 seed=43 23/100 loss=0.583790 val=0.669048 seconds=21.83
+EPOCH R0 seed=43 24/100 loss=0.580377 val=0.637727 seconds=21.90
+CHECKPOINT R0 seed=43 epoch=25 F1=0.740113 P=0.7798 R=0.7043 weak=0.2188 p=0.7834209
+EPOCH R0 seed=43 25/100 loss=0.574468 val=0.672293 seconds=21.83
+EPOCH R0 seed=43 26/100 loss=0.587396 val=0.666197 seconds=21.84
+EPOCH R0 seed=43 27/100 loss=0.567258 val=0.640088 seconds=21.89
+EPOCH R0 seed=43 28/100 loss=0.547198 val=0.653254 seconds=21.82
+EPOCH R0 seed=43 29/100 loss=0.527119 val=0.628229 seconds=21.85
+CHECKPOINT R0 seed=43 epoch=30 F1=0.762667 P=0.7566 R=0.7688 weak=0.3438 p=0.5000000
+EPOCH R0 seed=43 30/100 loss=0.538175 val=0.617308 seconds=21.95
+EPOCH R0 seed=43 31/100 loss=0.528163 val=0.644839 seconds=21.80
+EPOCH R0 seed=43 32/100 loss=0.502799 val=0.630242 seconds=21.84
+EPOCH R0 seed=43 33/100 loss=0.516831 val=0.625209 seconds=21.82
+EPOCH R0 seed=43 34/100 loss=0.511475 val=0.657526 seconds=21.80
+CHECKPOINT R0 seed=43 epoch=35 F1=0.777626 P=0.7895 R=0.7661 weak=0.3542 p=0.9290000
+EPOCH R0 seed=43 35/100 loss=0.504813 val=0.621963 seconds=21.87
+EPOCH R0 seed=43 36/100 loss=0.510815 val=0.631152 seconds=21.78
+EPOCH R0 seed=43 37/100 loss=0.502000 val=0.600304 seconds=21.83
+EPOCH R0 seed=43 38/100 loss=0.492200 val=0.636301 seconds=21.93
+EPOCH R0 seed=43 39/100 loss=0.494835 val=0.658127 seconds=21.81
+CHECKPOINT R0 seed=43 epoch=40 F1=0.750643 P=0.7192 R=0.7849 weak=0.4271 p=0.7834209
+EPOCH R0 seed=43 40/100 loss=0.491884 val=0.638428 seconds=21.88
+EPOCH R0 seed=43 41/100 loss=0.474771 val=0.609514 seconds=21.83
+EPOCH R0 seed=43 42/100 loss=0.467876 val=0.624945 seconds=21.92
+EPOCH R0 seed=43 43/100 loss=0.488866 val=0.627864 seconds=21.88
+EPOCH R0 seed=43 44/100 loss=0.459897 val=0.615004 seconds=21.86
+CHECKPOINT R0 seed=43 epoch=45 F1=0.760563 P=0.7988 R=0.7258 weak=0.2812 p=0.8730912
+EPOCH R0 seed=43 45/100 loss=0.466742 val=0.631116 seconds=21.81
+EPOCH R0 seed=43 46/100 loss=0.454475 val=0.624332 seconds=21.86
+EPOCH R0 seed=43 47/100 loss=0.452034 val=0.613617 seconds=21.87
+EPOCH R0 seed=43 48/100 loss=0.434295 val=0.633159 seconds=21.82
+EPOCH R0 seed=43 49/100 loss=0.450121 val=0.666273 seconds=21.90
+CHECKPOINT R0 seed=43 epoch=50 F1=0.768194 P=0.7703 R=0.7661 weak=0.3750 p=0.9969383
+EPOCH R0 seed=43 50/100 loss=0.461771 val=0.630544 seconds=21.88
+EPOCH R0 seed=43 51/100 loss=0.456251 val=0.622848 seconds=21.86
+EPOCH R0 seed=43 52/100 loss=0.428487 val=0.621151 seconds=21.80
+EPOCH R0 seed=43 53/100 loss=0.447361 val=0.636893 seconds=21.80
+EPOCH R0 seed=43 54/100 loss=0.455474 val=0.611493 seconds=21.88
+CHECKPOINT R0 seed=43 epoch=55 F1=0.787709 P=0.8198 R=0.7581 weak=0.3542 p=0.9613683
+EPOCH R0 seed=43 55/100 loss=0.417005 val=0.594232 seconds=21.84
+EPOCH R0 seed=43 56/100 loss=0.413513 val=0.620805 seconds=21.86
+EPOCH R0 seed=43 57/100 loss=0.407769 val=0.620023 seconds=21.92
+EPOCH R0 seed=43 58/100 loss=0.414726 val=0.612629 seconds=21.84
+EPOCH R0 seed=43 59/100 loss=0.439947 val=0.635659 seconds=21.86
+CHECKPOINT R0 seed=43 epoch=60 F1=0.784876 P=0.7620 R=0.8091 weak=0.4375 p=0.2165791
+EPOCH R0 seed=43 60/100 loss=0.431643 val=0.656623 seconds=21.89
+EPOCH R0 seed=43 61/100 loss=0.411997 val=0.623774 seconds=21.81
+EPOCH R0 seed=43 62/100 loss=0.406392 val=0.637194 seconds=21.88
+EPOCH R0 seed=43 63/100 loss=0.415845 val=0.597372 seconds=21.80
+EPOCH R0 seed=43 64/100 loss=0.400042 val=0.596841 seconds=21.82
+CHECKPOINT R0 seed=43 epoch=65 F1=0.784314 P=0.7634 R=0.8065 weak=0.4167 p=0.2165791
+EPOCH R0 seed=43 65/100 loss=0.395386 val=0.598160 seconds=21.88
+EPOCH R0 seed=43 66/100 loss=0.377810 val=0.611650 seconds=21.85
+EPOCH R0 seed=43 67/100 loss=0.373617 val=0.607703 seconds=21.88
+EPOCH R0 seed=43 68/100 loss=0.358789 val=0.611207 seconds=21.82
+EPOCH R0 seed=43 69/100 loss=0.357877 val=0.608598 seconds=21.83
+CHECKPOINT R0 seed=43 epoch=70 F1=0.784000 P=0.7778 R=0.7903 weak=0.4062 p=0.2165791
+EPOCH R0 seed=43 70/100 loss=0.357795 val=0.612396 seconds=21.92
+EPOCH R0 seed=43 71/100 loss=0.362454 val=0.590614 seconds=21.84
+EPOCH R0 seed=43 72/100 loss=0.351334 val=0.596278 seconds=21.89
+EPOCH R0 seed=43 73/100 loss=0.339577 val=0.591516 seconds=21.86
+EPOCH R0 seed=43 74/100 loss=0.337941 val=0.609015 seconds=21.82
+CHECKPOINT R0 seed=43 epoch=75 F1=0.788360 P=0.7760 R=0.8011 weak=0.4271 p=0.0109869
+EPOCH R0 seed=43 75/100 loss=0.335661 val=0.612708 seconds=21.85
+EPOCH R0 seed=43 76/100 loss=0.340125 val=0.595791 seconds=21.85
+EPOCH R0 seed=43 77/100 loss=0.332234 val=0.595456 seconds=21.84
+EPOCH R0 seed=43 78/100 loss=0.348776 val=0.618671 seconds=21.94
+EPOCH R0 seed=43 79/100 loss=0.334761 val=0.581341 seconds=21.83
+CHECKPOINT R0 seed=43 epoch=80 F1=0.788618 P=0.7951 R=0.7823 weak=0.3750 p=0.0710000
+EPOCH R0 seed=43 80/100 loss=0.332886 val=0.601659 seconds=21.90
+EPOCH R0 seed=43 81/100 loss=0.313493 val=0.576732 seconds=21.84
+EPOCH R0 seed=43 82/100 loss=0.312974 val=0.590333 seconds=21.83
+EPOCH R0 seed=43 83/100 loss=0.304539 val=0.570295 seconds=21.83
+EPOCH R0 seed=43 84/100 loss=0.309276 val=0.583595 seconds=21.82
+CHECKPOINT R0 seed=43 epoch=85 F1=0.803395 P=0.8478 R=0.7634 weak=0.3750 p=0.3446010
+EPOCH R0 seed=43 85/100 loss=0.302762 val=0.597885 seconds=21.87
+EPOCH R0 seed=43 86/100 loss=0.299427 val=0.602722 seconds=21.80
+EPOCH R0 seed=43 87/100 loss=0.295008 val=0.592598 seconds=21.81
+EPOCH R0 seed=43 88/100 loss=0.311731 val=0.632725 seconds=21.82
+EPOCH R0 seed=43 89/100 loss=0.307930 val=0.633886 seconds=21.82
+CHECKPOINT R0 seed=43 epoch=90 F1=0.796657 P=0.8266 R=0.7688 weak=0.3750 p=0.0710000
+EPOCH R0 seed=43 90/100 loss=0.310692 val=0.602757 seconds=21.83
+EPOCH R0 seed=43 91/100 loss=0.290329 val=0.591481 seconds=21.81
+EPOCH R0 seed=43 92/100 loss=0.293124 val=0.626256 seconds=21.86
+EPOCH R0 seed=43 93/100 loss=0.276467 val=0.588973 seconds=21.81
+EPOCH R0 seed=43 94/100 loss=0.270561 val=0.590530 seconds=21.81
+CHECKPOINT R0 seed=43 epoch=95 F1=0.791064 P=0.7738 R=0.8091 weak=0.4688 p=0.0058071
+EPOCH R0 seed=43 95/100 loss=0.267199 val=0.613206 seconds=21.78
+EPOCH R0 seed=43 96/100 loss=0.271837 val=0.583831 seconds=21.77
+EPOCH R0 seed=43 97/100 loss=0.269010 val=0.604676 seconds=21.82
+EPOCH R0 seed=43 98/100 loss=0.266497 val=0.605811 seconds=21.81
+EPOCH R0 seed=43 99/100 loss=0.264055 val=0.595145 seconds=21.79
+CHECKPOINT R0 seed=43 epoch=100 F1=0.808571 P=0.8628 R=0.7608 weak=0.4271 p=0.8730912
+EPOCH R0 seed=43 100/100 loss=0.268869 val=0.588890 seconds=21.85
+COMPLETE R0 seed=43: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 100, "native_val_loss": 0.5888897379239401, "threshold": 0.8730912143037655, "tp": 283, "fp": 45, "fn": 89, "precision": 0.8628048780487805, "recall": 0.760752688172043, "f1": 0.8085714285714286, "macro_f1": 0.810900462018213, "count_mae": 3.3636363636363638, "weak_tp": 41, "weak_n": 96, "weak_recall": 0.4270833333333333}, "native_secondary": {"epoch": 100, "native_val_loss": 0.5888897379239401, "threshold": 0.8730912143037655, "tp": 283, "fp": 45, "fn": 89, "precision": 0.8628048780487805, "recall": 0.760752688172043, "f1": 0.8085714285714286, "macro_f1": 0.810900462018213, "count_mae": 3.3636363636363638, "weak_tp": 41, "weak_n": 96, "weak_recall": 0.4270833333333333}, "selection_delta_f1": 0.0, "checkpoint_sha256": "9317220dcd839b6501b256acb938aa56027a8699301ccfb207ea5310595fd39a", "native_checkpoint_sha256": "9317220dcd839b6501b256acb938aa56027a8699301ccfb207ea5310595fd39a", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.34226685762405396, "tp_mean_error_px": 0.43185418082052324, "tp_rmse_error_px": 0.5612696809787172, "fp_farther6_from_truth": 40}
+EPOCH R0 seed=44 1/100 loss=1.761067 val=1.605244 seconds=21.52
+EPOCH R0 seed=44 2/100 loss=1.554157 val=1.480924 seconds=21.36
+EPOCH R0 seed=44 3/100 loss=1.477503 val=1.417962 seconds=21.32
+EPOCH R0 seed=44 4/100 loss=1.426971 val=1.386398 seconds=21.36
+CHECKPOINT R0 seed=44 epoch=5 F1=0.337255 P=0.2654 R=0.4624 weak=0.1042 p=0.7834209
+EPOCH R0 seed=44 5/100 loss=1.368917 val=1.342713 seconds=21.35
+EPOCH R0 seed=44 6/100 loss=1.117549 val=0.809928 seconds=21.40
+EPOCH R0 seed=44 7/100 loss=0.854389 val=0.757392 seconds=21.45
+EPOCH R0 seed=44 8/100 loss=0.792208 val=0.759424 seconds=21.41
+EPOCH R0 seed=44 9/100 loss=0.752116 val=0.711618 seconds=21.35
+CHECKPOINT R0 seed=44 epoch=10 F1=0.713092 P=0.7399 R=0.6882 weak=0.2396 p=0.9613683
+EPOCH R0 seed=44 10/100 loss=0.730689 val=0.666156 seconds=21.31
+EPOCH R0 seed=44 11/100 loss=0.691321 val=0.648084 seconds=21.39
+EPOCH R0 seed=44 12/100 loss=0.667647 val=0.712046 seconds=21.31
+EPOCH R0 seed=44 13/100 loss=0.654841 val=0.669367 seconds=21.34
+EPOCH R0 seed=44 14/100 loss=0.642698 val=0.658733 seconds=21.32
+CHECKPOINT R0 seed=44 epoch=15 F1=0.739496 P=0.7719 R=0.7097 weak=0.2708 p=0.9290000
+EPOCH R0 seed=44 15/100 loss=0.646019 val=0.692939 seconds=21.31
+EPOCH R0 seed=44 16/100 loss=0.627191 val=0.653314 seconds=21.37
+EPOCH R0 seed=44 17/100 loss=0.589155 val=0.649844 seconds=21.30
+EPOCH R0 seed=44 18/100 loss=0.592160 val=0.646060 seconds=21.32
+EPOCH R0 seed=44 19/100 loss=0.612417 val=0.634624 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=20 F1=0.758710 P=0.7295 R=0.7903 weak=0.3854 p=0.9793089
+EPOCH R0 seed=44 20/100 loss=0.593573 val=0.642566 seconds=21.31
+EPOCH R0 seed=44 21/100 loss=0.584209 val=0.644636 seconds=21.33
+EPOCH R0 seed=44 22/100 loss=0.580566 val=0.694798 seconds=21.37
+EPOCH R0 seed=44 23/100 loss=0.557244 val=0.634622 seconds=21.33
+EPOCH R0 seed=44 24/100 loss=0.547307 val=0.660226 seconds=21.33
+CHECKPOINT R0 seed=44 epoch=25 F1=0.753968 P=0.7422 R=0.7661 weak=0.3333 p=0.8730912
+EPOCH R0 seed=44 25/100 loss=0.548676 val=0.639030 seconds=21.43
+EPOCH R0 seed=44 26/100 loss=0.544279 val=0.657214 seconds=21.34
+EPOCH R0 seed=44 27/100 loss=0.552413 val=0.656831 seconds=21.31
+EPOCH R0 seed=44 28/100 loss=0.532758 val=0.683415 seconds=21.34
+EPOCH R0 seed=44 29/100 loss=0.555671 val=0.682532 seconds=21.35
+CHECKPOINT R0 seed=44 epoch=30 F1=0.770235 P=0.7487 R=0.7930 weak=0.4062 p=0.9793089
+EPOCH R0 seed=44 30/100 loss=0.515004 val=0.628210 seconds=21.41
+EPOCH R0 seed=44 31/100 loss=0.536039 val=0.674155 seconds=21.31
+EPOCH R0 seed=44 32/100 loss=0.511146 val=0.650026 seconds=21.31
+EPOCH R0 seed=44 33/100 loss=0.509373 val=0.630887 seconds=21.35
+EPOCH R0 seed=44 34/100 loss=0.478409 val=0.613005 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=35 F1=0.769852 P=0.7709 R=0.7688 weak=0.3542 p=0.7834209
+EPOCH R0 seed=44 35/100 loss=0.472442 val=0.612288 seconds=21.32
+EPOCH R0 seed=44 36/100 loss=0.475819 val=0.633037 seconds=21.37
+EPOCH R0 seed=44 37/100 loss=0.470149 val=0.651020 seconds=21.34
+EPOCH R0 seed=44 38/100 loss=0.463956 val=0.621739 seconds=21.37
+EPOCH R0 seed=44 39/100 loss=0.448914 val=0.637568 seconds=21.33
+CHECKPOINT R0 seed=44 epoch=40 F1=0.772379 P=0.7366 R=0.8118 weak=0.4688 p=0.5000000
+EPOCH R0 seed=44 40/100 loss=0.476873 val=0.616442 seconds=21.36
+EPOCH R0 seed=44 41/100 loss=0.469882 val=0.618750 seconds=21.37
+EPOCH R0 seed=44 42/100 loss=0.453530 val=0.626941 seconds=21.32
+EPOCH R0 seed=44 43/100 loss=0.452907 val=0.633663 seconds=21.35
+EPOCH R0 seed=44 44/100 loss=0.455170 val=0.634579 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=45 F1=0.755945 P=0.7073 R=0.8118 weak=0.4167 p=0.0109869
+EPOCH R0 seed=44 45/100 loss=0.458649 val=0.651290 seconds=21.34
+EPOCH R0 seed=44 46/100 loss=0.432851 val=0.616733 seconds=21.39
+EPOCH R0 seed=44 47/100 loss=0.427329 val=0.621623 seconds=21.31
+EPOCH R0 seed=44 48/100 loss=0.426565 val=0.624896 seconds=21.42
+EPOCH R0 seed=44 49/100 loss=0.419578 val=0.616909 seconds=21.33
+CHECKPOINT R0 seed=44 epoch=50 F1=0.768041 P=0.7376 R=0.8011 weak=0.4271 p=0.3446010
+EPOCH R0 seed=44 50/100 loss=0.421829 val=0.615535 seconds=21.33
+EPOCH R0 seed=44 51/100 loss=0.414052 val=0.617481 seconds=21.36
+EPOCH R0 seed=44 52/100 loss=0.401606 val=0.619457 seconds=21.40
+EPOCH R0 seed=44 53/100 loss=0.394170 val=0.625949 seconds=21.51
+EPOCH R0 seed=44 54/100 loss=0.392597 val=0.622197 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=55 F1=0.791892 P=0.7962 R=0.7876 weak=0.4167 p=0.5000000
+EPOCH R0 seed=44 55/100 loss=0.400646 val=0.599222 seconds=21.34
+EPOCH R0 seed=44 56/100 loss=0.401959 val=0.618209 seconds=21.31
+EPOCH R0 seed=44 57/100 loss=0.397142 val=0.618501 seconds=21.35
+EPOCH R0 seed=44 58/100 loss=0.364319 val=0.624295 seconds=21.36
+EPOCH R0 seed=44 59/100 loss=0.377740 val=0.600748 seconds=21.36
+CHECKPOINT R0 seed=44 epoch=60 F1=0.762626 P=0.7190 R=0.8118 weak=0.4375 p=0.0206911
+EPOCH R0 seed=44 60/100 loss=0.366686 val=0.611645 seconds=21.34
+EPOCH R0 seed=44 61/100 loss=0.364245 val=0.634713 seconds=21.34
+EPOCH R0 seed=44 62/100 loss=0.356358 val=0.575656 seconds=21.38
+EPOCH R0 seed=44 63/100 loss=0.347628 val=0.599980 seconds=21.35
+EPOCH R0 seed=44 64/100 loss=0.356865 val=0.596452 seconds=21.31
+CHECKPOINT R0 seed=44 epoch=65 F1=0.785523 P=0.7834 R=0.7876 weak=0.3958 p=0.2165791
+EPOCH R0 seed=44 65/100 loss=0.345796 val=0.599368 seconds=21.35
+EPOCH R0 seed=44 66/100 loss=0.361102 val=0.645995 seconds=21.31
+EPOCH R0 seed=44 67/100 loss=0.364200 val=0.619386 seconds=21.34
+EPOCH R0 seed=44 68/100 loss=0.343579 val=0.592909 seconds=21.44
+EPOCH R0 seed=44 69/100 loss=0.343677 val=0.594621 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=70 F1=0.767733 P=0.7954 R=0.7419 weak=0.3125 p=0.1269088
+EPOCH R0 seed=44 70/100 loss=0.324620 val=0.639704 seconds=21.33
+EPOCH R0 seed=44 71/100 loss=0.333770 val=0.582816 seconds=21.34
+EPOCH R0 seed=44 72/100 loss=0.340338 val=0.587134 seconds=21.31
+EPOCH R0 seed=44 73/100 loss=0.316333 val=0.595596 seconds=21.32
+EPOCH R0 seed=44 74/100 loss=0.309137 val=0.611841 seconds=21.32
+CHECKPOINT R0 seed=44 epoch=75 F1=0.796855 P=0.7775 R=0.8172 weak=0.4375 p=0.0206911
+EPOCH R0 seed=44 75/100 loss=0.321050 val=0.594343 seconds=21.30
+EPOCH R0 seed=44 76/100 loss=0.313659 val=0.600521 seconds=21.33
+EPOCH R0 seed=44 77/100 loss=0.297986 val=0.586159 seconds=21.33
+EPOCH R0 seed=44 78/100 loss=0.296027 val=0.595423 seconds=21.37
+EPOCH R0 seed=44 79/100 loss=0.307273 val=0.591340 seconds=21.35
+CHECKPOINT R0 seed=44 epoch=80 F1=0.792963 P=0.7984 R=0.7876 weak=0.4479 p=0.6553990
+EPOCH R0 seed=44 80/100 loss=0.302418 val=0.576100 seconds=21.35
+EPOCH R0 seed=44 81/100 loss=0.295075 val=0.581348 seconds=21.39
+EPOCH R0 seed=44 82/100 loss=0.288012 val=0.557677 seconds=21.32
+EPOCH R0 seed=44 83/100 loss=0.294649 val=0.585508 seconds=21.34
+EPOCH R0 seed=44 84/100 loss=0.282996 val=0.567669 seconds=21.35
+CHECKPOINT R0 seed=44 epoch=85 F1=0.799458 P=0.8060 R=0.7930 weak=0.4375 p=0.0710000
+EPOCH R0 seed=44 85/100 loss=0.293698 val=0.595202 seconds=21.35
+EPOCH R0 seed=44 86/100 loss=0.282245 val=0.611732 seconds=21.32
+EPOCH R0 seed=44 87/100 loss=0.270915 val=0.576878 seconds=21.34
+EPOCH R0 seed=44 88/100 loss=0.269418 val=0.560638 seconds=21.36
+EPOCH R0 seed=44 89/100 loss=0.277212 val=0.608845 seconds=21.37
+CHECKPOINT R0 seed=44 epoch=90 F1=0.802139 P=0.7979 R=0.8065 weak=0.4792 p=0.0386317
+EPOCH R0 seed=44 90/100 loss=0.268288 val=0.598822 seconds=21.33
+EPOCH R0 seed=44 91/100 loss=0.269513 val=0.586055 seconds=21.35
+EPOCH R0 seed=44 92/100 loss=0.260902 val=0.592868 seconds=21.33
+EPOCH R0 seed=44 93/100 loss=0.259633 val=0.591708 seconds=21.32
+EPOCH R0 seed=44 94/100 loss=0.255431 val=0.578059 seconds=21.31
+CHECKPOINT R0 seed=44 epoch=95 F1=0.806584 P=0.8235 R=0.7903 weak=0.4688 p=0.0386317
+EPOCH R0 seed=44 95/100 loss=0.264506 val=0.608544 seconds=21.33
+EPOCH R0 seed=44 96/100 loss=0.278287 val=0.584738 seconds=21.33
+EPOCH R0 seed=44 97/100 loss=0.257658 val=0.593485 seconds=21.44
+EPOCH R0 seed=44 98/100 loss=0.253675 val=0.596397 seconds=21.32
+EPOCH R0 seed=44 99/100 loss=0.246032 val=0.584864 seconds=21.35
+CHECKPOINT R0 seed=44 epoch=100 F1=0.798935 P=0.7916 R=0.8065 weak=0.4375 p=0.0030617
+EPOCH R0 seed=44 100/100 loss=0.243808 val=0.615810 seconds=21.33
+COMPLETE R0 seed=44: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 95, "native_val_loss": 0.6085439721743265, "threshold": 0.038631651159049755, "tp": 294, "fp": 63, "fn": 78, "precision": 0.8235294117647058, "recall": 0.7903225806451613, "f1": 0.8065843621399177, "macro_f1": 0.7669864557512931, "count_mae": 3.409090909090909, "weak_tp": 45, "weak_n": 96, "weak_recall": 0.46875}, "native_secondary": {"epoch": 80, "native_val_loss": 0.5761004090309143, "threshold": 0.6553990357712657, "tp": 293, "fp": 74, "fn": 79, "precision": 0.7983651226158038, "recall": 0.7876344086021505, "f1": 0.7929634641407307, "macro_f1": 0.794955510886657, "count_mae": 2.9545454545454546, "weak_tp": 43, "weak_n": 96, "weak_recall": 0.4479166666666667}, "selection_delta_f1": 0.013620897999186976, "checkpoint_sha256": "46b9f061b685ee31ed7b92c64cadd042b1d4521048146d777a2c66a11ce333b2", "native_checkpoint_sha256": "303bbb2d9bc2b950ee2297b2c3d3504a3ca7ceca323e71ce79fbe4460e886990", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.32183369994163513, "tp_mean_error_px": 0.4468036546116922, "tp_rmse_error_px": 0.5797040453640016, "fp_farther6_from_truth": 47}
+EPOCH R2 seed=43 1/100 loss=1.711268 val=1.535085 seconds=24.91
+EPOCH R2 seed=43 2/100 loss=1.511084 val=1.448000 seconds=23.37
+EPOCH R2 seed=43 3/100 loss=1.437552 val=1.375104 seconds=23.31
+EPOCH R2 seed=43 4/100 loss=1.165648 val=0.945647 seconds=23.28
+CHECKPOINT R2 seed=43 epoch=5 F1=0.669516 P=0.7121 R=0.6317 weak=0.1875 p=0.8730912
+EPOCH R2 seed=43 5/100 loss=0.897091 val=0.827897 seconds=23.22
+EPOCH R2 seed=43 6/100 loss=0.804646 val=0.746281 seconds=23.22
+EPOCH R2 seed=43 7/100 loss=0.796397 val=0.766667 seconds=23.23
+EPOCH R2 seed=43 8/100 loss=0.754276 val=0.707734 seconds=23.30
+EPOCH R2 seed=43 9/100 loss=0.739751 val=0.718004 seconds=23.23
+CHECKPOINT R2 seed=43 epoch=10 F1=0.709766 P=0.7268 R=0.6935 weak=0.2188 p=0.8730912
+EPOCH R2 seed=43 10/100 loss=0.704649 val=0.713105 seconds=23.25
+EPOCH R2 seed=43 11/100 loss=0.700931 val=0.674678 seconds=23.23
+EPOCH R2 seed=43 12/100 loss=0.699861 val=0.761567 seconds=23.25
+EPOCH R2 seed=43 13/100 loss=0.692260 val=0.673954 seconds=23.20
+EPOCH R2 seed=43 14/100 loss=0.652906 val=0.654613 seconds=23.27
+CHECKPOINT R2 seed=43 epoch=15 F1=0.743802 P=0.7627 R=0.7258 weak=0.3229 p=0.9793089
+EPOCH R2 seed=43 15/100 loss=0.649357 val=0.657910 seconds=23.24
+EPOCH R2 seed=43 16/100 loss=0.672787 val=0.688627 seconds=23.31
+EPOCH R2 seed=43 17/100 loss=0.655492 val=0.662961 seconds=23.20
+EPOCH R2 seed=43 18/100 loss=0.621334 val=0.652143 seconds=23.18
+EPOCH R2 seed=43 19/100 loss=0.595210 val=0.648647 seconds=23.27
+CHECKPOINT R2 seed=43 epoch=20 F1=0.763298 P=0.7553 R=0.7715 weak=0.3958 p=0.3446010
+EPOCH R2 seed=43 20/100 loss=0.609635 val=0.687033 seconds=23.22
+EPOCH R2 seed=43 21/100 loss=0.612563 val=0.650508 seconds=23.27
+EPOCH R2 seed=43 22/100 loss=0.605713 val=0.653587 seconds=23.23
+EPOCH R2 seed=43 23/100 loss=0.590242 val=0.696762 seconds=23.27
+EPOCH R2 seed=43 24/100 loss=0.588666 val=0.625526 seconds=23.25
+CHECKPOINT R2 seed=43 epoch=25 F1=0.735043 P=0.7818 R=0.6935 weak=0.2188 p=0.9290000
+EPOCH R2 seed=43 25/100 loss=0.586911 val=0.649072 seconds=23.23
+EPOCH R2 seed=43 26/100 loss=0.572249 val=0.670814 seconds=23.23
+EPOCH R2 seed=43 27/100 loss=0.571626 val=0.636400 seconds=23.30
+EPOCH R2 seed=43 28/100 loss=0.566092 val=0.690498 seconds=23.25
+EPOCH R2 seed=43 29/100 loss=0.552466 val=0.627289 seconds=23.22
+CHECKPOINT R2 seed=43 epoch=30 F1=0.766897 P=0.7875 R=0.7473 weak=0.2917 p=0.7834209
+EPOCH R2 seed=43 30/100 loss=0.546713 val=0.605377 seconds=23.32
+EPOCH R2 seed=43 31/100 loss=0.536851 val=0.627233 seconds=23.19
+EPOCH R2 seed=43 32/100 loss=0.531642 val=0.633970 seconds=23.25
+EPOCH R2 seed=43 33/100 loss=0.560168 val=0.627231 seconds=23.27
+EPOCH R2 seed=43 34/100 loss=0.519200 val=0.616029 seconds=23.29
+CHECKPOINT R2 seed=43 epoch=35 F1=0.764468 P=0.7655 R=0.7634 weak=0.3542 p=0.5000000
+EPOCH R2 seed=43 35/100 loss=0.504918 val=0.618332 seconds=23.24
+EPOCH R2 seed=43 36/100 loss=0.513201 val=0.609354 seconds=23.29
+EPOCH R2 seed=43 37/100 loss=0.497783 val=0.625887 seconds=23.19
+EPOCH R2 seed=43 38/100 loss=0.500375 val=0.617547 seconds=23.25
+EPOCH R2 seed=43 39/100 loss=0.491136 val=0.648649 seconds=23.25
+CHECKPOINT R2 seed=43 epoch=40 F1=0.758710 P=0.7295 R=0.7903 weak=0.3854 p=0.6553990
+EPOCH R2 seed=43 40/100 loss=0.489036 val=0.619541 seconds=23.29
+EPOCH R2 seed=43 41/100 loss=0.483548 val=0.632965 seconds=23.21
+EPOCH R2 seed=43 42/100 loss=0.486449 val=0.611937 seconds=23.26
+EPOCH R2 seed=43 43/100 loss=0.499080 val=0.627321 seconds=23.25
+EPOCH R2 seed=43 44/100 loss=0.486320 val=0.594328 seconds=23.24
+CHECKPOINT R2 seed=43 epoch=45 F1=0.767160 P=0.7682 R=0.7661 weak=0.3229 p=0.3446010
+EPOCH R2 seed=43 45/100 loss=0.449969 val=0.609904 seconds=23.29
+EPOCH R2 seed=43 46/100 loss=0.479795 val=0.642193 seconds=23.25
+EPOCH R2 seed=43 47/100 loss=0.485961 val=0.623281 seconds=23.30
+EPOCH R2 seed=43 48/100 loss=0.461769 val=0.620704 seconds=23.22
+EPOCH R2 seed=43 49/100 loss=0.466597 val=0.640663 seconds=23.28
+CHECKPOINT R2 seed=43 epoch=50 F1=0.785436 P=0.7607 R=0.8118 weak=0.4583 p=0.9613683
+EPOCH R2 seed=43 50/100 loss=0.464378 val=0.629188 seconds=23.22
+EPOCH R2 seed=43 51/100 loss=0.458248 val=0.612664 seconds=23.19
+EPOCH R2 seed=43 52/100 loss=0.450888 val=0.609862 seconds=23.22
+EPOCH R2 seed=43 53/100 loss=0.451705 val=0.629429 seconds=23.22
+EPOCH R2 seed=43 54/100 loss=0.453378 val=0.587576 seconds=23.27
+CHECKPOINT R2 seed=43 epoch=55 F1=0.772959 P=0.7354 R=0.8145 weak=0.4688 p=0.9290000
+EPOCH R2 seed=43 55/100 loss=0.445256 val=0.622486 seconds=23.21
+EPOCH R2 seed=43 56/100 loss=0.429958 val=0.607641 seconds=23.25
+EPOCH R2 seed=43 57/100 loss=0.417097 val=0.624918 seconds=23.27
+EPOCH R2 seed=43 58/100 loss=0.416021 val=0.606926 seconds=23.27
+EPOCH R2 seed=43 59/100 loss=0.425648 val=0.604253 seconds=23.23
+CHECKPOINT R2 seed=43 epoch=60 F1=0.764783 P=0.7481 R=0.7823 weak=0.3854 p=0.3446010
+EPOCH R2 seed=43 60/100 loss=0.420617 val=0.612467 seconds=23.30
+EPOCH R2 seed=43 61/100 loss=0.422720 val=0.607170 seconds=23.25
+EPOCH R2 seed=43 62/100 loss=0.406990 val=0.650053 seconds=23.30
+EPOCH R2 seed=43 63/100 loss=0.415188 val=0.610382 seconds=23.22
+EPOCH R2 seed=43 64/100 loss=0.397351 val=0.581471 seconds=23.37
+CHECKPOINT R2 seed=43 epoch=65 F1=0.773263 P=0.7545 R=0.7930 weak=0.4167 p=0.6553990
+EPOCH R2 seed=43 65/100 loss=0.408198 val=0.590537 seconds=23.40
+EPOCH R2 seed=43 66/100 loss=0.422911 val=0.636101 seconds=23.23
+EPOCH R2 seed=43 67/100 loss=0.394989 val=0.598617 seconds=23.25
+EPOCH R2 seed=43 68/100 loss=0.376623 val=0.604790 seconds=23.23
+EPOCH R2 seed=43 69/100 loss=0.390557 val=0.602794 seconds=23.28
+CHECKPOINT R2 seed=43 epoch=70 F1=0.781050 P=0.7457 R=0.8199 weak=0.4479 p=0.1269088
+EPOCH R2 seed=43 70/100 loss=0.388310 val=0.594866 seconds=23.20
+EPOCH R2 seed=43 71/100 loss=0.397298 val=0.614553 seconds=23.23
+EPOCH R2 seed=43 72/100 loss=0.374748 val=0.619119 seconds=23.22
+EPOCH R2 seed=43 73/100 loss=0.375596 val=0.595012 seconds=23.24
+EPOCH R2 seed=43 74/100 loss=0.359020 val=0.602194 seconds=23.23
+CHECKPOINT R2 seed=43 epoch=75 F1=0.779528 P=0.7615 R=0.7984 weak=0.4271 p=0.0386317
+EPOCH R2 seed=43 75/100 loss=0.359030 val=0.617876 seconds=23.33
+EPOCH R2 seed=43 76/100 loss=0.366123 val=0.613700 seconds=23.23
+EPOCH R2 seed=43 77/100 loss=0.369800 val=0.628797 seconds=23.28
+EPOCH R2 seed=43 78/100 loss=0.342234 val=0.613739 seconds=23.27
+EPOCH R2 seed=43 79/100 loss=0.354372 val=0.611294 seconds=23.38
+CHECKPOINT R2 seed=43 epoch=80 F1=0.783611 P=0.7482 R=0.8226 weak=0.4271 p=0.8730912
+EPOCH R2 seed=43 80/100 loss=0.376364 val=0.606332 seconds=23.30
+EPOCH R2 seed=43 81/100 loss=0.346870 val=0.622036 seconds=23.25
+EPOCH R2 seed=43 82/100 loss=0.356101 val=0.590385 seconds=23.27
+EPOCH R2 seed=43 83/100 loss=0.342111 val=0.602081 seconds=23.27
+EPOCH R2 seed=43 84/100 loss=0.336806 val=0.611573 seconds=23.21
+CHECKPOINT R2 seed=43 epoch=85 F1=0.792916 P=0.8039 R=0.7823 weak=0.4688 p=0.2165791
+EPOCH R2 seed=43 85/100 loss=0.329090 val=0.611318 seconds=23.27
+EPOCH R2 seed=43 86/100 loss=0.324222 val=0.607855 seconds=23.19
+EPOCH R2 seed=43 87/100 loss=0.322184 val=0.583515 seconds=23.26
+EPOCH R2 seed=43 88/100 loss=0.334223 val=0.595138 seconds=23.23
+EPOCH R2 seed=43 89/100 loss=0.332143 val=0.598368 seconds=23.19
+CHECKPOINT R2 seed=43 epoch=90 F1=0.803977 P=0.8524 R=0.7608 weak=0.4271 p=0.5000000
+EPOCH R2 seed=43 90/100 loss=0.321694 val=0.617769 seconds=23.30
+EPOCH R2 seed=43 91/100 loss=0.348143 val=0.639089 seconds=23.23
+EPOCH R2 seed=43 92/100 loss=0.333894 val=0.617568 seconds=23.29
+EPOCH R2 seed=43 93/100 loss=0.309576 val=0.615485 seconds=23.24
+EPOCH R2 seed=43 94/100 loss=0.317632 val=0.612012 seconds=23.27
+CHECKPOINT R2 seed=43 epoch=95 F1=0.778860 P=0.8069 R=0.7527 weak=0.3958 p=0.7834209
+EPOCH R2 seed=43 95/100 loss=0.312595 val=0.627065 seconds=23.23
+EPOCH R2 seed=43 96/100 loss=0.308293 val=0.609482 seconds=23.25
+EPOCH R2 seed=43 97/100 loss=0.302832 val=0.624554 seconds=23.29
+EPOCH R2 seed=43 98/100 loss=0.325837 val=0.606768 seconds=23.23
+EPOCH R2 seed=43 99/100 loss=0.304595 val=0.600050 seconds=23.30
+CHECKPOINT R2 seed=43 epoch=100 F1=0.805121 P=0.8550 R=0.7608 weak=0.4062 p=0.6553990
+EPOCH R2 seed=43 100/100 loss=0.307196 val=0.593837 seconds=23.21
+COMPLETE R2 seed=43: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 100, "native_val_loss": 0.5938366055488586, "threshold": 0.6553990357712657, "tp": 283, "fp": 48, "fn": 89, "precision": 0.8549848942598187, "recall": 0.760752688172043, "f1": 0.8051209103840683, "macro_f1": 0.7771748524199386, "count_mae": 3.1363636363636362, "weak_tp": 39, "weak_n": 96, "weak_recall": 0.40625}, "native_secondary": {"epoch": 65, "native_val_loss": 0.5905373096466064, "threshold": 0.6553990357712657, "tp": 295, "fp": 96, "fn": 77, "precision": 0.7544757033248082, "recall": 0.793010752688172, "f1": 0.7732634338138925, "macro_f1": 0.7380321067528584, "count_mae": 4.5, "weak_tp": 40, "weak_n": 96, "weak_recall": 0.4166666666666667}, "selection_delta_f1": 0.03185747657017579, "checkpoint_sha256": "007fc9528754264a25d4c9d74a05e3e3f810b6f84234b8652c8d9873478200bc", "native_checkpoint_sha256": "191ba56ee5a78975cdd9113f75351e688c5cb70083a1b13f82586bb7b22b5970", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.3132902681827545, "tp_mean_error_px": 0.43503681672621564, "tp_rmse_error_px": 0.5710412066790715, "fp_farther6_from_truth": 33}
+EPOCH R2 seed=44 1/100 loss=1.757933 val=1.578148 seconds=22.94
+EPOCH R2 seed=44 2/100 loss=1.561237 val=1.537745 seconds=22.75
+EPOCH R2 seed=44 3/100 loss=1.480803 val=1.438011 seconds=22.64
+EPOCH R2 seed=44 4/100 loss=1.336311 val=1.022074 seconds=22.72
+CHECKPOINT R2 seed=44 epoch=5 F1=0.653005 P=0.6639 R=0.6425 weak=0.2188 p=0.9890131
+EPOCH R2 seed=44 5/100 loss=0.995007 val=0.847767 seconds=22.65
+EPOCH R2 seed=44 6/100 loss=0.814166 val=0.854525 seconds=22.65
+EPOCH R2 seed=44 7/100 loss=0.807196 val=0.805450 seconds=22.77
+EPOCH R2 seed=44 8/100 loss=0.771090 val=0.710298 seconds=22.71
+EPOCH R2 seed=44 9/100 loss=0.717737 val=0.724209 seconds=22.67
+CHECKPOINT R2 seed=44 epoch=10 F1=0.699115 P=0.7745 R=0.6371 weak=0.1875 p=0.9941929
+EPOCH R2 seed=44 10/100 loss=0.723716 val=0.703540 seconds=22.68
+EPOCH R2 seed=44 11/100 loss=0.686679 val=0.673309 seconds=22.82
+EPOCH R2 seed=44 12/100 loss=0.670971 val=0.658767 seconds=22.64
+EPOCH R2 seed=44 13/100 loss=0.653843 val=0.699910 seconds=22.68
+EPOCH R2 seed=44 14/100 loss=0.638990 val=0.673796 seconds=22.60
+CHECKPOINT R2 seed=44 epoch=15 F1=0.739065 P=0.8419 R=0.6586 weak=0.2083 p=0.9969383
+EPOCH R2 seed=44 15/100 loss=0.638508 val=0.677256 seconds=22.63
+EPOCH R2 seed=44 16/100 loss=0.633428 val=0.678773 seconds=22.66
+EPOCH R2 seed=44 17/100 loss=0.619035 val=0.710014 seconds=22.63
+EPOCH R2 seed=44 18/100 loss=0.615498 val=0.639992 seconds=22.64
+EPOCH R2 seed=44 19/100 loss=0.614359 val=0.681217 seconds=22.67
+CHECKPOINT R2 seed=44 epoch=20 F1=0.750988 P=0.7364 R=0.7661 weak=0.3333 p=0.9290000
+EPOCH R2 seed=44 20/100 loss=0.600963 val=0.646458 seconds=22.69
+EPOCH R2 seed=44 21/100 loss=0.585615 val=0.654493 seconds=22.67
+EPOCH R2 seed=44 22/100 loss=0.577687 val=0.668586 seconds=22.64
+EPOCH R2 seed=44 23/100 loss=0.563609 val=0.671102 seconds=22.62
+EPOCH R2 seed=44 24/100 loss=0.580818 val=0.689129 seconds=22.64
+CHECKPOINT R2 seed=44 epoch=25 F1=0.744318 P=0.7892 R=0.7043 weak=0.2500 p=0.9613683
+EPOCH R2 seed=44 25/100 loss=0.577424 val=0.661138 seconds=22.81
+EPOCH R2 seed=44 26/100 loss=0.549104 val=0.658962 seconds=22.66
+EPOCH R2 seed=44 27/100 loss=0.535129 val=0.645383 seconds=22.69
+EPOCH R2 seed=44 28/100 loss=0.532708 val=0.674216 seconds=22.61
+EPOCH R2 seed=44 29/100 loss=0.540471 val=0.657235 seconds=22.68
+CHECKPOINT R2 seed=44 epoch=30 F1=0.742638 P=0.7090 R=0.7796 weak=0.3854 p=0.9290000
+EPOCH R2 seed=44 30/100 loss=0.540276 val=0.650162 seconds=22.66
+EPOCH R2 seed=44 31/100 loss=0.540705 val=0.687934 seconds=22.64
+EPOCH R2 seed=44 32/100 loss=0.534634 val=0.660804 seconds=22.62
+EPOCH R2 seed=44 33/100 loss=0.524096 val=0.651690 seconds=22.70
+EPOCH R2 seed=44 34/100 loss=0.514385 val=0.645456 seconds=22.66
+CHECKPOINT R2 seed=44 epoch=35 F1=0.743523 P=0.7175 R=0.7715 weak=0.3438 p=0.8730912
+EPOCH R2 seed=44 35/100 loss=0.502128 val=0.638514 seconds=22.63
+EPOCH R2 seed=44 36/100 loss=0.503538 val=0.664653 seconds=22.69
+EPOCH R2 seed=44 37/100 loss=0.507240 val=0.676851 seconds=22.62
+EPOCH R2 seed=44 38/100 loss=0.491463 val=0.665551 seconds=22.64
+EPOCH R2 seed=44 39/100 loss=0.491496 val=0.639791 seconds=22.65
+CHECKPOINT R2 seed=44 epoch=40 F1=0.752368 P=0.7575 R=0.7473 weak=0.3125 p=0.1269088
+EPOCH R2 seed=44 40/100 loss=0.480278 val=0.616143 seconds=22.65
+EPOCH R2 seed=44 41/100 loss=0.473678 val=0.630871 seconds=22.65
+EPOCH R2 seed=44 42/100 loss=0.473160 val=0.623221 seconds=22.68
+EPOCH R2 seed=44 43/100 loss=0.472996 val=0.648645 seconds=22.69
+EPOCH R2 seed=44 44/100 loss=0.473579 val=0.649545 seconds=22.61
+CHECKPOINT R2 seed=44 epoch=45 F1=0.751696 P=0.7589 R=0.7446 weak=0.3125 p=0.9613683
+EPOCH R2 seed=44 45/100 loss=0.470534 val=0.628351 seconds=22.66
+EPOCH R2 seed=44 46/100 loss=0.454143 val=0.629169 seconds=22.65
+EPOCH R2 seed=44 47/100 loss=0.456795 val=0.600688 seconds=22.67
+EPOCH R2 seed=44 48/100 loss=0.441267 val=0.624453 seconds=22.69
+EPOCH R2 seed=44 49/100 loss=0.458028 val=0.620527 seconds=22.60
+CHECKPOINT R2 seed=44 epoch=50 F1=0.742779 P=0.7606 R=0.7258 weak=0.2812 p=0.5000000
+EPOCH R2 seed=44 50/100 loss=0.483125 val=0.646020 seconds=22.66
+EPOCH R2 seed=44 51/100 loss=0.453379 val=0.646468 seconds=22.65
+EPOCH R2 seed=44 52/100 loss=0.446282 val=0.639496 seconds=22.66
+EPOCH R2 seed=44 53/100 loss=0.433569 val=0.628462 seconds=22.58
+EPOCH R2 seed=44 54/100 loss=0.427778 val=0.646701 seconds=22.71
+CHECKPOINT R2 seed=44 epoch=55 F1=0.759952 P=0.6893 R=0.8468 weak=0.6042 p=0.0058071
+EPOCH R2 seed=44 55/100 loss=0.418536 val=0.618303 seconds=22.74
+EPOCH R2 seed=44 56/100 loss=0.416335 val=0.634983 seconds=22.64
+EPOCH R2 seed=44 57/100 loss=0.429703 val=0.618033 seconds=22.66
+EPOCH R2 seed=44 58/100 loss=0.415403 val=0.632417 seconds=22.61
+EPOCH R2 seed=44 59/100 loss=0.422143 val=0.613011 seconds=22.65
+CHECKPOINT R2 seed=44 epoch=60 F1=0.755376 P=0.7554 R=0.7554 weak=0.3438 p=0.0206911
+EPOCH R2 seed=44 60/100 loss=0.415688 val=0.637577 seconds=22.69
+EPOCH R2 seed=44 61/100 loss=0.402284 val=0.617246 seconds=22.66
+EPOCH R2 seed=44 62/100 loss=0.399666 val=0.627669 seconds=22.70
+EPOCH R2 seed=44 63/100 loss=0.382097 val=0.618303 seconds=22.69
+EPOCH R2 seed=44 64/100 loss=0.395170 val=0.632448 seconds=22.60
+CHECKPOINT R2 seed=44 epoch=65 F1=0.769231 P=0.7724 R=0.7661 weak=0.3854 p=0.7834209
+EPOCH R2 seed=44 65/100 loss=0.390120 val=0.602658 seconds=22.65
+EPOCH R2 seed=44 66/100 loss=0.391933 val=0.651479 seconds=22.66
+EPOCH R2 seed=44 67/100 loss=0.386195 val=0.611927 seconds=22.66
+EPOCH R2 seed=44 68/100 loss=0.377103 val=0.602295 seconds=22.72
+EPOCH R2 seed=44 69/100 loss=0.364036 val=0.605469 seconds=22.61
+CHECKPOINT R2 seed=44 epoch=70 F1=0.771930 P=0.7751 R=0.7688 weak=0.3750 p=0.7834209
+EPOCH R2 seed=44 70/100 loss=0.355937 val=0.604879 seconds=22.62
+EPOCH R2 seed=44 71/100 loss=0.356893 val=0.605664 seconds=22.65
+EPOCH R2 seed=44 72/100 loss=0.376599 val=0.601399 seconds=22.66
+EPOCH R2 seed=44 73/100 loss=0.357441 val=0.584685 seconds=22.67
+EPOCH R2 seed=44 74/100 loss=0.354171 val=0.602873 seconds=22.66
+CHECKPOINT R2 seed=44 epoch=75 F1=0.768617 P=0.7605 R=0.7769 weak=0.4167 p=0.0109869
+EPOCH R2 seed=44 75/100 loss=0.362853 val=0.636577 seconds=22.63
+EPOCH R2 seed=44 76/100 loss=0.338761 val=0.583879 seconds=22.67
+EPOCH R2 seed=44 77/100 loss=0.344133 val=0.605292 seconds=22.70
+EPOCH R2 seed=44 78/100 loss=0.339057 val=0.607979 seconds=22.68
+EPOCH R2 seed=44 79/100 loss=0.360726 val=0.631369 seconds=22.64
+CHECKPOINT R2 seed=44 epoch=80 F1=0.788966 P=0.8102 R=0.7688 weak=0.3854 p=0.5000000
+EPOCH R2 seed=44 80/100 loss=0.341294 val=0.594958 seconds=22.63
+EPOCH R2 seed=44 81/100 loss=0.328127 val=0.611415 seconds=22.68
+EPOCH R2 seed=44 82/100 loss=0.325259 val=0.584127 seconds=22.65
+EPOCH R2 seed=44 83/100 loss=0.326190 val=0.640908 seconds=22.65
+EPOCH R2 seed=44 84/100 loss=0.317148 val=0.604606 seconds=22.67
+CHECKPOINT R2 seed=44 epoch=85 F1=0.801144 P=0.8563 R=0.7527 weak=0.3750 p=0.5000000
+EPOCH R2 seed=44 85/100 loss=0.321440 val=0.592362 seconds=22.71
+EPOCH R2 seed=44 86/100 loss=0.310825 val=0.599797 seconds=22.68
+EPOCH R2 seed=44 87/100 loss=0.313135 val=0.600173 seconds=22.64
+EPOCH R2 seed=44 88/100 loss=0.310318 val=0.599250 seconds=22.72
+EPOCH R2 seed=44 89/100 loss=0.305858 val=0.589545 seconds=22.64
+CHECKPOINT R2 seed=44 epoch=90 F1=0.793566 P=0.7914 R=0.7957 weak=0.4167 p=0.0206911
+EPOCH R2 seed=44 90/100 loss=0.301675 val=0.631806 seconds=22.60
+EPOCH R2 seed=44 91/100 loss=0.309869 val=0.595481 seconds=22.63
+EPOCH R2 seed=44 92/100 loss=0.307822 val=0.588100 seconds=22.62
+EPOCH R2 seed=44 93/100 loss=0.301012 val=0.615121 seconds=22.62
+EPOCH R2 seed=44 94/100 loss=0.317923 val=0.608566 seconds=22.77
+CHECKPOINT R2 seed=44 epoch=95 F1=0.799451 P=0.8174 R=0.7823 weak=0.4688 p=0.0710000
+EPOCH R2 seed=44 95/100 loss=0.294827 val=0.600482 seconds=22.67
+EPOCH R2 seed=44 96/100 loss=0.318214 val=0.577445 seconds=22.68
+EPOCH R2 seed=44 97/100 loss=0.303261 val=0.618758 seconds=22.67
+EPOCH R2 seed=44 98/100 loss=0.289576 val=0.594738 seconds=22.63
+EPOCH R2 seed=44 99/100 loss=0.284716 val=0.610462 seconds=22.71
+CHECKPOINT R2 seed=44 epoch=100 F1=0.785021 P=0.8109 R=0.7608 weak=0.3854 p=0.3446010
+EPOCH R2 seed=44 100/100 loss=0.288934 val=0.601047 seconds=22.66
+COMPLETE R2 seed=44: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 85, "native_val_loss": 0.592361847559611, "threshold": 0.5, "tp": 280, "fp": 47, "fn": 92, "precision": 0.8562691131498471, "recall": 0.7526881720430108, "f1": 0.8011444921316166, "macro_f1": 0.8030769966849683, "count_mae": 4.2272727272727275, "weak_tp": 36, "weak_n": 96, "weak_recall": 0.375}, "native_secondary": {"epoch": 85, "native_val_loss": 0.592361847559611, "threshold": 0.5, "tp": 280, "fp": 47, "fn": 92, "precision": 0.8562691131498471, "recall": 0.7526881720430108, "f1": 0.8011444921316166, "macro_f1": 0.8030769966849683, "count_mae": 4.2272727272727275, "weak_tp": 36, "weak_n": 96, "weak_recall": 0.375}, "selection_delta_f1": 0.0, "checkpoint_sha256": "9fde02a9513cba7ec820f092186db7e7d160d303608db0074a2202879cd94a11", "native_checkpoint_sha256": "9fde02a9513cba7ec820f092186db7e7d160d303608db0074a2202879cd94a11", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.3235460966825485, "tp_mean_error_px": 0.4164426825537313, "tp_rmse_error_px": 0.5331887872808134, "fp_farther6_from_truth": 39}
+EPOCH S2 seed=43 1/100 loss=1.710896 val=1.502430 seconds=22.72
+EPOCH S2 seed=43 2/100 loss=1.515683 val=1.475278 seconds=22.45
+EPOCH S2 seed=43 3/100 loss=1.455271 val=1.394597 seconds=22.46
+EPOCH S2 seed=43 4/100 loss=1.230075 val=0.907156 seconds=22.38
+CHECKPOINT S2 seed=43 epoch=5 F1=0.633284 P=0.7003 R=0.5780 weak=0.1354 p=0.9613683
+EPOCH S2 seed=43 5/100 loss=0.913529 val=0.810760 seconds=22.43
+EPOCH S2 seed=43 6/100 loss=0.796676 val=0.733079 seconds=22.41
+EPOCH S2 seed=43 7/100 loss=0.774154 val=0.730780 seconds=22.49
+EPOCH S2 seed=43 8/100 loss=0.760395 val=0.736774 seconds=22.47
+EPOCH S2 seed=43 9/100 loss=0.752236 val=0.713390 seconds=22.41
+CHECKPOINT S2 seed=43 epoch=10 F1=0.707424 P=0.7714 R=0.6532 weak=0.2083 p=0.9793089
+EPOCH S2 seed=43 10/100 loss=0.711540 val=0.732235 seconds=22.42
+EPOCH S2 seed=43 11/100 loss=0.687399 val=0.691733 seconds=22.51
+EPOCH S2 seed=43 12/100 loss=0.681927 val=0.777207 seconds=22.41
+EPOCH S2 seed=43 13/100 loss=0.707876 val=0.757564 seconds=22.40
+EPOCH S2 seed=43 14/100 loss=0.677431 val=0.652665 seconds=22.43
+CHECKPOINT S2 seed=43 epoch=15 F1=0.737913 P=0.7005 R=0.7796 weak=0.4167 p=0.9793089
+EPOCH S2 seed=43 15/100 loss=0.640608 val=0.671262 seconds=22.50
+EPOCH S2 seed=43 16/100 loss=0.670914 val=0.680624 seconds=22.44
+EPOCH S2 seed=43 17/100 loss=0.643834 val=0.668968 seconds=22.44
+EPOCH S2 seed=43 18/100 loss=0.601714 val=0.657620 seconds=22.47
+EPOCH S2 seed=43 19/100 loss=0.582047 val=0.658363 seconds=22.53
+CHECKPOINT S2 seed=43 epoch=20 F1=0.748993 P=0.7480 R=0.7500 weak=0.2812 p=0.0710000
+EPOCH S2 seed=43 20/100 loss=0.591238 val=0.697029 seconds=22.41
+EPOCH S2 seed=43 21/100 loss=0.582858 val=0.695689 seconds=22.45
+EPOCH S2 seed=43 22/100 loss=0.599988 val=0.660932 seconds=22.49
+EPOCH S2 seed=43 23/100 loss=0.557738 val=0.656351 seconds=22.42
+EPOCH S2 seed=43 24/100 loss=0.565550 val=0.637743 seconds=22.43
+CHECKPOINT S2 seed=43 epoch=25 F1=0.735978 P=0.7493 R=0.7231 weak=0.2396 p=0.8730912
+EPOCH S2 seed=43 25/100 loss=0.574987 val=0.698954 seconds=22.47
+EPOCH S2 seed=43 26/100 loss=0.581928 val=0.669493 seconds=22.44
+EPOCH S2 seed=43 27/100 loss=0.560404 val=0.620936 seconds=22.41
+EPOCH S2 seed=43 28/100 loss=0.539143 val=0.622408 seconds=22.51
+EPOCH S2 seed=43 29/100 loss=0.521171 val=0.640125 seconds=22.43
+CHECKPOINT S2 seed=43 epoch=30 F1=0.749658 P=0.7632 R=0.7366 weak=0.2812 p=0.0710000
+EPOCH S2 seed=43 30/100 loss=0.553434 val=0.648188 seconds=22.41
+EPOCH S2 seed=43 31/100 loss=0.516492 val=0.619412 seconds=22.44
+EPOCH S2 seed=43 32/100 loss=0.504100 val=0.627822 seconds=22.47
+EPOCH S2 seed=43 33/100 loss=0.506595 val=0.637111 seconds=22.50
+EPOCH S2 seed=43 34/100 loss=0.512970 val=0.613695 seconds=22.45
+CHECKPOINT S2 seed=43 epoch=35 F1=0.755556 P=0.7354 R=0.7769 weak=0.3542 p=0.9793089
+EPOCH S2 seed=43 35/100 loss=0.505703 val=0.608089 seconds=22.48
+EPOCH S2 seed=43 36/100 loss=0.508275 val=0.618872 seconds=22.47
+EPOCH S2 seed=43 37/100 loss=0.510465 val=0.653421 seconds=22.41
+EPOCH S2 seed=43 38/100 loss=0.523274 val=0.633953 seconds=22.46
+EPOCH S2 seed=43 39/100 loss=0.488557 val=0.638823 seconds=22.42
+CHECKPOINT S2 seed=43 epoch=40 F1=0.775970 P=0.7260 R=0.8333 weak=0.4792 p=0.5000000
+EPOCH S2 seed=43 40/100 loss=0.486825 val=0.611569 seconds=22.45
+EPOCH S2 seed=43 41/100 loss=0.481298 val=0.602198 seconds=22.47
+EPOCH S2 seed=43 42/100 loss=0.475272 val=0.610369 seconds=22.39
+EPOCH S2 seed=43 43/100 loss=0.463025 val=0.613069 seconds=22.48
+EPOCH S2 seed=43 44/100 loss=0.469680 val=0.626142 seconds=22.52
+CHECKPOINT S2 seed=43 epoch=45 F1=0.755498 P=0.7282 R=0.7849 weak=0.3646 p=0.2165791
+EPOCH S2 seed=43 45/100 loss=0.459793 val=0.615200 seconds=22.43
+EPOCH S2 seed=43 46/100 loss=0.451106 val=0.619652 seconds=22.43
+EPOCH S2 seed=43 47/100 loss=0.463680 val=0.605452 seconds=22.49
+EPOCH S2 seed=43 48/100 loss=0.424274 val=0.647870 seconds=22.42
+EPOCH S2 seed=43 49/100 loss=0.444977 val=0.637305 seconds=22.46
+CHECKPOINT S2 seed=43 epoch=50 F1=0.778784 P=0.7506 R=0.8091 weak=0.4375 p=0.6553990
+EPOCH S2 seed=43 50/100 loss=0.450319 val=0.605073 seconds=22.40
+EPOCH S2 seed=43 51/100 loss=0.443505 val=0.595917 seconds=22.49
+EPOCH S2 seed=43 52/100 loss=0.437623 val=0.616947 seconds=22.42
+EPOCH S2 seed=43 53/100 loss=0.433227 val=0.593802 seconds=22.44
+EPOCH S2 seed=43 54/100 loss=0.434230 val=0.580531 seconds=22.52
+CHECKPOINT S2 seed=43 epoch=55 F1=0.791123 P=0.7690 R=0.8145 weak=0.5000 p=0.7834209
+EPOCH S2 seed=43 55/100 loss=0.414855 val=0.589141 seconds=22.41
+EPOCH S2 seed=43 56/100 loss=0.431153 val=0.628515 seconds=22.46
+EPOCH S2 seed=43 57/100 loss=0.433050 val=0.611898 seconds=22.45
+EPOCH S2 seed=43 58/100 loss=0.408929 val=0.601764 seconds=22.41
+EPOCH S2 seed=43 59/100 loss=0.432596 val=0.621494 seconds=22.45
+CHECKPOINT S2 seed=43 epoch=60 F1=0.796748 P=0.8033 R=0.7903 weak=0.4375 p=0.9613683
+EPOCH S2 seed=43 60/100 loss=0.402476 val=0.581380 seconds=22.43
+EPOCH S2 seed=43 61/100 loss=0.397176 val=0.613446 seconds=22.43
+EPOCH S2 seed=43 62/100 loss=0.392042 val=0.610465 seconds=22.45
+EPOCH S2 seed=43 63/100 loss=0.401733 val=0.609248 seconds=22.43
+EPOCH S2 seed=43 64/100 loss=0.415418 val=0.610836 seconds=22.48
+CHECKPOINT S2 seed=43 epoch=65 F1=0.791774 P=0.7586 R=0.8280 weak=0.5104 p=0.0710000
+EPOCH S2 seed=43 65/100 loss=0.385104 val=0.583036 seconds=22.42
+EPOCH S2 seed=43 66/100 loss=0.396870 val=0.627239 seconds=22.42
+EPOCH S2 seed=43 67/100 loss=0.387044 val=0.606495 seconds=22.50
+EPOCH S2 seed=43 68/100 loss=0.373934 val=0.610138 seconds=22.42
+EPOCH S2 seed=43 69/100 loss=0.377407 val=0.633238 seconds=22.41
+CHECKPOINT S2 seed=43 epoch=70 F1=0.784163 P=0.7470 R=0.8253 weak=0.5417 p=0.5000000
+EPOCH S2 seed=43 70/100 loss=0.374544 val=0.596355 seconds=22.58
+EPOCH S2 seed=43 71/100 loss=0.360956 val=0.572701 seconds=22.52
+EPOCH S2 seed=43 72/100 loss=0.353111 val=0.599872 seconds=22.45
+EPOCH S2 seed=43 73/100 loss=0.345421 val=0.593924 seconds=22.44
+EPOCH S2 seed=43 74/100 loss=0.337062 val=0.587246 seconds=22.44
+CHECKPOINT S2 seed=43 epoch=75 F1=0.797829 P=0.8055 R=0.7903 weak=0.4479 p=0.8730912
+EPOCH S2 seed=43 75/100 loss=0.338900 val=0.588591 seconds=22.42
+EPOCH S2 seed=43 76/100 loss=0.345260 val=0.597539 seconds=22.59
+EPOCH S2 seed=43 77/100 loss=0.339921 val=0.566304 seconds=22.44
+EPOCH S2 seed=43 78/100 loss=0.339901 val=0.584870 seconds=22.46
+EPOCH S2 seed=43 79/100 loss=0.330887 val=0.606243 seconds=22.39
+CHECKPOINT S2 seed=43 epoch=80 F1=0.806409 P=0.8011 R=0.8118 weak=0.4792 p=0.1269088
+EPOCH S2 seed=43 80/100 loss=0.331236 val=0.576594 seconds=22.54
+EPOCH S2 seed=43 81/100 loss=0.322359 val=0.580180 seconds=22.44
+EPOCH S2 seed=43 82/100 loss=0.322646 val=0.572909 seconds=22.43
+EPOCH S2 seed=43 83/100 loss=0.332335 val=0.576467 seconds=22.54
+EPOCH S2 seed=43 84/100 loss=0.322575 val=0.586064 seconds=22.45
+CHECKPOINT S2 seed=43 epoch=85 F1=0.804749 P=0.7902 R=0.8199 weak=0.4896 p=0.0710000
+EPOCH S2 seed=43 85/100 loss=0.312322 val=0.578535 seconds=22.48
+EPOCH S2 seed=43 86/100 loss=0.308899 val=0.586681 seconds=22.46
+EPOCH S2 seed=43 87/100 loss=0.304490 val=0.579317 seconds=22.42
+EPOCH S2 seed=43 88/100 loss=0.313336 val=0.579029 seconds=22.48
+EPOCH S2 seed=43 89/100 loss=0.334339 val=0.579918 seconds=22.49
+CHECKPOINT S2 seed=43 epoch=90 F1=0.794979 P=0.8261 R=0.7661 weak=0.3646 p=0.5000000
+EPOCH S2 seed=43 90/100 loss=0.318375 val=0.591829 seconds=22.43
+EPOCH S2 seed=43 91/100 loss=0.325153 val=0.585358 seconds=22.45
+EPOCH S2 seed=43 92/100 loss=0.324303 val=0.576939 seconds=22.46
+EPOCH S2 seed=43 93/100 loss=0.301617 val=0.603877 seconds=22.57
+EPOCH S2 seed=43 94/100 loss=0.304315 val=0.579299 seconds=22.45
+CHECKPOINT S2 seed=43 epoch=95 F1=0.806452 P=0.8065 R=0.8065 weak=0.4479 p=0.0109869
+EPOCH S2 seed=43 95/100 loss=0.292408 val=0.567415 seconds=22.43
+EPOCH S2 seed=43 96/100 loss=0.287453 val=0.583093 seconds=22.46
+EPOCH S2 seed=43 97/100 loss=0.293350 val=0.581560 seconds=22.43
+EPOCH S2 seed=43 98/100 loss=0.294872 val=0.580512 seconds=22.45
+EPOCH S2 seed=43 99/100 loss=0.275762 val=0.575006 seconds=22.43
+CHECKPOINT S2 seed=43 epoch=100 F1=0.800000 P=0.8468 R=0.7581 weak=0.3646 p=0.7834209
+EPOCH S2 seed=43 100/100 loss=0.292721 val=0.583940 seconds=22.45
+COMPLETE S2 seed=43: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 95, "native_val_loss": 0.5674146413803101, "threshold": 0.01098694263059318, "tp": 300, "fp": 72, "fn": 72, "precision": 0.8064516129032258, "recall": 0.8064516129032258, "f1": 0.8064516129032258, "macro_f1": 0.7653920621183797, "count_mae": 3.090909090909091, "weak_tp": 43, "weak_n": 96, "weak_recall": 0.4479166666666667}, "native_secondary": {"epoch": 95, "native_val_loss": 0.5674146413803101, "threshold": 0.01098694263059318, "tp": 300, "fp": 72, "fn": 72, "precision": 0.8064516129032258, "recall": 0.8064516129032258, "f1": 0.8064516129032258, "macro_f1": 0.7653920621183797, "count_mae": 3.090909090909091, "weak_tp": 43, "weak_n": 96, "weak_recall": 0.4479166666666667}, "selection_delta_f1": 0.0, "checkpoint_sha256": "0534cf2fec93414994697c1a8763055e560a69bab47f50f66941a6b1cfa2ff77", "native_checkpoint_sha256": "0534cf2fec93414994697c1a8763055e560a69bab47f50f66941a6b1cfa2ff77", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.3304613083600998, "tp_mean_error_px": 0.4160555659937866, "tp_rmse_error_px": 0.5371762570387069, "fp_farther6_from_truth": 54}
+EPOCH S2 seed=44 1/100 loss=1.760916 val=1.588705 seconds=22.51
+EPOCH S2 seed=44 2/100 loss=1.563461 val=1.503010 seconds=22.28
+EPOCH S2 seed=44 3/100 loss=1.475790 val=1.425227 seconds=22.24
+EPOCH S2 seed=44 4/100 loss=1.306090 val=0.922495 seconds=22.29
+CHECKPOINT S2 seed=44 epoch=5 F1=0.661224 P=0.6694 R=0.6532 weak=0.2083 p=0.9613683
+EPOCH S2 seed=44 5/100 loss=0.939918 val=0.799779 seconds=22.33
+EPOCH S2 seed=44 6/100 loss=0.815806 val=0.745539 seconds=22.31
+EPOCH S2 seed=44 7/100 loss=0.802446 val=0.768481 seconds=22.40
+EPOCH S2 seed=44 8/100 loss=0.758754 val=0.722910 seconds=22.33
+EPOCH S2 seed=44 9/100 loss=0.720009 val=0.711736 seconds=22.29
+CHECKPOINT S2 seed=44 epoch=10 F1=0.695035 P=0.7357 R=0.6586 weak=0.1979 p=0.9613683
+EPOCH S2 seed=44 10/100 loss=0.724101 val=0.692684 seconds=22.27
+EPOCH S2 seed=44 11/100 loss=0.734038 val=0.714345 seconds=22.31
+EPOCH S2 seed=44 12/100 loss=0.685257 val=0.698680 seconds=22.40
+EPOCH S2 seed=44 13/100 loss=0.667285 val=0.665895 seconds=22.30
+EPOCH S2 seed=44 14/100 loss=0.644003 val=0.673096 seconds=22.28
+CHECKPOINT S2 seed=44 epoch=15 F1=0.726552 P=0.7143 R=0.7392 weak=0.2708 p=0.3446010
+EPOCH S2 seed=44 15/100 loss=0.658815 val=0.686832 seconds=22.28
+EPOCH S2 seed=44 16/100 loss=0.635704 val=0.658602 seconds=22.34
+EPOCH S2 seed=44 17/100 loss=0.617958 val=0.658516 seconds=22.28
+EPOCH S2 seed=44 18/100 loss=0.620500 val=0.652286 seconds=22.26
+EPOCH S2 seed=44 19/100 loss=0.639315 val=0.695250 seconds=22.32
+CHECKPOINT S2 seed=44 epoch=20 F1=0.747475 P=0.7048 R=0.7957 weak=0.3750 p=0.9290000
+EPOCH S2 seed=44 20/100 loss=0.626575 val=0.655381 seconds=22.38
+EPOCH S2 seed=44 21/100 loss=0.607930 val=0.653867 seconds=22.29
+EPOCH S2 seed=44 22/100 loss=0.606362 val=0.633555 seconds=22.33
+EPOCH S2 seed=44 23/100 loss=0.569486 val=0.653799 seconds=22.34
+EPOCH S2 seed=44 24/100 loss=0.578126 val=0.628478 seconds=22.27
+CHECKPOINT S2 seed=44 epoch=25 F1=0.741401 P=0.7046 R=0.7823 weak=0.3542 p=0.2165791
+EPOCH S2 seed=44 25/100 loss=0.586437 val=0.647708 seconds=22.27
+EPOCH S2 seed=44 26/100 loss=0.566332 val=0.635143 seconds=22.34
+EPOCH S2 seed=44 27/100 loss=0.556192 val=0.622793 seconds=22.28
+EPOCH S2 seed=44 28/100 loss=0.559610 val=0.685016 seconds=22.31
+EPOCH S2 seed=44 29/100 loss=0.587410 val=0.671038 seconds=22.28
+CHECKPOINT S2 seed=44 epoch=30 F1=0.774112 P=0.7332 R=0.8199 weak=0.4792 p=0.8730912
+EPOCH S2 seed=44 30/100 loss=0.555640 val=0.620744 seconds=22.31
+EPOCH S2 seed=44 31/100 loss=0.559262 val=0.628097 seconds=22.32
+EPOCH S2 seed=44 32/100 loss=0.560005 val=0.596673 seconds=22.29
+EPOCH S2 seed=44 33/100 loss=0.528289 val=0.634677 seconds=22.34
+EPOCH S2 seed=44 34/100 loss=0.496060 val=0.628207 seconds=22.32
+CHECKPOINT S2 seed=44 epoch=35 F1=0.741602 P=0.7139 R=0.7715 weak=0.3542 p=0.0030617
+EPOCH S2 seed=44 35/100 loss=0.500310 val=0.649218 seconds=22.33
+EPOCH S2 seed=44 36/100 loss=0.510181 val=0.618138 seconds=22.29
+EPOCH S2 seed=44 37/100 loss=0.513874 val=0.634760 seconds=22.29
+EPOCH S2 seed=44 38/100 loss=0.502313 val=0.644569 seconds=22.44
+EPOCH S2 seed=44 39/100 loss=0.482137 val=0.604059 seconds=22.29
+CHECKPOINT S2 seed=44 epoch=40 F1=0.760673 P=0.7332 R=0.7903 weak=0.4062 p=0.0710000
+EPOCH S2 seed=44 40/100 loss=0.485308 val=0.613892 seconds=22.32
+EPOCH S2 seed=44 41/100 loss=0.474526 val=0.598934 seconds=22.34
+EPOCH S2 seed=44 42/100 loss=0.481786 val=0.634393 seconds=22.28
+EPOCH S2 seed=44 43/100 loss=0.492284 val=0.616772 seconds=22.44
+EPOCH S2 seed=44 44/100 loss=0.474407 val=0.617937 seconds=22.30
+CHECKPOINT S2 seed=44 epoch=45 F1=0.763736 P=0.7809 R=0.7473 weak=0.3021 p=0.6553990
+EPOCH S2 seed=44 45/100 loss=0.461076 val=0.609662 seconds=22.32
+EPOCH S2 seed=44 46/100 loss=0.439289 val=0.622559 seconds=22.27
+EPOCH S2 seed=44 47/100 loss=0.467953 val=0.619523 seconds=22.27
+EPOCH S2 seed=44 48/100 loss=0.436000 val=0.608178 seconds=22.31
+EPOCH S2 seed=44 49/100 loss=0.455173 val=0.610542 seconds=22.37
+CHECKPOINT S2 seed=44 epoch=50 F1=0.780619 P=0.7817 R=0.7796 weak=0.4167 p=0.1269088
+EPOCH S2 seed=44 50/100 loss=0.472632 val=0.617131 seconds=22.40
+EPOCH S2 seed=44 51/100 loss=0.465174 val=0.635566 seconds=22.38
+EPOCH S2 seed=44 52/100 loss=0.440454 val=0.606999 seconds=22.32
+EPOCH S2 seed=44 53/100 loss=0.428249 val=0.613382 seconds=22.31
+EPOCH S2 seed=44 54/100 loss=0.424634 val=0.589508 seconds=22.27
+CHECKPOINT S2 seed=44 epoch=55 F1=0.794835 P=0.8523 R=0.7446 weak=0.3438 p=0.3446010
+EPOCH S2 seed=44 55/100 loss=0.411768 val=0.621555 seconds=22.28
+EPOCH S2 seed=44 56/100 loss=0.403169 val=0.592662 seconds=22.32
+EPOCH S2 seed=44 57/100 loss=0.401052 val=0.589703 seconds=22.35
+EPOCH S2 seed=44 58/100 loss=0.380687 val=0.592235 seconds=22.31
+EPOCH S2 seed=44 59/100 loss=0.396900 val=0.585903 seconds=22.33
+CHECKPOINT S2 seed=44 epoch=60 F1=0.801161 P=0.8707 R=0.7419 weak=0.3438 p=0.6553990
+EPOCH S2 seed=44 60/100 loss=0.395592 val=0.616568 seconds=22.35
+EPOCH S2 seed=44 61/100 loss=0.427673 val=0.600434 seconds=22.30
+EPOCH S2 seed=44 62/100 loss=0.386566 val=0.579553 seconds=22.35
+EPOCH S2 seed=44 63/100 loss=0.372573 val=0.622656 seconds=22.63
+EPOCH S2 seed=44 64/100 loss=0.421968 val=0.607627 seconds=22.33
+CHECKPOINT S2 seed=44 epoch=65 F1=0.803763 P=0.8038 R=0.8038 weak=0.4375 p=0.0710000
+EPOCH S2 seed=44 65/100 loss=0.400471 val=0.590125 seconds=22.32
+EPOCH S2 seed=44 66/100 loss=0.399707 val=0.581290 seconds=22.28
+EPOCH S2 seed=44 67/100 loss=0.367697 val=0.608673 seconds=22.31
+EPOCH S2 seed=44 68/100 loss=0.367092 val=0.602802 seconds=22.31
+EPOCH S2 seed=44 69/100 loss=0.381510 val=0.581576 seconds=22.29
+CHECKPOINT S2 seed=44 epoch=70 F1=0.805774 P=0.7872 R=0.8253 weak=0.4688 p=0.5000000
+EPOCH S2 seed=44 70/100 loss=0.365157 val=0.586999 seconds=22.28
+EPOCH S2 seed=44 71/100 loss=0.357725 val=0.575178 seconds=22.30
+EPOCH S2 seed=44 72/100 loss=0.359840 val=0.580413 seconds=22.31
+EPOCH S2 seed=44 73/100 loss=0.344775 val=0.576308 seconds=22.34
+EPOCH S2 seed=44 74/100 loss=0.333352 val=0.577436 seconds=22.36
+CHECKPOINT S2 seed=44 epoch=75 F1=0.822888 P=0.8343 R=0.8118 weak=0.5104 p=0.7834209
+EPOCH S2 seed=44 75/100 loss=0.360874 val=0.568429 seconds=22.36
+EPOCH S2 seed=44 76/100 loss=0.359679 val=0.614546 seconds=22.40
+EPOCH S2 seed=44 77/100 loss=0.343119 val=0.611067 seconds=22.31
+EPOCH S2 seed=44 78/100 loss=0.357037 val=0.599773 seconds=22.39
+EPOCH S2 seed=44 79/100 loss=0.350784 val=0.614361 seconds=22.29
+CHECKPOINT S2 seed=44 epoch=80 F1=0.826923 P=0.8455 R=0.8091 weak=0.5208 p=0.5000000
+EPOCH S2 seed=44 80/100 loss=0.347577 val=0.575327 seconds=22.42
+EPOCH S2 seed=44 81/100 loss=0.338617 val=0.581301 seconds=22.32
+EPOCH S2 seed=44 82/100 loss=0.333834 val=0.564361 seconds=22.29
+EPOCH S2 seed=44 83/100 loss=0.341056 val=0.566604 seconds=22.33
+EPOCH S2 seed=44 84/100 loss=0.322293 val=0.588522 seconds=22.27
+CHECKPOINT S2 seed=44 epoch=85 F1=0.802153 P=0.8032 R=0.8011 weak=0.4896 p=0.0386317
+EPOCH S2 seed=44 85/100 loss=0.322774 val=0.612599 seconds=22.31
+EPOCH S2 seed=44 86/100 loss=0.313709 val=0.604129 seconds=22.27
+EPOCH S2 seed=44 87/100 loss=0.327072 val=0.567307 seconds=22.33
+EPOCH S2 seed=44 88/100 loss=0.307317 val=0.600544 seconds=22.33
+EPOCH S2 seed=44 89/100 loss=0.298960 val=0.568597 seconds=22.33
+CHECKPOINT S2 seed=44 epoch=90 F1=0.800543 P=0.8082 R=0.7930 weak=0.4479 p=0.1269088
+EPOCH S2 seed=44 90/100 loss=0.301667 val=0.601180 seconds=22.31
+EPOCH S2 seed=44 91/100 loss=0.302236 val=0.601248 seconds=22.36
+EPOCH S2 seed=44 92/100 loss=0.293691 val=0.579361 seconds=22.35
+EPOCH S2 seed=44 93/100 loss=0.286965 val=0.580314 seconds=22.35
+EPOCH S2 seed=44 94/100 loss=0.281247 val=0.577815 seconds=22.28
+CHECKPOINT S2 seed=44 epoch=95 F1=0.822695 P=0.8709 R=0.7796 weak=0.5000 p=0.9890131
+EPOCH S2 seed=44 95/100 loss=0.301469 val=0.584459 seconds=22.28
+EPOCH S2 seed=44 96/100 loss=0.325796 val=0.604832 seconds=22.33
+EPOCH S2 seed=44 97/100 loss=0.299154 val=0.639444 seconds=22.31
+EPOCH S2 seed=44 98/100 loss=0.298968 val=0.569076 seconds=22.29
+EPOCH S2 seed=44 99/100 loss=0.290776 val=0.591802 seconds=22.27
+CHECKPOINT S2 seed=44 epoch=100 F1=0.786370 P=0.7673 R=0.8065 weak=0.4375 p=0.0016122
+EPOCH S2 seed=44 100/100 loss=0.289991 val=0.640491 seconds=22.31
+COMPLETE S2 seed=44: {"protocol_id": "pooled220_methods_v3", "primary": {"epoch": 80, "native_val_loss": 0.5753273963928223, "threshold": 0.5, "tp": 301, "fp": 55, "fn": 71, "precision": 0.8455056179775281, "recall": 0.8091397849462365, "f1": 0.8269230769230769, "macro_f1": 0.8382385304457709, "count_mae": 2.4545454545454546, "weak_tp": 50, "weak_n": 96, "weak_recall": 0.5208333333333334}, "native_secondary": {"epoch": 75, "native_val_loss": 0.5684285759925842, "threshold": 0.7834209042318241, "tp": 302, "fp": 60, "fn": 70, "precision": 0.8342541436464088, "recall": 0.8118279569892473, "f1": 0.8228882833787466, "macro_f1": 0.794910129640196, "count_mae": 2.090909090909091, "weak_tp": 49, "weak_n": 96, "weak_recall": 0.5104166666666666}, "selection_delta_f1": 0.0040347935443302285, "checkpoint_sha256": "100328a5ff7f9d9090d5d49a69a688ff84344acf54571c028c5cc35062b06a2d", "native_checkpoint_sha256": "e01c3707a3f4718763cc118ec538e8da0d82cf929cd0e9b893f5e3865bc0e74c", "checkpoint_candidates": 20, "epoch_threshold_pairs": 620, "test_evaluated": false, "independent_validation": false, "tp_median_error_px": 0.34612059593200684, "tp_mean_error_px": 0.4340989242394476, "tp_rmse_error_px": 0.5505698113224953, "fp_farther6_from_truth": 41}
+Temporary display/system request released.

@@ -1,0 +1,6 @@
+{
+  "python": "3.12.13 | packaged by Anaconda, Inc. | (main, Mar 19 2026, 20:16:45) [MSC v.1942 64 bit (AMD64)]",
+  "torch": "2.11.0+xpu",
+  "device": "Intel(R) Arc(TM) 140T GPU (16GB)",
+  "git_commit": "9edd52928ea75380c0008fa2ff941ea490a7bd6d"
+}

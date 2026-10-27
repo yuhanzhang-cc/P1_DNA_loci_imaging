@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "check": "conditional_context_blocked_before_gate",
+      "passed": true,
+      "reason": "Conditional context stage not enabled"
+    },
+    {
+      "check": "extra_seed_blocked_without_selected_route",
+      "passed": true,
+      "reason": "Only R0 and one selected route/control may get extra seeds."
+    },
+    {
+      "check": "thirteenth_task_rejected",
+      "passed": true,
+      "reason": "The twelve-task budget would be exceeded."
+    }
+  ],
+  "research_training_configs_before": 2,
+  "research_training_configs_after": 2,
+  "new_training_launched": false,
+  "test_arrays_read": false
+}

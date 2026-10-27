@@ -1,0 +1,7 @@
+{
+  "images": 22,
+  "maximum_absolute_grid_difference": 0.0,
+  "same_weights": true,
+  "normalization_and_native_NCHW_path_preserved": true,
+  "test_loaded": false
+}

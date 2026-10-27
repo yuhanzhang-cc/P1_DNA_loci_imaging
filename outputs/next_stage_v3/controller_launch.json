@@ -1,0 +1,16 @@
+{
+  "controller_pid": 81132,
+  "launcher_pid": 82444,
+  "phase1_pid": 18260,
+  "phase1_tool_session": 51968,
+  "survived_invoking_tool_exit": true,
+  "no_visible_window": true,
+  "creation_flags": [
+    "CREATE_NO_WINDOW",
+    "CREATE_NEW_PROCESS_GROUP",
+    "CREATE_BREAKAWAY_FROM_JOB"
+  ],
+  "job_membership_note": "Virtual-environment redirector and enclosing jobs may remain; liveness was verified after the invoking tool exited.",
+  "source_sha256": "3aec1158cf5aa3b3830479d68853e182111273503d381cf106a23cdbb492a921",
+  "verified_unix": 1793043318.9838564
+}

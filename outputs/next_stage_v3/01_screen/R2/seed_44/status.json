@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "key": "R2",
+  "seed": 44,
+  "epochs": 100,
+  "elapsed_seconds": 2309.5663146972656,
+  "validation_f1": 0.8011444921316166,
+  "test_evaluated": false
+}

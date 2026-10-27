@@ -1,0 +1,36 @@
+[
+  {
+    "comparison": "R1-R0",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "paired_f1_deltas": [
+      0.019253179888660932,
+      0.005636221701795452,
+      0.0157652080606554
+    ],
+    "mean_delta": 0.013551536550370594,
+    "sample_sd": 0.0070732343190577016,
+    "positive_seeds": 3,
+    "significance_test": false
+  },
+  {
+    "comparison": "R1-S1",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "paired_f1_deltas": [
+      0.003664396455637653,
+      -0.016393442622950838,
+      0.018731999141141542
+    ],
+    "mean_delta": 0.0020009843246094525,
+    "sample_sd": 0.017621701669217425,
+    "positive_seeds": 2,
+    "significance_test": false
+  }
+]

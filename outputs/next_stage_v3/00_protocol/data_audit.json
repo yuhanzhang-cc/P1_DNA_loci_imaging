@@ -1,0 +1,21 @@
+{
+  "raw_hashes_verified": 440,
+  "subsets": {
+    "train": {
+      "images": 176,
+      "points": 4156,
+      "weak_truths": 1039,
+      "same_pixel_collisions": 0
+    },
+    "valid": {
+      "images": 22,
+      "points": 372,
+      "weak_truths": 96,
+      "same_pixel_collisions": 0
+    }
+  },
+  "test_arrays_loaded": false,
+  "labels_unchanged": true,
+  "blinded_review": "pending",
+  "source_group_review": "inherited; biological independence unverified"
+}

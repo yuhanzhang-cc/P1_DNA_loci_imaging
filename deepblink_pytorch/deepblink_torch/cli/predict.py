@@ -20,6 +20,10 @@ from ..preprocessing import prepare_image
 from ..networks.evidence import UNetDeepLociEvidence, UNetDeepLociLocal
 from ..networks.feature_evidence import UNetDeepLociFeatureEvidence
 from ..networks.masked_se import UNetDeepBlinkMaskedSE
+from ..networks.detail_route import UNetDeepLociDetailRoute
+from ..networks.dense_heatmap import UNetDeepLociHeatmap
+from ..networks.adaptive_context import UNetDeepLociAdaptiveContext
+from ..round2_protocol import decode_candidates, threshold_mask
 
 try:
     import tifffile
@@ -31,7 +35,9 @@ else:
 
 IMAGE_EXTENSIONS = (".tif", ".tiff")
 MODEL_CHOICES = ("deepblink", "deeploci_context", "deeploci_evidence", "deeploci_local",
-                 "deeploci_feature_evidence", "deepblink_masked_se")
+                 "deeploci_feature_evidence", "deepblink_masked_se", "deeploci_detail",
+                 "deeploci_detail_simple", "deeploci_heatmap", "deeploci_adaptive_context",
+                 "deeploci_fixed_context")
 
 
 def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -182,6 +188,14 @@ def _build_model_for_checkpoint(
         return UNetDeepLociFeatureEvidence(cell_size=cell_size).to(device)
     if model_name == "deepblink_masked_se":
         return UNetDeepBlinkMaskedSE(cell_size=cell_size).to(device)
+    if model_name in ("deeploci_detail", "deeploci_detail_simple"):
+        return UNetDeepLociDetailRoute(cell_size=cell_size,
+                    selection="attention" if model_name == "deeploci_detail" else "projection").to(device)
+    if model_name == "deeploci_heatmap":
+        return UNetDeepLociHeatmap(cell_size=cell_size).to(device)
+    if model_name in ("deeploci_adaptive_context", "deeploci_fixed_context"):
+        return UNetDeepLociAdaptiveContext(cell_size=cell_size,
+                    adaptive=model_name == "deeploci_adaptive_context").to(device)
     raise ValueError(f"Unsupported checkpoint model_name={model_name!r}.")
 
 
@@ -232,12 +246,17 @@ def _coords_with_probabilities(
     return result
 
 
-def _decode_with_scores(pred_matrix, *, cell_size, probability, orig_h, orig_w):
+def _decode_with_scores(pred_matrix, *, cell_size, probability, orig_h, orig_w,
+                        output_representation="grid"):
     """Keep source grid scores when offsets round to a neighboring boundary.
 
     A coordinate alone cannot distinguish offset=1 in one cell from offset=0
     in its neighbor. Preserve the selected cell indices through decoding.
     """
+    if output_representation == "dense_heatmap_offset_logits":
+        coords, scores = decode_candidates(pred_matrix, (orig_h, orig_w), dense=True, cell_size=1)
+        keep = threshold_mask(scores, probability)
+        return np.column_stack([coords[keep], scores[keep]]).astype(np.float32)
     rows, cols = np.nonzero(pred_matrix[..., 0] > probability)
     coords = (np.column_stack([rows, cols]) + pred_matrix[rows, cols, 1:]) * cell_size
     scores = pred_matrix[rows, cols, 0]
@@ -317,7 +336,8 @@ def run_predict(args: argparse.Namespace) -> None:
             pred = _forward_with_geometry(model, tensor, orig_h, orig_w).squeeze(0).detach().cpu().numpy()
 
         coords_with_p = _decode_with_scores(pred, cell_size=cell_size, probability=args.probability,
-                                            orig_h=orig_h, orig_w=orig_w)
+                                            orig_h=orig_h, orig_w=orig_w,
+                                            output_representation=getattr(model, "output_representation", "grid"))
         if args.output_unit == "micron":
             pixel_size = read_pixel_size_or_default(file_path)
             coords_with_p = _convert_output_unit(coords_with_p, pixel_size)

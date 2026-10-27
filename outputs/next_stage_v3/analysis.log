@@ -1,0 +1,113 @@
+{
+  "role": "post_hoc_validation_accounting_not_causal_mechanism_proof",
+  "completed_trials": 12,
+  "validation_truths": 372,
+  "weak_truths": 96,
+  "new_training": false,
+  "model_inference": false,
+  "test_arrays_read": false,
+  "annotation_review": "pending",
+  "source_sha256": "e177a1097b536fc67b46059c6f781a6ccd5b292abaf8e46d5792c3d019869852",
+  "inherited_reference_limit": "Frozen old native-loss checkpoints; cached float32 NCHW outputs, same 31 thresholds, one checkpoint per seed. Not matched v3 epoch selection or image order; not a structural attribution contrast.",
+  "comparisons": [
+    {
+      "model": "H0",
+      "seed": 42,
+      "delta_f1": 0.012977450170643223,
+      "gained_truths": 26,
+      "lost_truths": 25,
+      "gained_weak_truths": 9,
+      "lost_weak_truths": 15,
+      "fp_delta": -10,
+      "fn_delta": -1
+    },
+    {
+      "model": "R1",
+      "seed": 42,
+      "delta_f1": 0.019253179888660932,
+      "gained_truths": 21,
+      "lost_truths": 12,
+      "gained_weak_truths": 8,
+      "lost_weak_truths": 5,
+      "fp_delta": -4,
+      "fn_delta": -9
+    },
+    {
+      "model": "R2",
+      "seed": 42,
+      "delta_f1": 0.02005151575193187,
+      "gained_truths": 27,
+      "lost_truths": 14,
+      "gained_weak_truths": 9,
+      "lost_weak_truths": 6,
+      "fp_delta": 1,
+      "fn_delta": -13
+    },
+    {
+      "model": "R2",
+      "seed": 43,
+      "delta_f1": -0.0034505181873603075,
+      "gained_truths": 19,
+      "lost_truths": 19,
+      "gained_weak_truths": 5,
+      "lost_weak_truths": 7,
+      "fp_delta": 3,
+      "fn_delta": 0
+    },
+    {
+      "model": "R2",
+      "seed": 44,
+      "delta_f1": -0.00543987000830104,
+      "gained_truths": 9,
+      "lost_truths": 23,
+      "gained_weak_truths": 4,
+      "lost_weak_truths": 13,
+      "fp_delta": -16,
+      "fn_delta": 14
+    },
+    {
+      "model": "S1",
+      "seed": 42,
+      "delta_f1": 0.015588783433023279,
+      "gained_truths": 23,
+      "lost_truths": 10,
+      "gained_weak_truths": 8,
+      "lost_weak_truths": 4,
+      "fp_delta": 5,
+      "fn_delta": -13
+    },
+    {
+      "model": "S2",
+      "seed": 42,
+      "delta_f1": 0.00514893687750595,
+      "gained_truths": 24,
+      "lost_truths": 10,
+      "gained_weak_truths": 10,
+      "lost_weak_truths": 4,
+      "fp_delta": 16,
+      "fn_delta": -14
+    },
+    {
+      "model": "S2",
+      "seed": 43,
+      "delta_f1": -0.0021198156682028513,
+      "gained_truths": 28,
+      "lost_truths": 11,
+      "gained_weak_truths": 8,
+      "lost_weak_truths": 6,
+      "fp_delta": 27,
+      "fn_delta": -17
+    },
+    {
+      "model": "S2",
+      "seed": 44,
+      "delta_f1": 0.020338714783159184,
+      "gained_truths": 21,
+      "lost_truths": 14,
+      "gained_weak_truths": 10,
+      "lost_weak_truths": 5,
+      "fp_delta": -8,
+      "fn_delta": -7
+    }
+  ]
+}

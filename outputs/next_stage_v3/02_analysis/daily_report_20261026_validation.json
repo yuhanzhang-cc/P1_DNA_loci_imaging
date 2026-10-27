@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "completed_trials_verified": 12,
+  "epochs": 1200,
+  "checkpoint_snapshots": 240,
+  "registered_selection_pairs": 7440,
+  "training_source_files_unchanged": 52,
+  "markdown_links_verified": 36,
+  "three_seed_table_values_verified": true,
+  "equal_fp_budget_weak_truth_totals": {
+    "R0": 127,
+    "S2": 127
+  },
+  "test_arrays_read": false,
+  "docs_only_closeout": true,
+  "full_legacy_suite_repeated": false
+}

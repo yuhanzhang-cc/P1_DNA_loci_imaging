@@ -217,6 +217,7 @@ class UNetDeepBlink(nn.Module):
             current_channels = decoder.out_channels + skip_ch
 
         self.decoders = nn.ModuleList(decoder_modules)
+        self.first_decoder_channels = current_channels
 
         encoder_v2_modules = []
         ndown_cell = int(math.log(cell_size, 2))
@@ -270,6 +271,11 @@ class UNetDeepBlink(nn.Module):
         torch.Tensor
             Channel-first feature tensor with shape ``(B, C, H_grid, W_grid)``.
         """
+        x, skip_bottom = self._forward_first_decoder(inputs)
+        return self._forward_grid_features(x, skip_bottom)
+
+    def _forward_first_decoder(self, inputs: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        """Expose full-resolution features without changing the legacy path."""
         x = inputs
         skip_layers = []
 
@@ -280,7 +286,10 @@ class UNetDeepBlink(nn.Module):
 
         for decoder, skip in zip(self.decoders, reversed(skip_layers)):
             x = decoder(x, skip)
+        return x, skip_bottom
 
+    def _forward_grid_features(self, x: torch.Tensor, skip_bottom: torch.Tensor) -> torch.Tensor:
+        """Complete the original second encoder and grid feature block."""
         for encoder in self.encoders_v2:
             x, _ = encoder(x)
 

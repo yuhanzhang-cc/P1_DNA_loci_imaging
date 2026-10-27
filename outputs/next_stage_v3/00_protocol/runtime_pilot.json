@@ -1,0 +1,123 @@
+{
+  "results": [
+    {
+      "key": "R0",
+      "parameters": 1258723,
+      "native_loss": 1.7271127700805664,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 61.304449976887554,
+      "peak_allocated_mib": 3812.748046875,
+      "parameter_fraction_above_R0": 0.0,
+      "forward_time_ratio_to_R0": 1.0
+    },
+    {
+      "key": "H0",
+      "parameters": 671719,
+      "native_loss": 3.2720699310302734,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 37.56719996454194,
+      "peak_allocated_mib": 3263.8701171875,
+      "parameter_fraction_above_R0": -0.4663488313155476,
+      "forward_time_ratio_to_R0": 0.6127972761961845
+    },
+    {
+      "key": "R1",
+      "parameters": 1265350,
+      "native_loss": 1.7271127700805664,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 63.248799997381866,
+      "peak_allocated_mib": 4472.2841796875,
+      "parameter_fraction_above_R0": 0.005264859703048241,
+      "forward_time_ratio_to_R0": 1.0317162950035006
+    },
+    {
+      "key": "S1",
+      "parameters": 1265336,
+      "native_loss": 1.7271127700805664,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 64.25670004682615,
+      "peak_allocated_mib": 4369.78515625,
+      "parameter_fraction_above_R0": 0.0052537373194896375,
+      "forward_time_ratio_to_R0": 1.0481571904005604
+    },
+    {
+      "key": "R2",
+      "parameters": 1275623,
+      "native_loss": 1.7271127700805664,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 60.28219999279827,
+      "peak_allocated_mib": 3820.82080078125,
+      "parameter_fraction_above_R0": 0.013426305867136668,
+      "forward_time_ratio_to_R0": 0.9833250280448698
+    },
+    {
+      "key": "S2",
+      "parameters": 1275623,
+      "native_loss": 1.7271127700805664,
+      "mixed_batch_sizes": [
+        256,
+        256,
+        256,
+        256,
+        512,
+        512,
+        512,
+        512
+      ],
+      "float32_forward_median_ms": 58.25484998058528,
+      "peak_allocated_mib": 3820.82080078125,
+      "parameter_fraction_above_R0": 0.013426305867136668,
+      "forward_time_ratio_to_R0": 0.9502548347232214
+    }
+  ],
+  "repeats": 20,
+  "warmups": 5,
+  "no_full_training_performed": true,
+  "forward_only": true,
+  "output_size_differs_for_H0": true
+}

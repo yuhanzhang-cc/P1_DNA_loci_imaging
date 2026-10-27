@@ -1,0 +1,14 @@
+{
+  "syntax_valid": true,
+  "duplicate_worker_blocked": true,
+  "duplicate_model_seed_analysis_blocked": true,
+  "existing_analysis_csvs_byte_identical": [
+    "paired_detection_changes.csv",
+    "size_validation_metrics.csv",
+    "radius_sensitivity.csv",
+    "fixed_fp_budget.csv",
+    "inherited_weights_new_grid.csv"
+  ],
+  "new_training_launched": false,
+  "test_arrays_read": false
+}

@@ -1,0 +1,14 @@
+{
+  "launcher_pid": 19584,
+  "script": "D:\\Projects\\P1_DNA_loci_imaging\\deepblink_pytorch\\scripts\\complete_detail_v3.py",
+  "arguments": [
+    "--run"
+  ],
+  "creation_flags": 150995456,
+  "no_visible_window": true,
+  "launched_unix": 1793072406.9446974,
+  "parent_outputs_unchanged": true,
+  "worker_pid": 40216,
+  "survived_invoking_tool_exit": true,
+  "verified_unix": 1793072482.9798224
+}

@@ -1,0 +1,9 @@
+{
+  "checkpoint_load_cpu": true,
+  "finite_state": true,
+  "synthetic_forward_finite": true,
+  "input_size": 512,
+  "selected_epoch": 85,
+  "validation_f1": 0.8044382801664355,
+  "test_evaluated": false
+}

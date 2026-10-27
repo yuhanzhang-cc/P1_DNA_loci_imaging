@@ -1,0 +1,12 @@
+{
+  "role": "post_hoc_validation_accounting_not_causal_mechanism_proof",
+  "completed_trials": 12,
+  "validation_truths": 372,
+  "weak_truths": 96,
+  "new_training": false,
+  "model_inference": false,
+  "test_arrays_read": false,
+  "annotation_review": "pending",
+  "source_sha256": "e177a1097b536fc67b46059c6f781a6ccd5b292abaf8e46d5792c3d019869852",
+  "inherited_reference_limit": "Frozen old native-loss checkpoints; cached float32 NCHW outputs, same 31 thresholds, one checkpoint per seed. Not matched v3 epoch selection or image order; not a structural attribution contrast."
+}

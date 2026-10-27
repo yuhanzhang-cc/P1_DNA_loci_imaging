@@ -1,0 +1,42 @@
+{
+  "reason": "R0 still has annotation-relative false positives and misses; inspect results/annotations before conditional stage",
+  "first_stage_decision": {
+    "protocol_id": "pooled220_methods_v3",
+    "trials": [
+      {
+        "key": "R1",
+        "f1_delta": 0.019253179888660932,
+        "weak_recall_delta": 0.03125,
+        "screening_gate_passed": true,
+        "fp_fractional_reduction": 0.06779661016949153,
+        "reference_fp_budget": 59,
+        "fp_budget_operating_point": {
+          "threshold": 0.0710000191507991,
+          "tp": 299,
+          "fp": 55,
+          "fn": 73,
+          "precision": 0.844632768361582,
+          "recall": 0.803763440860215,
+          "f1": 0.8236914600550964,
+          "macro_f1": 0.7808421624538385,
+          "count_mae": 3.090909090909091,
+          "weak_tp": 44,
+          "weak_n": 96,
+          "weak_recall": 0.4583333333333333
+        },
+        "weak_recall_gain_at_reference_fp_budget": 0.03125,
+        "mechanism_target_passed": false
+      }
+    ],
+    "selected_route": "R1",
+    "r2_stage_enabled": true,
+    "r2_rationale": "R0 still has annotation-relative false positives and misses; inspect results/annotations before conditional stage",
+    "weak_recall_constraint": -0.02,
+    "f1_gain_gate": 0.005,
+    "test_evaluated": false,
+    "core_contribution_established": false,
+    "note": "Single-seed screening and simple controls do not establish novelty or independent gain"
+  },
+  "no_new_hyperparameters": true,
+  "time_unix": 1793050137.0607033
+}

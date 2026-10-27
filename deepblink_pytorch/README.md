@@ -147,6 +147,27 @@ the source cell's probability at offset boundaries. The release keeps legacy
 reports unchanged and labels their evaluation rules separately.
 
 Checkpoint metadata does not override the prediction CLI's default probability.
-Pass the intended calibrated `--probability` explicitly. Future v3 selection,
-detail-routing and adaptive-context designs are scope documents only; their
-proposed runner and networks are not part of this release.
+Pass the intended calibrated `--probability` explicitly. At the frozen release
+commit `9edd529`, v3 selection, detail-routing and adaptive-context designs were
+scope documents only.
+
+## V3 optimization on `codex/clean220-round2`
+
+The current branch implements the bounded v3 screen with
+`scripts/optimize_v3.py`. The general train CLI continues to use its existing
+training workflow; use this dedicated runner for the registered v3 experiments.
+The [execution record](../docs/next_stage_plan_20261025/round2_20261026/execution.md)
+links the actual protocol lock, preflight checks and live controller state.
+
+The bounded XPU job completed all twelve 100-epoch model/seed runs, including
+the conditional R2/S2 screen and R0/R2/S2 seed extensions. The controller passed
+final verification and exited. R2 improved on R0 in one of three paired seeds;
+its mean validation F1 was below simple control S2. Stable core-method gain
+has not been established. See the
+[2026-10-26 report](../docs/next_stage_plan_20261025/round2_20261026/daily_report_20261026.md)
+for results and next-step limits. Do not restart the completed controller.
+
+Completed trials, checkpoints, candidate predictions, curves and reports live
+under `outputs/next_stage_v3/`. Training and selection read train/validation
+arrays only. All scores from this screen are development results, and model
+novelty and blinded annotation review remain unconfirmed.

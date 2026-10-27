@@ -64,3 +64,10 @@ outputs/261025_clean220_control/training_pid.json
 
 # Local application documents are outside the training/model package.
 /docs/*.doc
+
+# v3 delivery: selected weights only; epoch/resume weights remain local.
+!outputs/next_stage_v3/01_screen/*/seed_4[234]/best_model.pt
+!outputs/next_stage_v3/01_screen/*/seed_4[234]/native_selected_model.pt
+!outputs/next_stage_v3_detail_completion/01_screen/*/seed_4[234]/best_model.pt
+!outputs/next_stage_v3_detail_completion/01_screen/*/seed_4[234]/native_selected_model.pt
+outputs/next_stage_v3_detail_completion/.worker.lock

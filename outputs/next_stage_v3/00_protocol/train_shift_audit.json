@@ -1,0 +1,15 @@
+{
+  "n_train_images": 10,
+  "shifts": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "diagonal_translation": true,
+  "normalization": "once_before_translation",
+  "common_roi_margin": 67,
+  "limitations": "Wrap boundaries and global SE prevent causal attribution to grid phase; train-only descriptive diagnostic",
+  "threshold": "frozen v2 seed42 threshold; no new tuning",
+  "test_evaluated": false
+}

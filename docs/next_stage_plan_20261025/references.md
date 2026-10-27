@@ -44,3 +44,13 @@ Kassis, T., Agarwal, V., He, Y., Patel, D., & Brueckner, A. M. (2026). *Scientif
 - Nibali, A., et al. (2018). *Numerical Coordinate Regression with Convolutional Neural Networks*. [作者预印本](https://arxiv.org/abs/1801.07372)。可微位置期望为既有思路；当前R1仍输出sigmoid offset残差，不将坐标变换本身作为创新。
 
 Spotiflow的多尺度heatmap与stereographic flow也已通过[论文来源](https://doi.org/10.1038/s41592-025-02662-x)及[作者实现](https://github.com/weigertlab/spotiflow)重新核对。第二轮H0为本项目密集输出参考，不是Spotiflow官方复现。相对D/D2最近的局部对比、环形中心注意力等首轮资料仍保存在`outputs/next_stage_v2/08_innovation/related_work_matrix.csv`，本次未抹去原有文献边界。
+
+执行期间继续核查更接近的构件级先例：
+
+- Gao, Z., Wang, L., & Wu, G. (2019). *LIP: Local Importance-Based Pooling*. [ICCV作者论文](https://openaccess.thecvf.com/content_ICCV_2019/html/Gao_LIP_Local_Importance-Based_Pooling_ICCV_2019_paper.html)。已有输入条件化的局部重要性池化，不能把R1的软选择本身称作首次。
+- Sunkara, R., & Luo, T. (2022). *No More Strided Convolutions or Pooling*. [作者预印本](https://arxiv.org/abs/2208.03641)。SPD-Conv已有space-to-depth加非步幅卷积，约束了S1/细节保存路径的创新主张。
+- Liu, S., Huang, D., & Wang, Y. (2019). *Learning Spatial Fusion for Single-Shot Object Detection*. [作者预印本](https://arxiv.org/abs/1911.09516)。ASFF已有逐位置自适应多尺度融合；R2的尺度softmax不是新算子。
+- Kobayashi, T. (2019). *Global Feature Guided Local Pooling*. [ICCV作者论文](https://openaccess.thecvf.com/content_ICCV_2019/papers/Kobayashi_Global_Feature_Guided_Local_Pooling_ICCV_2019_paper.pdf)。已有更广特征信息引导局部池化的路线。
+- Psomas, B., et al. (2023). *Keep It SimPool: Who Said Supervised Transformers Suffer from Attention Deficit?* [ICCV作者论文](https://openaccess.thecvf.com/content/ICCV2023/papers/Psomas_Keep_It_SimPool_Who_Said_Supervised_Transformers_Suffer_from_Attention_ICCV_2023_paper.pdf)。已有单头query/key与softmax池化；R1需在具体检测路径、监督及机制对照上说明增量。
+
+这些核查发生在结构筛查期间，不改变已启动训练的配置、预算或结果。它们提高创新主张的证据要求；实现和性能上涨本身均不能消除与既有工作的重合。

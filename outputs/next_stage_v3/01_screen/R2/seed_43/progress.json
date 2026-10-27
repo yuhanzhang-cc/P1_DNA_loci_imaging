@@ -1,0 +1,11 @@
+{
+  "key": "R2",
+  "seed": 43,
+  "epoch": 100,
+  "train_loss": 0.3071964992718263,
+  "val_loss": 0.5938366055488586,
+  "seconds": 23.212083899998106,
+  "optimizer_updates": 2200,
+  "checkpoints": 20,
+  "best_validation_f1": 0.8051209103840683
+}

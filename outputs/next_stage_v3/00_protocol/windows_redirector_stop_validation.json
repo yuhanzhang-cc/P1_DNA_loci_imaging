@@ -1,0 +1,8 @@
+{
+  "synthetic_only": true,
+  "wrapper_pid": 72972,
+  "actual_python_pid": 81028,
+  "wrapper_termination_stopped_actual_python": true,
+  "seconds_until_both_exited": 0.003263999940827489,
+  "research_processes_touched": false
+}

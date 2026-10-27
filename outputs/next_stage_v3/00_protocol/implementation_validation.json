@@ -1,0 +1,49 @@
+{
+  "targeted_tests_passed": 63,
+  "full_legacy_suite_run": false,
+  "legacy_forward_regression_max_abs": 0.0,
+  "legacy_forward_images": 22,
+  "raw_file_hashes_verified": 440,
+  "XPU_mixed_batch_models_passed": [
+    "R0",
+    "H0",
+    "R1",
+    "S1",
+    "R2",
+    "S2"
+  ],
+  "training_initiation_authorized_by_user": true,
+  "new_training_before_preflight": false,
+  "blinded_annotation_review": "pending",
+  "test_arrays_read": false,
+  "shift_audit_summary_train_only": [
+    {
+      "shift": 0,
+      "tp": 156,
+      "fp": 11,
+      "fn": 22,
+      "f1": 0.9043478260869565
+    },
+    {
+      "shift": 1,
+      "tp": 148,
+      "fp": 37,
+      "fn": 30,
+      "f1": 0.8154269972451791
+    },
+    {
+      "shift": 2,
+      "tp": 151,
+      "fp": 32,
+      "fn": 27,
+      "f1": 0.8365650969529086
+    },
+    {
+      "shift": 3,
+      "tp": 149,
+      "fp": 39,
+      "fn": 29,
+      "f1": 0.8142076502732241
+    }
+  ]
+}

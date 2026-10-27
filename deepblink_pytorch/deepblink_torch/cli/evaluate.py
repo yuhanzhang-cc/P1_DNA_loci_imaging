@@ -282,9 +282,11 @@ def _decode_prediction_with_probability(
     probability: float,
     orig_h: int,
     orig_w: int,
+    output_representation: str = "grid",
 ) -> np.ndarray:
     return predict_cli._decode_with_scores(pred, cell_size=cell_size, probability=probability,
-                                           orig_h=orig_h, orig_w=orig_w)
+                                           orig_h=orig_h, orig_w=orig_w,
+                                           output_representation=output_representation)
 
 
 def _match_overlay_coords(
@@ -834,6 +836,7 @@ def run_test(args: argparse.Namespace) -> Path:
                 probability=threshold,
                 orig_h=orig_h,
                 orig_w=orig_w,
+                output_representation=getattr(model, "output_representation", "grid"),
             )
             sweep_match = match_coordinates(
                 sweep_coords_with_p[:, :2],
@@ -922,6 +925,7 @@ def run_test(args: argparse.Namespace) -> Path:
             probability=selected_probability,
             orig_h=item.orig_h,
             orig_w=item.orig_w,
+            output_representation=getattr(model, "output_representation", "grid"),
         )
 
         prediction_csv = predictions_dir / f"{sample.sample_id}.csv"
