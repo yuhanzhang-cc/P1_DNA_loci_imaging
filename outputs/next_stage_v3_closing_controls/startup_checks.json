@@ -1,0 +1,10 @@
+{
+  "actual_trial": "G0/seed_42",
+  "recipe_matches_R0": true,
+  "sample_order_byte_identical": true,
+  "first_checkpoint_epoch": 5,
+  "thresholds": 31,
+  "validation_truths": 372,
+  "test_arrays_loaded": false,
+  "worker_status": "training"
+}

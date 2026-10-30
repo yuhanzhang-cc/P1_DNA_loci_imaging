@@ -23,6 +23,7 @@ from ..networks.masked_se import UNetDeepBlinkMaskedSE
 from ..networks.detail_route import UNetDeepLociDetailRoute
 from ..networks.dense_heatmap import UNetDeepLociHeatmap
 from ..networks.adaptive_context import UNetDeepLociAdaptiveContext
+from ..networks.closing_controls import UNetDeepLociGridControl, UNetDeepLociGlobalQuery
 from ..round2_protocol import decode_candidates, threshold_mask
 
 try:
@@ -37,7 +38,7 @@ IMAGE_EXTENSIONS = (".tif", ".tiff")
 MODEL_CHOICES = ("deepblink", "deeploci_context", "deeploci_evidence", "deeploci_local",
                  "deeploci_feature_evidence", "deepblink_masked_se", "deeploci_detail",
                  "deeploci_detail_simple", "deeploci_heatmap", "deeploci_adaptive_context",
-                 "deeploci_fixed_context")
+                 "deeploci_fixed_context", "deeploci_grid_control", "deeploci_global_query")
 
 
 def add_predict_arguments(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
@@ -193,6 +194,10 @@ def _build_model_for_checkpoint(
                     selection="attention" if model_name == "deeploci_detail" else "projection").to(device)
     if model_name == "deeploci_heatmap":
         return UNetDeepLociHeatmap(cell_size=cell_size).to(device)
+    if model_name == "deeploci_grid_control":
+        return UNetDeepLociGridControl(cell_size=cell_size).to(device)
+    if model_name == "deeploci_global_query":
+        return UNetDeepLociGlobalQuery(cell_size=cell_size).to(device)
     if model_name in ("deeploci_adaptive_context", "deeploci_fixed_context"):
         return UNetDeepLociAdaptiveContext(cell_size=cell_size,
                     adaptive=model_name == "deeploci_adaptive_context").to(device)

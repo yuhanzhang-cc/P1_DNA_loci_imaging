@@ -1,0 +1,67 @@
+{
+  "source_sha256": {
+    "outputs/next_stage_v3_closing_controls/delivery_checks.json": "32a307299bb4db65a0479c9836f2cb56f4a2dacad64a92ff74dfe2cb1fd2fa58",
+    "outputs/next_stage_v3_closing_controls/validation_comparison.csv": "18183beb2beea9cf77d76f0bfd7e72517635b48b6ddc7576c5b2b79f929257a3",
+    "outputs/next_stage_v3_closing_controls/paired_summary.json": "c5d70f25f6aede95a2f267e0b8d87e1d807416fc3382107f00858f405b93ae5d"
+  },
+  "script_sha256": "fd5da1e34bb4a46eee21ab5f72561618e522d67b066d57f58ce4d4826f3630ad",
+  "artifacts": [
+    {
+      "path": "model_f1_bars.png",
+      "sha256": "c78ceb0fd434e2c56f48307037208373617b36b9297b99dade98d91f24357886"
+    },
+    {
+      "path": "model_f1_bars.svg",
+      "sha256": "9701868a19b6ebbb1751f038cca296a62cc56f67a52a14e654575d0b4afab7e2"
+    },
+    {
+      "path": "model_f1_paired_lines.png",
+      "sha256": "8646ffeed419f66ffabdae0f70de04d2e76ee5ffe34ce303c062f6dda73bc065"
+    },
+    {
+      "path": "model_f1_paired_lines.svg",
+      "sha256": "688bfedf31190328160b458daffeba09d08006532aa7c36648906345109926df"
+    },
+    {
+      "path": "paired_f1_differences.png",
+      "sha256": "1e400597c4bc790046a33996c363f66b49ca941a60e5f57c44b9bf97f3a8fb49"
+    },
+    {
+      "path": "paired_f1_differences.svg",
+      "sha256": "89ee277f26170e673548151a6d711435bca849d97d8e15b8a8cc125bb5d1a57f"
+    }
+  ],
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.2",
+  "python": "3.12.13",
+  "test": {
+    "role": "post_hoc_exploratory_seed_variability_analysis",
+    "endpoint": "validation micro-F1",
+    "sampling_unit": "training seed, paired within the same frozen development dataset",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "comparisons": [
+      "R1-G0",
+      "R1-Qglobal",
+      "G0-R0",
+      "Qglobal-R0",
+      "R1-S1"
+    ],
+    "method": "exact_two_sided_paired_signflip_of_mean_difference",
+    "permutations": 8,
+    "multiplicity": "Holm familywise correction across all five contrasts",
+    "alpha": 0.05,
+    "data_selection": "20 checkpoints x 31 thresholds per run; this optimism is not corrected by these tests",
+    "independence": "three stochastic seeds are not biological replicates; image source independence unverified",
+    "assumptions": "paired differences independent across seeds; null sign symmetry/within-pair exchangeability; unassessable with n=3",
+    "exclusions": "none among the five displayed models and three seeds",
+    "scientific_status": "not confirmatory and not independent generalization evidence"
+  },
+  "internal_self_checks_passed": true,
+  "original_training_files_modified": false,
+  "test_arrays_loaded": false
+}

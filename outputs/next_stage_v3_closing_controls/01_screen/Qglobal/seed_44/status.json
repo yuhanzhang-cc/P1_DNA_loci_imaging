@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "key": "Qglobal",
+  "seed": 44,
+  "epochs": 100,
+  "elapsed_seconds": 2757.5052671432495,
+  "validation_f1": 0.8165517241379311,
+  "test_evaluated": false
+}

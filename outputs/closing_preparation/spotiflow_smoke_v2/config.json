@@ -1,0 +1,7 @@
+{
+  "spotiflow": "0.6.5",
+  "device": "cpu",
+  "test_arrays_loaded": false,
+  "performance_experiment": false,
+  "training": "one synthetic epoch only"
+}

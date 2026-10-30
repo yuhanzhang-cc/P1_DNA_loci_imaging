@@ -1,3 +1,5 @@
 # Frozen experiment artifacts must retain the bytes used by SHA256 manifests.
 outputs/next_stage_v3/** -text
 outputs/next_stage_v3_detail_completion/** -text
+outputs/next_stage_v3_closing_controls/** -text
+outputs/next_stage_spotiflow_20261030/** -text

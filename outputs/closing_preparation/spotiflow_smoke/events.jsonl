@@ -1,0 +1,4 @@
+{"time_utc": "2026-10-27T21:19:27.449580+00:00", "event": "started"}
+{"time_utc": "2026-10-27T21:19:38.911425+00:00", "event": "native_reader_verified", "train_images": 176, "valid_images": 22}
+{"time_utc": "2026-10-27T21:19:45.658616+00:00", "event": "pretrained_inference_verified", "images": 2, "seconds": 0.9638675998430699}
+{"time_utc": "2026-10-27T21:19:46.012799+00:00", "event": "failed", "error": "'NoneType' object has no attribute 'log_metrics'"}

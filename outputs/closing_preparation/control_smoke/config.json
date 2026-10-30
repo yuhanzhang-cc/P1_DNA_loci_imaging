@@ -1,0 +1,8 @@
+{
+  "device": "xpu",
+  "seed": 42,
+  "optimizer_steps": 2,
+  "test_arrays_loaded": false,
+  "performance_experiment": false,
+  "archive_sha256": "5a0083f7fb5d515064a2f27ffbbdffc6ca4cfac5d0de7451913b90a3298d3dae"
+}

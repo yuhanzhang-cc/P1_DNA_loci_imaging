@@ -1,0 +1,9 @@
+# Install in a fresh Python 3.12 environment WITHOUT system-site-packages.
+# Install the chosen CPU/CUDA PyTorch wheel separately from its official index.
+# This is an initial constraint file; save pip freeze after a successful smoke.
+spotiflow==0.6.5
+torch==2.11.0
+torchvision==0.26.0
+numpy>=1.26,<3
+scipy>=1.13,<2
+tifffile>=2024.8.0

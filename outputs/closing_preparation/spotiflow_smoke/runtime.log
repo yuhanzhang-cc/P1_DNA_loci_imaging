@@ -1,0 +1,156 @@
+Seed set to 42
+Loading images:   0%|          | 0/176 [00:00<?, ?it/s]Loading images:  27%|██▋       | 47/176 [00:00<00:00, 461.31it/s]Loading images:  59%|█████▉    | 104/176 [00:00<00:00, 524.12it/s]Loading images:  89%|████████▉ | 157/176 [00:00<00:00, 516.38it/s]Loading images: 100%|██████████| 176/176 [00:00<00:00, 498.01it/s]
+Loading centers:   0%|          | 0/176 [00:00<?, ?it/s]Loading centers:  58%|█████▊    | 102/176 [00:00<00:00, 1018.26it/s]Loading centers: 100%|██████████| 176/176 [00:00<00:00, 1023.44it/s]
+Normalizing images:   0%|          | 0/176 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 176/176 [00:00<?, ?it/s]
+Loading images:   0%|          | 0/22 [00:00<?, ?it/s]Loading images: 100%|██████████| 22/22 [00:00<00:00, 510.34it/s]
+Loading centers:   0%|          | 0/22 [00:00<?, ?it/s]Loading centers: 100%|██████████| 22/22 [00:00<00:00, 899.85it/s]
+Normalizing images:   0%|          | 0/22 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 22/22 [00:00<?, ?it/s]
+INFO:spotiflow.model.spotiflow:Loading pretrained model: general
+Downloading data from https://github.com/weigertlab/spotiflow-models/releases/download/0.6.0/general.zip to D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_models\general.zip
+
+       0/87885382 [..............................] - ETA: 0s
+  786432/87885382 [..............................] - ETA: 5s
+ 1785856/87885382 [..............................] - ETA: 4s
+ 2850816/87885382 [..............................] - ETA: 4s
+ 3735552/87885382 [>.............................] - ETA: 4s
+ 4931584/87885382 [>.............................] - ETA: 4s
+ 6078464/87885382 [=>............................] - ETA: 4s
+ 7258112/87885382 [=>............................] - ETA: 4s
+ 8355840/87885382 [=>............................] - ETA: 3s
+ 9191424/87885382 [==>...........................] - ETA: 3s
+10207232/87885382 [==>...........................] - ETA: 3s
+11124736/87885382 [==>...........................] - ETA: 3s
+12173312/87885382 [===>..........................] - ETA: 3s
+13205504/87885382 [===>..........................] - ETA: 3s
+14368768/87885382 [===>..........................] - ETA: 3s
+14778368/87885382 [====>.........................] - ETA: 3s
+15892480/87885382 [====>.........................] - ETA: 3s
+16957440/87885382 [====>.........................] - ETA: 3s
+18120704/87885382 [=====>........................] - ETA: 3s
+19070976/87885382 [=====>........................] - ETA: 3s
+20094976/87885382 [=====>........................] - ETA: 3s
+21143552/87885382 [======>.......................] - ETA: 3s
+22290432/87885382 [======>.......................] - ETA: 3s
+23404544/87885382 [======>.......................] - ETA: 3s
+24412160/87885382 [=======>......................] - ETA: 3s
+25411584/87885382 [=======>......................] - ETA: 3s
+26558464/87885382 [========>.....................] - ETA: 3s
+27467776/87885382 [========>.....................] - ETA: 3s
+28352512/87885382 [========>.....................] - ETA: 3s
+29138944/87885382 [========>.....................] - ETA: 3s
+30064640/87885382 [=========>....................] - ETA: 2s
+30965760/87885382 [=========>....................] - ETA: 2s
+32104448/87885382 [=========>....................] - ETA: 2s
+32940032/87885382 [==========>...................] - ETA: 2s
+33841152/87885382 [==========>...................] - ETA: 2s
+34824192/87885382 [==========>...................] - ETA: 2s
+35758080/87885382 [===========>..................] - ETA: 2s
+36806656/87885382 [===========>..................] - ETA: 2s
+37576704/87885382 [===========>..................] - ETA: 2s
+38445056/87885382 [============>.................] - ETA: 2s
+39428096/87885382 [============>.................] - ETA: 2s
+40501248/87885382 [============>.................] - ETA: 2s
+41533440/87885382 [=============>................] - ETA: 2s
+42319872/87885382 [=============>................] - ETA: 2s
+43261952/87885382 [=============>................] - ETA: 2s
+44376064/87885382 [==============>...............] - ETA: 2s
+45539328/87885382 [==============>...............] - ETA: 2s
+46587904/87885382 [==============>...............] - ETA: 2s
+47849472/87885382 [===============>..............] - ETA: 2s
+48922624/87885382 [===============>..............] - ETA: 2s
+50085888/87885382 [================>.............] - ETA: 1s
+50708480/87885382 [================>.............] - ETA: 1s
+51757056/87885382 [================>.............] - ETA: 1s
+52772864/87885382 [=================>............] - ETA: 1s
+53870592/87885382 [=================>............] - ETA: 1s
+54935552/87885382 [=================>............] - ETA: 1s
+55951360/87885382 [==================>...........] - ETA: 1s
+57032704/87885382 [==================>...........] - ETA: 1s
+58138624/87885382 [==================>...........] - ETA: 1s
+58974208/87885382 [===================>..........] - ETA: 1s
+59858944/87885382 [===================>..........] - ETA: 1s
+60628992/87885382 [===================>..........] - ETA: 1s
+61579264/87885382 [====================>.........] - ETA: 1s
+62152704/87885382 [====================>.........] - ETA: 1s
+63062016/87885382 [====================>.........] - ETA: 1s
+64028672/87885382 [====================>.........] - ETA: 1s
+65093632/87885382 [=====================>........] - ETA: 1s
+66060288/87885382 [=====================>........] - ETA: 1s
+67125248/87885382 [=====================>........] - ETA: 1s
+68157440/87885382 [======================>.......] - ETA: 1s
+69140480/87885382 [======================>.......] - ETA: 0s
+70123520/87885382 [======================>.......] - ETA: 0s
+71139328/87885382 [=======================>......] - ETA: 0s
+71835648/87885382 [=======================>......] - ETA: 0s
+72876032/87885382 [=======================>......] - ETA: 0s
+73785344/87885382 [========================>.....] - ETA: 0s
+74850304/87885382 [========================>.....] - ETA: 0s
+75767808/87885382 [========================>.....] - ETA: 0s
+76849152/87885382 [=========================>....] - ETA: 0s
+77864960/87885382 [=========================>....] - ETA: 0s
+78954496/87885382 [=========================>....] - ETA: 0s
+80060416/87885382 [==========================>...] - ETA: 0s
+81117184/87885382 [==========================>...] - ETA: 0s
+81936384/87885382 [==========================>...] - ETA: 0s
+82935808/87885382 [===========================>..] - ETA: 0s
+83984384/87885382 [===========================>..] - ETA: 0s
+84869120/87885382 [===========================>..] - ETA: 0s
+85803008/87885382 [============================>.] - ETA: 0s
+86720512/87885382 [============================>.] - ETA: 0s
+87834624/87885382 [============================>.] - ETA: 0s
+87885382/87885382 [==============================] - 5s 0us/step
+INFO:spotiflow.model.spotiflow:Training config is: SpotiflowTrainingConfig(
+	batch_size=1
+	crop_size=64
+	crop_size_depth=32
+	early_stopping_patience=0
+	finetuned_from=None
+	flow_loss_f=l1
+	heatmap_loss_f=bce
+	loss_levels=None
+	lr=0.0003
+	lr_reduce_patience=10
+	num_epochs=1
+	num_train_samples=1
+	optimize_threshold=False
+	optimizer=adamw
+	pos_weight=10.0
+	smart_crop=True
+)
+Normalizing images:   0%|          | 0/1 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 1/1 [00:00<00:00, 1001.74it/s]
+Normalizing images:   0%|          | 0/1 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 1/1 [00:00<?, ?it/s]
+Using non standard logger False
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+INFO:spotiflow.model.trainer:Creating logdir D:\Projects\P1_DNA_loci_imaging\outputs\closing_preparation\spotiflow_smoke\synthetic_model and saving training config...
+
+  | Name            | Type      | Params | Mode  | FLOPs
+--------------------------------------------------------------
+0 | model           | Spotiflow | 11.8 M | eval  | 0    
+1 | _flow_loss_func | L1Loss    | 0      | train | 0    
+--------------------------------------------------------------
+11.8 M    Trainable params
+0         Non-trainable params
+11.8 M    Total params
+47.304    Total estimated model params size (MB)
+1         Modules in train mode
+323       Modules in eval mode
+0         Total Flops
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\utilities\_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\torch\utils\data\dataloader.py:775: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('val_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 17.12it/s]D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('val_f1', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('val_acc', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+                                                                           D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\loops\fit_loop.py:538: Found 323 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+Training: |          | 0/? [00:00<?, ?it/s]Training: |          | 0/? [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s]D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('heatmap_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('flow_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\core\module.py:522: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 38.38it/s][A

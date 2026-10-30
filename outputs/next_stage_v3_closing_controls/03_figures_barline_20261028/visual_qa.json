@@ -1,0 +1,49 @@
+{
+  "pngs": [
+    {
+      "file": "model_f1_bars.png",
+      "pixels": [
+        3120,
+        1980
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "model_f1_paired_lines.png",
+      "pixels": [
+        3120,
+        1710
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "paired_f1_differences.png",
+      "pixels": [
+        3120,
+        1860
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "manually_reviewed": true,
+  "checks": [
+    "labels and legends readable",
+    "no clipped labels",
+    "negative contrast significance labels clear of zero line",
+    "SVG exports retain editable text",
+    "all seed values retained"
+  ],
+  "original_training_lock_check": "passed"
+}
