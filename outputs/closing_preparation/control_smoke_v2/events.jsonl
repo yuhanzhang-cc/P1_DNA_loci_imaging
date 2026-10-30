@@ -1,0 +1,7 @@
+{"time_utc": "2026-10-27T21:22:17.501437+00:00", "event": "started"}
+{"time_utc": "2026-10-27T21:22:17.617999+00:00", "event": "runtime", "torch": "2.11.0+xpu", "device": "xpu", "device_name": "Intel(R) Arc(TM) 140T GPU (16GB)"}
+{"time_utc": "2026-10-27T21:22:25.716589+00:00", "event": "optimizer_step", "model": "deeploci_grid_control", "step": 1, "loss": 1.7630988359451294}
+{"time_utc": "2026-10-27T21:22:26.001321+00:00", "event": "optimizer_step", "model": "deeploci_grid_control", "step": 2, "loss": 2.0255794525146484}
+{"time_utc": "2026-10-27T21:22:28.009483+00:00", "event": "optimizer_step", "model": "deeploci_global_query", "step": 1, "loss": 1.7630988359451294}
+{"time_utc": "2026-10-27T21:22:28.359929+00:00", "event": "optimizer_step", "model": "deeploci_global_query", "step": 2, "loss": 2.0242037773132324}
+{"time_utc": "2026-10-27T21:22:28.953764+00:00", "event": "completed"}

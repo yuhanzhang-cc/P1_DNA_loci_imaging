@@ -71,3 +71,14 @@ outputs/261025_clean220_control/training_pid.json
 !outputs/next_stage_v3_detail_completion/01_screen/*/seed_4[234]/best_model.pt
 !outputs/next_stage_v3_detail_completion/01_screen/*/seed_4[234]/native_selected_model.pt
 outputs/next_stage_v3_detail_completion/.worker.lock
+
+# Derived local microscopy export; never publish images with code.
+outputs/closing_preparation/spotiflow_data*/
+outputs/next_stage_v3_closing_controls/.worker.lock
+outputs/next_stage_spotiflow_20261030/.worker.lock
+outputs/next_stage_spotiflow_20261030/**/*.ckpt
+outputs/next_stage_spotiflow_20261030/05_cuda_package/
+
+# Scientific delivery: final closing-control weights, not epoch/resume caches.
+!outputs/next_stage_v3_closing_controls/01_screen/*/seed_4[234]/best_model.pt
+!outputs/next_stage_v3_closing_controls/01_screen/*/seed_4[234]/native_selected_model.pt

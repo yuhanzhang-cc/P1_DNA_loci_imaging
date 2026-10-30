@@ -1,0 +1,26 @@
+{
+  "role": "post_hoc_exploratory_seed_variability_analysis",
+  "endpoint": "validation micro-F1",
+  "sampling_unit": "training seed, paired within the same frozen development dataset",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "comparisons": [
+    "R1-G0",
+    "R1-Qglobal",
+    "G0-R0",
+    "Qglobal-R0",
+    "R1-S1"
+  ],
+  "method": "exact_two_sided_paired_signflip_of_mean_difference",
+  "permutations": 8,
+  "multiplicity": "Holm familywise correction across all five contrasts",
+  "alpha": 0.05,
+  "data_selection": "20 checkpoints x 31 thresholds per run; this optimism is not corrected by these tests",
+  "independence": "three stochastic seeds are not biological replicates; image source independence unverified",
+  "assumptions": "paired differences independent across seeds; null sign symmetry/within-pair exchangeability; unassessable with n=3",
+  "exclusions": "none among the five displayed models and three seeds",
+  "scientific_status": "not confirmatory and not independent generalization evidence"
+}

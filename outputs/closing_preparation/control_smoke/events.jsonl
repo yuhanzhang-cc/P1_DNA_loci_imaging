@@ -1,0 +1,6 @@
+{"time_utc": "2026-10-27T21:14:53.976912+00:00", "event": "started"}
+{"time_utc": "2026-10-27T21:15:04.015476+00:00", "event": "optimizer_step", "model": "deeploci_grid_control", "step": 1, "loss": 1.7630988359451294}
+{"time_utc": "2026-10-27T21:15:04.328485+00:00", "event": "optimizer_step", "model": "deeploci_grid_control", "step": 2, "loss": 2.0255794525146484}
+{"time_utc": "2026-10-27T21:15:06.364494+00:00", "event": "optimizer_step", "model": "deeploci_global_query", "step": 1, "loss": 1.7630988359451294}
+{"time_utc": "2026-10-27T21:15:06.729494+00:00", "event": "optimizer_step", "model": "deeploci_global_query", "step": 2, "loss": 2.0242037773132324}
+{"time_utc": "2026-10-27T21:15:07.382508+00:00", "event": "completed"}

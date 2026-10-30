@@ -1,0 +1,11 @@
+{
+  "key": "Qglobal",
+  "seed": 44,
+  "epoch": 100,
+  "train_loss": 0.23463808812878348,
+  "val_loss": 0.5582461953163147,
+  "seconds": 27.05553840007633,
+  "optimizer_updates": 2200,
+  "checkpoints": 20,
+  "best_validation_f1": 0.8165517241379311
+}

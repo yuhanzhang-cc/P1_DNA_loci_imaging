@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "tests": 56,
+  "command": ".venv/clean220_xpu/Scripts/python.exe -m pytest deepblink_pytorch/tests/test_closing_runner.py deepblink_pytorch/tests/test_closing_preparation.py deepblink_pytorch/tests/test_round2_architectures.py deepblink_pytorch/tests/test_round2_protocol.py -q",
+  "result": "56 passed in 9.07s",
+  "training_started": false
+}

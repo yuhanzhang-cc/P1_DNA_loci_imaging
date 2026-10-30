@@ -1,0 +1,62 @@
+Seed set to 42
+Loading images:   0%|          | 0/176 [00:00<?, ?it/s]Loading images:  56%|█████▌    | 98/176 [00:00<00:00, 971.84it/s]Loading images: 100%|██████████| 176/176 [00:00<00:00, 932.65it/s]
+Loading centers:   0%|          | 0/176 [00:00<?, ?it/s]Loading centers:  64%|██████▍   | 113/176 [00:00<00:00, 1118.10it/s]Loading centers: 100%|██████████| 176/176 [00:00<00:00, 1170.15it/s]
+Normalizing images:   0%|          | 0/176 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 176/176 [00:00<?, ?it/s]
+Loading images:   0%|          | 0/22 [00:00<?, ?it/s]Loading images: 100%|██████████| 22/22 [00:00<00:00, 835.59it/s]
+Loading centers:   0%|          | 0/22 [00:00<?, ?it/s]Loading centers: 100%|██████████| 22/22 [00:00<00:00, 1129.43it/s]
+Normalizing images:   0%|          | 0/22 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 22/22 [00:00<?, ?it/s]
+INFO:spotiflow.model.spotiflow:Loading pretrained model: general
+INFO:spotiflow.model.spotiflow:Training config is: SpotiflowTrainingConfig(
+	batch_size=1
+	crop_size=64
+	crop_size_depth=32
+	early_stopping_patience=0
+	finetuned_from=None
+	flow_loss_f=l1
+	heatmap_loss_f=bce
+	loss_levels=None
+	lr=0.0003
+	lr_reduce_patience=10
+	num_epochs=1
+	num_train_samples=1
+	optimize_threshold=False
+	optimizer=adamw
+	pos_weight=10.0
+	smart_crop=True
+)
+Normalizing images:   0%|          | 0/1 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 1/1 [00:00<00:00, 999.83it/s]
+Normalizing images:   0%|          | 0/1 [00:00<?, ?it/s]Normalizing images: 100%|██████████| 1/1 [00:00<00:00, 999.83it/s]
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+INFO:spotiflow.model.trainer:Creating logdir outputs\closing_preparation\spotiflow_smoke_v2\synthetic_model and saving training config...
+
+  | Name            | Type      | Params | Mode  | FLOPs
+--------------------------------------------------------------
+0 | model           | Spotiflow | 11.8 M | eval  | 0    
+1 | _flow_loss_func | L1Loss    | 0      | train | 0    
+--------------------------------------------------------------
+11.8 M    Trainable params
+0         Non-trainable params
+11.8 M    Total params
+47.304    Total estimated model params size (MB)
+1         Modules in train mode
+323       Modules in eval mode
+0         Total Flops
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\utilities\_pytree.py:21: `isinstance(treespec, LeafSpec)` is deprecated, use `isinstance(treespec, TreeSpec) and treespec.is_leaf()` instead.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\torch\utils\data\dataloader.py:775: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+Sanity Checking: |          | 0/? [00:00<?, ?it/s]Sanity Checking DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]Sanity Checking DataLoader 0: 100%|██████████| 1/1 [00:00<00:00,  5.42it/s]                                                                           D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\trainer\connectors\data_connector.py:434: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=15` in the `DataLoader` to improve performance.
+D:\Projects\P1_DNA_loci_imaging\.venv\spotiflow_cpu\Lib\site-packages\lightning\pytorch\loops\fit_loop.py:538: Found 323 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+Training: |          | 0/? [00:00<?, ?it/s]Training: |          | 0/? [00:00<?, ?it/s]Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.28it/s]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  9.28it/s, v_num=0]
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation: |          | 0/? [00:00<?, ?it/s][A
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s][A
+Validation DataLoader 0: 100%|██████████| 1/1 [00:00<00:00, 50.21it/s][AINFO:spotiflow.model.trainer:Saved best model with val_loss=0.055.
+
+                                                                      [AEpoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.64it/s, v_num=0, val_loss=0.0547, val_f1=1.000, val_acc=1.000]Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  4.59it/s, v_num=0, val_loss=0.0547, val_f1=1.000, val_acc=1.000, heatmap_loss=0.0365, flow_loss=0.00416, train_loss=0.0407]`Trainer.fit` stopped: `max_epochs=1` reached.
+INFO:spotiflow.model.trainer:Saved last model with optimized thresholds.
+INFO:spotiflow.model.trainer:Saved best model with optimized thresholds.
+Epoch 0: 100%|██████████| 1/1 [00:00<00:00,  2.84it/s, v_num=0, val_loss=0.0547, val_f1=1.000, val_acc=1.000, heatmap_loss=0.0365, flow_loss=0.00416, train_loss=0.0407]
+INFO:spotiflow.model.spotiflow:Training finished.

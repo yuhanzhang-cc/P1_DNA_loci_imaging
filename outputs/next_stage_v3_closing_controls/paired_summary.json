@@ -1,0 +1,62 @@
+[
+  {
+    "comparison": "R1-G0",
+    "paired_f1_deltas": [
+      -0.0023954964666427214,
+      -0.006728988845233208,
+      -0.005959735172952452
+    ],
+    "mean_delta": -0.0050280734949427934,
+    "sample_sd": 0.002312095188466359,
+    "positive_seeds": 0,
+    "significance_test": false
+  },
+  {
+    "comparison": "R1-Qglobal",
+    "paired_f1_deltas": [
+      -0.003231616867980458,
+      -0.006666820812812557,
+      0.005797846062641998
+    ],
+    "mean_delta": -0.0013668638727170057,
+    "sample_sd": 0.006438164169933967,
+    "positive_seeds": 1,
+    "significance_test": false
+  },
+  {
+    "comparison": "G0-R0",
+    "paired_f1_deltas": [
+      0.021648676355303653,
+      0.01236521054702866,
+      0.021724943233607852
+    ],
+    "mean_delta": 0.01857961004531339,
+    "sample_sd": 0.0053819629320901756,
+    "positive_seeds": 3,
+    "significance_test": false
+  },
+  {
+    "comparison": "Qglobal-R0",
+    "paired_f1_deltas": [
+      0.02248479675664139,
+      0.012303042514608009,
+      0.009967361998013402
+    ],
+    "mean_delta": 0.0149184004230876,
+    "sample_sd": 0.006655945911454816,
+    "positive_seeds": 3,
+    "significance_test": false
+  },
+  {
+    "comparison": "R1-S1",
+    "paired_f1_deltas": [
+      0.003664396455637653,
+      -0.016393442622950838,
+      0.018731999141141542
+    ],
+    "mean_delta": 0.0020009843246094525,
+    "sample_sd": 0.017621701669217425,
+    "positive_seeds": 2,
+    "significance_test": false
+  }
+]

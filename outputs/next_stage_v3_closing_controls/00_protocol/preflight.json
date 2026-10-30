@@ -1,0 +1,66 @@
+{
+  "source_changes_from_original": [
+    "deepblink_pytorch/deepblink_torch/cli/predict.py"
+  ],
+  "inherited_core_sources_unchanged": true,
+  "paired_order_sha256": {
+    "42": "51e3b99b1974593d473cbb4a4d1d19f2af3b0b38c9e3ef5bb165f205a89e05c6",
+    "43": "26f738c9d71b4e6cf76b98c3a7c3ece7bf106f89d104d38b8a57c9b5c7719ec3",
+    "44": "44c35cb69b8603965893bd27abd2387c2c90163bb1a2a02ce9fc7fc9bfd675a7"
+  },
+  "frozen_class_regression": [
+    {
+      "model": "R0",
+      "sample_id": "sample_204",
+      "max_abs": 0.0
+    },
+    {
+      "model": "R0",
+      "sample_id": "sample_100",
+      "max_abs": 0.0
+    },
+    {
+      "model": "R1",
+      "sample_id": "sample_204",
+      "max_abs": 0.0
+    },
+    {
+      "model": "R1",
+      "sample_id": "sample_100",
+      "max_abs": 0.0
+    }
+  ],
+  "full_batch_pilots": [
+    {
+      "model": "G0",
+      "discarded_optimizer_steps": 2,
+      "batch_size": 8,
+      "seconds": 10.414153499994427,
+      "mean_loss": 1.811062216758728,
+      "peak_allocated_mib": 3831.20654296875,
+      "parameters": 1265504
+    },
+    {
+      "model": "Qglobal",
+      "discarded_optimizer_steps": 2,
+      "batch_size": 8,
+      "seconds": 3.968272800091654,
+      "mean_loss": 1.810838222503662,
+      "peak_allocated_mib": 4559.12890625,
+      "parameters": 1265350
+    }
+  ],
+  "pilot_weights_discarded": true,
+  "test_arrays_loaded": false,
+  "device": "Intel(R) Arc(TM) 140T GPU (16GB)",
+  "torch": "2.11.0+xpu",
+  "disk_free_gib": 419.8460693359375,
+  "on_ac_power": true,
+  "targeted_tests_report": {
+    "passed": true,
+    "tests": 56,
+    "command": ".venv/clean220_xpu/Scripts/python.exe -m pytest deepblink_pytorch/tests/test_closing_runner.py deepblink_pytorch/tests/test_closing_preparation.py deepblink_pytorch/tests/test_round2_architectures.py deepblink_pytorch/tests/test_round2_protocol.py -q",
+    "result": "56 passed in 9.07s",
+    "training_started": false
+  }
+}

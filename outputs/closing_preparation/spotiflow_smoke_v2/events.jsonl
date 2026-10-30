@@ -1,0 +1,5 @@
+{"time_utc": "2026-10-27T21:20:16.111436+00:00", "event": "started"}
+{"time_utc": "2026-10-27T21:20:21.482850+00:00", "event": "native_reader_verified", "train_images": 176, "valid_images": 22}
+{"time_utc": "2026-10-27T21:20:22.625326+00:00", "event": "pretrained_inference_verified", "images": 2, "seconds": 0.8637466998770833}
+{"time_utc": "2026-10-27T21:20:23.563954+00:00", "event": "synthetic_fit_reload_verified", "seconds": 0.9306186002213508}
+{"time_utc": "2026-10-27T21:20:23.568954+00:00", "event": "completed"}

@@ -1,0 +1,12 @@
+{
+  "tests_passed": 45,
+  "test_scope": "closing preparation and original v3 architecture/protocol tests",
+  "archive_commit": "f2bab80d",
+  "archive_artifacts_byte_verified": 1838,
+  "tracked_secret_pattern_hits": [],
+  "export_pairs": 198,
+  "test_arrays_loaded": false,
+  "formal_training_started": false,
+  "spotiflow_native_smoke": "spotiflow_smoke_v2",
+  "control_xpu_smoke": "control_smoke_v2"
+}

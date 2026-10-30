@@ -1,0 +1,27 @@
+{
+  "native_reader_pairs": 198,
+  "pretrained_training_images": [
+    {
+      "shape": [
+        256,
+        256
+      ],
+      "candidates": 1431,
+      "score_min": 9.307219670517952e-07
+    },
+    {
+      "shape": [
+        512,
+        512
+      ],
+      "candidates": 6037,
+      "score_min": 6.017722284923366e-07
+    }
+  ],
+  "inference_seconds": 0.8637466998770833,
+  "synthetic_fit_seconds": 0.9306186002213508,
+  "native_fit_and_reload_verified": true,
+  "test_evaluated": false,
+  "scientific_performance_measured": false,
+  "torch": "2.11.0+cpu"
+}

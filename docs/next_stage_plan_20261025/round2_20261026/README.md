@@ -1,5 +1,9 @@
 # 第二轮scope：保留弱点证据，再利用上下文判别
 
+六次消融训练授权与实时进度见[训练进度](closing_training_20261027.md)，独立协议见[closing_protocol_20261027.json](closing_protocol_20261027.json)。
+
+2026-10-27准备更新：[G0、Q-global及Spotiflow本地验收](preparation_20261027.md)已完成；正式训练尚未启动。包含独立CPU环境、导出/统一评价、混合尺寸XPU及原生Spotiflow小规模验证。
+
 最新建议（2026-10-27）：R1/S1种子补齐已完成；后续按[最小收尾scope](closing_scope_20261027.md)评估两项归因控制及公平baseline，拟新增上限9次，尚未启动。原16次训练及其锁保持封存。
 
 日期：2026-10-26；计划修订2.2。执行更新：12次训练、1200轮与最终验收全部完成，63项定向检查通过。R2三种子平均F1比新R0高0.37个百分点，但只有1/3种子为正，且低于简单控制S2，尚无稳定核心架构收益；见[今日汇报](daily_report_20261026.md)。首轮v2四项负结果、协议、权重和输出保持原样。参数草案[protocol_v3_proposed.yaml](protocol_v3_proposed.yaml)作为规划来源冻结，实际执行锁见[lock.json](../../../outputs/next_stage_v3/00_protocol/lock.json)，完整过程见[执行记录](execution.md)。本轮预算已用满，不再自动增加训练。

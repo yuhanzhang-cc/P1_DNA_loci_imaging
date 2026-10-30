@@ -1,0 +1,32 @@
+{
+  "training_sample_ids": [
+    "sample_204",
+    "sample_100"
+  ],
+  "results": [
+    {
+      "model": "deeploci_grid_control",
+      "parameters": 1265504,
+      "added_parameters": 6781,
+      "losses": [
+        1.7630988359451294,
+        2.0255794525146484
+      ],
+      "seconds": 7.597487800056115,
+      "cpu_reload_max_abs": 0.0
+    },
+    {
+      "model": "deeploci_global_query",
+      "parameters": 1265350,
+      "added_parameters": 6627,
+      "losses": [
+        1.7630988359451294,
+        2.0242037773132324
+      ],
+      "seconds": 1.5111453998833895,
+      "cpu_reload_max_abs": 0.0
+    }
+  ],
+  "test_evaluated": false,
+  "full_training_started": false
+}
