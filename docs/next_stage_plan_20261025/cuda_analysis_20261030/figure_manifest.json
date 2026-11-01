@@ -1,0 +1,16 @@
+{
+  "formats": [
+    "png",
+    "svg"
+  ],
+  "png_dpi": 240,
+  "bar_baseline": 0,
+  "uncertainty": "sample SD across three training seeds; none for one pretrained checkpoint",
+  "transformations": "micro-F1 per seed from pooled 22-image counts; no smoothing",
+  "figures": {
+    "model_comparison": "Fine-tuned Spotiflow has the highest observed development F1; methods use different recipes.",
+    "paired_seed_comparison": "All three paired seed identifiers favor Spotiflow; exploratory adjusted tests are ns.",
+    "training_and_selection": "All checkpoints retained; native crop loss differs from full-image point-F1 selection.",
+    "precision_recall_diagnostics": "Precision, overall recall and weak-point recall must be considered separately."
+  }
+}

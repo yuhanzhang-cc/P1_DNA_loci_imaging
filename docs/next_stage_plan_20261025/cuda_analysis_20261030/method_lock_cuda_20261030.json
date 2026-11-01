@@ -1,0 +1,82 @@
+{
+  "method": "Spotiflow general fine-tuned, not trained from scratch",
+  "protocol": {
+    "device": "cuda",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "maximum_tasks": 3,
+    "epochs": 100,
+    "updates_per_seed": 4400,
+    "checkpoint_epochs": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95,
+      100
+    ],
+    "threshold_count": 31,
+    "torch": "2.11.0+cu128",
+    "device_name": "NVIDIA GeForce RTX 4090",
+    "bundle_manifest_sha256": "e44ff41a6e92d1f64e3710f545aaedcd1971f27708898801fa1e83d786899f6f",
+    "test_arrays_loaded": false
+  },
+  "pretrained_weight_sha256": "1c3575464d621924b27f4deb66495b807f175a0ccd995d3533403f00daf806f2",
+  "primary_models": [
+    {
+      "seed": 42,
+      "epoch": 60,
+      "threshold": 0.6553990357712657,
+      "tp": 301,
+      "fp": 27,
+      "fn": 71,
+      "precision": 0.9176829268292683,
+      "recall": 0.8091397849462365,
+      "f1": 0.86,
+      "weight_sha256": "ff6e4b75bec00f94672183631872184caaa3784b2d85e0d5ca2e16b09446a352"
+    },
+    {
+      "seed": 43,
+      "epoch": 45,
+      "threshold": 0.6553990357712657,
+      "tp": 301,
+      "fp": 29,
+      "fn": 71,
+      "precision": 0.9121212121212121,
+      "recall": 0.8091397849462365,
+      "f1": 0.8575498575498576,
+      "weight_sha256": "ad23894af2f618e27b40b23db2fb7a61c3d4374e047f4877c990faa27e348965"
+    },
+    {
+      "seed": 44,
+      "epoch": 45,
+      "threshold": 0.6553990357712657,
+      "tp": 315,
+      "fp": 42,
+      "fn": 57,
+      "precision": 0.8823529411764706,
+      "recall": 0.8467741935483871,
+      "f1": 0.8641975308641975,
+      "weight_sha256": "ae32e6d0d19343ee5f4409a63c97002712798f89249e983e48980b7f8f0835f3"
+    }
+  ],
+  "test_evaluated": false,
+  "validation_selection_optimism": true
+}

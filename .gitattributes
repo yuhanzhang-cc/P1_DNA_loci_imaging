@@ -3,3 +3,5 @@ outputs/next_stage_v3/** -text
 outputs/next_stage_v3_detail_completion/** -text
 outputs/next_stage_v3_closing_controls/** -text
 outputs/next_stage_spotiflow_20261030/** -text
+# Keep the analysis source hash stable across Windows and Linux checkouts.
+deepblink_pytorch/scripts/analyze_spotiflow_cuda.py text eol=lf
