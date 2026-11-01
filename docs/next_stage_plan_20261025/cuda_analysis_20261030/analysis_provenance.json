@@ -1,0 +1,106 @@
+{
+  "plan": {
+    "dataset": "same 22 development-validation images / 372 reference points",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "contrasts": [
+      "Spotiflow_F-G0",
+      "Spotiflow_F-R0"
+    ],
+    "family_size": 2,
+    "seed_test": "two-sided exact sign flips; Holm across two contrasts; descriptive n=3",
+    "bootstrap": "10000 paired image draws, seed 20261025, same indices across methods and seeds",
+    "bootstrap_scope": "conditional on selected models and current validation images; not selection-adjusted or biological CI",
+    "forbidden": [
+      "test-array access",
+      "retraining",
+      "new threshold grid",
+      "relabeling"
+    ],
+    "figure_scope": "general research progress report, no journal compliance claim"
+  },
+  "audit": {
+    "test_arrays_loaded": false,
+    "server_sha256_available": false,
+    "checks": {
+      "protected_historical_artifacts": 53,
+      "bundle_manifest_and_dev_split": true,
+      "cuda_smoke": true,
+      "snapshot_weight_and_candidate_hashes": 60,
+      "distinct_snapshots_per_seed": 20,
+      "epoch_threshold_rows_recomputed": 1860,
+      "training_epochs": 300,
+      "selected_prediction_sets_rematched": 15,
+      "selected_threshold_files": 6,
+      "no_nonfinite_losses": true,
+      "common_validation_truth_points": 372,
+      "deployment_reload_fixed_images": 6
+    },
+    "source_container_audit": {
+      "total": 215,
+      "train": 173,
+      "valid": 22,
+      "train_valid_overlap": 2,
+      "interpretation": "container identity is metadata, not verified biological independence"
+    },
+    "input_hashes": {
+      "bundle_manifest": "e44ff41a6e92d1f64e3710f545aaedcd1971f27708898801fa1e83d786899f6f",
+      "development_only": "84ceae4ecedac3856ca6c1b9be545cfab05d08ade7eaa499b7973b9fa86ffa25",
+      "returned_archive": "3c765c62a4520333b61c79b5f446de17b597bf8e457f60b70b1a5bd28223be14"
+    },
+    "warnings": [
+      "No server SHA256 for the returned tarball; gzip CRC and internal saved hashes pass",
+      "Manifest cuda_verified/cloud_uploaded fields describe packaging time; runtime protocol and smoke are authoritative",
+      "Exactly three formal fine-tuning seeds; no extra search or training in this analysis",
+      "General-pretraining overlap not ruled out; local controls start from scratch",
+      "Different optimizer, augmentation, crop, updates, precision and hardware prevent architectural or speed attribution",
+      "Validation selects checkpoints and thresholds; neither bootstrap nor seed p-values remove selection optimism"
+    ],
+    "analysis_environment": {
+      "python": "3.12.13",
+      "numpy": "2.5.2",
+      "scipy": "1.18.1",
+      "torch": "2.11.0+cpu"
+    },
+    "source_sha256": "be1e85974805f2327e5b8bde8e527c88918c4861ef2786dad9e81f4dbafb1019",
+    "model_parameters": {
+      "G0": 1265504,
+      "Spotiflow_F": 11826115
+    }
+  },
+  "training_timing": [
+    {
+      "seed": 42,
+      "epochs": 100,
+      "updates": 4400,
+      "epoch_callback_seconds": 360.8312296047807,
+      "epoch_median_seconds": 3.4882275834679604,
+      "fullimage_inference_median_seconds": 0.7182806767523289,
+      "final_learning_rate": 1.875e-05,
+      "finished_unix": 1793393664.3731499
+    },
+    {
+      "seed": 43,
+      "epochs": 100,
+      "updates": 4400,
+      "epoch_callback_seconds": 359.2599829658866,
+      "epoch_median_seconds": 3.459761343896389,
+      "fullimage_inference_median_seconds": 0.7172676511108875,
+      "final_learning_rate": 4.6875e-06,
+      "finished_unix": 1793394028.7735753
+    },
+    {
+      "seed": 44,
+      "epochs": 100,
+      "updates": 4400,
+      "epoch_callback_seconds": 364.9370004311204,
+      "epoch_median_seconds": 3.5386932380497456,
+      "fullimage_inference_median_seconds": 0.7217860482633114,
+      "final_learning_rate": 9.375e-06,
+      "finished_unix": 1793394398.7829442
+    }
+  ]
+}

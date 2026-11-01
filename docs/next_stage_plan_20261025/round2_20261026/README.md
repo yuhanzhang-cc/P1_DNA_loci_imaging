@@ -1,5 +1,7 @@
 # 第二轮scope：保留弱点证据，再利用上下文判别
 
+2026-10-30当前状态：G0/Q-global六次消融与Spotiflow CUDA三种子适配均已完成。G0开发F1为0.8251±0.0038，适配Spotiflow为0.8606±0.0034，当前不支持自有方法整体领先。见[CUDA报告](../cuda_analysis_20261030.md)及[后续scope](../next_scope_after_cuda_20261030.md)。以下“尚未启动”等表述保留对应日期的历史状态。
+
 六次消融训练授权与实时进度见[训练进度](closing_training_20261027.md)，独立协议见[closing_protocol_20261027.json](closing_protocol_20261027.json)。
 
 2026-10-27准备更新：[G0、Q-global及Spotiflow本地验收](preparation_20261027.md)已完成；正式训练尚未启动。包含独立CPU环境、导出/统一评价、混合尺寸XPU及原生Spotiflow小规模验证。

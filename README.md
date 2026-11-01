@@ -1,10 +1,16 @@
 # DNA Loci Imaging
 
+## 2026-10-30：Spotiflow CUDA结果已回收
+
+三种子适配、回传和本地验收已完成。同22张开发验证图上，Spotiflow适配F1为**0.8606±0.0034**，G0为**0.8251±0.0038**。Spotiflow更少误检，G0保留弱点Recall和计数误差方面的取舍；自有核心架构领先、充分调优和独立验证尚未成立。
+
+最新入口：[CUDA分析报告与图表](docs/next_stage_plan_20261025/cuda_analysis_20261030.md)、[后续scope](docs/next_stage_plan_20261025/next_scope_after_cuda_20261030.md)、[阶段状态](docs/next_stage_plan_20261025/README.md)。模型和私有审查材料保留本地，仓库整理聚合材料与复核代码。
+
 ## 220版训练与模型归档
 
 当前入口：[220版交付说明与文件校验](docs/clean220_release_20261026/README.md)。包含混合256/512图像训练、合并随机划分的三种子模型、同留出集数据扩充对照，以及首轮四项结构筛查的代码、检查点和结果。当前保留原DeepBlink主干，尚未建立结构改动收益；历史、内部测试和验证筛查成绩分开记录。
 
-下一轮设计见[阶段计划](docs/next_stage_plan_20261025/README.md)及[第二轮scope](docs/next_stage_plan_20261025/round2_20261026/README.md)。这些设计尚未实现或训练。大型图像NPZ与批量叠图保留本地，交付说明提供固定划分重建方法；原始数据不因本次归档而修改。
+后续设计与执行状态见[阶段计划](docs/next_stage_plan_20261025/README.md)及[第二轮scope](docs/next_stage_plan_20261025/round2_20261026/README.md)。结构筛查、关键消融和Spotiflow单配置三种子适配已有结果，未来计划与完成实验分开登记。大型图像NPZ与批量叠图保留本地，交付说明提供固定划分重建方法；原始数据不因本次归档而修改。
 
 ## 项目仓库结构
 
