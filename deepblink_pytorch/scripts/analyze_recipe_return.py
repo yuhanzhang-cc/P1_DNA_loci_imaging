@@ -96,9 +96,9 @@ def truth_reference(root):
     return valid,{k:np.asarray(v,np.float32) for k,v in truth.items()},{k:np.asarray(v,bool) for k,v in weak.items()},index
 
 
-def read_trials(ctx,valid,truth,weak):
+def read_trials(ctx,valid,truth,weak,methods=METHODS):
     records=[];images=[];point_sets={};radii=[];thresholds=[];curves=[];timings=[]
-    for method in METHODS:
+    for method in methods:
         for seed in SEEDS:
             folder=ctx["queue"]/method/f"seed_{seed}";selection=read_json(folder/"selection.json")
             history=rows(folder/"training_metrics.csv");sweep=rows(folder/"all_epoch_threshold_metrics.csv")

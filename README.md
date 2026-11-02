@@ -1,8 +1,8 @@
 # DNA Loci Imaging
 
-最新结果：[六次CUDA配方分析](docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102.md)。G0参考/增强F1为0.81975/0.81988，配对p=1.00；增强不升为默认。回传验收和六模型CPU重放完成。
+最新结果：[R0/H0 CUDA验收与比较](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102.md)。六次最小基线训练及H0恢复已验收，总训练记录41次。相同22图开发验证集上，R0/H0/G0参考F1为0.7887/0.8088/0.8197；H0定位误差较大，保留G0为简单候选。三种子差异均未达统计显著。
 
-当前交付：[固定模型推理候选版](docs/next_stage_plan_20261025/detection_release_20261102.md)；后续按[最短收尾SPEC](docs/next_stage_plan_20261025/short_term_closure_20261102.md)补R0/H0六次，Spotiflow scratch后置。核心架构收益与独立泛化仍待建立。
+当前交付：[固定模型推理候选版](docs/next_stage_plan_20261025/detection_release_20261102.md)；后续按[最短收尾SPEC](docs/next_stage_plan_20261025/short_term_closure_20261102.md)完成峰值/offset对齐诊断与盲审，再锁定单一核心机制及容量对照。R0/H0队列已完成，Spotiflow scratch后置。核心架构收益与独立泛化仍待建立。[前次增强分析](docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102.md)保留为历史阶段记录。
 
 原过夜设计：[SPEC与验收标准](docs/next_stage_plan_20261025/overnight_spec_20261101.md)，保留提案快照；本轮实际进度以11月2日汇报和最终验收JSON为准。
 

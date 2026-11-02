@@ -1,0 +1,4 @@
+comparison,seed,shared_true_points,a_mean_error_px,b_mean_error_px
+H0_cuda_reference-G0_ref_cuda,42,267,0.6509895233784744,0.43938663366943626
+H0_cuda_reference-G0_ref_cuda,43,280,0.6385365738678437,0.4015309061613152
+H0_cuda_reference-G0_ref_cuda,44,290,0.726556031605149,0.4243149411141248

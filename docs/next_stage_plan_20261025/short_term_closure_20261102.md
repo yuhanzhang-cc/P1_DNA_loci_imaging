@@ -1,5 +1,11 @@
 # 最短收尾SPEC：先交付，再补最小benchmark，再过核心机制关口
 
+2026-11-02 completion update: all six R0/H0 runs and the H0 recovery have passed
+[local acceptance and analysis](baseline_cuda_analysis_20261102.md). The minimum
+baseline queue below is completed; do not relaunch it. Retain G0, prioritize
+peak/offset alignment diagnostics and blinded FP review, then lock one justified
+core mechanism with capacity controls. Scratch remains deferred.
+
 日期：2026-11-02。依据：[六次CUDA结果分析](recipe_cuda_analysis_20261102.md)。目标是得到可复核、可运行、结论清楚的版本，停止无边界的增强/模块搜索。核心创新仍需实证；现有工作不能预写成“我们的最好”。
 
 ## A. 已完成的当前交付

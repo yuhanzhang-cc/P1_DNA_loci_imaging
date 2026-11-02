@@ -15,8 +15,12 @@ deepblink_pytorch/scripts/analyze_recipe_return.py text eol=lf
 deepblink_pytorch/scripts/build_loci_release.py text eol=lf
 deepblink_pytorch/scripts/predict_loci_release.py text eol=lf
 deepblink_pytorch/scripts/run_minimum_baselines.py text eol=lf
+deepblink_pytorch/scripts/recover_h0_boundary.py text eol=lf
+deepblink_pytorch/scripts/08_h0_recover.sh text eol=lf
+deepblink_pytorch/scripts/analyze_baseline_return.py text eol=lf
 deepblink_pytorch/scripts/validate_ablation_plan.py text eol=lf
 deepblink_pytorch/requirements-research-v4.txt text eol=lf
 # Preserve byte hashes of frozen aggregate evidence on Windows and Linux.
 docs/next_stage_plan_20261025/overnight_results_20261102/** -text
 docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102/** -text
+docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/** -text

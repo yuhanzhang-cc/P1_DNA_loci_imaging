@@ -1,0 +1,21 @@
+{
+  "source_sha256": "b2ea5f5298de8c29d95b4ef84ef554d0d5dc2e37b581f3f939db92eee5b936ea",
+  "source_revision": "working tree; see source hashes",
+  "reader_sha256": "030f960876830a21f93a55754ef664a766dd4653f96dc6932a06dc3b2b5c1b35",
+  "archive_sha256": {
+    "baseline_h0_results.tar.gz": "17155ed0646ddd18135ca1499d0fd0220944158550c7ea4dcaf6d35cf00e1d9a",
+    "baseline_r0_results.tar.gz": "85405ec4ab97c3ea4e7a3a0a6f06c48a22eada292a332663fb8caca548e16161",
+    "h0_recovery_backup_20261102T224431Z.tar.gz": "94e982bb3f7182a2a23d16b6b290a2fa2baaf525bc29dff666d53b582d3d5cee"
+  },
+  "estimand": "mean of three per-training-seed 3px micro-F1 values on the same 22 development images / 372 points",
+  "n_weak": 96,
+  "tests": "two-sided paired seed sign-flips; exploratory family of three contrasts, Holm",
+  "bootstrap": "10000 shared image resamples across all seeds, fixed selected models; not biological or selection-adjusted uncertainty",
+  "standard_ranked_ap_available": false,
+  "ap31_definition": "precision-envelope area over the existing 31 threshold policies at the fixed selected epoch",
+  "sampler_orders_matched": true,
+  "initial_weights_matched_across_architectures": false,
+  "no_new_threshold_selection": true,
+  "no_model_inference": true,
+  "test_arrays_read": false
+}
