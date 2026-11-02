@@ -1,5 +1,11 @@
 # DNA Loci Imaging
 
+最新结果：[六次CUDA配方分析](docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102.md)。G0参考/增强F1为0.81975/0.81988，配对p=1.00；增强不升为默认。回传验收和六模型CPU重放完成。
+
+当前交付：[固定模型推理候选版](docs/next_stage_plan_20261025/detection_release_20261102.md)；后续按[最短收尾SPEC](docs/next_stage_plan_20261025/short_term_closure_20261102.md)补R0/H0六次，Spotiflow scratch后置。核心架构收益与独立泛化仍待建立。
+
+原过夜设计：[SPEC与验收标准](docs/next_stage_plan_20261025/overnight_spec_20261101.md)，保留提案快照；本轮实际进度以11月2日汇报和最终验收JSON为准。
+
 ## 2026-10-30：Spotiflow CUDA结果已回收
 
 三种子适配、回传和本地验收已完成。同22张开发验证图上，Spotiflow适配F1为**0.8606±0.0034**，G0为**0.8251±0.0038**。Spotiflow更少误检，G0保留弱点Recall和计数误差方面的取舍；自有核心架构领先、充分调优和独立验证尚未成立。

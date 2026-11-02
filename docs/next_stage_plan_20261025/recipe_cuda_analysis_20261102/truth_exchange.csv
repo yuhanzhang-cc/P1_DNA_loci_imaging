@@ -1,0 +1,10 @@
+seed,category,n_points,weak_points,bright_points
+42,ref_only,24,9,15
+42,aug_only,30,9,21
+42,both,260,32,228
+43,ref_only,20,9,11
+43,aug_only,15,5,10
+43,both,278,32,246
+44,ref_only,18,9,9
+44,aug_only,19,5,14
+44,both,290,45,245

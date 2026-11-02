@@ -1,0 +1,8 @@
+{
+  "current_valid_in_old113_split": {
+    "train": 10,
+    "valid": 1,
+    "test": 3
+  },
+  "implication": "Historical weights are not a clean same-current-validation baseline because current validation includes their training images"
+}

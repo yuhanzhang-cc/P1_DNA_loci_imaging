@@ -1,5 +1,17 @@
 # DNA loci imaging：下一阶段分阶段计划
 
+最新入口：[六次CUDA结果与历史口径分析](recipe_cuda_analysis_20261102.md)、[最短收尾SPEC](short_term_closure_20261102.md)与[固定模型推理候选版](detection_release_20261102.md)。35项正式研究任务已完成，六次G0联合增强未建立3px F1收益；优先补R0/H0六次，scratch后置，核心机制及独立泛化待建立。
+
+本轮[聚合图表与来源](recipe_cuda_analysis_20261102/README.md)已归档；机器进度为`outputs/next_stage_v4_recipe_20261101/study_progress.json`。原[本地过夜汇报](overnight_report_20261102.md)保留Night-L完成快照。
+
+本轮可发布的聚合证据：[结果与验收摘要](overnight_results_20261102/README.md)；实验注册表同步登记完成与待跑状态。
+
+原过夜执行设计：[2026-11-01 SPEC](overnight_spec_20261101.md)与[参数草案](overnight_protocol_v4_proposed_20261101.yaml)保留提案状态；后续用户授权执行并扩展全课题搭建，实际验收以11月2日报告为准，不能以模板存在视为消融训练完成。
+
+## 2026-11-01长期进度复核
+
+最新分析已归档，长期目标与下一步见[11月1日复核计划](long_term_review_20261101.md)。当前完成工程、内部筛查、关键消融和首个强外部方法适配；核心架构、充分调优、完整benchmark及独立泛化仍未闭环。旧40图审查队列含38张训练/2张验证，且Spotiflow参照为Z1；应升级为适配模型，并并入全22张验证图，去重后60图。随后优先准备同CUDA后端的G0无增强/增强两组、三种子共6次对照；这是计划，不是已启动任务。
+
 ## 2026-10-30当前状态：CUDA适配与分析完成
 
 Spotiflow在RTX4090完成seed42/43/44，各100轮、4400更新；回传60份快照及1860组评价已经重核。开发F1：Spotiflow适配**0.8606±0.0034**，G0**0.8251±0.0038**，R0**0.8065±0.0021**。G0仍是自有简单候选，总体最高开发micro-F1由适配Spotiflow取得；R1特殊机制净收益仍未建立。两个探索性seed对比均为Holm p=0.50，ns。

@@ -1,0 +1,17 @@
+subset,k,flip,images,points,collision_points
+train,0,False,176,4156,6
+train,0,True,176,4156,3
+train,1,False,176,4156,3
+train,1,True,176,4156,3
+train,2,False,176,4156,3
+train,2,True,176,4156,4
+train,3,False,176,4156,4
+train,3,True,176,4156,6
+valid,0,False,22,372,0
+valid,0,True,22,372,0
+valid,1,False,22,372,0
+valid,1,True,22,372,0
+valid,2,False,22,372,0
+valid,2,True,22,372,0
+valid,3,False,22,372,0
+valid,3,True,22,372,0

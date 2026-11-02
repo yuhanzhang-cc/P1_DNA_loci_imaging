@@ -1,0 +1,16 @@
+queue,task_id,seed,key,augment,pipeline,epochs,updates,role,status,actual_new_epochs
+recipe,G0_ref_cuda,42,G0,False,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+recipe,G0_aug_cuda,42,G0,True,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+recipe,G0_ref_cuda,43,G0,False,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+recipe,G0_aug_cuda,43,G0,True,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+recipe,G0_ref_cuda,44,G0,False,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+recipe,G0_aug_cuda,44,G0,True,own,100,2200,fixed_structure_joint_augmentation_control,deferred_cuda_not_run,0
+baseline_r0,R0_cuda_reference,42,R0,False,own,100,2200,direct_reference,deferred_cuda_not_run,0
+baseline_r0,R0_cuda_reference,43,R0,False,own,100,2200,direct_reference,deferred_cuda_not_run,0
+baseline_r0,R0_cuda_reference,44,R0,False,own,100,2200,direct_reference,deferred_cuda_not_run,0
+baseline_h0,H0_cuda_reference,42,H0,False,own,100,2200,dense_heatmap_offset_representation_reference,deferred_cuda_not_run,0
+baseline_h0,H0_cuda_reference,43,H0,False,own,100,2200,dense_heatmap_offset_representation_reference,deferred_cuda_not_run,0
+baseline_h0,H0_cuda_reference,44,H0,False,own,100,2200,dense_heatmap_offset_representation_reference,deferred_cuda_not_run,0
+spotiflow_scratch,Spotiflow_scratch_control,42,Spotiflow,native,spotiflow_native,100,4400,pretraining_control_not_fully_tuned_scratch_baseline,deferred_cuda_not_run,0
+spotiflow_scratch,Spotiflow_scratch_control,43,Spotiflow,native,spotiflow_native,100,4400,pretraining_control_not_fully_tuned_scratch_baseline,deferred_cuda_not_run,0
+spotiflow_scratch,Spotiflow_scratch_control,44,Spotiflow,native,spotiflow_native,100,4400,pretraining_control_not_fully_tuned_scratch_baseline,deferred_cuda_not_run,0

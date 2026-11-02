@@ -1,0 +1,7 @@
+method,seed,model_reloaded,model_state_hash_verified,images,counts_identical,gpu_tp,cpu_tp,gpu_fp,cpu_fp,gpu_fn,cpu_fn,seconds,source_threshold,new_optimizer_updates
+G0_ref_cuda,42,True,True,22,True,284,284,43,43,88,88,11.15792590007186,0.9969382869377885,0
+G0_ref_cuda,43,True,True,22,True,298,298,57,57,74,74,10.67995320004411,0.00023465891033040226,0
+G0_ref_cuda,44,True,True,22,True,308,308,65,65,64,64,10.94683889998123,0.0710000191507991,0
+G0_aug_cuda,42,True,True,22,True,290,290,44,44,82,82,11.02800550009124,0.8730912143037655,0
+G0_aug_cuda,43,True,True,22,True,293,293,50,50,79,79,10.987825299846008,0.8730912143037655,0
+G0_aug_cuda,44,True,True,22,True,309,309,74,74,63,63,10.597375100012869,0.979308887729912,0

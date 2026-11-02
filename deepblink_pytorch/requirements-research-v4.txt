@@ -1,0 +1,16 @@
+# Python 3.12; install CUDA torch/torchvision separately using 01_setup.sh.
+# Reuses the validated Spotiflow environment; does not upgrade the shared env.
+numpy==2.5.2
+scipy==1.18.1
+matplotlib==3.11.2
+tifffile==2026.10.15
+pillow==12.3.0
+PyYAML==6.0.3
+click==8.5.0
+filelock==3.32.3
+spotiflow==0.6.5
+lightning==2.6.6
+torchmetrics==1.9.0
+pandas==3.1.0
+scikit-image==0.26.0
+psutil==7.2.2

@@ -1,0 +1,42 @@
+{
+  "historical_113": {
+    "images": 12,
+    "truth_points": 213,
+    "tp": 174,
+    "fp": 23,
+    "fn": 39,
+    "f1": 0.848780487804878,
+    "threshold": 0.4,
+    "split_counts": {
+      "train": 90,
+      "valid": 11,
+      "test": 12
+    },
+    "role": "single historical model; threshold inspected on historical test; not current baseline"
+  },
+  "current": {
+    "train_images": 176,
+    "valid_images": 22,
+    "truth_points": 372,
+    "test_images": 22,
+    "valid_old113_images": 14,
+    "valid_new107_images": 8,
+    "shared_images_with_historical_test": 3,
+    "matching_radius_px": 3.0,
+    "metric": "mean of three seed micro-F1 scores on development validation"
+  },
+  "metric_formula_changed": false,
+  "causal_explanation_of_cross_cohort_difference": "not_identifiable",
+  "legacy_G0": {
+    "f1_mean": 0.8251109670045741,
+    "device": "Intel Arc140T XPU",
+    "amp": "bfloat16",
+    "split_same": true
+  },
+  "new_G0": {
+    "device": "NVIDIA GeForce RTX 5090",
+    "precision": "CUDA float32",
+    "same_split_as_legacy": true
+  },
+  "independence": "biological groups unresolved; no new independent validation performed"
+}

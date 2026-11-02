@@ -5,3 +5,18 @@ outputs/next_stage_v3_closing_controls/** -text
 outputs/next_stage_spotiflow_20261030/** -text
 # Keep the analysis source hash stable across Windows and Linux checkouts.
 deepblink_pytorch/scripts/analyze_spotiflow_cuda.py text eol=lf
+deepblink_pytorch/scripts/research_v4/** text eol=lf
+deepblink_pytorch/scripts/*research_v4.py text eol=lf
+deepblink_pytorch/scripts/cloud_recipe_train.py text eol=lf
+deepblink_pytorch/scripts/cloud_job_control.py text eol=lf
+deepblink_pytorch/scripts/evaluate_external.py text eol=lf
+deepblink_pytorch/scripts/run_recipe_overnight.py text eol=lf
+deepblink_pytorch/scripts/analyze_recipe_return.py text eol=lf
+deepblink_pytorch/scripts/build_loci_release.py text eol=lf
+deepblink_pytorch/scripts/predict_loci_release.py text eol=lf
+deepblink_pytorch/scripts/run_minimum_baselines.py text eol=lf
+deepblink_pytorch/scripts/validate_ablation_plan.py text eol=lf
+deepblink_pytorch/requirements-research-v4.txt text eol=lf
+# Preserve byte hashes of frozen aggregate evidence on Windows and Linux.
+docs/next_stage_plan_20261025/overnight_results_20261102/** -text
+docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102/** -text

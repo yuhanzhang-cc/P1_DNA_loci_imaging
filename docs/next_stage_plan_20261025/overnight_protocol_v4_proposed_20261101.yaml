@@ -1,0 +1,217 @@
+spec_id: P1-NIGHT-V4-20261101
+version: 0.1
+status: proposed_not_implemented
+date_user_timezone: "2026-11-01 America/New_York"
+base_commit: 11f1d9a8
+execution_started: false
+default_phase: Night-L
+code_root: explicit_runtime_argument
+data_root: explicit_runtime_argument
+output_root: outputs/next_stage_v4_recipe_20261101
+
+data:
+  development_npz: outputs/next_stage_spotiflow_20261030/05_cuda_package/bundle/assets/development_only.npz
+  development_sha256: 84ceae4ecedac3856ca6c1b9be545cfab05d08ade7eaa499b7973b9fa86ffa25
+  split_csv: outputs/261024_clean220_random/frozen_split.csv
+  split_sha256: 3d3a0b6955f27cc0f2e244872718bdb831607e1f6a04a66a1a1d0e7806c1aed0
+  returned_bundle_manifest_sha256: e44ff41a6e92d1f64e3710f545aaedcd1971f27708898801fa1e83d786899f6f
+  allowed_npz_keys: [x_train, y_train, sample_id_train, original_shape_train, x_valid, y_valid, sample_id_valid, original_shape_valid]
+  train_images: 176
+  train_points: 4156
+  train_shapes: {"256": 73, "512": 103}
+  valid_images: 22
+  valid_points: 372
+  valid_shapes: {"256": 7, "512": 15}
+  excluded_samples: [sample_230, sample_286]
+  test_arrays_allowed: false
+  split_changes_allowed: false
+  label_changes_allowed: false
+  known_train_valid_container_overlap: 2
+
+local_phase:
+  name: Night-L
+  planned_window_hours: [6, 8]
+  final_report_reserve_minutes: 30
+  cpu_python: .venv/spotiflow_cpu/Scripts/python.exe
+  torch_threads: 4
+  dataloader_workers: 0
+  free_disk_min_gib: 10
+  synthetic_training_update_cap: 32
+  real_engineering_train_batches: {"256": 1, "512": 1}
+  formal_neural_training_tasks: 0
+  tasks_in_order: [input_and_source_audit, augmentation_preflight, finetuned_error_review, classical_baselines, runner_and_bundle, final_report]
+  existing_environment_policy: reuse_without_shared_upgrade
+  completion_status: local_preparation_complete
+  incomplete_status: partial_with_failures_or_deferred_tasks
+
+review:
+  original_queue: outputs/next_stage_v2/08_innovation/blinded_annotation_review_queue.csv
+  selection: union_original_40_with_all_22_validation_images
+  expected_unique_images: 60
+  expected_train_images: 38
+  expected_valid_images: 22
+  representative_seed: 42
+  methods: [R0, G0, Spotiflow_F_seed42]
+  expected_method_panels: 180
+  max_patches_per_image: 4
+  patch_selection: coordinate_sorted_union_of_reference_relative_FP_FN
+  display_percentiles: [1, 99.8]
+  output: outputs/next_stage_spotiflow_20261030/08_finetuned_error_review
+  cuda_model_root: outputs/next_stage_spotiflow_20261030/06_cuda_results/extracted/outputs/spotiflow_cuda
+  z1_fallback_allowed: false
+  private_key_publish_allowed: false
+  human_review_initial_status: pending
+  old_output_overwrite_allowed: false
+
+augmentation:
+  recipe_id: d4_and_post_zscore_affine_v1
+  train_only: true
+  order: [geometry_on_original_FOV, valid_region_zscore, intensity_affine, zero_pad_right_bottom_512, reencode_grid4_targets]
+  geometry:
+    rot90_k: [0, 1, 2, 3]
+    rot90_distribution: uniform
+    horizontal_flip_probability: 0.5
+    pixel_center_convention: integer_index
+    coordinate_compute_dtype: float64
+    roundoff_snap_tolerance_px: 0.0001
+    roundoff_snap_logged: true
+    roundoff_snap_changes_original_labels: false
+    out_of_tolerance_policy: fail
+    interpolation_allowed: false
+    point_deletion_allowed: false
+    static_collision_audit: every_development_image_times_all_8_transforms
+  intensity:
+    probability: 0.8
+    gain_uniform: [0.8, 1.2]
+    bias_uniform_zscore_units: [-0.2, 0.2]
+    gaussian_noise: false
+    renormalize_after_affine: false
+    clip_after_affine: false
+    padding_affected: false
+  rng: independent_keyed_seed_epoch_image_index
+  model_and_sampler_rng_consumption_allowed: false
+  validation_augmentation: false
+
+classical:
+  implementation_role: project_scale_space_reference_not_library_default_reproduction
+  preprocessing: percentile_1_99p8_clip_0_1_valid_FOV
+  constant_image: all_zero
+  gaussian_boundary: reflect
+  response: positive_max_over_registered_scales
+  peak_neighborhood: [3, 3]
+  nms: greedy_euclidean_response_desc_y_x_tie_break
+  exclude_border: false
+  subpixel_refinement: false
+  log:
+    min_sigma: [0.6, 1.0]
+    max_sigma: [2.0, 3.0, 4.0]
+    num_scales: [4, 8]
+    scale_spacing: geomspace
+    min_distance_px: [1.0, 2.0]
+    configuration_count: 24
+  dog:
+    min_sigma: [0.6, 1.0]
+    max_sigma: [2.0, 3.0, 4.0]
+    sigma_ratio: [1.4, 1.8]
+    min_distance_px: [1.0, 2.0]
+    configuration_count: 24
+  thresholds:
+    source: pooled_positive_training_candidate_responses_per_configuration
+    use_labels_to_generate_grid: false
+    quantiles_linear: {start: 0.0, stop: 0.9, count: 19}
+    quantiles_tail: [0.925, 0.95, 0.975, 0.99, 0.995, 0.9975, 0.999, 0.9995, 0.9999, 1.0]
+    boundaries: [all, none]
+    boundary_serialization: named_policy_not_JSON_infinity
+    deduplicate: true
+    threshold_cap: 31
+  validation_pair_cap_per_method: 744
+  validation_pair_cap_total: 1488
+  configuration_order: documented_cartesian_order_before_validation
+  selection: [max_micro_f1, max_precision, earlier_config_id, higher_threshold]
+  early_score_based_pruning: false
+  partial_search_reporting: explicit
+
+formal_phase:
+  name: Night-G
+  status: proposed_not_started
+  activation: execution_scope_includes_6_formal_tasks_and_cuda_resource_and_all_gates_pass
+  model: UNetDeepLociGridControl
+  parameter_count: 1265504
+  initialization: from_scratch_same_initial_state_per_paired_seed
+  device: cuda
+  precision: float32
+  amp: false
+  tf32: false
+  memory_format: channels_last_NCHW
+  inference_dtype: float32
+  deterministic_algorithms: true
+  device_fallback_allowed: false
+  batch_size_change_allowed: false
+  epochs_per_task: 100
+  updates_per_epoch: 22
+  updates_per_task: 2200
+  batch_size: 8
+  optimizer: Adam
+  optimizer_betas: [0.9, 0.999]
+  optimizer_eps: 0.00000001
+  learning_rate: 0.001
+  weight_decay: 0.0
+  scheduler: none
+  dropout: 0.3
+  loss: dice_plus_2_rmse
+  input_canvas: 512
+  crop: false
+  sampler: without_replacement_independent_generator
+  sampler_order_identical_per_paired_seed: true
+  seeds: [42, 43, 44]
+  configurations:
+    G0_ref_cuda: {augmentation: false}
+    G0_aug_cuda: {augmentation: true, recipe_id: d4_and_post_zscore_affine_v1}
+  task_order:
+    - [G0_ref_cuda, 42]
+    - [G0_aug_cuda, 42]
+    - [G0_ref_cuda, 43]
+    - [G0_aug_cuda, 43]
+    - [G0_ref_cuda, 44]
+    - [G0_aug_cuda, 44]
+  max_tasks: 6
+  max_epochs: 600
+  max_updates: 13200
+  inference_augmentation: false
+  early_stopping: false
+  extra_search: false
+  elapsed_estimate: measured_first_5_epochs_on_actual_gpu
+
+evaluation:
+  subset: valid_only
+  full_original_FOV: true
+  coordinate_order: y_x_pixel
+  matching_radius_px: 3.0
+  matching: maximum_cardinality_then_minimum_distance
+  checkpoint_epochs: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+  probability_thresholds: existing_THRESHOLDS_V3_0_expit_linspace_minus9_plus9_29_1
+  threshold_count: 31
+  selection_pairs_per_task: 620
+  primary_selection: [max_micro_f1, max_precision, earlier_epoch, higher_threshold]
+  secondary_selection: lowest_native_valid_loss_among_same_20_then_same_threshold_grid
+  weak_cutoff: 2.4566830772038957
+  weak_validation_points: 96
+  primary_contrast: G0_aug_cuda_minus_G0_ref_cuda
+  primary_seed_count: 3
+  significance_role: exploratory_exact_two_sided_sign_flip_no_star_target
+  conditional_image_bootstrap: {draws: 10000, seed: 20261025, selection_adjusted: false}
+  performance_gain_required_for_task_success: false
+
+gates:
+  before_local_ready: [input_hashes, no_test_access, geometry_and_effective_intensity, full_target_mask_checks, exact_cpu_resume, correct_review_models_and_60_ids, classical_complete, bundle_integrity_and_bash_syntax, protected_history_unchanged]
+  before_formal_training: [local_ready, locked_sources_and_protocol, actual_cuda_smoke, full_batch8_512_smoke, initial_weights_and_sampler_pairing, available_cuda_resource]
+  human_review_is_separate: true
+  human_review_required_for_mechanism_claims: true
+  cpu_smoke_can_authorize_cuda: false
+  semantic_change_after_lock: new_version_not_silent_resume
+
+publishing:
+  current_request: spec_authoring_only
+  publish_outputs_recursively: false
+  allowed: [code, docs, aggregate_tables, aggregate_figures, configuration_and_hashes]
+  local_only: [raw_images, development_npz, training_weights, recovery_checkpoints, review_images, review_key_private, per_image_or_point_predictions]

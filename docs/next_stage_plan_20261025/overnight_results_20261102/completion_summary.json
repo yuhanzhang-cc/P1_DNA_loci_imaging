@@ -1,0 +1,43 @@
+{
+  "status": "local_preparation_complete",
+  "updated_user_time": "2026-11-02T11:13:32-05:00",
+  "formal_training_tasks_started": 0,
+  "new_data_collected": false,
+  "test_arrays_loaded": false,
+  "raw_files_unchanged": 396,
+  "protected_artifacts_unchanged": 62,
+  "human_review_completed": false,
+  "synthetic_optimizer_updates_total": 25,
+  "discarded_real_optimizer_updates": 2,
+  "default_gpu_tasks_deferred": 6,
+  "optional_baseline_gpu_tasks_deferred": 9,
+  "core_ablation_enabled": 0,
+  "verification": {
+    "passed": true,
+    "source_revision": "ce2d1821ceec",
+    "archives_sha_and_crc": true,
+    "all_extracted_manifest_hashes": true,
+    "standalone_import": true,
+    "bash_syntax_scripts": 9,
+    "frozen_models_reloaded": 9,
+    "synthetic_images_only": 2,
+    "targeted_tests": 13,
+    "local_pip_check": true,
+    "new_optimizer_updates": 0,
+    "cuda_tested": false,
+    "linux_installation_tested": false
+  },
+  "bundle_revision": "ce2d1821ceec",
+  "private_archives": [
+    {
+      "bytes": 57784381,
+      "sha256": "11fa9c7341fee2803dd550d7d2479f3ef3f56404c963dcf1771149a39a1734e3",
+      "files": 76
+    },
+    {
+      "bytes": 217304575,
+      "sha256": "05577a4e58b9ee36d910fd4496e23cd1d4f2078adbb0bfd8d10b10620360ac09",
+      "files": 86
+    }
+  ]
+}

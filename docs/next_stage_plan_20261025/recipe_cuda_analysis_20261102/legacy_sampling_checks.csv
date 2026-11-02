@@ -1,0 +1,4 @@
+seed,epochs,training_image_order_identical_to_old_XPU
+42,100,True
+43,100,True
+44,100,True

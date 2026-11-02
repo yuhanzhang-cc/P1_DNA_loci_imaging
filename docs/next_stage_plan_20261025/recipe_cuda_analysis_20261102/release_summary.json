@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "release_id": "p1_loci_detection_rc_20261102",
+  "archive_sha256": "e95950d7c21fc676e41cea8d7324b9bf1408fa3beaba308598bee2d295d53672",
+  "bytes": 58324199,
+  "delivered_files": 46,
+  "models": 2,
+  "default_method": "spotiflow",
+  "cuda_inference_tested_here": false,
+  "source_builder_sha256": "e17893f2316fc911415a3a70ffce8f07af80525ad728b088ff02a98756c5a6cd",
+  "raw_images_included": false,
+  "new_training_tasks": 0
+}

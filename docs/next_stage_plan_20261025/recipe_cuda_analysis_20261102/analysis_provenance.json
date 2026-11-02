@@ -1,0 +1,52 @@
+{
+  "return_archive_sha256": "58aa59c404654076bdc92337e27d4d4d3c1f142d45b4a9cec760867b13b53a1e",
+  "code_sha256": "90b88bdab861e1a6488d26f89162f0c0efd9f072dd5a2eea1997e9291300dd4f",
+  "original_bundle_manifest_sha256": "d40e993fca53e5478b7d2988992ffd8344cb8803af95eac984166543651c5b90",
+  "development_npz_sha256": "84ceae4ecedac3856ca6c1b9be545cfab05d08ade7eaa499b7973b9fa86ffa25",
+  "split_csv_sha256": "3d3a0b6955f27cc0f2e244872718bdb831607e1f6a04a66a1a1d0e7806c1aed0",
+  "historical_summary_sha256": "0f960058c79aa109857bc1a77aed164fae304ad1f01e86bd1aba418ac361e69d",
+  "truth_features_sha256": "dd4adf50eddcd0566418b5012422665a24fe7a1877ff02a876448082fdecdd04",
+  "new_training_tasks": 0,
+  "returned_formal_tasks": 6,
+  "returned_epochs": 600,
+  "returned_updates": 13200,
+  "returned_selection_pairs": 3720,
+  "model_cpu_replay": {
+    "passed": true,
+    "models": 6,
+    "images_per_model": 22,
+    "accessed_array_keys": [
+      "x_valid",
+      "y_valid",
+      "sample_id_valid",
+      "original_shape_valid"
+    ],
+    "test_arrays_read": false,
+    "new_optimizer_updates": 0
+  },
+  "additional_npz_metadata_key": "sample_id_train",
+  "test_arrays_read": false,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261025,
+  "bootstrap_unit": "image conditional on fixed selected models",
+  "selection_adjusted": false,
+  "paired_n": 3,
+  "primary_test": "exact two-sided paired sign-flip",
+  "primary_p": 1.0,
+  "primary_delta_f1": 0.00013691072114456007,
+  "secondary_p_family": "11 supporting primary-role metrics, Holm",
+  "exploratory_strata": true,
+  "biological_independence": "unresolved",
+  "source_spotiflow_match_hashes": {
+    "outputs/next_stage_spotiflow_20261030/06_cuda_results/extracted/outputs/spotiflow_cuda/seed_42/primary/matches.csv": "82e801fef03f00896b81d77da0b539524963e643fb0397a8a7382c700141b0fe",
+    "outputs/next_stage_spotiflow_20261030/06_cuda_results/extracted/outputs/spotiflow_cuda/seed_43/primary/matches.csv": "34a54183726dd8f353b6a8d06ff9916832fad191bb4c290a8396fb87b2ed84dc",
+    "outputs/next_stage_spotiflow_20261030/06_cuda_results/extracted/outputs/spotiflow_cuda/seed_44/primary/matches.csv": "5d4a8c59c40389be37166ade72c5f81bd7bfe6fed5fe0f726de48c392cb291d4"
+  },
+  "figure_uncertainty": "sample SD across three training seeds; learning-curve shading same SD",
+  "scientific_agent_skills_reference": "https://doi.org/10.48550/arXiv.2609.00065",
+  "bootstrap_95pct_delta_f1": [
+    -0.02142117976873986,
+    0.023945114151833438
+  ]
+}
