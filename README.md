@@ -1,5 +1,7 @@
 # DNA Loci Imaging
 
+无训练骨架（2026-11-03）：S0/P0、等参数对照、消融、独立test/ranked AP及盲审回填接口已分离为 **scaffold only, not run**。入口与证据见 [骨架交接](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/scaffold_20261103/README.md)。不改现有模型或结论，真实训练计数仍为41；新方法均为not_started，未启用的参数等待盲审/机制确认。
+
 最新结果：[R0/H0 CUDA验收与比较](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102.md)。六次最小基线训练及H0恢复已验收，总训练记录41次。相同22图开发验证集上，R0/H0/G0参考F1为0.7887/0.8088/0.8197；H0定位误差较大，保留G0为简单候选。三种子差异均未达统计显著。
 
 当前交付：[固定模型推理候选版](docs/next_stage_plan_20261025/detection_release_20261102.md)；后续按[最短收尾SPEC](docs/next_stage_plan_20261025/short_term_closure_20261102.md)完成峰值/offset对齐诊断与盲审，再锁定单一核心机制及容量对照。R0/H0队列已完成，Spotiflow scratch后置。核心架构收益与独立泛化仍待建立。[前次增强分析](docs/next_stage_plan_20261025/recipe_cuda_analysis_20261102.md)保留为历史阶段记录。

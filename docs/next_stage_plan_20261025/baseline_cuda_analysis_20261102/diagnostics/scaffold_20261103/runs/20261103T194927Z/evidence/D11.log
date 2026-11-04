@@ -1,0 +1,2 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\inspect_docs.py --data-root D:\Projects\P1_DNA_loci_imaging --dry-run
+{"passed": true, "scaffold_entries": 3, "all_status": "not_started", "completed_training_count": 41, "new_training": 0}

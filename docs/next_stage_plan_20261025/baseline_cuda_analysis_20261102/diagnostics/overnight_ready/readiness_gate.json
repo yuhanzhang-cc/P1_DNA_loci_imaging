@@ -1,0 +1,7 @@
+{
+  "ready": true,
+  "training_enabled": false,
+  "architecture_changes_enabled": false,
+  "reviewer_zip_sha256": "e4ab9f0eeb1d434248a4b0d323e1d92738f9af5ad414dc3f7f1f2d59a747e621",
+  "human_review_pending": true
+}

@@ -1,0 +1,88 @@
+{
+  "status": "scaffold only, not run",
+  "formal_completed_training_count": 41,
+  "new_training_started": 0,
+  "tasks": [
+    {
+      "method": "S0",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "S0",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "S0",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "P0",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "P0",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "P0",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": null,
+      "counts_as_new_trial": true
+    },
+    {
+      "method": "CAP_P0",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": "S0",
+      "counts_as_new_trial": false
+    },
+    {
+      "method": "CAP_P0",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": "S0",
+      "counts_as_new_trial": false
+    },
+    {
+      "method": "CAP_P0",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "alias_of": "S0",
+      "counts_as_new_trial": false
+    }
+  ]
+}

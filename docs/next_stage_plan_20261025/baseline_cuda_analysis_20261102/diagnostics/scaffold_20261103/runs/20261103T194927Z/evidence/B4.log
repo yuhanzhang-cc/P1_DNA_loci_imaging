@@ -1,0 +1,100 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\ablation_runner.py --matrix D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\ablation_matrix.json --dry-run
+{
+  "passed": true,
+  "dry_run": true,
+  "optimizer_updates": 0,
+  "cells": [
+    {
+      "id": "base",
+      "status": "reuse_completed_H0",
+      "new_runs": 0
+    },
+    {
+      "id": "capacity",
+      "status": "schema_valid_scaffold_only",
+      "method": "S0",
+      "new_runs": 3
+    },
+    {
+      "id": "full",
+      "status": "schema_valid_scaffold_only",
+      "method": "P0",
+      "new_runs": 3
+    },
+    {
+      "id": "minus_support",
+      "status": "alias_deduplicated",
+      "alias_of": "S0",
+      "new_runs": 0
+    },
+    {
+      "id": "minus_signed",
+      "status": "excluded_invalid",
+      "reason": "Illegal bounded-offset neighborhood: targets can be unrepresentable",
+      "new_runs": 0
+    }
+  ],
+  "would_check_commands": [
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\S0.json",
+      "--seed",
+      "42",
+      "--dry-run"
+    ],
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\S0.json",
+      "--seed",
+      "43",
+      "--dry-run"
+    ],
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\S0.json",
+      "--seed",
+      "44",
+      "--dry-run"
+    ],
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json",
+      "--seed",
+      "42",
+      "--dry-run"
+    ],
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json",
+      "--seed",
+      "43",
+      "--dry-run"
+    ],
+    [
+      "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json",
+      "--seed",
+      "44",
+      "--dry-run"
+    ]
+  ],
+  "commands_executed": 0
+}
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\S0.json --seed 42 --dry-run
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\S0.json --seed 43 --dry-run
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\S0.json --seed 44 --dry-run
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\P0.json --seed 42 --dry-run
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\P0.json --seed 43 --dry-run
+C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\P0.json --seed 44 --dry-run

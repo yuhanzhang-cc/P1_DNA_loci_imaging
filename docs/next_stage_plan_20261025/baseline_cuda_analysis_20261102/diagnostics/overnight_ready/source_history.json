@@ -1,0 +1,6 @@
+{
+  "generation_source_sha256": "6404ed236168c64e96c654a6f5a6beb1b08464d0417655e48906bfd3d34b620c",
+  "current_source_sha256": "4a1f616362aaccfe833234f98ef79f5880e4b2d729b758f75e4b6a20d4b2ba7a",
+  "post_generation_change": "Added validation-only observed-error lower-bound assertion; numeric output formula unchanged",
+  "exact_generation_snapshot": "private/generator_at_generation.txt"
+}

@@ -1,0 +1,7 @@
+reviewer_pair,stratum,outcome,total_cases,comparable_pairs,missing_or_uncertain_pairs,agreements,agreement
+1-2,common_tp,candidate_is_real_spot,20,20,0,20,1.0
+1-2,common_tp,adjudicated_detection_label,20,20,0,16,0.8
+1-2,h0_only_fp,candidate_is_real_spot,20,20,0,20,1.0
+1-2,h0_only_fp,adjudicated_detection_label,20,20,0,15,0.75
+1-2,h0_only_tp,candidate_is_real_spot,20,20,0,20,1.0
+1-2,h0_only_tp,adjudicated_detection_label,20,20,0,15,0.75

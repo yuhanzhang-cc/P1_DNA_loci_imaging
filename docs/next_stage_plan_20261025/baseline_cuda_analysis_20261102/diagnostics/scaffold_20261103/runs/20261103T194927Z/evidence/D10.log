@@ -1,0 +1,35 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\reproduce.py --data-root D:\Projects\P1_DNA_loci_imaging --dry-run
+{
+  "passed": true,
+  "dry_run": true,
+  "steps": [
+    "Checkout a revision containing these scaffold files (current working tree is not yet published)",
+    "Use Python >=3.10; table reproduction is standard-library-only",
+    "Download/verify/extract R0,H0 and six-run G0 archives into a separate results root; no raw training images required",
+    "Supply --data-root pointing at that results root; never overwrite a protected extracted directory",
+    "Read frozen primary and native-secondary exports; reproduce per-seed and mean/sample-SD tables",
+    "Keep test_evaluated=false and formal training count=41"
+  ],
+  "missing_artifact_mounts": [],
+  "artifact_data_not_in_git": true,
+  "new_training": 0,
+  "clean_checkout_executed": false
+}
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\reproduce.py --data-root D:\Projects\P1_DNA_loci_imaging --output D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\runs\20261103T194927Z\examples\clean_reproduction_table --run-readonly
+{"passed": true, "dry_run": true, "rows": 18, "summaries": 6, "new_training": 0, "ranked_ap_derived_from_thresholded_csv": false}
+{
+  "passed": true,
+  "dry_run": false,
+  "steps": [
+    "Checkout a revision containing these scaffold files (current working tree is not yet published)",
+    "Use Python >=3.10; table reproduction is standard-library-only",
+    "Download/verify/extract R0,H0 and six-run G0 archives into a separate results root; no raw training images required",
+    "Supply --data-root pointing at that results root; never overwrite a protected extracted directory",
+    "Read frozen primary and native-secondary exports; reproduce per-seed and mean/sample-SD tables",
+    "Keep test_evaluated=false and formal training count=41"
+  ],
+  "missing_artifact_mounts": [],
+  "artifact_data_not_in_git": true,
+  "new_training": 0,
+  "clean_checkout_executed": false
+}
