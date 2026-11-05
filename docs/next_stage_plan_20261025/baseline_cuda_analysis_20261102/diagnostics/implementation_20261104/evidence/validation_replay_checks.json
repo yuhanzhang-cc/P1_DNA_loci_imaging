@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "models": 9,
+  "all_thresholded_counts_equal": true,
+  "full_ranked_ap": true,
+  "threshold_refitted": false,
+  "formal_training_started": false,
+  "test_evaluated": false,
+  "real_optimizer_updates": 0
+}

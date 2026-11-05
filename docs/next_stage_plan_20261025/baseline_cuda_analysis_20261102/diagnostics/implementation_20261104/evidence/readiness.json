@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "optimizer_updates": 0,
+  "gpu_used": false,
+  "test_evaluated": false,
+  "protected_files_unchanged": 362,
+  "paired_initialization": [
+    {
+      "seed": 42,
+      "local_h0_s0_p0_initialization_exact": true,
+      "initial_state_sha256": "a1b2047e20dcd90877060f3536dacdd674320e132a283659f45950ca81fbe1b7",
+      "historical_cuda_initialization_equal": false,
+      "sampler_exact": true
+    },
+    {
+      "seed": 43,
+      "local_h0_s0_p0_initialization_exact": true,
+      "initial_state_sha256": "6306bc85c82ad1a12ce388f9644308333c6d736420d6bdad45709e607bf92b99",
+      "historical_cuda_initialization_equal": false,
+      "sampler_exact": true
+    },
+    {
+      "seed": 44,
+      "local_h0_s0_p0_initialization_exact": true,
+      "initial_state_sha256": "6634d291e93e93f74333eeade66b72b2758e1377d92b6cb93de804828e5a8e74",
+      "historical_cuda_initialization_equal": false,
+      "sampler_exact": true
+    }
+  ],
+  "p0_fixture_only": true,
+  "p0_real_parameters_still_todo": {
+    "radius_px": null,
+    "ownership": null,
+    "normalization": null
+  },
+  "p0_target_coverage": [
+    {
+      "split": "train",
+      "images": 176,
+      "truth_points": 4156,
+      "max_per_truth_weight_mass_error": 1.1920928955078125e-07
+    },
+    {
+      "split": "valid",
+      "images": 22,
+      "truth_points": 372,
+      "max_per_truth_weight_mass_error": 0.0
+    }
+  ],
+  "formal_training_count": 41,
+  "formal_launch_ready": false,
+  "remaining_gates": [
+    "human mechanism review",
+    "P0 blind audit and parameters",
+    "actual CUDA source-bound probe and historical initialization check"
+  ]
+}

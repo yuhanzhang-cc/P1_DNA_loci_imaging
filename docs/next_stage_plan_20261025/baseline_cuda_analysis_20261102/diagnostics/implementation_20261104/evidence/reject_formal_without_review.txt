@@ -1,0 +1,10 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\cli.py", "--config", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\implementation_20261104\\configs\\S0.json", "--train", "--device", "cuda", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\18_mechanism_ready_20261104\\must_not_exist"]
+EXIT 1
+Traceback (most recent call last):
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\cli.py", line 10, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\runner.py", line 274, in main
+    if args.approval is None or args.probe is None:raise ValueError("--approval and --probe required")
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: --approval and --probe required

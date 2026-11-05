@@ -1,0 +1,136 @@
+{
+  "local_engineering_passed": true,
+  "checks": [
+    {
+      "check": "unit_mechanism_and_diagnostics",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "unit_mechanism_and_diagnostics.txt"
+    },
+    {
+      "check": "unit_scaffolds",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "unit_scaffolds.txt"
+    },
+    {
+      "check": "config_S0",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "config_S0.txt"
+    },
+    {
+      "check": "config_P0",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "config_P0.txt"
+    },
+    {
+      "check": "reject_formal_without_review",
+      "passed": true,
+      "exit_code": 1,
+      "evidence": "reject_formal_without_review.txt"
+    },
+    {
+      "check": "reject_unset_P0_parameters",
+      "passed": true,
+      "exit_code": 1,
+      "evidence": "reject_unset_P0_parameters.txt"
+    },
+    {
+      "check": "independent_eval_dry_run",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "independent_eval_dry_run.txt"
+    },
+    {
+      "check": "readiness",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "readiness.txt"
+    },
+    {
+      "check": "bundle_verify",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "bundle_verify.txt"
+    },
+    {
+      "check": "bundle_status",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "bundle_status.txt"
+    },
+    {
+      "check": "bundle_launch_dry_run",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "bundle_launch_dry_run.txt"
+    },
+    {
+      "check": "shell_syntax_00_verify",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_00_verify.txt"
+    },
+    {
+      "check": "shell_syntax_01_setup",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_01_setup.txt"
+    },
+    {
+      "check": "shell_syntax_02_smoke",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_02_smoke.txt"
+    },
+    {
+      "check": "shell_syntax_03_start",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_03_start.txt"
+    },
+    {
+      "check": "shell_syntax_04_status",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_04_status.txt"
+    },
+    {
+      "check": "shell_syntax_05_pack_results",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_05_pack_results.txt"
+    },
+    {
+      "check": "shell_syntax_06_resume",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_06_resume.txt"
+    },
+    {
+      "check": "shell_syntax_07_plan",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "shell_syntax_07_plan.txt"
+    }
+  ],
+  "unit_tests_passed": 59,
+  "protected_files_unchanged": 362,
+  "formal_training_count": 41,
+  "formal_training_started": false,
+  "real_optimizer_updates": 0,
+  "gpu_used": false,
+  "test_images_read": 0,
+  "human_review_completed": false,
+  "cuda_tested": false,
+  "historical_cuda_initialization_pending": true,
+  "formal_launch_ready": false,
+  "private_upload_archive": {
+    "name": "p1_signed_offset_v1r3.zip",
+    "bytes": 57800419,
+    "sha256": "cc336e842605ab4e86cf06ce21e736dcb013d39846da57ba3328688d881454d1",
+    "members": 95
+  }
+}

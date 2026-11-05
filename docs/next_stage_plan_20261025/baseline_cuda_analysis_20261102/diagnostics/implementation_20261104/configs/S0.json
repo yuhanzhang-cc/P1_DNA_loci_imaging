@@ -1,0 +1,13 @@
+{
+  "schema": "signed_offset_experiment_v1",
+  "method": "S0",
+  "status": "not_started",
+  "formal_training_counted": false,
+  "adapter_implemented": true,
+  "expected_parameters": 671719,
+  "seeds": [42, 43, 44],
+  "supervision": {"radius_px": 0, "ownership": "single_floor_anchor", "normalization": "anchor_mean"},
+  "recipe": {"epochs":100,"updates":2200,"batch_size":8,"canvas":512,"optimizer":"Adam","lr":0.001,"period":5,"threshold_count":31,"precision":"float32","augment":false},
+  "decision_status": "pending_human_mechanism_review",
+  "capacity_control_for": "P0; alias only, no additional capacity-control training"
+}

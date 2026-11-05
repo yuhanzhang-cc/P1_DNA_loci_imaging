@@ -1,0 +1,4 @@
+# Keep private per-point inference products and generated model states local.
+local_runs/
+*.zip
+*.sha256

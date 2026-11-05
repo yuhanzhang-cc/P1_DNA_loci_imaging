@@ -1,0 +1,14 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\cli.py", "--config", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\implementation_20261104\\configs\\P0.json", "--smoke", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\18_mechanism_ready_20261104\\p0_must_not_exist"]
+EXIT 1
+Traceback (most recent call last):
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\cli.py", line 10, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\runner.py", line 265, in main
+    validate(config,require_parameters=args.smoke or args.train or args.ready_check)
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\contracts.py", line 39, in validate
+    if require_parameters:supervision(config)
+                          ^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\mechanism_v1\adapter.py", line 40, in supervision
+    raise ValueError("P0 radius is TODO or outside implemented 1..8 square support")
+ValueError: P0 radius is TODO or outside implemented 1..8 square support
