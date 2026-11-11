@@ -1,0 +1,75 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\deepblink_pytorch\\scripts\\diagnostics\\handoff_v2\\cli.py", "run", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2", "--dry-run"]
+EXIT 0
+{
+  "schema": "paired_mechanism_pipeline_v2",
+  "dry_run": true,
+  "training_started": false,
+  "stages": [
+    "verify_sealed_kit",
+    "verify_real_frozen_decision",
+    "record_CUDA_environment_and_all_three_initializations",
+    "S0_full_geometry_probe",
+    "P0_full_geometry_probe",
+    "S0_seed42",
+    "P0_seed42",
+    "compute_predeclared_development_gate",
+    "if_pass_and_preapproved:S0_43,P0_43,S0_44,P0_44",
+    "verify_completed_artifacts",
+    "pack_results_with_checksums",
+    "local_ingest_and_report"
+  ],
+  "command_examples": [
+    [
+      "D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe",
+      "-u",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\cli.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\decisions\\frozen_configs\\S0.json",
+      "--data-root",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2",
+      "--assets",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\assets",
+      "--device",
+      "cuda",
+      "--seed",
+      "42",
+      "--train",
+      "--approval",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\decisions\\S0.json",
+      "--probe",
+      "<automatically_registered_probe>",
+      "--output",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\outputs\\trials\\S0\\seed_42"
+    ],
+    [
+      "D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe",
+      "-u",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\cli.py",
+      "--config",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\decisions\\frozen_configs\\P0.json",
+      "--data-root",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2",
+      "--assets",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\assets",
+      "--device",
+      "cuda",
+      "--seed",
+      "42",
+      "--train",
+      "--approval",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\decisions\\P0.json",
+      "--probe",
+      "<automatically_registered_probe>",
+      "--output",
+      "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2\\outputs\\trials\\P0\\seed_42"
+    ]
+  ],
+  "no_new_ordinary_baselines": true,
+  "test_arrays_allowed": false,
+  "maximum_formal_runs": 6,
+  "true_remaining_inputs": [
+    "real image review",
+    "explicit research decision including P0 parameters",
+    "actual CUDA availability"
+  ]
+}

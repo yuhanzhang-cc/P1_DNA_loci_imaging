@@ -25,6 +25,9 @@ def code_hashes():
     selected=list((ROOT/"deepblink_pytorch/deepblink_torch").rglob("*.py"))
     for directory in ("research_v4","diagnostics/mechanism_v1","diagnostics/scaffolds"):
         selected+=list((ROOT/"deepblink_pytorch/scripts"/directory).glob("*.py"))
+    # New handoff runtime/static UI are part of the source-bound CUDA probe.
+    handoff=ROOT/"deepblink_pytorch/scripts/diagnostics/handoff_v2"
+    for suffix in ("*.py","*.html","*.js"):selected+=list(handoff.glob(suffix))
     return {p.relative_to(ROOT).as_posix():sha(p) for p in sorted(selected)}
 
 

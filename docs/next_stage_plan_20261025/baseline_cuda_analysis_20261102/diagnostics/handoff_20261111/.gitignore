@@ -1,0 +1,4 @@
+private/
+qa_private/
+*.zip
+*.zip.sha256

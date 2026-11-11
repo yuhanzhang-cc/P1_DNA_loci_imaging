@@ -1,0 +1,30 @@
+{
+  "source_sha256": "c065eb4db1f405bb36142d9ca6c1ff24783f74156a764dd1c87d64d40c8f33ea",
+  "coverage": [
+    {
+      "radius_px": 0,
+      "tp_events": 914,
+      "source_anchor_in_square_support": 251,
+      "fraction": 0.27461706783369805
+    },
+    {
+      "radius_px": 1,
+      "tp_events": 914,
+      "source_anchor_in_square_support": 803,
+      "fraction": 0.8785557986870897
+    },
+    {
+      "radius_px": 2,
+      "tp_events": 914,
+      "source_anchor_in_square_support": 913,
+      "fraction": 0.9989059080962801
+    },
+    {
+      "radius_px": 3,
+      "tp_events": 914,
+      "source_anchor_in_square_support": 914,
+      "fraction": 1.0
+    }
+  ],
+  "interpretation": "Conditional on existing H0 matched-TP events across3seeds, not independent spots; before overlap ownership; no new training or hyperparameter optimum established"
+}

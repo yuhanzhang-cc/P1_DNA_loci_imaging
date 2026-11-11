@@ -1,0 +1,15 @@
+{
+  "schema": "p1_research_decision_v2",
+  "approved": false,
+  "approved_by": "",
+  "approved_at": "",
+  "synthetic_fixture": false,
+  "labels_need_revision": null,
+  "methods": ["S0", "P0"],
+  "seeds": [42, 43, 44],
+  "p0_supervision": {"radius_px": null, "ownership": "nearest_truth_then_index", "normalization": "per_truth_mean"},
+  "continuation_gate": {"minimum_common_tp":20,"min_common_error_improvement_px":0.1,"min_f1_delta":-0.005,"max_near_truth_fp_delta":0},
+  "auto_expand_if_gate_passes": false,
+  "review_limitations_acknowledged": false,
+  "notes": "Template only. Parameters and review decisions require actual human confirmation. Radius2 is an unapproved proposal. Never fill this automatically."
+}

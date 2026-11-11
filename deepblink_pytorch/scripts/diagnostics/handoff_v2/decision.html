@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'">
+<title>一次研究方案确认</title><style>body{font:17px system-ui;max-width:820px;margin:30px auto;padding:20px;background:#f4f6f8;color:#17212b}main{background:white;border:1px solid #d8dfe6;padding:25px;border-radius:12px}label{display:block;margin:20px 0;line-height:1.6}input,select,button,textarea{font:inherit;padding:8px}button{background:#174e80;color:white;border:0;border-radius:6px}textarea{width:100%}p{line-height:1.65}.warning{color:#8a4300}#message{color:#174e80}</style>
+<main><h1>一次研究方案确认</h1><p>请先完成人工图像审阅。这张表只记录你的真实决定，不自动审批。提交后脚本会绑定答案与配置的哈希；无需手填哈希或改 Python 代码。</p>
+<label>研究决定确认者 <input id="name" autocomplete="off" placeholder="姓名或缩写"></label>
+<label>是否发现必须先修订训练/评价标注的问题？ <select id="revision"><option value="">请选择</option><option value="no">目前无需先修订，可按冻结标签做机制对照</option><option value="yes">需要先复核/修订标注，暂不启动机制训练</option></select></label>
+<p>S0：保持 H0 参数、floor 单锚点和损失，offset 改为线性有符号值。P0：同一模型，在邻域内监督 truth − source；重叠按最近真值及索引决定，每个真值总权重一致。G0 继续保留为实际候选。</p>
+<label>P0 邻域半径（原始像素） <select id="radius"><option value="">待决定</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label>
+<p class="warning">半径 2 仅是既有工程提案，尚未选定；不能用肉眼直接估算最优半径。如果证据不足，请留空，先讨论，不导出批准决定。</p>
+<p>先运行 S0/P0 seed42。既有提案继续条件：共同 TP 至少 20 个、P0 定位平均改善 ≥0.10px、F1 不下降超过 0.005、近真值未匹配预测（几何代理）不增加。本条件只用于开发筛查，不是显著性或生物学结论。</p>
+<label><input type="checkbox" id="mechanism"> 我确认本次 S0/P0 机制对照与上述继续规则。</label>
+<label><input type="checkbox" id="limits"> 我已审阅不确定项并理解：spot 存在不等于检测 TP；本轮仍是开发集分析。</label>
+<label><input type="checkbox" id="expand"> 若 seed42 通过上述规则，允许队列自动跑剩余 S0/P0 的 seeds43、44；否则只保留两次筛查结果。</label>
+<label>研究决定说明（可选）<textarea id="notes"></textarea></label>
+<button id="export">导出研究决定 JSON</button><p id="message" role="status"></p></main>
+<script>
+document.getElementById("export").onclick=()=>{
+const v=id=>document.getElementById(id);const reviewer=v("name").value.trim();
+if(!reviewer||!v("revision").value){v("message").textContent="请填写确认者并选择标注修订状态。";return;}
+if(v("revision").value==="yes"){v("message").textContent="先导出并保存匿名评分，进行图像上的局部复核；当前不批准机制训练。";return;}
+if(!v("radius").value||!v("mechanism").checked||!v("limits").checked){v("message").textContent="请确认机制、P0 参数和审查局限；证据不足可暂不批准。";return;}
+const decision={schema:"p1_research_decision_v2",approved:true,approved_by:reviewer,approved_at:new Date().toISOString(),synthetic_fixture:false,labels_need_revision:false,methods:["S0","P0"],seeds:[42,43,44],p0_supervision:{radius_px:Number(v("radius").value),ownership:"nearest_truth_then_index",normalization:"per_truth_mean"},continuation_gate:{minimum_common_tp:20,min_common_error_improvement_px:.1,min_f1_delta:-.005,max_near_truth_fp_delta:0},auto_expand_if_gate_passes:v("expand").checked,review_limitations_acknowledged:true,notes:v("notes").value};
+const url=URL.createObjectURL(new Blob([JSON.stringify(decision,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="research_decision.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);v("message").textContent="已请求下载；请确认文件存在，并与完整评分 CSV 一同保存。";
+};</script></html>

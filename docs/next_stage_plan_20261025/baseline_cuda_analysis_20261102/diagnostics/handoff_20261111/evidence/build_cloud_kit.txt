@@ -1,0 +1,15 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\handoff_v2\\cli.py", "build", "--data-root", "D:\\Projects\\P1_DNA_loci_imaging", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2"]
+EXIT 0
+{
+  "path": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_v2.zip",
+  "sha256": "92935bf0fe4b5e11da66b0cd810154e42f50c11e432c5d6ab3c3eca526c293a4",
+  "bytes": 57847369,
+  "members": 118,
+  "private_development_data": true,
+  "parameters_still_todo": {
+    "radius_px": null,
+    "ownership": null,
+    "normalization": null
+  },
+  "formal_training_started": false
+}

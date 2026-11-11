@@ -1,0 +1,12 @@
+{
+  "inputs": {
+    "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\per_seed_metrics.csv": "b206da08c3ffbd32c80b3ee160756a64612a1752dd4410832fc6c63ced3beae2",
+    "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\implementation_20261104\\evidence\\validation_replay_summary.csv": "d502c483d7824776f195311e8bceb525bc0aaece36931cef1effb8a4d27593bf"
+  },
+  "return_verification": null,
+  "formal_training_performed": false,
+  "no_test_arrays_read": true,
+  "descriptive_only": true,
+  "missing_tasks": 6,
+  "source_artifacts_modified": false
+}

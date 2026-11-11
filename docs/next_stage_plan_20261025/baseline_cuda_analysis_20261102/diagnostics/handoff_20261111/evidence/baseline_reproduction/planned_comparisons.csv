@@ -1,0 +1,19 @@
+comparison,metric,n_paired_seeds,mean_delta,sd_delta,interpretation,p_value,significance_claim
+S0 - H0,precision,0,,,"development_only; seeds are training variability, not biological replicates",,False
+S0 - H0,recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+S0 - H0,f1,0,,,"development_only; seeds are training variability, not biological replicates",,False
+S0 - H0,weak_recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+S0 - H0,mean_error_px,0,,,"development_only; seeds are training variability, not biological replicates",,False
+S0 - H0,ranked_ap,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,precision,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,f1,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,weak_recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,mean_error_px,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - S0,ranked_ap,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,precision,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,f1,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,weak_recall,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,mean_error_px,0,,,"development_only; seeds are training variability, not biological replicates",,False
+P0 - G0,ranked_ap,0,,,"development_only; seeds are training variability, not biological replicates",,False

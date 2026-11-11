@@ -1,0 +1,8 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\handoff_v2\\cli.py", "report", "--data-root", "D:\\Projects\\P1_DNA_loci_imaging", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\handoff_20261111\\evidence\\baseline_reproduction"]
+EXIT 0
+{
+  "path": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\handoff_20261111\\evidence\\baseline_reproduction",
+  "rows": 9,
+  "pending": 6,
+  "independent_test_evaluated": false
+}

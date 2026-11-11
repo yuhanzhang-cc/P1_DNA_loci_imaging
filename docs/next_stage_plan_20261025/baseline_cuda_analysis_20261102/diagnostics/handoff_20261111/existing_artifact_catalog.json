@@ -1,0 +1,16 @@
+[
+  {
+    "path": "outputs\\next_stage_v4_recipe_20261101\\04_bundles\\ce2d1821ceec\\p1_v4_training.zip",
+    "exists": true,
+    "sha256": "11fa9c7341fee2803dd550d7d2479f3ef3f56404c963dcf1771149a39a1734e3",
+    "role": "existing optional Spotiflow scratch CUDA queue; not launched tonight",
+    "launched_tonight": false
+  },
+  {
+    "path": "outputs\\next_stage_v4_recipe_20261101\\04_bundles\\ce2d1821ceec\\p1_v4_external.zip",
+    "exists": true,
+    "sha256": "05577a4e58b9ee36d910fd4496e23cd1d4f2078adbb0bfd8d10b10620360ac09",
+    "role": "existing independent-data evaluation handoff; independent images not supplied",
+    "launched_tonight": false
+  }
+]
