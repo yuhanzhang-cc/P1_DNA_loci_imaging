@@ -76,6 +76,9 @@ def portable_payload(records,output):
         verify_record(r);source=Path(r['folder']);dest=output/'models'/r['method']/(f"seed_{r['seed']}" if r['seed'] is not None else 'deterministic')
         required=[Path(r['selection'])]
         metrics=source/('selected' if r['kind']=='classical' else 'primary')/'metrics.json';required.append(metrics)
+        for name in ('prediction_points.csv','matches.csv','per_image_metrics.csv'):
+            p=metrics.parent/name
+            if p.is_file():required.append(p)
         if r['kind']!='classical':required.append(Path(r['weight']))
         if r.get('cache'):required.append(Path(r['cache']))
         if r['kind']=='spotiflow':required += [Path(r['weight']).parent/n for n in r['native_config_hashes']]

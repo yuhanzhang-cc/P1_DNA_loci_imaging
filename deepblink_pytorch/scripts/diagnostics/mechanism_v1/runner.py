@@ -39,10 +39,11 @@ def corpus(root,assets=None):
 
 def binding(config,data,device):
     import scipy,platform
+    from diagnostics.completion_v1.hardware_policy import binding as hardware_binding
     return dict(config_sha256=canonical(config),source_sha256=canonical(code_hashes()),
         development_sha256=sha(data.paths["development"]),features_sha256=sha(data.paths["features"]),
         device=device,torch=str(torch.__version__),numpy=np.__version__,scipy=scipy.__version__,python=platform.python_version(),
-        gpu=torch.cuda.get_device_name(0) if device=="cuda" else None)
+        gpu=torch.cuda.get_device_name(0) if device=="cuda" else None,**hardware_binding(ROOT,torch,device))
 
 
 def reference_initialization(seed,initial,device):

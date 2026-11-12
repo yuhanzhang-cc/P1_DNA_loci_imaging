@@ -138,3 +138,5 @@ Latest no-training implementation and GPU handoff (2026-11-04): [S0/P0 overnight
 Latest review-to-report preparation (2026-11-11): [overnight report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/handoff_20261111/OVERNIGHT_PREFAB_REPORT.md) and [morning steps](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/handoff_20261111/START_HERE.md).
 
 Latest approved training handoff (2026-11-11): [AutoDL start](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/AUTODL_START.md) and [review receipt/report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/REPORT.md).
+
+Separate vGPU32 handoff (2026-11-11; original 5090 package preserved): [vGPU start and hardware checks](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/vgpu32_20261111/AUTODL_START.md).

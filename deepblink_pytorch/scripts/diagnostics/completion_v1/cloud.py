@@ -25,6 +25,10 @@ def verify(root):
         c=read(root/child/'bundle_manifest.json')
         for name,digest in c['files'].items():
             if sha(inside(root/child,name))!=digest:raise ValueError('Child source differs: '+child+'/'+name)
+    from .hardware_policy import profile
+    policy=profile(root)
+    if policy is not None:
+        if sha(root/'configs/hardware_profile.json')!=sha(root/'mechanism/configs/hardware_profile.json'):raise ValueError('Composite and child hardware profiles differ')
     return dict(verified=True,sealed_files=len(m['files']),test_arrays_present=False)
 
 
@@ -40,7 +44,8 @@ def execute(root,resume=False,launch=None):
     state_path=folder/'status.json';identity=dict(bundle_sha256=sha(root/'completion_bundle_manifest.json'),freeze_sha256=sha(root/'mechanism/decisions/freeze_manifest.json'))
     previous=read(state_path) if state_path.exists() else None
     if previous and (not resume or previous['identity']!=identity):raise ValueError('Existing composite run needs same-identity resume')
-    state=dict(identity=identity,status='preflight',completed=[],formal_training_started=False,independent_test_evaluated=False)
+    from .hardware_policy import context
+    state=dict(identity=identity,status='preflight',completed=[],formal_training_started=False,independent_test_evaluated=False,hardware_context=context(root))
     def update(stage,**kw):state.update(status=stage,**kw);write(state_path,state,replace=True);print(stage,flush=True)
     run=launch or (lambda cmd,cwd:subprocess.run(cmd,cwd=cwd,check=True))
     entry='deepblink_pytorch/scripts/diagnostics/handoff_v2/cli.py'
@@ -50,6 +55,11 @@ def execute(root,resume=False,launch=None):
             free=shutil.disk_usage(root).free
             if free<12*1024**3:raise RuntimeError('At least 12 GiB free disk after environment setup is required; preserve results and expand storage before training')
             update('disk_preflight_passed',free_disk_bytes=free)
+            from .hardware_policy import profile
+            if profile(root) is not None:
+                from .transfer_check import preflight
+                update('hardware_transfer_preflight')
+                preflight(root,dry_run=False)
             update('mechanism_queue',formal_training_requested=True)
             cmd=[sys.executable,'-u',str(root/'mechanism'/entry),'run','--root',str(root/'mechanism')]
             if resume:cmd.append('--resume')
@@ -81,6 +91,10 @@ def execute(root,resume=False,launch=None):
             from .main import finish
             delivery=folder/('delivery_'+uuid.uuid4().hex[:12])
             summary=finish(root,delivery,records=records,device='cuda',benchmark_device='cuda')
+            if profile(root) is not None:
+                import shutil
+                shutil.copytree(root/'outputs/hardware_transfer',delivery/'hardware_transfer',ignore=shutil.ignore_patterns('*.lock'))
+                shutil.copyfile(root/'configs/hardware_profile.json',delivery/'hardware_profile.json')
             from .bundle import seal,evaluation_build
             artifact=seal(delivery,name='delivery_manifest.json',schema='completion_delivery_v1',extra=dict(completion_bundle_sha256=identity['bundle_sha256'],contains_formal_training_results=True))
             evalkit=evaluation_build(root,delivery/'analysis',folder/('frozen_evaluation_'+uuid.uuid4().hex[:12]))
@@ -150,6 +164,7 @@ def status(root):
         if t['seed']==42 or full or t['method']=='Spotiflow_scratch':remaining_min+=seconds
     completion=read(state) if state.exists() else {'status':'not_started'}
     completion['formal_training_started']=any(int(t.get('updates',0))>0 or t.get('status')=='complete' for t in tasks)
-    return dict(completion=completion,mechanism=read(child) if child.exists() else {'status':'not_started'},tasks=tasks,
+    from .hardware_policy import context
+    return dict(completion=completion,hardware_context=context(root),mechanism=read(child) if child.exists() else {'status':'not_started'},tasks=tasks,
         conditional_remaining_epoch_seconds=[remaining_min,remaining_max] if d else None,
         eta_warning='Callback-only extrapolation; excludes setup, probes, selection, postprocessing, I/O and failures. Unstarted tasks use historical proxies. Not a wall-clock promise.')

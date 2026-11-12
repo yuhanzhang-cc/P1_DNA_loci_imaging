@@ -66,6 +66,8 @@ def render(analysis,output,independent=None,statistics_folder=None,author_metada
             if key in values:tokens[key]=values[key];return values[key]
             remaining.append(dict(file=name,slot=key,reason='not yet executed, supplied or approved'));return '[PENDING: '+key+']'
         text=re.sub(r'\{\{([A-Za-z0-9_]+)\}\}',sub,text)
+        if name in ('METHODS.md','RESULTS.md','DISCUSSION.md') and manifest.get('hardware_context'):
+            text+='\n\nHardware-track qualification: S0, P0 and the new scratch control were run on the separately registered vGPU32 track. P0 versus S0 is a within-track contrast. Comparisons against historical H0, R0, G0 and transferred Spotiflow are cross-hardware development references and do not isolate architecture or supervision effects from hardware. Passing fixed-checkpoint inference checks does not establish training equivalence.\n'
         if name=='RESULTS.md':
             text+='\n\n### Automatic outcome status\n\n'+manifest['status']+'. '
             text+='The current practical candidate remains G0 pending review of the prospective mechanism results and independent evidence. No superiority claim is generated automatically.\n'

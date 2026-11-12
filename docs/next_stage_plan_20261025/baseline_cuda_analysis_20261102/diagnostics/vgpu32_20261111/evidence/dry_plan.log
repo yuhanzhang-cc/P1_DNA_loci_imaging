@@ -1,0 +1,23 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\22_vgpu32_handoff_20261111\\verification\\extracted\\p1_vgpu32_training_20261111\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "cloud-run", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\22_vgpu32_handoff_20261111\\verification\\extracted\\p1_vgpu32_training_20261111"]
+EXIT 0
+{
+  "dry_run": true,
+  "formal_training_started": false,
+  "maximum_new_runs": 9,
+  "stages": [
+    "verify_composite_and_children",
+    "freeze_real_image_review_and_research_decision",
+    "actual_matched_CUDA_doctor",
+    "S0/P0_seed42",
+    "preapproved_conditional_or_full_registered_S0/P0_seeds43_44",
+    "optional_preapproved_Spotiflow_scratch_3seeds",
+    "verify_budgets_and_selected_caches",
+    "automatic_return_archives",
+    "local_finish:analysis_statistics_figures_manuscript"
+  ],
+  "mechanism": "D:/Projects/P1_DNA_loci_imaging/outputs/next_stage_v4_recipe_20261101/22_vgpu32_handoff_20261111/verification/extracted/p1_vgpu32_training_20261111/mechanism",
+  "scratch": "D:/Projects/P1_DNA_loci_imaging/outputs/next_stage_v4_recipe_20261101/22_vgpu32_handoff_20261111/verification/extracted/p1_vgpu32_training_20261111/p1_v4_training",
+  "historical_results_retrained": false,
+  "independent_data_included": false,
+  "scientific_success_guaranteed": false
+}

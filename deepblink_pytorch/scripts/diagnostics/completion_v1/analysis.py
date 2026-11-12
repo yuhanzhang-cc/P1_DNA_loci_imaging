@@ -52,6 +52,9 @@ def analyze(root,output,returned=None,scratch=None,device="cpu",records=None):
     root=Path(root);assets=root/'mechanism/assets'
     configure_device(device);output=fresh(output);data=corpus(root,assets if assets.exists() else None).splits['valid']
     records=inventory(root,returned,scratch) if records is None else records
+    from .hardware_policy import context
+    hardware=context(root)
+    if hardware is None and returned:hardware=context(returned)
     truth={str(s):t for s,t in zip(data['sample_id'],data['y'])};rows=[];all_images=[];source={};curves=[]
     for r in records:
         print(f"Evaluating frozen {r['method']} seed {r['seed']}",flush=True)
@@ -91,7 +94,7 @@ def analyze(root,output,returned=None,scratch=None,device="cpu",records=None):
         d=[a[s]['f1']-b[s]['f1'] for s in paired]
         comparisons.append(dict(comparison=left+' - '+right,n_paired_seeds=len(d),mean_f1_delta=statistics.mean(d) if d else None,
             p_exact_seed_signflip=sign_flip(d) if paired==[42,43,44] else None,p_holm=None,stars='',
-            scope='conditional_training_variability; not biological inference',status='complete' if paired==[42,43,44] else 'pending'))
+            scope=('same_new_hardware_track; ' if hardware and (left,right)==('P0','S0') else 'cross-hardware_development_reference; ' if hardware else '')+'conditional_training_variability; not biological inference',status='complete' if paired==[42,43,44] else 'pending'))
     for r,p in zip(comparisons,holm([r['p_exact_seed_signflip'] for r in comparisons])):r['p_holm']=p;r['stars']='***' if p is not None and p<.001 else '**' if p is not None and p<.01 else '*' if p is not None and p<.05 else ''
     csv_write(output/'planned_f1_comparisons.csv',comparisons,list(comparisons[0]))
     # Common-truth pairs separate localization from differing TP composition.
@@ -117,5 +120,5 @@ def analyze(root,output,returned=None,scratch=None,device="cpu",records=None):
     if state and state.exists():screen=read(state).get('gate')
     write(output/'analysis_manifest.json',dict(schema='completion_analysis_v1',inputs=source,model_catalog=records,analysis_source_sha256=sha(__file__),
         status=status,dataset_role='development_validation',test_evaluated=False,threshold_refitted=False,all_frozen_counts_exact=True,
-        biological_replicates_known=False,known_train_valid_source_overlap=2,formal_training_performed=False,mechanism_context=annotations,screening_gate=screen))
+        biological_replicates_known=False,known_train_valid_source_overlap=2,formal_training_performed=False,mechanism_context=annotations,screening_gate=screen,hardware_context=hardware))
     return dict(output=str(output),models=len(rows),methods=len({r['method'] for r in rows}),status=status,test_evaluated=False)
