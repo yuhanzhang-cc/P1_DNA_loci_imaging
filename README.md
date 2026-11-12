@@ -136,3 +136,5 @@ chore(env): 补齐环境依赖定义
 Latest no-training implementation and GPU handoff (2026-11-04): [S0/P0 overnight report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/implementation_20261104/OVERNIGHT_REPORT_20261104.md).
 
 Latest review-to-report preparation (2026-11-11): [overnight report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/handoff_20261111/OVERNIGHT_PREFAB_REPORT.md) and [morning steps](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/handoff_20261111/START_HERE.md).
+
+Latest approved training handoff (2026-11-11): [AutoDL start](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/AUTODL_START.md) and [review receipt/report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/REPORT.md).

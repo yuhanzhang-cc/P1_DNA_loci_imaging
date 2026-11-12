@@ -1,0 +1,19 @@
+{
+  "reviewed": false,
+  "reviewer": "TODO: author",
+  "reviewed_at": "TODO: actual review time",
+  "fields": {
+    "microscope_and_optics": "TODO: microscope, objective, NA and imaging modality",
+    "sample_preparation_and_labeling": "TODO: actual biological material, labeling and preparation",
+    "exposure_pixel_size_channels": "TODO: exposure, native pixel size and channels",
+    "annotator_number_and_rules": "TODO: actual annotators, labeling and uncertainty rules",
+    "biological_and_acquisition_groups": "TODO: actual group identities and explanation of source overlap",
+    "blind_audit_reviewer_details": "TODO: actual reviewer identities/roles and review procedure",
+    "target_journal_and_article_type": "TODO: journal, article type and submission phase",
+    "figure1_image_and_calibration": "TODO: approved real image, raw source and calibration",
+    "reviewed_error_examples": "TODO: post-blind adjudicated representative cases",
+    "final_mechanism_interpretation": "TODO: interpret actual positive or negative results",
+    "independent_generalization_interpretation": "TODO: actual independent results and limitations",
+    "biological_validation_scope": "TODO: temporal or orthogonal evidence, or explicit absence"
+  }
+}

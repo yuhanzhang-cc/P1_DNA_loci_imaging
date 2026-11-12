@@ -1,0 +1,49 @@
+{
+  "local_ready": true,
+  "archive_sha256": "130375662508e59f8407e91a8b37db8257ed77e7462e200a49abb47a4e6ede8e",
+  "archive_bytes": 288159999,
+  "files": 413,
+  "approval_included": true,
+  "review": {
+    "cases": 60,
+    "complete": true,
+    "missing_fields": 0,
+    "answer_counts": {
+      "yes": 41,
+      "no": 12,
+      "uncertain": 7,
+      "low": 11
+    },
+    "human_review_completed": true,
+    "synthetic_fixture": false,
+    "interpretation": "Spot presence is not one-to-one detection TP; review answers do not modify labels"
+  },
+  "authorized_formal_runs": 9,
+  "core_runs": 6,
+  "scratch_runs": 3,
+  "p0_radius_px": 2,
+  "exact_approval_bytes": true,
+  "source_bound_to_package": true,
+  "zip_crc_passed": true,
+  "independent_test_arrays_present": false,
+  "cloud_commands_dry_run_only": true,
+  "formal_training_started": false,
+  "gpu_used": false,
+  "protected_files_unchanged": 362,
+  "packaged_cpu_probe": {
+    "passed": true,
+    "distinct_synthetic_steps": 1,
+    "discarded_step_executions": 2,
+    "real_optimizer_updates": 0
+  },
+  "cuda_preflight_passed": false,
+  "actual_cuda_initialization_pending": true,
+  "python_tests": 125,
+  "test_groups": [
+    103,
+    22
+  ],
+  "p0_full_real_dataset_encoding_passed": true,
+  "actual_cuda_verified": false,
+  "independent_test_evaluated": false
+}

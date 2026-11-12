@@ -1,0 +1,5 @@
+# Software and writing assistance
+
+Codex assisted with code, workflow auditing, draft writing and provisional figure preparation. Human scientific review, image adjudication and all pending experiment results remain required. The `scientific-visualization` and `statistical-analysis` procedures from Scientific Agent Skills materially informed figure provenance, missing-data handling and the distinction between seeds and biological sampling units. Their reference is included in REFERENCES.bib (Kassis et al., 2026; DOI10.48550/arXiv.2609.00065); author/title metadata were checked against the primary arXiv record on 2026-11-11. This acknowledgment describes workflow assistance, not evidence that the procedures or this study are empirically validated.
+
+Primary references checked: https://academic.oup.com/nar/article/49/13/7292/6312733 ; https://www.nature.com/articles/s41592-025-02662-x ; https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html ; https://arxiv.org/abs/2609.00065 . Numerical statements in the manuscript must come from the local frozen source tables, not literature performance numbers.

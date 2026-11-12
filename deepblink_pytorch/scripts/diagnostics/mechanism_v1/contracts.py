@@ -28,6 +28,7 @@ def code_hashes():
     # New handoff runtime/static UI are part of the source-bound CUDA probe.
     handoff=ROOT/"deepblink_pytorch/scripts/diagnostics/handoff_v2"
     for suffix in ("*.py","*.html","*.js"):selected+=list(handoff.glob(suffix))
+    selected+=list((ROOT/"deepblink_pytorch/scripts/diagnostics/completion_v1").glob("*.py"))
     return {p.relative_to(ROOT).as_posix():sha(p) for p in sorted(selected)}
 
 

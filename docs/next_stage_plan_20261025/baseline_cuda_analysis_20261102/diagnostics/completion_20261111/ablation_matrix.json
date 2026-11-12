@@ -1,0 +1,93 @@
+{
+  "schema": "completion_ablation_v1",
+  "status": "approved_not_started",
+  "training_recipe_changed": false,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "components": [
+    "signed_offset_range",
+    "neighborhood_ownership_and_per_truth_weighting"
+  ],
+  "cells": [
+    {
+      "method": "H0",
+      "signed_offset_range": false,
+      "neighborhood_ownership_and_per_truth_weighting": false,
+      "source": "existing matched CUDA references",
+      "new_runs": 0
+    },
+    {
+      "method": "S0",
+      "signed_offset_range": true,
+      "neighborhood_ownership_and_per_truth_weighting": false,
+      "config": "implementation_20261104/configs/S0.json",
+      "new_runs": 3,
+      "expected_parameters": 671719
+    },
+    {
+      "method": "P0",
+      "signed_offset_range": true,
+      "neighborhood_ownership_and_per_truth_weighting": true,
+      "config": "implementation_20261104/configs/P0.json",
+      "new_runs": 3,
+      "expected_parameters": 671719,
+      "radius_px": 2,
+      "parameter_decision": "approved; exact decision and config hashes in RELEASE.json"
+    },
+    {
+      "method": "CAP_P0",
+      "alias_of": "S0",
+      "new_runs": 0,
+      "reason": "Exact parameter-identical control, not another three trials"
+    },
+    {
+      "method": "bounded_neighborhood",
+      "signed_offset_range": false,
+      "neighborhood_ownership_and_per_truth_weighting": true,
+      "enabled": false,
+      "new_runs": 0,
+      "reason": "Bounded offsets cannot represent required negative targets; no invalid control is trained"
+    }
+  ],
+  "contrasts": [
+    {
+      "candidate": "S0",
+      "reference": "H0",
+      "question": "signed output range at fixed single anchor"
+    },
+    {
+      "candidate": "P0",
+      "reference": "S0",
+      "question": "joint neighborhood, ownership and weighting under identical capacity"
+    },
+    {
+      "candidate": "P0",
+      "reference": "G0",
+      "question": "practical method comparison; representation also changes"
+    },
+    {
+      "candidate": "P0",
+      "reference": "R0",
+      "question": "direct method reference"
+    },
+    {
+      "candidate": "P0",
+      "reference": "Spotiflow_F",
+      "question": "external transfer-method comparison, not pure architecture attribution"
+    }
+  ],
+  "completion_strategies": [
+    "gate_conditioned",
+    "full_registered_six_requires_explicit_v3_approval"
+  ],
+  "maximum_core_new_runs": 6,
+  "optional_external_new_runs": 3,
+  "factorial_design": false,
+  "separate_radius_or_weighting_ablations_completed": false,
+  "architecture_novelty_established": false,
+  "approved_completion_strategy": "full_registered_six",
+  "formal_new_runs_completed": 0
+}

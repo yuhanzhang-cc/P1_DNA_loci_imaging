@@ -126,3 +126,5 @@ flowchart LR
 实现按scope形成小改动；VS Code重点检查评估协议的新旧区别、搜索预算、基线公平性和消融矩阵。参考资料及统计流程来源见[references.md](references.md)。
 
 2026-11-11 prebuilt handoff: [report](baseline_cuda_analysis_20261102/diagnostics/handoff_20261111/OVERNIGHT_PREFAB_REPORT.md).
+
+2026-11-11 real review and nine-run approval received: [start](baseline_cuda_analysis_20261102/diagnostics/completion_20261111/AUTODL_START.md), [report](baseline_cuda_analysis_20261102/diagnostics/completion_20261111/REPORT.md).

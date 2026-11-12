@@ -1,0 +1,7 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\verification_final\\extracted\\p1_approved_training_20261111_final\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "cloud-verify", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\verification_final\\extracted\\p1_approved_training_20261111_final"]
+EXIT 0
+{
+  "verified": true,
+  "sealed_files": 412,
+  "test_arrays_present": false
+}

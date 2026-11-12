@@ -1,0 +1,735 @@
+{
+  "source_files": 116,
+  "all_normalized_content_exact": true,
+  "changed_source_files_byte_exact": true,
+  "untouched_base_CRLF_files": [
+    "deepblink_pytorch/deepblink_torch/__init__.py",
+    "deepblink_pytorch/deepblink_torch/cli/__init__.py",
+    "deepblink_pytorch/deepblink_torch/cli/create.py",
+    "deepblink_pytorch/deepblink_torch/cli/evaluate.py",
+    "deepblink_pytorch/deepblink_torch/cli/main.py",
+    "deepblink_pytorch/deepblink_torch/cli/overlay.py",
+    "deepblink_pytorch/deepblink_torch/cli/predict.py",
+    "deepblink_pytorch/deepblink_torch/cli/train.py",
+    "deepblink_pytorch/deepblink_torch/data_protocol.py",
+    "deepblink_pytorch/deepblink_torch/datasets/__init__.py",
+    "deepblink_pytorch/deepblink_torch/datasets/spots.py",
+    "deepblink_pytorch/deepblink_torch/evaluation.py",
+    "deepblink_pytorch/deepblink_torch/experiment_log.py",
+    "deepblink_pytorch/deepblink_torch/losses.py",
+    "deepblink_pytorch/deepblink_torch/networks/__init__.py",
+    "deepblink_pytorch/deepblink_torch/networks/_networks.py",
+    "deepblink_pytorch/deepblink_torch/networks/adaptive_context.py",
+    "deepblink_pytorch/deepblink_torch/networks/closing_controls.py",
+    "deepblink_pytorch/deepblink_torch/networks/dense_heatmap.py",
+    "deepblink_pytorch/deepblink_torch/networks/detail_route.py",
+    "deepblink_pytorch/deepblink_torch/networks/evidence.py",
+    "deepblink_pytorch/deepblink_torch/networks/feature_evidence.py",
+    "deepblink_pytorch/deepblink_torch/networks/masked_se.py",
+    "deepblink_pytorch/deepblink_torch/networks/unet.py",
+    "deepblink_pytorch/deepblink_torch/preprocessing.py",
+    "deepblink_pytorch/deepblink_torch/round2_protocol.py",
+    "deepblink_pytorch/deepblink_torch/spotiflow_bridge.py",
+    "deepblink_pytorch/deepblink_torch/utils/__init__.py",
+    "deepblink_pytorch/deepblink_torch/utils/pixel_size.py"
+  ],
+  "runtime_binding": "Sealed ZIP original bytes, not a server git checkout; never replace sources mid-run",
+  "files": [
+    {
+      "path": "deepblink_pytorch/deepblink_torch/__init__.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/__init__.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/create.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/evaluate.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/main.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/overlay.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/predict.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/cli/train.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/data_protocol.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/datasets/__init__.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/datasets/spots.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/evaluation.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/experiment_log.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/losses.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/__init__.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/_networks.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/adaptive_context.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/closing_controls.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/dense_heatmap.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/detail_route.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/evidence.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/feature_evidence.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/masked_se.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/networks/unet.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/preprocessing.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/round2_protocol.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/spotiflow_bridge.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/utils/__init__.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/deepblink_torch/utils/pixel_size.py",
+      "byte_exact": false,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/__init__.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/analysis.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/benchmark.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/browser_qa.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/bundle.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/catalog.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/cloud.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/figures.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/group_statistics.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/independent_prepare.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/inference.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/main.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/manuscript.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/qualitative.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/readiness.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/result_io.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/review.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/scratch.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/completion_v1/test_completion.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/__init__.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/archive.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/bundle.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/common.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/corrections.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/decision.html",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/doctor.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/fiji_qa.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/freeze.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/gate.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/label_revision.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/main.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/pipeline.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/report.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/reviewer.html",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/reviewer.js",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/reviewer.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/test_handoff.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/handoff_v2/test_reviewer.js",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/__init__.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/adapter.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/analysis_cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/build_bundle.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/check_readiness.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/contracts.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": true
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/controller.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/eval_cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/evaluate.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/module_cli.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/runner.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/test_mechanism.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/mechanism_v1/validate_existing.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/ablation_runner.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/aggregate_results.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/blind_audit.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/bootstrap_scaffold.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/capacity_control.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/formal_test_eval.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/inspect_docs.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/ranked_ap.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/reproduce.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/run_scaffold_checks.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/scaffold_common.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/status.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/test_scaffolds.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/train_mechanism.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/weak_policy.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/diagnostics/scaffolds/write_handoff.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/__init__.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/ablation.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/analysis.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/augmentation.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/classical.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/common.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/engine.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/evaluation.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/external.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/native_adapter.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/packaging.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/preflight.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/queues.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/reporting.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/review.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/scaffold.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    },
+    {
+      "path": "deepblink_pytorch/scripts/research_v4/verification.py",
+      "byte_exact": true,
+      "normalized_content_exact": true,
+      "changed_in_this_commit": false
+    }
+  ]
+}

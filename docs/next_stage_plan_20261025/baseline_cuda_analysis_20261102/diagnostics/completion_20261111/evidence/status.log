@@ -1,0 +1,90 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\verification_final\\extracted\\p1_approved_training_20261111_final\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "cloud-status", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\verification_final\\extracted\\p1_approved_training_20261111_final"]
+EXIT 0
+{
+  "completion": {
+    "status": "not_started",
+    "formal_training_started": false
+  },
+  "mechanism": {
+    "status": "not_started"
+  },
+  "tasks": [
+    {
+      "method": "S0",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "S0",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "S0",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "P0",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "P0",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "P0",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "Spotiflow_scratch",
+      "seed": 42,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "Spotiflow_scratch",
+      "seed": 43,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    },
+    {
+      "method": "Spotiflow_scratch",
+      "seed": 44,
+      "status": "not_started",
+      "epoch": 0,
+      "updates": 0,
+      "median_recent_callback_seconds": null
+    }
+  ],
+  "conditional_remaining_epoch_seconds": [
+    2580.0,
+    2580.0
+  ],
+  "eta_warning": "Callback-only extrapolation; excludes setup, probes, selection, postprocessing, I/O and failures. Unstarted tasks use historical proxies. Not a wall-clock promise."
+}

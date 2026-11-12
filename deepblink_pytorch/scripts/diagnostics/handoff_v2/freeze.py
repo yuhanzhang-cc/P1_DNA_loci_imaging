@@ -9,7 +9,7 @@ DEFAULT_GATE=dict(minimum_common_tp=20,min_common_error_improvement_px=.10,min_f
 
 
 def validate_decision(decision,synthetic=False):
-    if decision.get("schema")!="p1_research_decision_v2" or decision.get("approved") is not True:
+    if decision.get("schema") not in ("p1_research_decision_v2","p1_research_decision_v3") or decision.get("approved") is not True:
         raise ValueError("An explicit approved research decision is required")
     if decision.get("synthetic_fixture") is not synthetic or not decision.get("approved_by","").strip() or not decision.get("approved_at"):
         raise ValueError("Reviewer/date and real-vs-synthetic provenance required")
@@ -20,6 +20,10 @@ def validate_decision(decision,synthetic=False):
     if gate!=DEFAULT_GATE:raise ValueError("This revision implements only the declared continuation gate; change protocol/version for another rule")
     if not isinstance(decision.get("auto_expand_if_gate_passes"),bool):raise ValueError("Explicit continuation choice is required")
     if decision.get("review_limitations_acknowledged") is not True:raise ValueError("Acknowledge uncertain answers and development-only scope")
+    if decision.get("additional_baseline_queues",[]) not in ([],["spotiflow_scratch"]):raise ValueError("Unknown additional baseline authorization")
+    if decision.get('schema')!='p1_research_decision_v3' and (decision.get('additional_baseline_queues') or decision.get('completion_strategy')=='full_registered_six'):raise ValueError('New completion options require a v3 decision and a new completion kit')
+    if decision.get("completion_strategy","gate_conditioned") not in ("gate_conditioned","full_registered_six"):raise ValueError("Unknown completion strategy")
+    if decision.get("completion_strategy")=="full_registered_six" and decision.get("auto_expand_if_gate_passes") is not True:raise ValueError("Full registered ablation requires explicit six-run authorization")
 
 
 def freeze(responses,decision_path,output,config_dir=None,synthetic=False):
@@ -34,7 +38,11 @@ def freeze(responses,decision_path,output,config_dir=None,synthetic=False):
     decision=read(decision_path);validate_decision(decision,synthetic)
     configs={m:read(config_dir/(m+".json")) for m in METHODS}
     configs["P0"]["supervision"]=decision["p0_supervision"]
-    for config in configs.values():validate_config(config)
+    for config in configs.values():
+        config['decision_status']='approved_exact_decision_and_review_hashes_in_freeze_manifest'
+        if 'implemented_options' in config:
+            config['implemented_options']['radius_px']='integer 1..8 supported; approved value is frozen in supervision.radius_px'
+        validate_config(config)
     requested=Path(output).resolve()
     if requested.exists():raise FileExistsError("Existing decision directory is protected")
     output=fresh(requested.parent/("."+requested.name+".pending_"+uuid.uuid4().hex[:12]))

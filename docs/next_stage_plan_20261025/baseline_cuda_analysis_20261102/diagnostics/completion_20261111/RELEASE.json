@@ -1,0 +1,20 @@
+{
+  "archive": "outputs/next_stage_v4_recipe_20261101/21_approved_handoff_20261111/p1_approved_training_20261111_final.zip",
+  "sha256": "130375662508e59f8407e91a8b37db8257ed77e7462e200a49abb47a4e6ede8e",
+  "bytes": 288159999,
+  "members": 413,
+  "approval_included": true,
+  "review_csv_sha256": "abfe95e9faecab0f3dbc2a7be644330d0f6d16b76a9315d884dc9641afc148e1",
+  "decision_sha256": "995c764716272ca8ae8e762fe525adb854bb17fe678ca82a1b30f8ff0858b2e9",
+  "frozen_config_hashes": {
+    "S0": "6d1adbb53fa63a6271f81055d63f8f70e9af77b4968b44d4ad0dfa2bc8d7079d",
+    "P0": "be94e1d29cdbbcf30219ee1982747ab5891fda11af90e2cf4a4838c521f9a8ef"
+  },
+  "approved_core_runs": 6,
+  "approved_scratch_runs": 3,
+  "formal_training_completed_this_stage": 0,
+  "completion_strategy": "full_registered_six",
+  "local_ready": true,
+  "cuda_preflight_pending": true,
+  "private_archive_do_not_commit": true
+}

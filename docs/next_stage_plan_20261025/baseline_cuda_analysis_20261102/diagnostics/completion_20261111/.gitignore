@@ -1,0 +1,6 @@
+private/
+qa_private/
+prepared_figures/*.csv
+prepared_figures/*.svg
+prepared_figures/*.pdf
+!evidence/*.log

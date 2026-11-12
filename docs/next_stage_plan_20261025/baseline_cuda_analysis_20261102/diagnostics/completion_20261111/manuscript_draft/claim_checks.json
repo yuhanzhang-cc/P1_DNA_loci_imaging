@@ -1,0 +1,35 @@
+{
+  "submission_ready": false,
+  "independent_validation_complete": false,
+  "architecture_superiority_established": false,
+  "human_review_fabricated": false,
+  "pending_slots": 32,
+  "existing_conclusion_changed": false,
+  "analysis_sha256": "6c0c66196374038c408c7997c6374730d75a52dff56fce7228d1a35ab90d9a1e",
+  "source_template_hashes": {
+    "ABSTRACT.md": "cfe20e806fab7f70a5899b149a0b66c5674d8b6a607e1fe4efcc5bc3e2f15c41",
+    "DISCUSSION.md": "0cd7f7da5f1e11afb2cc450c056edc0787065d15f261edd990a7adf2522d1de1",
+    "FIGURE_PLAN.md": "6af2e19e078b2ad98f03f36508d04eb6c27d60f756ae7e075f8cf6934fa49c50",
+    "INTRODUCTION.md": "e5beb36fc50a3a6d112c6b74d28c6081a788772a297ae81ad2c1cf01cf0d06a5",
+    "METHODS.md": "c1360100c781af35d1c7d73f658ecd038afe78ce92b9eaa95a5962c2ff1247e3",
+    "RESULTS.md": "4f0ea96b7ab93198024e269c275ec5c30206b6e3dac307f3f88dacd4d96d4901"
+  },
+  "bound_values": {
+    "blind_audit_status": "completed and hash-bound to the approved experiment decision",
+    "approved_p0_radius_px": "2",
+    "approved_continuation_strategy": "full_registered_six",
+    "LoG_f1": "0.5724 (deterministic)",
+    "DoG_f1": "0.6676 (deterministic)",
+    "R0_f1": "0.7887 ± 0.0108",
+    "H0_f1": "0.8088 ± 0.0022",
+    "G0_f1": "0.8197 ± 0.0071",
+    "Spotiflow_F_f1": "0.8606 ± 0.0034",
+    "G0_ranked_ap": "0.8606 ± 0.0151",
+    "Spotiflow_F_ranked_ap": "0.9126 ± 0.0029",
+    "H0_mean_error_px": "0.6758 ± 0.0440",
+    "G0_mean_error_px": "0.4463 ± 0.0169",
+    "blind_audit_summary": "60 completed candidate-presence reviews; yes=41, no=12, uncertain=7, low=11; assignment TP/FP remains a separate question",
+    "prospective_completed_training_count": "0"
+  },
+  "additional_sources": {}
+}

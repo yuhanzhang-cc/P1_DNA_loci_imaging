@@ -1,0 +1,162 @@
+[
+  {
+    "file": "METHODS.md",
+    "slot": "microscope_and_optics",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "sample_preparation_and_labeling",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "exposure_pixel_size_channels",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "annotator_number_and_rules",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "biological_and_acquisition_groups",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "blind_audit_reviewer_details",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "independent_dataset_description",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "METHODS.md",
+    "slot": "target_journal_and_article_type",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "S0_f1",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "S0_mean_error_px",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "P0_f1",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "P0_mean_error_px",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "p0_s0_common_tp_error",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "p0_s0_near_truth_fp_difference",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "screen_gate_result",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "Spotiflow_scratch_f1",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "Spotiflow_scratch_ranked_ap",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "scratch_transfer_interpretation",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "independent_evaluation_status",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "independent_biological_groups",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "independent_image_count",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "RESULTS.md",
+    "slot": "independent_results_summary",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "DISCUSSION.md",
+    "slot": "final_mechanism_interpretation",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "DISCUSSION.md",
+    "slot": "independent_generalization_interpretation",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "DISCUSSION.md",
+    "slot": "biological_validation_scope",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "ABSTRACT.md",
+    "slot": "prospective_mechanism_abstract_result",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "ABSTRACT.md",
+    "slot": "independent_dataset_description",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "ABSTRACT.md",
+    "slot": "independent_primary_result",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "FIGURE_PLAN.md",
+    "slot": "figure1_image_and_calibration",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "FIGURE_PLAN.md",
+    "slot": "reviewed_error_examples",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "FIGURE_PLAN.md",
+    "slot": "independent_figure_sources",
+    "reason": "not yet executed, supplied or approved"
+  },
+  {
+    "file": "FIGURE_PLAN.md",
+    "slot": "target_journal_and_article_type",
+    "reason": "not yet executed, supplied or approved"
+  }
+]

@@ -11,6 +11,8 @@
 <label><input type="checkbox" id="mechanism"> 我确认本次 S0/P0 机制对照与上述继续规则。</label>
 <label><input type="checkbox" id="limits"> 我已审阅不确定项并理解：spot 存在不等于检测 TP；本轮仍是开发集分析。</label>
 <label><input type="checkbox" id="expand"> 若 seed42 通过上述规则，允许队列自动跑剩余 S0/P0 的 seeds43、44；否则只保留两次筛查结果。</label>
+<label><input type="checkbox" id="fullAblation"> 为完成预先登记的三种子消融，无论 seed42 筛查是否通过，均完成 S0/P0 共六次试验；保留负结果，不新增结构、不改变训练配方。此选项需要我现在明确批准，不默认开启。</label>
+<label><input type="checkbox" id="scratch"> 另允许完成已登记的 Spotiflow 从头训练控制（seeds42、43、44，各100轮）；它检验预训练影响，不代表已充分调优的外部方法。此选项仅由新版 completion 队列执行。</label>
 <label>研究决定说明（可选）<textarea id="notes"></textarea></label>
 <button id="export">导出研究决定 JSON</button><p id="message" role="status"></p></main>
 <script>
@@ -20,5 +22,9 @@ if(!reviewer||!v("revision").value){v("message").textContent="请填写确认者
 if(v("revision").value==="yes"){v("message").textContent="先导出并保存匿名评分，进行图像上的局部复核；当前不批准机制训练。";return;}
 if(!v("radius").value||!v("mechanism").checked||!v("limits").checked){v("message").textContent="请确认机制、P0 参数和审查局限；证据不足可暂不批准。";return;}
 const decision={schema:"p1_research_decision_v2",approved:true,approved_by:reviewer,approved_at:new Date().toISOString(),synthetic_fixture:false,labels_need_revision:false,methods:["S0","P0"],seeds:[42,43,44],p0_supervision:{radius_px:Number(v("radius").value),ownership:"nearest_truth_then_index",normalization:"per_truth_mean"},continuation_gate:{minimum_common_tp:20,min_common_error_improvement_px:.1,min_f1_delta:-.005,max_near_truth_fp_delta:0},auto_expand_if_gate_passes:v("expand").checked,review_limitations_acknowledged:true,notes:v("notes").value};
+decision.additional_baseline_queues=v("scratch").checked?["spotiflow_scratch"]:[];
+decision.schema="p1_research_decision_v3";
+decision.completion_strategy=v("fullAblation").checked?"full_registered_six":"gate_conditioned";
+if(v("fullAblation").checked)decision.auto_expand_if_gate_passes=true;
 const url=URL.createObjectURL(new Blob([JSON.stringify(decision,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download="research_decision.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);v("message").textContent="已请求下载；请确认文件存在，并与完整评分 CSV 一同保存。";
 };</script></html>
