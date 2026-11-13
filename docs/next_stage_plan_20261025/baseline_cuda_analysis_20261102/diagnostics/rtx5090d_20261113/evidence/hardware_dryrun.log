@@ -1,0 +1,15 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\23_5090d_handoff_20261113\\verification\\extracted\\p1_5090d_training_20261113\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "hardware-preflight", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\23_5090d_handoff_20261113\\verification\\extracted\\p1_5090d_training_20261113"]
+EXIT 0
+{
+  "dry_run": true,
+  "profile_id": "autodl_5090d_blackwell_transfer_v1",
+  "training_started": false,
+  "optimizer_updates": 0,
+  "checks": [
+    "CUDA profile and three historical initializer hashes",
+    "fixed-checkpoint full validation count/coordinate parity",
+    "same-hardware resume identity"
+  ],
+  "independent_test_images_read": 0,
+  "inference_does_not_establish_training_equivalence": true
+}

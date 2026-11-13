@@ -1,0 +1,22 @@
+{
+  "local_package_ready": true,
+  "unit_tests_passed": 159,
+  "source_files": 119,
+  "zip_crc_passed": true,
+  "archive_reextracted_and_verified": true,
+  "exact_human_input_bytes_preserved": true,
+  "frozen_training_configs_unchanged": true,
+  "historical_5090_archive_unchanged": true,
+  "historical_5090_archive_sha256": "130375662508e59f8407e91a8b37db8257ed77e7462e200a49abb47a4e6ede8e",
+  "protected_files_unchanged": 362,
+  "formal_training_runs_started": 0,
+  "gpu_used": false,
+  "cuda_preflight_passed": false,
+  "actual_5090d_identity_unverified": true,
+  "registered_tasks": 9,
+  "all_tasks_not_started": true,
+  "packaged_cpu_probe_real_optimizer_updates": 0,
+  "synthetic_optimizer_steps_only": 1,
+  "independent_test_arrays_present": false,
+  "track": "rtx5090d_development_v1"
+}

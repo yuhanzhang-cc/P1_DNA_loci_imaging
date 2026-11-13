@@ -1,0 +1,8 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "build", "--root", "D:\\Projects\\P1_DNA_loci_imaging", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\23_5090d_handoff_20261113\\p1_5090d_training_20261113", "--review-dir", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\received", "--hardware-profile", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\rtx5090d_20261113\\hardware_profile.json"]
+EXIT 0
+{
+  "path": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\23_5090d_handoff_20261113\\p1_5090d_training_20261113.zip",
+  "sha256": "9106b1cd90c803307285eaf95bcf37ac4882745dc41f1577a36cd9c988286154",
+  "bytes": 288366926,
+  "members": 466
+}
