@@ -1,0 +1,8 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\completion_v1\\cli.py", "build", "--root", "D:\\Projects\\P1_DNA_loci_imaging", "--output", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\22_vgpu32_handoff_20261111\\p1_vgpu32_training_20261111", "--review-dir", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\21_approved_handoff_20261111\\received", "--hardware-profile", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\vgpu32_20261111\\hardware_profile.json"]
+EXIT 0
+{
+  "path": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\22_vgpu32_handoff_20261111\\p1_vgpu32_training_20261111.zip",
+  "sha256": "b4f4bb9beb8ef036354cdff7db1aa72206df345684c36b084134a5b02092d684",
+  "bytes": 288367301,
+  "members": 466
+}

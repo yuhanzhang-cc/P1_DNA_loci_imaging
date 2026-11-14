@@ -4,7 +4,7 @@ import shutil,zipfile
 from .common import ROOT,OLD,REL,read,sha,write,fresh
 
 
-def build(data_root,output):
+def build(data_root,output,hardware_profile=None):
     from diagnostics.mechanism_v1.contracts import code_hashes
     from diagnostics.mechanism_v1.controller import verify
     from diagnostics.mechanism_v1.runner import corpus
@@ -16,6 +16,9 @@ def build(data_root,output):
     shutil.copyfile(ROOT/REL/"research_decision.template.json",output/"configs/research_decision.template.json")
     shutil.copyfile(ROOT/REL/"review_packet_binding.json",output/"configs/review_packet_binding.json")
     shutil.copyfile(ROOT/REL/"reference_environment.json",output/"configs/reference_environment.json")
+    if hardware_profile:
+        from diagnostics.completion_v1.hardware_policy import validate
+        validate(read(hardware_profile));shutil.copyfile(hardware_profile,output/'configs/hardware_profile.json')
     shutil.copyfile(data.paths["development"],output/"assets/development_only.npz")
     shutil.copyfile(data.paths["features"],output/"assets/validation_truth_features.csv")
     shutil.copyfile(data_root/"docs/next_stage_plan_20261025/overnight_protocol_v4_proposed_20261101.yaml",output/"protocol_proposed.yaml")

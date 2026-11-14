@@ -82,7 +82,8 @@ def evaluate_suite(root,analysis,manifest,output,device='cpu',dry_run=True):
     from diagnostics.scaffolds.ranked_ap import ranked_point_ap
     configure_device(device);output=fresh(output);data=review['data'];summary=[];images=[]
     write(output/'evaluation_lock.json',dict(manifest_sha256=sha(manifest),analysis_manifest_sha256=sha(Path(analysis)/'analysis_manifest.json'),
-        model_catalog=records,threshold_selection_on_test=False,declared_before_readout=True,device=device))
+        model_catalog=records,threshold_selection_on_test=False,declared_before_readout=True,device=device,
+        hardware_context=read(Path(analysis)/'analysis_manifest.json').get('hardware_context')))
     for r in records:
         folder=output/r['method']/(f"seed_{r['seed']}" if r['seed'] is not None else 'deterministic')
         c=predict_record(r,data,device)

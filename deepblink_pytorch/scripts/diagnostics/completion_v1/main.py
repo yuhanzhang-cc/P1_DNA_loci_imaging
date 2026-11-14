@@ -25,7 +25,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);s=p.add_subparsers(dest='action',required=True)
     for name in ('audit','build','catalog','finish'):
         a=s.add_parser(name);a.add_argument('--root',type=Path,default=ROOT);a.add_argument('--output',type=Path,required=True)
-        if name=='build':a.add_argument('--review-dir',type=Path)
+        if name=='build':a.add_argument('--review-dir',type=Path);a.add_argument('--hardware-profile',type=Path)
         if name in ('finish','catalog'):a.add_argument('--returned',type=Path);a.add_argument('--scratch',type=Path)
     for name in ('figures','manuscript'):
         a=s.add_parser(name);a.add_argument('--analysis',type=Path,required=True);a.add_argument('--output',type=Path,required=True)
@@ -37,6 +37,7 @@ def main():
         if name=='independent':
             a.add_argument('--manifest',type=Path,required=True);a.add_argument('--device',choices=['cpu','cuda'],default='cpu');a.add_argument('--execute',action='store_true')
     a=s.add_parser('independent-statistics');a.add_argument('--evaluation',type=Path,required=True);a.add_argument('--output',type=Path,required=True)
+    a=s.add_parser('hardware-preflight');a.add_argument('--root',type=Path,default=ROOT);a.add_argument('--execute',action='store_true')
     a=s.add_parser('predict');a.add_argument('--analysis',type=Path,required=True);a.add_argument('--image',type=Path,required=True);a.add_argument('--method',required=True);a.add_argument('--seed',type=int,choices=[42,43,44],default=42);a.add_argument('--output',type=Path,required=True);a.add_argument('--device',choices=['cpu','cuda'],default='cpu')
     a=s.add_parser('independent-finish');a.add_argument('--evaluation',type=Path,required=True);a.add_argument('--analysis',type=Path,required=True);a.add_argument('--output',type=Path,required=True);a.add_argument('--author-metadata',type=Path)
     a=s.add_parser('prepare-independent');a.add_argument('--metadata-csv',type=Path,required=True);a.add_argument('--evidence',type=Path,required=True);a.add_argument('--reviewer',required=True);a.add_argument('--reviewed-at',required=True);a.add_argument('--notes',required=True);a.add_argument('--output',type=Path,required=True);a.add_argument('--confirm-independence',action='store_true')
@@ -52,7 +53,7 @@ def main():
         result=audit(a.root,a.output)
     elif a.action=='build':
         from .bundle import build
-        result=build(a.root,a.output,a.review_dir)
+        result=build(a.root,a.output,a.review_dir,a.hardware_profile)
     elif a.action=='catalog':
         from .catalog import export
         result=export(a.root,a.output,a.returned,a.scratch)
@@ -72,6 +73,9 @@ def main():
     elif a.action=='independent-statistics':
         from .group_statistics import independent_summary
         result=independent_summary(a.evaluation,a.output)
+    elif a.action=='hardware-preflight':
+        from .transfer_check import preflight
+        result=preflight(a.root,dry_run=not a.execute)
     elif a.action=='predict':
         from .inference import predict_image
         result=predict_image(a.analysis,a.image,a.method,a.seed,a.output,a.device)

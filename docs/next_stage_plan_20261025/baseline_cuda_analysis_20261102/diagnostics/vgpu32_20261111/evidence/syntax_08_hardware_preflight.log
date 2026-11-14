@@ -1,0 +1,2 @@
+COMMAND ["C:\\Program Files\\Git\\bin\\bash.exe", "-n", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\22_vgpu32_handoff_20261111\\verification\\extracted\\p1_vgpu32_training_20261111\\08_hardware_preflight.sh"]
+EXIT 0

@@ -30,10 +30,10 @@ def copy_runtime(target):
             q=target/DOC/p.relative_to(ROOT/DOC);q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,q)
 
 
-def build(root,output,review_dir=None):
+def build(root,output,review_dir=None,hardware_profile=None):
     from diagnostics.handoff_v2.bundle import build as mechanism_build
     root=Path(root);output=fresh(output)
-    child=mechanism_build(root,output/'mechanism')
+    child=mechanism_build(root,output/'mechanism',hardware_profile)
     original=root/'outputs/next_stage_v4_recipe_20261101/04_bundles/ce2d1821ceec/p1_v4_training.zip'
     expected='11fa9c7341fee2803dd550d7d2479f3ef3f56404c963dcf1771149a39a1734e3'
     if sha(original)!=expected:raise ValueError('Historical scratch kit differs')
@@ -47,6 +47,8 @@ def build(root,output,review_dir=None):
             q=output/i.filename;q.parent.mkdir(parents=True,exist_ok=True)
             with z.open(i) as src,q.open('xb') as dst:shutil.copyfileobj(src,dst)
     copy_runtime(output)
+    if hardware_profile:
+        (output/'configs').mkdir();shutil.copyfile(hardware_profile,output/'configs/hardware_profile.json')
     from .catalog import inventory,portable_payload
     portable_payload(inventory(root),output/'baseline_payload')
     from research_v4.external import exclusion_manifest
@@ -101,7 +103,10 @@ are included; do not upload this ZIP to GitHub. No independent/test arrays.
 The independent evaluation and local manuscript/figure finish are separate
 explicit commands, because they require returned models and actual reviewed data.
 ''',encoding='utf-8')
-    return seal(output,extra=dict(real_approval_included=review_dir is not None))
+    if hardware_profile:
+        (output/'08_hardware_preflight.sh').write_bytes(('#!/usr/bin/env bash\nset -euo pipefail\ncd "$(dirname "$0")"\n'+f'{py} {entry} hardware-preflight --root . --execute\n').encode())
+        with (output/'README.md').open('a',encoding='utf-8') as f:f.write('\nAlternate vGPU32 track: run 08_hardware_preflight.sh before 04_start.sh. It is also enforced automatically before training. Historical initializer hashes remain mandatory. This is not the original 5090 replication track.\n')
+    return seal(output,extra=dict(real_approval_included=review_dir is not None,hardware_profile_id=read(hardware_profile)['profile_id'] if hardware_profile else None))
 
 
 def evaluation_build(root,analysis,output):
@@ -125,7 +130,7 @@ def evaluation_build(root,analysis,output):
         c=corpus(root);split=rows(root/'outputs/261024_clean220_random/frozen_split.csv');excluded=exclusion_manifest(c,split)
         excluded['sample_ids']+= [r['sample_id'] for r in split]
     write(output/'assets/reference_exclusions.json',excluded)
-    write(output/'analysis_manifest.json',dict(model_catalog=records,portable_paths=True,dataset_role='frozen_models_before_independent_readout'))
+    write(output/'analysis_manifest.json',dict(model_catalog=records,portable_paths=True,dataset_role='frozen_models_before_independent_readout',hardware_context=read(analysis/'analysis_manifest.json').get('hardware_context')))
     return seal(output,schema='completion_evaluation_kit_v1')
 
 
