@@ -1,6 +1,16 @@
 # DNA loci imaging：下一阶段分阶段计划
 
-最新入口：[六次CUDA结果与历史口径分析](recipe_cuda_analysis_20261102.md)、[最短收尾SPEC](short_term_closure_20261102.md)与[固定模型推理候选版](detection_release_20261102.md)。35项正式研究任务已完成，六次G0联合增强未建立3px F1收益；优先补R0/H0六次，scratch后置，核心机制及独立泛化待建立。
+Latest: [R0/H0 CUDA acceptance and comparison](baseline_cuda_analysis_20261102.md).
+All six minimum-baseline runs are now verified locally, bringing the training
+ledger to 41 runs. G0 remains the simple candidate; H0 improves on R0 but has
+poorer localization and more duplicate-candidate errors than G0. Core mechanism
+and independent validation remain pending. No more baseline training is queued.
+
+2026-11-02 incident update: [H0 boundary-export recovery](h0_boundary_recovery_20261102.md).
+The original epoch60 interruption has been recovered and the returned archives
+verified. The recovery runbook below is retained for provenance.
+
+前次配方阶段：[六次CUDA结果与历史口径分析](recipe_cuda_analysis_20261102.md)、[最短收尾SPEC](short_term_closure_20261102.md)与[固定模型推理候选版](detection_release_20261102.md)。当时35项正式研究任务已完成，六次G0联合增强未建立3px F1收益；后续R0/H0六次现已验收，总计41项。scratch后置，核心机制及独立泛化待建立。
 
 本轮[聚合图表与来源](recipe_cuda_analysis_20261102/README.md)已归档；机器进度为`outputs/next_stage_v4_recipe_20261101/study_progress.json`。原[本地过夜汇报](overnight_report_20261102.md)保留Night-L完成快照。
 

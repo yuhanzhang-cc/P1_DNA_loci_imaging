@@ -1,0 +1,56 @@
+{
+  "scope_id": "P1-PEAK-OFFSET-PROPOSED-20261103",
+  "status": "proposal_only_not_implemented",
+  "training_enabled": false,
+  "architecture_changes_authorized": false,
+  "human_review_pending": true,
+  "current_simple_candidate": "G0_ref_cuda",
+  "single_primary_mechanism": "peak-neighborhood-consistent offset supervision",
+  "contrasts": [
+    {
+      "id": "H0_original",
+      "new_training_runs": 0,
+      "parameters": 671719,
+      "offset_activation": "sigmoid",
+      "offset_supervision": "floor_anchor_only"
+    },
+    {
+      "id": "S0_range_control",
+      "new_training_runs": 3,
+      "parameters_expected": 671719,
+      "offset_activation": "linear_signed",
+      "offset_supervision": "floor_anchor_only"
+    },
+    {
+      "id": "P0_consistent_support",
+      "new_training_runs": 3,
+      "parameters_expected": 671719,
+      "offset_activation": "linear_signed",
+      "offset_supervision": "nearest_owned_5x5_floor_anchor_neighborhood"
+    }
+  ],
+  "primary_mechanism_contrast": "P0_consistent_support-S0_range_control",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "future_recipe": {
+    "epochs": 100,
+    "optimizer_updates": 2200,
+    "batch_size": 8,
+    "checkpoint_period": 5,
+    "threshold_policies": 31,
+    "unchanged_heatmap": true,
+    "own_new_protocol_required": true
+  },
+  "new_training_runs_if_later_enabled": 6,
+  "first_screen_runs": 2,
+  "remaining_runs_gated": 4,
+  "gpu_minutes_provisional": [
+    40,
+    90
+  ],
+  "no_training_now": true,
+  "innovation_claim_established": false
+}

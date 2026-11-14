@@ -88,8 +88,12 @@ def decode_candidates(prediction, shape, *, dense: bool = False, cell_size: int 
         rows, cols = rows.ravel(), cols.ravel()
         coords = (np.column_stack([rows, cols]) + prediction[rows, cols, 1:3]) * cell_size
         scores = prediction[rows, cols, 0]
+    # Validate the representation that is actually saved. A float64 value just
+    # below H/W can round to H/W when serialized as float32.
+    coords = coords.astype(np.float32)
+    scores = scores.astype(np.float32)
     inside = (coords >= 0).all(1) & (coords[:, 0] < height) & (coords[:, 1] < width)
-    return coords[inside].astype(np.float32), scores[inside].astype(np.float32)
+    return coords[inside], scores[inside]
 
 
 def threshold_mask(scores, threshold):

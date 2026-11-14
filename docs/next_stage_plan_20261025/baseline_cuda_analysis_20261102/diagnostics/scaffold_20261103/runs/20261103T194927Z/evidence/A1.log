@@ -1,0 +1,40 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\S0.json --dry-run
+{
+  "schema_valid": true,
+  "launch_ready": false,
+  "status": "not_started",
+  "dry_run": true,
+  "optimizer_updates": 0,
+  "architecture_instantiated": false,
+  "adapter_implemented": false,
+  "expected_parameters": 671719,
+  "unresolved": [
+    "review_decision",
+    "implementation_hash"
+  ],
+  "reason": "scaffold only; no executable S0/P0 adapter is implemented",
+  "seed": 42,
+  "config": "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\S0.json"
+}
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\train_mechanism.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\P0.json --dry-run
+{
+  "schema_valid": true,
+  "launch_ready": false,
+  "status": "not_started",
+  "dry_run": true,
+  "optimizer_updates": 0,
+  "architecture_instantiated": false,
+  "adapter_implemented": false,
+  "expected_parameters": 671719,
+  "unresolved": [
+    "review_decision",
+    "supervision.radius_px",
+    "supervision.ownership",
+    "supervision.normalization",
+    "supervision.decision",
+    "implementation_hash"
+  ],
+  "reason": "scaffold only; no executable S0/P0 adapter is implemented",
+  "seed": 42,
+  "config": "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json"
+}

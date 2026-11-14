@@ -1,0 +1,11 @@
+COMMAND: "C:\Program Files\Git\bin\bash.exe" D:/Projects/P1_DNA_loci_imaging/outputs/next_stage_v4_recipe_20261101/12_git_publish_checkout/deepblink_pytorch/scripts/diagnostics/scaffolds/04_status.sh --data-root D:/Projects/P1_DNA_loci_imaging
+S0 seed 42: not_started; epoch 0/100; updates 0; scaffold only
+S0 seed 43: not_started; epoch 0/100; updates 0; scaffold only
+S0 seed 44: not_started; epoch 0/100; updates 0; scaffold only
+P0 seed 42: not_started; epoch 0/100; updates 0; scaffold only
+P0 seed 43: not_started; epoch 0/100; updates 0; scaffold only
+P0 seed 44: not_started; epoch 0/100; updates 0; scaffold only
+CAP_P0 seed 42: not_started; epoch 0/100; updates 0; scaffold only alias_of=S0 (no additional run)
+CAP_P0 seed 43: not_started; epoch 0/100; updates 0; scaffold only alias_of=S0 (no additional run)
+CAP_P0 seed 44: not_started; epoch 0/100; updates 0; scaffold only alias_of=S0 (no additional run)
+Verified completed training count: 41; scaffold new training: 0

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "native_quantitative_crops_verified": 60,
+  "display_mappings_verified": 60,
+  "candidate_markings_verified": 60,
+  "stratum_counts": {
+    "common_tp": 20,
+    "h0_only_tp": 20,
+    "h0_only_fp": 20
+  },
+  "public_zip_files": 123,
+  "source_key_excluded": true,
+  "human_responses_blank": true,
+  "input_and_training_source_hashes_unchanged": true,
+  "exact_raster_duplicate_pairs": [],
+  "image_qa_limit": "Exact pixels/duplicates and known source-crop provenance verified; SIFT/rotated-crop screening not run: OpenCV unavailable",
+  "representability_bounds_verified": 914,
+  "optimizer_updates": 0
+}

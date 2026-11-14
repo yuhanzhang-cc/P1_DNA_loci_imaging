@@ -1,0 +1,7 @@
+{
+  "events": 914,
+  "unreachable_target_events": 627,
+  "minimum_bound_mean_px": 0.48430147135414525,
+  "bound_definition": "Distance of truth from source_anchor+[0,1]^2, generous closed-box bound for float32 sigmoid outputs",
+  "no_prediction_coordinates_changed": true
+}

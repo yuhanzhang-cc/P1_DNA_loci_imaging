@@ -1,0 +1,6 @@
+# Local review images and unblinding materials must not enter a code/docs commit.
+private/
+blind_audit_public/
+*.zip
+*.zip.sha256
+*.log

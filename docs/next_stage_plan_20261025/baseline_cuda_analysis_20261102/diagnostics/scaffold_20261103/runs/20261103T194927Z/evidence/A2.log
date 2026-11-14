@@ -1,0 +1,11 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\capacity_control.py --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\P0.json --output D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\runs\20261103T194927Z\examples\CAP_P0.json --dry-run
+{
+  "passed": true,
+  "dry_run": true,
+  "expected_parameters": 671719,
+  "capacity_matching": "identical structural signature; activation/supervision introduce zero parameters",
+  "parameter_count_measured_for_new_adapter": false,
+  "control_alias": "S0",
+  "output": "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\runs\\20261103T194927Z\\examples\\CAP_P0.json",
+  "optimizer_updates": 0
+}

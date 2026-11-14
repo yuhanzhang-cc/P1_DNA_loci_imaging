@@ -1,0 +1,247 @@
+{
+  "passed": true,
+  "items": [
+    {
+      "item": "A1",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+          "--config",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\S0.json",
+          "--dry-run"
+        ],
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\train_mechanism.py",
+          "--config",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/A1.log"
+    },
+    {
+      "item": "A2",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\capacity_control.py",
+          "--config",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\P0.json",
+          "--output",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\runs\\20261103T194927Z\\examples\\CAP_P0.json",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/A2.log"
+    },
+    {
+      "item": "A3",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Program Files\\Git\\bin\\bash.exe",
+          "D:/Projects/P1_DNA_loci_imaging/outputs/next_stage_v4_recipe_20261101/12_git_publish_checkout/deepblink_pytorch/scripts/diagnostics/scaffolds/04_status.sh",
+          "--data-root",
+          "D:/Projects/P1_DNA_loci_imaging"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/A3.log"
+    },
+    {
+      "item": "B4",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\ablation_runner.py",
+          "--matrix",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\ablation_matrix.json",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/B4.log"
+    },
+    {
+      "item": "B5",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\ablation_runner.py",
+          "--matrix",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\ablation_matrix.json",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/B5.log"
+    },
+    {
+      "item": "B6",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\aggregate_results.py",
+          "--data-root",
+          "D:\\Projects\\P1_DNA_loci_imaging",
+          "--output",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\runs\\20261103T194927Z\\examples\\aggregate_existing",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/B6.log"
+    },
+    {
+      "item": "C7",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\formal_test_eval.py",
+          "--data-root",
+          "D:\\Projects\\P1_DNA_loci_imaging",
+          "--locks",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\validation_model_locks.json",
+          "--config",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\independent_test.json",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/C7.log"
+    },
+    {
+      "item": "C8",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "-m",
+          "pytest",
+          "-q",
+          "-s",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\test_scaffolds.py",
+          "-k",
+          "ranked_ap"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/C8.log"
+    },
+    {
+      "item": "C9",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\weak_policy.py",
+          "--config",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\configs\\weak_policy.json",
+          "--features",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v3_closing_controls\\02_analysis\\validation_truth_features.csv",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/C9.log"
+    },
+    {
+      "item": "D10",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\reproduce.py",
+          "--data-root",
+          "D:\\Projects\\P1_DNA_loci_imaging",
+          "--dry-run"
+        ],
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\reproduce.py",
+          "--data-root",
+          "D:\\Projects\\P1_DNA_loci_imaging",
+          "--output",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\runs\\20261103T194927Z\\examples\\clean_reproduction_table",
+          "--run-readonly"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/D10.log"
+    },
+    {
+      "item": "D11",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\inspect_docs.py",
+          "--data-root",
+          "D:\\Projects\\P1_DNA_loci_imaging",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/D11.log"
+    },
+    {
+      "item": "E12",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\blind_audit.py",
+          "validate",
+          "--responses",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\templates\\blind_audit_response_template.csv",
+          "--key",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\overnight_ready\\private\\blind_audit_source_key.csv",
+          "--public-zip",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\overnight_ready\\blind_audit_public.zip",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/E12.log"
+    },
+    {
+      "item": "E13",
+      "passed": true,
+      "commands": [
+        [
+          "C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe",
+          "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\scaffolds\\blind_audit.py",
+          "aggregate",
+          "--synthetic-demo",
+          "--output",
+          "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\scaffold_20261103\\runs\\20261103T194927Z\\examples\\synthetic_review",
+          "--dry-run"
+        ]
+      ],
+      "evidence": "runs/20261103T194927Z/evidence/E13.log"
+    }
+  ],
+  "unit_tests_log": "evidence/all_unit_tests.log",
+  "protected_files_unchanged": 362,
+  "gpu_used": false,
+  "optimizer_updates": 0,
+  "new_baseline_runs": 0,
+  "independent_test_images_read": 0,
+  "completed_training_count": 41,
+  "synthetic_review_is_not_human_review": true,
+  "source_sha256": {
+    "ablation_runner.py": "cb74eb894a5751e695b8a14666ed5c4188cd31f8fee7ae61bf15ed84288e8162",
+    "aggregate_results.py": "706de967b2a0c31ef982d6edac354ca459c9f2d343f348722904bc5e2bc16c54",
+    "blind_audit.py": "125d96d6923746ae9168c6fccd0c97cb8404ddde3f7d3cbd4193fd43ccd1db78",
+    "bootstrap_scaffold.py": "36373473ce2a9f6cc700b81b7dd6b31e61365f62d67283503e682d5d98c1abde",
+    "capacity_control.py": "8fb54ad374f61dcd9486af490cfa6142058587c5e05ee550540f220a8dfb3653",
+    "formal_test_eval.py": "922b2961c7b5ad2a9538962968ad89dd9edb1733fa96beb9dbbe55fa767c7804",
+    "inspect_docs.py": "e264fdf7087be578b66f21486fd32de082d5c62dbc5de684d098434e7330cee6",
+    "ranked_ap.py": "5d39d0f5b8d648a792ffa38fd61796a94e80d234dcb4b1c1d56c2a405c658ceb",
+    "reproduce.py": "0f98e04d2791b3b67f86d445a54344bcc7f878cbb2fdae6a3c7be7dc73650f49",
+    "run_scaffold_checks.py": "ffc2f1d2b2c9c5be1b4b82632de854e52fe56a111d3764016c13f68724ecba61",
+    "scaffold_common.py": "e878c1862b92f16badad2fe6dfb103da71f39c8a5740b6d616a1a72250eb7ce7",
+    "status.py": "fc47e12c5dc5a9fd4deb337cc2723c6374f57c8736acf7e75df3bdfc67f6ec34",
+    "test_scaffolds.py": "42b906f0760cd4c0a1cf4a1d82bfccabfdc2dbbdd201d7af401cf388c4ba02f5",
+    "train_mechanism.py": "ce5e54e5473dd6c90b84c0a71a6e22b5fdd12b3103e994f750b8399c310c1563",
+    "weak_policy.py": "bd3b89d8e4155de7ac5e90e7e27ac69a748111c40feb0c7bad650388b8104f12"
+  }
+}

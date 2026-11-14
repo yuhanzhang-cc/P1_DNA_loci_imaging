@@ -1,0 +1,14 @@
+{
+  "stage": "scaffold only, not run",
+  "dataset_role": "independent_test",
+  "dataset_manifest": null,
+  "independence_reviewed": false,
+  "exclusions_json": null,
+  "candidate_cache": null,
+  "live_inference_adapter_enabled": false,
+  "decision": "TODO: 独立数据采集/来源审查与正式test协议确认后定",
+  "allow_existing_observed_internal_test": false,
+  "matching_radius_px": 3.0,
+  "ap_policy": "ranked_point_ap_greedy_step_v1",
+  "test_evaluated": false
+}

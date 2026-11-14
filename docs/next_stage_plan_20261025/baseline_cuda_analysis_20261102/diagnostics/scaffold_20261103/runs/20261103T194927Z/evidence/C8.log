@@ -1,0 +1,4 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe -m pytest -q -s D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\test_scaffolds.py -k ranked_ap
+synthetic only: sklearn 1.8.0 reference PASS; AP=0.8333333333333333
+..........
+10 passed, 12 deselected in 1.86s

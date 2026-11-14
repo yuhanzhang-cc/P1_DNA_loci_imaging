@@ -1,0 +1,25 @@
+{
+  "seed": 20261102,
+  "counts": {
+    "h0_only_tp": {
+      "requested": 20,
+      "event_pool": 47,
+      "selected": 20
+    },
+    "h0_only_fp": {
+      "requested": 20,
+      "event_pool": 147,
+      "selected": 20
+    },
+    "common_tp": {
+      "requested": 20,
+      "event_pool": 793,
+      "selected": 20
+    }
+  },
+  "patch_size": 64,
+  "minimum_between_case_center_distance_same_image_px": 16,
+  "blinding": "Model/seed/stratum/source keys excluded from public ZIP",
+  "review_complete": false,
+  "no_human_labels_fabricated": true
+}

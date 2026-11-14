@@ -1,0 +1,12 @@
+{
+  "acceptance.json": "fbfbfe54610190c155fcd081993ae11ab6fd8c4d387d84eb191dff2df3db53df",
+  "model_summary.csv": "761fcc19167d5a5f2bea530d0610203f91e6442ad2d9495989e76f4d3c9ac3d5",
+  "per_seed_metrics.csv": "b206da08c3ffbd32c80b3ee160756a64612a1752dd4410832fc6c63ced3beae2",
+  "paired_comparisons.csv": "e162201d919cc020efdf7925ef22e07e505faa7b1ed8eb00975c8c4cf82a55d5",
+  "fp_geometry_summary.csv": "19b4e85e28d952d4eedc738972a2ea9a12aaf6644b070c06c11c42af00c2530c",
+  "provenance.json": "f74f71d9964af71e87a2738c1b4827c2f9ad569c7e5b62fd001513b6874b1b35",
+  "test_validation.txt": "3de86bb10497c11522dbe639c8ec69de1729c725f49f2469c6eadc922d5956bf",
+  "shared_tp_G0_ref_cuda_vs_R0_cuda_reference.csv": "103f5629ff50d0e61fe3695a77a087d4c7ddaa0f1da5e8191c3c97d15adf157e",
+  "shared_tp_H0_cuda_reference_vs_G0_ref_cuda.csv": "60e1f6826c2fc4a220018dee521173108ed5a6d62f0d66ecaa6c9acde2268073",
+  "shared_tp_H0_cuda_reference_vs_R0_cuda_reference.csv": "fdd62a6f3da212d00e3bc469061f3fd64b1c6969dfbcb03e3b0c47fca165522c"
+}

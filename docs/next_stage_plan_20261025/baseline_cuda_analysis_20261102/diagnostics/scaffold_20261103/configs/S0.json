@@ -1,0 +1,42 @@
+{
+  "id": "S0",
+  "status": "not_started",
+  "training_enabled": false,
+  "adapter_implemented": false,
+  "counts_as_new_trial": true,
+  "note": "scaffold only, not run",
+  "review_decision": "TODO: 待 blind_audit 回填后定并确认机制",
+  "expected_parameters": 671719,
+  "architecture": {
+    "base": "H0_frozen_structure",
+    "input_channels": 1,
+    "head_channels": 3,
+    "added_trainable_parameters": 0
+  },
+  "components": {
+    "signed_offsets": true,
+    "neighborhood_supervision": false
+  },
+  "supervision": {
+    "radius_px": 0,
+    "ownership": "not_applicable_single_anchor",
+    "normalization": "anchor_mean"
+  },
+  "recipe": {
+    "epochs": 100,
+    "updates": 2200,
+    "batch_size": 8,
+    "canvas": 512,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "period": 5,
+    "threshold_count": 31,
+    "precision": "float32"
+  },
+  "implementation_hash": "TODO: no architecture/target implementation in this phase",
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

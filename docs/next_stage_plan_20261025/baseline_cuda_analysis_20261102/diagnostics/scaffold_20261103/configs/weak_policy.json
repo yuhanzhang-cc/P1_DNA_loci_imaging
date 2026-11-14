@@ -1,0 +1,25 @@
+{
+  "policy_id": "legacy_train_q25_local_zscore_v1",
+  "feature": "local_zscore",
+  "threshold": 2.4566830772038957,
+  "comparison": "strict_less_than",
+  "radius_px": 10,
+  "std_ddof": 0,
+  "std_epsilon": 1e-06,
+  "center_rounding": "python_round_ties_to_even",
+  "input": "original unpadded float32 image",
+  "invalid": "unclassifiable_not_nonweak",
+  "zero_weak_recall": null,
+  "cutoff_source": "frozen training-only q25; never refit on validation/test",
+  "strata": [
+    "weak",
+    "non_weak",
+    "unclassifiable"
+  ],
+  "diagnostic_quartile_edges": [
+    2.402340366424743,
+    3.4319434818684265,
+    4.7150023567686326
+  ],
+  "quartile_edges_source": "existing 372-point development diagnostic only; not the weak threshold"
+}

@@ -1,0 +1,23 @@
+{
+  "input": "METHOD/seed_N/{status.json,selection.json,primary/metrics.json}",
+  "columns": [
+    "method",
+    "seed",
+    "role",
+    "status",
+    "epoch",
+    "threshold",
+    "tp",
+    "fp",
+    "fn",
+    "precision",
+    "recall",
+    "f1",
+    "weak_recall",
+    "mean_error_px",
+    "ranked_ap",
+    "source_kind"
+  ],
+  "not_started_metrics": null,
+  "ranked_ap_not_substituted_by_ap31": true
+}

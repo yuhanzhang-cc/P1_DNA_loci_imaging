@@ -1,0 +1,92 @@
+[
+  {
+    "method": "R0",
+    "seed": 42,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_42/best_model.pt",
+    "weight_sha256": "14730fdac6fdd317c5f8116b8569484fef113ea13f83e247f2da5a67bce9d8c0",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_42/selection.json",
+    "selection_sha256": "f80861901727fa03c8af57755214e36f80676cd328b483beecb093c00018b03a",
+    "threshold": 0.0710000191507991,
+    "validation_selected": true
+  },
+  {
+    "method": "R0",
+    "seed": 43,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_43/best_model.pt",
+    "weight_sha256": "046a3de9703fb850aed52501f75c3e102d1c687d20031eba913973ff4cb78140",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_43/selection.json",
+    "selection_sha256": "5a500031eeeb34fe1fb38b6cc9d4e01d770cee5fdb11df5e1a1f15a82f32b866",
+    "threshold": 0.9613683488409503,
+    "validation_selected": true
+  },
+  {
+    "method": "R0",
+    "seed": 44,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_44/best_model.pt",
+    "weight_sha256": "a18bb4c85717eea99f63de86097020cdfb90bfc89a0ec03c260b90ff243991d8",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_r0/outputs/research_v4_cuda/baseline_r0/R0_cuda_reference/seed_44/selection.json",
+    "selection_sha256": "b64c310e45dc9aca11aa40ca112bb3f557c200a82d36bf23a5c9e302ae64dbf0",
+    "threshold": 0.038631651159049755,
+    "validation_selected": true
+  },
+  {
+    "method": "H0",
+    "seed": 42,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_42/best_model.pt",
+    "weight_sha256": "17c0e355181b7811f418c5f9fe507c40ddad5fa1dd4806053e1338dfce1d40b2",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_42/selection.json",
+    "selection_sha256": "3f791f4c04e46dd2ed3ae40b96a16bfb7390ea6ac1efceba0a54965791aa6243",
+    "threshold": 0.9613683488409503,
+    "validation_selected": true
+  },
+  {
+    "method": "H0",
+    "seed": 43,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_43/best_model.pt",
+    "weight_sha256": "f0a3649a143a3314c612305f3b9c32e67c89303c23cf6ee7b330c62106c4843c",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_43/selection.json",
+    "selection_sha256": "ed26313d1a71daf39bc995ec6a10b6ac3b6755c4fe84bb659dd5a99e48d88bc0",
+    "threshold": 0.7834209042318241,
+    "validation_selected": true
+  },
+  {
+    "method": "H0",
+    "seed": 44,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_44/best_model.pt",
+    "weight_sha256": "efc009de0b7b4f5b395ec08315fbb4f2a1a7ce5fd259cfcbfa09d087d277cd4a",
+    "selection": "outputs/next_stage_v4_recipe_20261101/extracted_h0/outputs/research_v4_cuda/baseline_h0/H0_cuda_reference/seed_44/selection.json",
+    "selection_sha256": "b2fa60a6e66e00281c8c3ee39c0852bcfc1d700e338d1b5ad4555076cbedb6ca",
+    "threshold": 0.6553990357712657,
+    "validation_selected": true
+  },
+  {
+    "method": "G0",
+    "seed": 42,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_42/best_model.pt",
+    "weight_sha256": "186c3703a759886b00e316fecb69aa42bccf64c8b2cdf9497f6a9a8e03c5d594",
+    "selection": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_42/selection.json",
+    "selection_sha256": "981f88988e951bfcb304a1176db3304d647fdb12be2118cb4c9194fdca4ba496",
+    "threshold": 0.9969382869377885,
+    "validation_selected": true
+  },
+  {
+    "method": "G0",
+    "seed": 43,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_43/best_model.pt",
+    "weight_sha256": "b2db4d251aebe53e9bb90fd7f76f40cfccd1ad3e0aa6f246f6a83c3be1269043",
+    "selection": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_43/selection.json",
+    "selection_sha256": "4477ea2776e97ccd34a48f90876b1e5de828f8c4e6b567924bdc355ea850a750",
+    "threshold": 0.00023465891033040226,
+    "validation_selected": true
+  },
+  {
+    "method": "G0",
+    "seed": 44,
+    "checkpoint": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_44/best_model.pt",
+    "weight_sha256": "6e55bd59578512bf7890932ffe384dce04ab2dc003bb5a8ff579c55193a6dcca",
+    "selection": "outputs/next_stage_v4_recipe_20261101/08_returned_gpu/extracted/outputs/research_v4_cuda/recipe/G0_ref_cuda/seed_44/selection.json",
+    "selection_sha256": "bcc88462744e04c088e7acec338ab51449974f338010bb9e4d2264f03ec288bf",
+    "threshold": 0.0710000191507991,
+    "validation_selected": true
+  }
+]

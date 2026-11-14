@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "checks_passed": 13,
+  "unit_tests_passed": 22,
+  "protected_files_unchanged": 362,
+  "new_optimizer_updates": 0,
+  "gpu_used": false,
+  "independent_test_images_read": 0,
+  "real_human_review_completed": false,
+  "formal_training_count": 41,
+  "source_branch": "codex/overnight-scaffolds-20261103",
+  "source_files_sha256": {
+    ".gitattributes": "9f0ae08a5b8889620646873375d226e5723144a0024e0ea17be3b8f14a229afc",
+    "04_status.sh": "415fcb7b64172574b90833154eab759b0819241d518e1f7272efd56813e8d3e8",
+    "ablation_runner.py": "cb74eb894a5751e695b8a14666ed5c4188cd31f8fee7ae61bf15ed84288e8162",
+    "aggregate_results.py": "706de967b2a0c31ef982d6edac354ca459c9f2d343f348722904bc5e2bc16c54",
+    "blind_audit.py": "125d96d6923746ae9168c6fccd0c97cb8404ddde3f7d3cbd4193fd43ccd1db78",
+    "bootstrap_scaffold.py": "36373473ce2a9f6cc700b81b7dd6b31e61365f62d67283503e682d5d98c1abde",
+    "capacity_control.py": "8fb54ad374f61dcd9486af490cfa6142058587c5e05ee550540f220a8dfb3653",
+    "formal_test_eval.py": "922b2961c7b5ad2a9538962968ad89dd9edb1733fa96beb9dbbe55fa767c7804",
+    "inspect_docs.py": "e264fdf7087be578b66f21486fd32de082d5c62dbc5de684d098434e7330cee6",
+    "ranked_ap.py": "5d39d0f5b8d648a792ffa38fd61796a94e80d234dcb4b1c1d56c2a405c658ceb",
+    "reproduce.py": "0f98e04d2791b3b67f86d445a54344bcc7f878cbb2fdae6a3c7be7dc73650f49",
+    "requirements-scaffold-qa.txt": "10e6f28c6746b29e7372f83baba83f8a11e1615ed8280f247a2aab4b72c815d3",
+    "run_scaffold_checks.py": "ffc2f1d2b2c9c5be1b4b82632de854e52fe56a111d3764016c13f68724ecba61",
+    "scaffold_common.py": "e878c1862b92f16badad2fe6dfb103da71f39c8a5740b6d616a1a72250eb7ce7",
+    "status.py": "fc47e12c5dc5a9fd4deb337cc2723c6374f57c8736acf7e75df3bdfc67f6ec34",
+    "test_scaffolds.py": "42b906f0760cd4c0a1cf4a1d82bfccabfdc2dbbdd201d7af401cf388c4ba02f5",
+    "train_mechanism.py": "ce5e54e5473dd6c90b84c0a71a6e22b5fdd12b3103e994f750b8399c310c1563",
+    "weak_policy.py": "bd3b89d8e4155de7ac5e90e7e27ac69a748111c40feb0c7bad650388b8104f12",
+    "write_handoff.py": "8d0f7ab26b53dd418c51388495839d9522acdde09a5e23a51be96de458e1a640"
+  },
+  "existing_modified_files": [
+    "README.md",
+    "docs/next_stage_plan_20261025/experiment_registry.csv"
+  ],
+  "evidence_run": "runs/20261103T194927Z",
+  "new_model_adapters_implemented": false,
+  "committed": false,
+  "pushed": false
+}

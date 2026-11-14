@@ -1,0 +1,12 @@
+{
+  "CONCLUSION.md": "609f3528ee402344c97dc0bffeb6fdcf41527757eaae834c24915410d08be7c7",
+  "cpu_gpu_parity.csv": "df243ae3a411685a7c1629a422d49e831be49544849b13ab3b4de4a8acbab250",
+  "peak_offset_diag.csv": "c065eb4db1f405bb36142d9ca6c1ff24783f74156a764dd1c87d64d40c8f33ea",
+  "peak_offset_overview.png": "8d87b052f6c0a64e06a766b41474740de04bd3749bfbedc39ee6e60f194dd981",
+  "peak_offset_overview.svg": "a1bff22a221b137b49684ce1fdf8377df5cb51d3f2bf945665dfbfaee36b35ec",
+  "peak_offset_snr.png": "01aad76f2869766395ab8bfd50f4ea39933d26ab5adf098da485a231ac609a51",
+  "peak_offset_snr.svg": "e1da109f754023063c9004ccf778b427a93a5f295ea6ee6182c9b19484a35459",
+  "peak_offset_summary.csv": "c567f17852ecbdc22f15c8e98c62ace127d1ca67ff5a073bf01466e860465505",
+  "provenance.json": "680aaa92a9ba3c655d348d589db0dfa4e1cf02e67a384c605bde0e77dbd9f86d",
+  "rounding_audit.csv": "0a3d890d6ece61e373d31fd5175c6fe5b186a44debdb782aaa212ca7556da6b7"
+}

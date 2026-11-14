@@ -1,0 +1,91 @@
+{
+  "source_sha256": "6404ed236168c64e96c654a6f5a6beb1b08464d0417655e48906bfd3d34b620c",
+  "seed": 20261102,
+  "inputs": {
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_42\\primary\\prediction_points.csv": "43e1e540aac69c8e0e858619a9d49dc14128b546e88d6e1cf4331fa196a3e700",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_42\\primary\\matches.csv": "733bc6be16ccbee09bd32da4f11b47cd6fe0247cc02d6a67bcf6a132a2e38cc9",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_42\\primary\\per_image_metrics.csv": "3b3bcc22e34b32ff466c0f37b0d1d289ef6237cca3f82254521beb2b7242182e",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_42\\primary\\metrics.json": "d95245edbcda0e30e8e487cfafd00c3c1dc5a2bb91c4b3cd495878e52a239846",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_43\\primary\\prediction_points.csv": "6dc92ea53fd9aef4407f3753f25372f076d78f699dbdecd501c5f76c1164515a",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_43\\primary\\matches.csv": "7faf1146ef9620cb76b2ffa1633e160ac3e2659a72a7583678538590408abb6b",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_43\\primary\\per_image_metrics.csv": "9fe9422fdef51f68e57515ba6ccb26e6ef9865e3f3c647288f8e7c029f8ad9a5",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_43\\primary\\metrics.json": "fced0b593b287bc1754e4ec55f7b00e2a6eb17838ae73f9a45edac528973f7f9",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_44\\primary\\prediction_points.csv": "5091f1c244f35abc16972ebbc36900fbe595a071139968d568e65a3f21580678",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_44\\primary\\matches.csv": "75922590b8df8d5e4b116cc371c4a0db9872bceff1c5c2ea083f8513c08c1da7",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_44\\primary\\per_image_metrics.csv": "aeef3cead5572cbc932740ec0209df9743375bef36ca7a04eb1fac08d00b7df7",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_r0\\outputs\\research_v4_cuda\\baseline_r0\\R0_cuda_reference\\seed_44\\primary\\metrics.json": "5b01516ed374377ff41a84e10128fd72dcd85b722192bc5d3dc4b261e5c39585",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_42\\primary\\prediction_points.csv": "ff3e7a2ee1dd372f783b82d45ac12b15d33744145b33ca842e1c833678218053",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_42\\primary\\matches.csv": "9b2773e99a36f35bff50ea912cc71df7c41dcf324c2a42ec938d9fe1211c8ae2",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_42\\primary\\per_image_metrics.csv": "502129aa5a82c71d931ea53495a1e729db46e671f9f135edf497d12d931aea4d",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_42\\primary\\metrics.json": "eb76e00537926268d0ea27f856cb72d65f7e45af35438dc2819647777d43ea15",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_43\\primary\\prediction_points.csv": "0397714c72c0587bbb026028f2976bf1bf0f9d2911a91aed57e5249b420e163d",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_43\\primary\\matches.csv": "55d415e7b2158a50e6c9c31fbd3757a1129e30f0f2b3613d52fdda601e61eff1",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_43\\primary\\per_image_metrics.csv": "d326a421e5325f837e042983f3b369ad00d1473a617b338fdb7372d00089caf8",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_43\\primary\\metrics.json": "f56b841141c81bdcb41b7fb7afb348078424ccf572c53810047a223c8de1da95",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_44\\primary\\prediction_points.csv": "20a8cc88c6c57d511165eb417e12d40cfdc70b104caadd51ae3ca3fdcb616254",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_44\\primary\\matches.csv": "726307c2e3105e5de089dd66397e40797ee4e6980d73e4292daa3fff42e878cb",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_44\\primary\\per_image_metrics.csv": "ee531b2171249d42ab39f8c16238667e7e3d4eed27ea40f4ba06d54bcc6aecfe",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\extracted_h0\\outputs\\research_v4_cuda\\baseline_h0\\H0_cuda_reference\\seed_44\\primary\\metrics.json": "be096f3f852c922f475b305becfb711179e7939a24c3328914ca83523721aa9c",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_42\\primary\\prediction_points.csv": "a4eadbeb6d0947c60df979cd043d354eab0a1a66c1de7dcaf713ea7ea3244ce1",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_42\\primary\\matches.csv": "a67dad99da2f60f2bef7e91533ce92accbcece2278049a5bc92db3349bcf942f",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_42\\primary\\per_image_metrics.csv": "ccc3f461c4cb67bcd71001dbf3d9db6c11b48ca0eac2cfe5a4963684355523e1",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_42\\primary\\metrics.json": "7207cc6d57aa1ba4577fe4b40ec8a663a84c3d86f7cccc9aa51a9b9f2f38291e",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_43\\primary\\prediction_points.csv": "45db6e555b7364ce054b2a4005dc98cc1396c14774f8e8ce527e174eb4c8fcad",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_43\\primary\\matches.csv": "f51b45ba18eb717d184cb94029f0f06fd5e6159a4d8fd11e14059757a75e6526",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_43\\primary\\per_image_metrics.csv": "64569fb198dd462c55b72ce2ee1ec0472213cc28040c5f1dd793c163f8ba77fa",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_43\\primary\\metrics.json": "d567a54d04d9c52590c294131a76f0ec4d5818058b3bb6ec3f4ccadb200ed189",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_44\\primary\\prediction_points.csv": "64924eb821364f916cc10f1fe611139f38e4057ceff3e534d9760d46becde287",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_44\\primary\\matches.csv": "3e16ed631adc898f31cee862122bb449f8bebed067878c8ecc0a7b508ff255f4",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_44\\primary\\per_image_metrics.csv": "a18932024f214f7657bd834478d6fc4ff521d2a9e2d954909db46c3cd241dbc4",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\08_returned_gpu\\extracted\\outputs\\research_v4_cuda\\recipe\\G0_ref_cuda\\seed_44\\primary\\metrics.json": "bae2e3f7666364b3c75ddf3b2a2e6675f0d248e879cc159a01036387009cc8f1",
+    "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\peak_offset_diag.csv": "c065eb4db1f405bb36142d9ca6c1ff24783f74156a764dd1c87d64d40c8f33ea",
+    "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\04_bundles\\ce2d1821ceec\\p1_v4_training\\assets\\development_only.npz": "84ceae4ecedac3856ca6c1b9be545cfab05d08ade7eaa499b7973b9fa86ffa25"
+  },
+  "archive_keys_read": [
+    "x_valid",
+    "y_valid",
+    "sample_id_valid",
+    "original_shape_valid"
+  ],
+  "test_arrays_read": false,
+  "new_optimizer_updates": 0,
+  "architecture_modified": false,
+  "fp": {
+    "h0_fp": 230,
+    "g0_fp": 165,
+    "shared": 83,
+    "h0_only": 147,
+    "g0_only": 82,
+    "net": 65,
+    "old_proxy_counts": {
+      "H0": {
+        "fp": 230,
+        "duplicate_or_assignment_conflict": 80,
+        "near_reference_3to6px": 12,
+        "far_from_reference_gt6px": 138
+      },
+      "G0": {
+        "fp": 165,
+        "duplicate_or_assignment_conflict": 21,
+        "near_reference_3to6px": 8,
+        "far_from_reference_gt6px": 136
+      }
+    },
+    "geometry_class_counts": {
+      "nearby_duplicate_proxy": 80,
+      "assignment_conflict_proxy": 0,
+      "other_requires_visual_review": 150
+    },
+    "net_65_is_not_a_set_of_65_distinct_candidates": true,
+    "human_review_completed": false
+  },
+  "source_range": {
+    "events": 914,
+    "unreachable_target_events": 627,
+    "minimum_bound_mean_px": 0.48430147135414525,
+    "bound_definition": "Distance of truth from source_anchor+[0,1]^2, generous closed-box bound for float32 sigmoid outputs",
+    "no_prediction_coordinates_changed": true
+  },
+  "patches": 60,
+  "human_review_pending": true
+}

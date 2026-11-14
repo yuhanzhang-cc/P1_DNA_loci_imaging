@@ -1,0 +1,27 @@
+{
+  "expected_cases": 60,
+  "required_completed": [
+    "candidate_is_real_spot",
+    "number_of_spots",
+    "review_confidence",
+    "reviewer"
+  ],
+  "presence_values": [
+    "yes",
+    "no",
+    "uncertain"
+  ],
+  "confidence_values": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "detection_values": [
+    "TP",
+    "FP",
+    "uncertain"
+  ],
+  "detection_requires_phase": "post_blind_with_annotations",
+  "biological_spot_presence_is_not_one_to_one_detection_tp": true,
+  "source_mapping_must_remain_private": true
+}

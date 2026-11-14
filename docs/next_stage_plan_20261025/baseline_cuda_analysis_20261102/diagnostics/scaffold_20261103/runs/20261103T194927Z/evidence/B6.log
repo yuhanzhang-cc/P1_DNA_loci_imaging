@@ -1,0 +1,2 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\aggregate_results.py --data-root D:\Projects\P1_DNA_loci_imaging --output D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\runs\20261103T194927Z\examples\aggregate_existing --dry-run
+{"passed": true, "dry_run": true, "rows": 18, "summaries": 6, "new_training": 0, "ranked_ap_derived_from_thresholded_csv": false}

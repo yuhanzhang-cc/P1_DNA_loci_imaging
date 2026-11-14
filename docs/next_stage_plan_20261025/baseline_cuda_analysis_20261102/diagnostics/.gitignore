@@ -1,0 +1,7 @@
+# Preserve generated study detail locally; never publish reviewer unblinding keys/crops.
+overnight_runs/
+**/private/
+**/blind_audit_public/
+**/*.zip
+**/*.zip.sha256
+**/*.log

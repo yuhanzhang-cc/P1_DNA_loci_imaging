@@ -1,0 +1,26 @@
+COMMAND: C:\Users\Yuhan_Zhang\miniconda3\python.exe D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\12_git_publish_checkout\deepblink_pytorch\scripts\diagnostics\scaffolds\formal_test_eval.py --data-root D:\Projects\P1_DNA_loci_imaging --locks D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\validation_model_locks.json --config D:\Projects\P1_DNA_loci_imaging\docs\next_stage_plan_20261025\baseline_cuda_analysis_20261102\diagnostics\scaffold_20261103\configs\independent_test.json --dry-run
+{
+  "passed": true,
+  "dry_run": true,
+  "validation_selected_locks_verified": 9,
+  "pipeline": [
+    "verify_validation_selection",
+    "load_reviewed_independent_manifest_TODO",
+    "frozen_model_inference_adapter_TODO",
+    "full_scored_cache_binding",
+    "ranked_point_ap",
+    "export_new_test_readout"
+  ],
+  "launch_ready": false,
+  "unresolved": [
+    "dataset_manifest",
+    "exclusions_json",
+    "candidate_cache",
+    "decision"
+  ],
+  "live_inference_adapter_implemented": false,
+  "independent_test_images_read": 0,
+  "test_evaluated": false,
+  "optimizer_updates": 0,
+  "threshold_selection_on_test": false
+}

@@ -1,0 +1,90 @@
+{
+  "passed": true,
+  "archived_files": {
+    "extracted_r0": 72,
+    "extracted_h0": 79,
+    "extracted_backup": 130
+  },
+  "budgets": [
+    {
+      "queue": "baseline_r0",
+      "seed": 42,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 95,
+      "selection_rules_recomputed": true
+    },
+    {
+      "queue": "baseline_r0",
+      "seed": 43,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 80,
+      "selection_rules_recomputed": true
+    },
+    {
+      "queue": "baseline_r0",
+      "seed": 44,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 90,
+      "selection_rules_recomputed": true
+    },
+    {
+      "queue": "baseline_h0",
+      "seed": 42,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 65,
+      "selection_rules_recomputed": true
+    },
+    {
+      "queue": "baseline_h0",
+      "seed": 43,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 85,
+      "selection_rules_recomputed": true
+    },
+    {
+      "queue": "baseline_h0",
+      "seed": 44,
+      "epochs": 100,
+      "updates": 2200,
+      "snapshots": 20,
+      "threshold_pairs": 620,
+      "selected_epoch": 80,
+      "selection_rules_recomputed": true
+    }
+  ],
+  "backend": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.11.0+cu128",
+    "device": "cuda"
+  },
+  "exact_replay_tensor_sha256": "a09f6890ab76e9ec4ec9770168b57490342d0f99f9ba446cb99be50a5395935d",
+  "recovery_epoch": 59,
+  "recovery_updates": 1298,
+  "protected_files": {
+    "final_export_verified": 87,
+    "pre_recovery_only_verified": 94,
+    "server_cache_not_returned": 183
+  },
+  "protection_scope": "All returned protected files checked; omitted epoch caches rely on recorded server gate",
+  "replay_scope": "Original failed tensors independently hashed; replayed epoch60 tensor file omitted from final archive",
+  "boundary_event_count": 1,
+  "removed_candidates": 1,
+  "maximum_removed_score": 8.962712516602522e-12,
+  "stale_failure_txt_retained": true,
+  "test_arrays_read": false
+}

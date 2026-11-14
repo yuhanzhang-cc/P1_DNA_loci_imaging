@@ -1,0 +1,6 @@
+{
+  "synthetic_fixture": true,
+  "real_human_review_complete": false,
+  "interpretation": "Spot presence is not detection TP; geometry proxy is not biological ground truth",
+  "no_label_or_model_changes": true
+}

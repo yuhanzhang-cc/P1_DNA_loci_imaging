@@ -1,0 +1,55 @@
+{
+  "status": "scaffold only, not run",
+  "automatic_training_allowed": false,
+  "primary_contrast": "P0-S0",
+  "components": [
+    "signed_offsets",
+    "neighborhood_supervision"
+  ],
+  "cells": [
+    {
+      "id": "base",
+      "config": null,
+      "existing_method": "H0_cuda_reference",
+      "signed_offsets": false,
+      "neighborhood_supervision": false,
+      "reuse_existing": true
+    },
+    {
+      "id": "capacity",
+      "config": "S0.json",
+      "signed_offsets": true,
+      "neighborhood_supervision": false,
+      "reuse_existing": false
+    },
+    {
+      "id": "full",
+      "config": "P0.json",
+      "signed_offsets": true,
+      "neighborhood_supervision": true,
+      "reuse_existing": false
+    },
+    {
+      "id": "minus_support",
+      "config": "CAP_P0.json",
+      "signed_offsets": true,
+      "neighborhood_supervision": false,
+      "alias_of": "S0",
+      "reuse_existing": false
+    },
+    {
+      "id": "minus_signed",
+      "config": null,
+      "signed_offsets": false,
+      "neighborhood_supervision": true,
+      "expected_invalid": true,
+      "reason": "bounded [0,1] offsets cannot represent neighborhood targets; do not train an illegal control"
+    }
+  ],
+  "independent_new_methods": [
+    "S0",
+    "P0"
+  ],
+  "prospective_new_runs": 6,
+  "not_twelve": true
+}

@@ -1,0 +1,29 @@
+{
+  "h0_fp": 230,
+  "g0_fp": 165,
+  "shared": 83,
+  "h0_only": 147,
+  "g0_only": 82,
+  "net": 65,
+  "old_proxy_counts": {
+    "H0": {
+      "fp": 230,
+      "duplicate_or_assignment_conflict": 80,
+      "near_reference_3to6px": 12,
+      "far_from_reference_gt6px": 138
+    },
+    "G0": {
+      "fp": 165,
+      "duplicate_or_assignment_conflict": 21,
+      "near_reference_3to6px": 8,
+      "far_from_reference_gt6px": 136
+    }
+  },
+  "geometry_class_counts": {
+    "nearby_duplicate_proxy": 80,
+    "assignment_conflict_proxy": 0,
+    "other_requires_visual_review": 150
+  },
+  "net_65_is_not_a_set_of_65_distinct_candidates": true,
+  "human_review_completed": false
+}

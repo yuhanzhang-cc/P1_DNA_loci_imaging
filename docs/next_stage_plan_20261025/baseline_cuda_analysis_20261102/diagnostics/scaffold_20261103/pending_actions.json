@@ -1,0 +1,14 @@
+{
+  "blind_audit_parameters": [
+    "P0.supervision.radius_px",
+    "P0.supervision.ownership",
+    "P0.supervision.normalization",
+    "review_decision"
+  ],
+  "mechanism_adapter_implemented": false,
+  "training_enabled": false,
+  "independent_test_data_ready": false,
+  "live_test_adapter_implemented": false,
+  "real_human_review_complete": false,
+  "completed_training_count": 41
+}
