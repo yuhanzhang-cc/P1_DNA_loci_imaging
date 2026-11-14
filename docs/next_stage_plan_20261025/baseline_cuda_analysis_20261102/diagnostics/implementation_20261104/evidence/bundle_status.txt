@@ -1,0 +1,9 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\18_mechanism_ready_20261104\\p1_signed_offset_v1r3\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\controller.py", "status"]
+EXIT 0
+{"bundle_verified": true, "files": 94, "test_arrays_present": false}
+S0 42 not_started epoch 0/100 updates 0/2200
+S0 43 not_started epoch 0/100 updates 0/2200
+S0 44 not_started epoch 0/100 updates 0/2200
+P0 42 not_started epoch 0/100 updates 0/2200
+P0 43 not_started epoch 0/100 updates 0/2200
+P0 44 not_started epoch 0/100 updates 0/2200

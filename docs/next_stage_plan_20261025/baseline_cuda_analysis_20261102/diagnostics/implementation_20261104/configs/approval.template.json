@@ -1,0 +1,11 @@
+{
+  "config_sha256": null,
+  "mechanism_approved": false,
+  "reviewer": null,
+  "reviewed_at": null,
+  "synthetic_fixture": false,
+  "blind_audit_completed": false,
+  "blind_audit_file": null,
+  "blind_audit_sha256": null,
+  "note": "Actual human decision only. S0 needs mechanism review; P0 also needs completed blind audit and frozen parameters. Automation must not fill human fields."
+}

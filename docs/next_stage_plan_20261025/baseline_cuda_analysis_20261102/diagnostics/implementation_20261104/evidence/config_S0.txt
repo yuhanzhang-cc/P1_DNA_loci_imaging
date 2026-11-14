@@ -1,0 +1,3 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\mechanism_v1\\cli.py", "--config", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\implementation_20261104\\configs\\S0.json", "--dry-run"]
+EXIT 0
+{"passed": true, "dry_run": true, "parameters_configured": true, "adapter_implemented": true, "formal_launch_ready": false, "human_decision_required": true, "optimizer_updates": 0, "config_sha256": "fc1cff2a69af223bca856de581861b769b1ac631435385f2a412fe29565768f2"}
