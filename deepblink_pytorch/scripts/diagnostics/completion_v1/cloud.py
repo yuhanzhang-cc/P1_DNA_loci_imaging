@@ -152,7 +152,7 @@ def status(root):
                 if seconds:callback=statistics.median(seconds)
                 if rows:t['updates']=int(rows[-1].get('optimizer_updates',rows[-1].get('updates',t.get('updates',0))))
             t['updates']=int(t.get('updates',t.get('optimizer_updates',0)))
-            tasks.append(dict(method=method,seed=seed,**t,median_recent_callback_seconds=callback))
+            tasks.append({**t,'method':method,'seed':seed,'median_recent_callback_seconds':callback})
     full=d.get('completion_strategy')=='full_registered_six';scratch='spotiflow_scratch' in d.get('additional_baseline_queues',[])
     remaining_min=remaining_max=0.
     for t in tasks:

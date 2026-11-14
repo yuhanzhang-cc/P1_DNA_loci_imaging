@@ -93,6 +93,18 @@ def test_composite_rejects_source_change_before_launch(tmp_path):
     with pytest.raises(ValueError,match='source differs'):cloud.execute(tmp_path,launch=lambda *args:pytest.fail('must not launch'))
 
 
+@pytest.mark.parametrize('state',['running','complete'])
+def test_status_accepts_native_scratch_identity_fields(tmp_path,state):
+    folder=tmp_path/'p1_v4_training/outputs/research_v4_cuda/spotiflow_scratch/Spotiflow_scratch_control/seed_43'
+    path=folder/'status.json'
+    write(path,dict(method='native_adapter',seed=43,status=state,epoch=100,optimizer_updates=4400))
+    before=path.read_bytes()
+    result=cloud.status(tmp_path)
+    task=next(t for t in result['tasks'] if t['method']=='Spotiflow_scratch' and t['seed']==43)
+    assert task['status']==state and task['updates']==4400 and task['epoch']==100
+    assert path.read_bytes()==before
+
+
 def test_synthetic_timing_is_not_gpu_validation(tmp_path):
     calls=[]
     def predict(r,data,device):calls.append(1);return [(np.zeros((1,2)),np.ones(1))]
