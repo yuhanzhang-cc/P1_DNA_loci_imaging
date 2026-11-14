@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "engineering_only": true,
+  "formal_training_started": false,
+  "test_evaluated": false,
+  "device": "cpu",
+  "torch": "2.11.0+cpu",
+  "batch_size": 1,
+  "canvas": 128,
+  "parameters": 671719,
+  "finite_loss": 3.1990723609924316,
+  "replay_loss": 3.1990723609924316,
+  "exact_recovery": true,
+  "export_reload_exact": true,
+  "distinct_synthetic_steps": 1,
+  "discarded_optimizer_step_executions": 2,
+  "real_optimizer_updates": 0,
+  "initial_state_sha256": "a1b2047e20dcd90877060f3536dacdd674320e132a283659f45950ca81fbe1b7",
+  "initialization_reference": {
+    "seed": 42,
+    "reference_backend": "torch2.11.0+cu128_RTX5090",
+    "reference_sha256": "f6d3bbfb0a2f23db12ff300d7c6123013e04dbef09026e8443c8d379266e396c",
+    "actual_sha256": "a1b2047e20dcd90877060f3536dacdd674320e132a283659f45950ca81fbe1b7",
+    "matches_historical_cuda": false
+  },
+  "real_data_checks": [
+    {
+      "split": "train",
+      "images": 176,
+      "target_encoding_passed": true
+    },
+    {
+      "split": "valid",
+      "images": 22,
+      "target_encoding_passed": true
+    },
+    {
+      "original_shape": [
+        256,
+        256
+      ],
+      "canvas": 512,
+      "candidate_count": 6265,
+      "valid_fov": true
+    },
+    {
+      "original_shape": [
+        512,
+        512
+      ],
+      "canvas": 512,
+      "candidate_count": 26798,
+      "valid_fov": true
+    }
+  ],
+  "binding": {
+    "config_sha256": "fc1cff2a69af223bca856de581861b769b1ac631435385f2a412fe29565768f2",
+    "source_sha256": "7f1122b6f55657e5009e564619dd211d6b507c60807925981b344f39e8daca26",
+    "development_sha256": "84ceae4ecedac3856ca6c1b9be545cfab05d08ade7eaa499b7973b9fa86ffa25",
+    "features_sha256": "dd4adf50eddcd0566418b5012422665a24fe7a1877ff02a876448082fdecdd04",
+    "device": "cpu",
+    "torch": "2.11.0+cpu",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "python": "3.12.13",
+    "gpu": null
+  }
+}

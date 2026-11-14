@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "synthetic_fixture": true,
+  "formal_ingestion_rejected": true,
+  "engineering_ingestion_verified": true,
+  "source_binding_verified": true,
+  "report_generated": true,
+  "real_human_review_completed": false,
+  "actual_optimizer_updates": 0,
+  "warning": "Fixture budget rows/checkpoint bytes are deliberately synthetic, never formal results"
+}

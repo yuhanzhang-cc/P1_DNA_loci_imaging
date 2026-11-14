@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "synthetic_fixture": true,
+  "imagej_core_sha256": "2e1a09961dfb41cee66ddc821b2577a41a072566ce45a49bae69267099741e20",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Yuhan_Zhang\\Downloads\\fiji-stable-win64-jdk\\Fiji.app\\java\\win64\\zulu8.86.0.25-ca-fx-jdk8.0.452-win_x64\\bin\\javac.exe",
+        "-cp",
+        "C:\\Users\\Yuhan_Zhang\\Downloads\\fiji-stable-win64-jdk\\Fiji.app\\jars\\ij-1.54p.jar",
+        "-d",
+        "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\core_qa_module",
+        "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\core_qa_module\\ImageJMacroQA.java"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "C:\\Users\\Yuhan_Zhang\\Downloads\\fiji-stable-win64-jdk\\Fiji.app\\java\\win64\\zulu8.86.0.25-ca-fx-jdk8.0.452-win_x64\\bin\\java.exe",
+        "-Djava.awt.headless=true",
+        "-cp",
+        "C:\\Users\\Yuhan_Zhang\\Downloads\\fiji-stable-win64-jdk\\Fiji.app\\jars\\ij-1.54p.jar;D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\core_qa_module",
+        "ImageJMacroQA",
+        "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\core_qa_module\\synthetic.ijm",
+        "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\core_qa_module\\SYNTHETIC_points.csv"
+      ],
+      "returncode": 0,
+      "stdout": "SYNTHETIC_MACRO_QA_PASS\r\nIMAGEJ_CORE_HEADLESS_MACRO_QA_PASS\r\n",
+      "stderr": ""
+    }
+  ],
+  "subpixel_coordinates_preserved": true,
+  "overlay_leaves_pixels_unchanged": true,
+  "csv_export_verified": true,
+  "browser_visual_tested": false,
+  "fiji_interactive_dragging_tested": false,
+  "original_images_modified": false
+}

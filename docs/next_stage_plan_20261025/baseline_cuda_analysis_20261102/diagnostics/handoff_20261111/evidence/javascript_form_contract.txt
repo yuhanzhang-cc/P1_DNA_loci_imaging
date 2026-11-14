@@ -1,0 +1,3 @@
+COMMAND ["node", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\12_git_publish_checkout\\deepblink_pytorch\\scripts\\diagnostics\\handoff_v2\\test_reviewer.js", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\SYNTHETIC_QA_final_ui_export.csv"]
+EXIT 0
+{"passed":true,"synthetic_fixture":true,"answers_never_real":true,"checks":["blank_by_default","incomplete_export_blocked","one_case_progress","native_pixel_click_mapping","draft_backup_and_import","packet_binding","unblinding_rejected","navigation_restores","60_case_csv_export","quotes_and_newlines"],"browser_visual_tested":false}

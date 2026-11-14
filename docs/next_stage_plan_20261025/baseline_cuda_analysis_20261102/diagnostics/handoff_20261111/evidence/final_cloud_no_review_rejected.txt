@@ -1,0 +1,22 @@
+COMMAND ["D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_20261111\\deepblink_pytorch\\scripts\\diagnostics\\handoff_v2\\cli.py", "start", "--root", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_20261111"]
+EXIT 1
+Traceback (most recent call last):
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\19_prefabrication_20261111\p1_review_pipeline_20261111\deepblink_pytorch\scripts\diagnostics\handoff_v2\cli.py", line 8, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\19_prefabrication_20261111\p1_review_pipeline_20261111\deepblink_pytorch\scripts\diagnostics\handoff_v2\main.py", line 35, in main
+    verify(root);verify_frozen(root/"decisions")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\19_prefabrication_20261111\p1_review_pipeline_20261111\deepblink_pytorch\scripts\diagnostics\handoff_v2\freeze.py", line 67, in verify_frozen
+    folder=Path(folder);marker=read(folder/"freeze_manifest.json")
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\P1_DNA_loci_imaging\outputs\next_stage_v4_recipe_20261101\19_prefabrication_20261111\p1_review_pipeline_20261111\deepblink_pytorch\scripts\diagnostics\handoff_v2\common.py", line 10, in read
+    def read(path):return json.loads(Path(path).read_text(encoding="utf-8-sig"))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yuhan_Zhang\miniconda3\envs\dna_pytorch\Lib\pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yuhan_Zhang\miniconda3\envs\dna_pytorch\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_20261111\\decisions\\freeze_manifest.json'

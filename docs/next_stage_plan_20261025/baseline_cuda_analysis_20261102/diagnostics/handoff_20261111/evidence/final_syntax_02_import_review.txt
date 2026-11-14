@@ -1,0 +1,2 @@
+COMMAND ["C:\\Program Files\\Git\\bin\\bash.exe", "-n", "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_20261111\\02_import_review.sh"]
+EXIT 0

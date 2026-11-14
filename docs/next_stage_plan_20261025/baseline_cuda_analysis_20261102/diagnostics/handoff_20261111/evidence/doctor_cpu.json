@@ -1,0 +1,49 @@
+{
+  "device": "cpu",
+  "python": "3.12.13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "executable": "D:\\Projects\\P1_DNA_loci_imaging\\.venv\\spotiflow_cpu\\Scripts\\python.exe",
+  "optimizer_updates": 0,
+  "cuda_available": false,
+  "passed": true,
+  "torch": "2.11.0+cpu",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "cuda_runtime": null,
+  "cudnn": null,
+  "torch_build": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 194234444\n  - Intel(R) oneAPI Math Kernel Library Version 2025.3-Product Build 20251007 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.10.2 (Git Hash f1d471933dc852f956fd05389f9313c7148783d5)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=70d99e998b4955e0049d13a98d77ae1b14db1f45, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.11.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+  "cpu_capability": "AVX2",
+  "host_processor": "Intel64 Family 6 Model 197 Stepping 2, GenuineIntel",
+  "reference_environment": {
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "torch": "2.11.0+cu128",
+    "device": "cuda"
+  },
+  "initializations": [
+    {
+      "seed": 42,
+      "h0_sha256": "a1b2047e20dcd90877060f3536dacdd674320e132a283659f45950ca81fbe1b7",
+      "s0_sha256": "a1b2047e20dcd90877060f3536dacdd674320e132a283659f45950ca81fbe1b7",
+      "paired_exact": true,
+      "historical_cuda_sha256": "f6d3bbfb0a2f23db12ff300d7c6123013e04dbef09026e8443c8d379266e396c",
+      "historical_exact": false
+    },
+    {
+      "seed": 43,
+      "h0_sha256": "6306bc85c82ad1a12ce388f9644308333c6d736420d6bdad45709e607bf92b99",
+      "s0_sha256": "6306bc85c82ad1a12ce388f9644308333c6d736420d6bdad45709e607bf92b99",
+      "paired_exact": true,
+      "historical_cuda_sha256": "73380e7679889ca72e0a75c1c87476264c441b0228dc082cd171735665858187",
+      "historical_exact": false
+    },
+    {
+      "seed": 44,
+      "h0_sha256": "6634d291e93e93f74333eeade66b72b2758e1377d92b6cb93de804828e5a8e74",
+      "s0_sha256": "6634d291e93e93f74333eeade66b72b2758e1377d92b6cb93de804828e5a8e74",
+      "paired_exact": true,
+      "historical_cuda_sha256": "dd46938ef27dc50bdce141ae024b17dd2f421333b5441f7219f453e9bf41c673",
+      "historical_exact": false
+    }
+  ],
+  "nvidia_smi": "unavailable"
+}

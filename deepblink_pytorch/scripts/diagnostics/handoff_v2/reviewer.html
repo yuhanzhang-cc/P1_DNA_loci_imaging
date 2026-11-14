@@ -1,0 +1,22 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'">
+<title>匿名图像审阅</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f7;color:#17212b;font:16px system-ui,sans-serif}main{max-width:1060px;margin:auto;padding:24px}header,.card{background:white;border:1px solid #d6dde4;border-radius:12px;padding:20px;margin-bottom:16px}h1{font-size:25px;margin:0 0 10px}h2{font-size:21px;margin:0}p{line-height:1.6}button,input,select,textarea{font:inherit;border:1px solid #aebbc7;border-radius:6px;padding:8px}button{cursor:pointer;background:#eef3f7;color:#17212b}button.primary{background:#174e80;color:white}button:disabled{opacity:.4;cursor:default}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.images{display:flex;gap:20px;flex-wrap:wrap;margin:16px 0}.view{position:relative;display:inline-block;width:min(384px,80vw);aspect-ratio:1;background:#888}.view img{width:100%;height:100%;image-rendering:pixelated;display:block}.view svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}figure{margin:0}figcaption{margin:8px 0}.field{display:block;margin:14px 0}.field>span{display:block;font-weight:600;margin-bottom:6px}textarea{width:100%;height:65px}.muted{color:#52616e;font-size:14px}.warning{color:#8a4300;background:#fff4dc;padding:10px;border-radius:6px}progress{width:100%}#notice{min-height:24px;color:#164c78}#completed{color:#235d3c}label.option{display:inline-flex;gap:6px;margin-right:10px;padding:9px;border:1px solid #cdd8e2;border-radius:6px}#caseSelect{max-width:170px}input[type=number]{width:100px}.sticky{position:sticky;bottom:0;background:white;padding:12px;border-top:1px solid #d6dde4}details{margin-top:12px}code{overflow-wrap:anywhere}
+</style><main>
+<header><h1>匿名图像审阅 · 60 例</h1><p>先看左侧原始视图，再看右侧候选圆圈。判断圆圈附近是否存在可信 spot；这不是重新标注，也不要求判断 0.23px 偏移。</p>
+<div class="row"><label>审查者 <input id="reviewer" placeholder="姓名或缩写" autocomplete="off"></label><strong id="completed"></strong></div>
+<progress id="progress" max="60" value="0"></progress><p class="muted">每例原生 64×64，显示仅按最近邻放大；沿用原审阅包统一灰度窗口。圆圈是候选位置，不是真值。不要打开解盲映射。</p>
+<div class="row"><button id="saveDraft">下载草稿 JSON</button><label>恢复草稿 <input id="restore" type="file" accept=".json"></label><button class="primary" id="exportCsv">导出完整评分 CSV</button></div>
+<p class="muted">本页无网络传输。尝试在本浏览器保存草稿，但浏览器清理/换浏览器可能丢失，请主动下载草稿备份。CSV 仅记录选项，不要求手填坐标。</p><div id="notice" role="status" aria-live="polite"></div></header>
+<p><a href="decision.html" target="_blank" rel="noopener">完成评分后：打开一次研究方案确认表</a></p>
+<section class="card"><div class="row"><h2 id="caseTitle"></h2><label>跳转 <select id="caseSelect"></select></label><button id="nextMissing">下一未完成</button></div>
+<div class="images"><figure><div class="view" id="rawView"><img id="raw" alt="原始灰度图"><svg id="crosshair" viewBox="0 0 64 64"></svg></div><figcaption>原始视图；可选：点击建议中心</figcaption></figure><figure><div class="view"><img id="marked" alt="候选圆圈图"></div><figcaption>同一图像 + 候选圆圈</figcaption></figure></div>
+<div class="field"><span>圆圈附近是否存在可信 spot？ *</span><div id="presence"></div></div>
+<div class="field"><span>整个 patch 内可辨认的 spot 数 *</span><div class="row"><input id="count" type="number" min="0" step="1" aria-label="spot数量"><label><input id="countUncertain" type="checkbox">无法可靠数清</label></div></div>
+<div class="field"><span>本例判断的置信度 *</span><div id="confidence"></div></div>
+<label class="field"><span>背景描述（可选）</span><input id="background" placeholder="例如：纹理、重叠、模糊"></label>
+<label class="field"><span>备注（可选）</span><textarea id="notes"></textarea></label>
+<p class="muted" id="centerInfo">建议中心：未填写（可选）</p><button id="clearCenter">清除建议中心</button>
+<details><summary>何时选“不确定”？</summary><p>弱信号、相邻点不可分、灰度窗口不足以判断或需要原始 TIFF 时，选不确定并记备注，不强行认定 TP/FP。建议中心只供后续图像复核，不会自动成为训练标签。需要纠标时另走 Fiji/TrackMate，保留原标签。</p></details>
+</section><div class="sticky row"><button id="prev">上一例</button><button class="primary" id="next">下一例</button><span id="position"></span></div></main>
+<script id="packet" type="application/json">__PACKET__</script><script>__SCRIPT__</script></html>

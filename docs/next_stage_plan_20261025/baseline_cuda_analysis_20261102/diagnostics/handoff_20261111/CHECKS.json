@@ -1,0 +1,268 @@
+{
+  "local_preparation_passed": true,
+  "pytest_passed": 93,
+  "javascript_contract_checks": 10,
+  "imagej_core_qa_passed": true,
+  "browser_visual_tested": false,
+  "browser_validation_limitation": "Native browser access approval timed out; no real review answers were entered",
+  "fiji_interactive_dragging_tested": false,
+  "gpu_used": false,
+  "cuda_tested": false,
+  "formal_training_started": false,
+  "real_optimizer_updates": 0,
+  "formal_training_count": 41,
+  "test_images_read": 0,
+  "human_review_completed": false,
+  "protected_files_unchanged": 362,
+  "reviewer": {
+    "path": "D:\\Projects\\P1_DNA_loci_imaging\\docs\\next_stage_plan_20261025\\baseline_cuda_analysis_20261102\\diagnostics\\handoff_20261111\\private\\reviewer_v2_final\\index.html",
+    "packet_id": "61eba0012877eebf3ba6b44bbe078d9e43c2b477356c09d5597d1824885645d8",
+    "answers_prefilled": false,
+    "pixel_center_overlay_corrected": true
+  },
+  "owner_correction_images": 19,
+  "private_cloud_archive": {
+    "path": "D:\\Projects\\P1_DNA_loci_imaging\\outputs\\next_stage_v4_recipe_20261101\\19_prefabrication_20261111\\p1_review_pipeline_20261111.zip",
+    "sha256": "dc93bf16d730e4cdcac0ab9ce389a774c6435182fb3f72998112d6e1761c3fc2",
+    "bytes": 57853211,
+    "members": 119,
+    "private_development_data": true,
+    "parameters_still_todo": {
+      "radius_px": null,
+      "ownership": null,
+      "normalization": null
+    },
+    "formal_training_started": false
+  },
+  "checks": [
+    {
+      "check": "baseline_report",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "baseline_report.txt"
+    },
+    {
+      "check": "build_reviewer",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "build_reviewer.txt"
+    },
+    {
+      "check": "doctor_cpu",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "doctor_cpu.txt"
+    },
+    {
+      "check": "javascript_form_contract",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "javascript_form_contract.txt"
+    },
+    {
+      "check": "plan_no_execution",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "plan_no_execution.txt"
+    },
+    {
+      "check": "unit_cpu_68",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "unit_cpu_68.txt"
+    },
+    {
+      "check": "unit_scaffolds_22",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "unit_scaffolds_22.txt"
+    },
+    {
+      "check": "build_cloud_kit",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "build_cloud_kit.txt"
+    },
+    {
+      "check": "cloud_verify",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "cloud_verify.txt"
+    },
+    {
+      "check": "cloud_status",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "cloud_status.txt"
+    },
+    {
+      "check": "cloud_dry_run",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "cloud_dry_run.txt"
+    },
+    {
+      "check": "cloud_reject_missing_review",
+      "passed": true,
+      "exit_code": 1,
+      "evidence": "cloud_reject_missing_review.txt"
+    },
+    {
+      "check": "syntax_00_verify",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_00_verify.txt"
+    },
+    {
+      "check": "syntax_01_setup",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_01_setup.txt"
+    },
+    {
+      "check": "syntax_02_import_review",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_02_import_review.txt"
+    },
+    {
+      "check": "syntax_03_plan",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_03_plan.txt"
+    },
+    {
+      "check": "syntax_04_start",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_04_start.txt"
+    },
+    {
+      "check": "syntax_05_status",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_05_status.txt"
+    },
+    {
+      "check": "syntax_06_resume",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_06_resume.txt"
+    },
+    {
+      "check": "syntax_07_pack_completed",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_07_pack_completed.txt"
+    },
+    {
+      "check": "syntax_08_collect_failure",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "syntax_08_collect_failure.txt"
+    },
+    {
+      "check": "cloud_cpu_one_step",
+      "passed": true,
+      "exit_code": 0,
+      "evidence": "cloud_cpu_one_step.txt"
+    },
+    {
+      "check": "final_cloud_cpu_probe",
+      "passed": true,
+      "evidence": "final_cloud_cpu_probe.txt"
+    },
+    {
+      "check": "final_cloud_no_review_rejected",
+      "passed": true,
+      "evidence": "final_cloud_no_review_rejected.txt"
+    },
+    {
+      "check": "final_cloud_plan",
+      "passed": true,
+      "evidence": "final_cloud_plan.txt"
+    },
+    {
+      "check": "final_cloud_status",
+      "passed": true,
+      "evidence": "final_cloud_status.txt"
+    },
+    {
+      "check": "final_cloud_verify",
+      "passed": true,
+      "evidence": "final_cloud_verify.txt"
+    },
+    {
+      "check": "final_syntax_00_verify",
+      "passed": true,
+      "evidence": "final_syntax_00_verify.txt"
+    },
+    {
+      "check": "final_syntax_01_setup",
+      "passed": true,
+      "evidence": "final_syntax_01_setup.txt"
+    },
+    {
+      "check": "final_syntax_02_import_review",
+      "passed": true,
+      "evidence": "final_syntax_02_import_review.txt"
+    },
+    {
+      "check": "final_syntax_03_plan",
+      "passed": true,
+      "evidence": "final_syntax_03_plan.txt"
+    },
+    {
+      "check": "final_syntax_04_start",
+      "passed": true,
+      "evidence": "final_syntax_04_start.txt"
+    },
+    {
+      "check": "final_syntax_05_status",
+      "passed": true,
+      "evidence": "final_syntax_05_status.txt"
+    },
+    {
+      "check": "final_syntax_06_resume",
+      "passed": true,
+      "evidence": "final_syntax_06_resume.txt"
+    },
+    {
+      "check": "final_syntax_07_pack_completed",
+      "passed": true,
+      "evidence": "final_syntax_07_pack_completed.txt"
+    },
+    {
+      "check": "final_syntax_08_collect_failure",
+      "passed": true,
+      "evidence": "final_syntax_08_collect_failure.txt"
+    },
+    {
+      "check": "final_pixel_alignment_and_bundle",
+      "passed": true,
+      "evidence": "unit_handoff_final_33.txt"
+    },
+    {
+      "check": "final_pixel_alignment_and_bundle",
+      "passed": true,
+      "evidence": "unit_handoff_final_34.txt"
+    }
+  ],
+  "remaining_real_gates": [
+    "human image review and one research decision",
+    "matched actual CUDA environment/initialization probe",
+    "actual training outcomes and predeclared continuation gate"
+  ],
+  "test_groups": {
+    "existing_mechanism_and_diagnostics": 37,
+    "existing_scaffolds": 22,
+    "new_handoff": 34
+  },
+  "label_revision_branch": {
+    "implemented": true,
+    "synthetic_unit_tests_passed": true,
+    "real_labels_modified": false,
+    "frozen_model_recheck_diagnostic_only": true,
+    "current_training_protocol_accepts_revised_labels": false
+  }
+}

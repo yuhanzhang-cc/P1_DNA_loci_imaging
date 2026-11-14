@@ -1,0 +1,4 @@
+COMMAND ["C:\\Users\\Yuhan_Zhang\\miniconda3\\python.exe", "-m", "pytest", "-q", "deepblink_pytorch/scripts/diagnostics/scaffolds/test_scaffolds.py"]
+EXIT 0
+......................                                                   [100%]
+22 passed in 2.51s
