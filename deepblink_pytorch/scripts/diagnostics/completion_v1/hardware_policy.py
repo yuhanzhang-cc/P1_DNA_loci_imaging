@@ -5,6 +5,8 @@ from diagnostics.handoff_v2.common import read,write,sha,canonical
 
 PROFILE_ID='autodl_vgpu32_ada_transfer_v1'
 GPU_PATTERN=r'(?:NVIDIA\s+)?(?:GeForce\s+RTX\s+4080\s*SUPER(?:\s+32GB)?|vGPU(?:[-\s]?32(?:GB|G))?)'
+PROFILES={PROFILE_ID:(GPU_PATTERN,[8,9],'vgpu32_development_v1'),
+    'autodl_5090d_blackwell_transfer_v1':(r'(?:NVIDIA\s+)?(?:GeForce\s+)?RTX\s+5090\s*D',[12,0],'rtx5090d_development_v1')}
 
 
 def profile(root):
@@ -14,10 +16,11 @@ def profile(root):
 
 
 def validate(spec):
-    if (spec.get('profile_id')!=PROFILE_ID or spec.get('torch')!='2.11.0+cu128' or spec.get('cuda_runtime')!='12.8'
-        or spec.get('compute_capability')!=[8,9] or spec.get('require_historical_initializations') is not True
+    registered=PROFILES.get(spec.get('profile_id'))
+    if (registered is None or spec.get('torch')!='2.11.0+cu128' or spec.get('cuda_runtime')!='12.8'
+        or spec.get('compute_capability')!=registered[1] or spec.get('require_historical_initializations') is not True
         or spec.get('same_hardware_as_historical_baselines') is not False
-        or spec.get('experiment_track')!='vgpu32_development_v1'):raise ValueError('Unknown or weakened hardware profile')
+        or spec.get('experiment_track')!=registered[2]):raise ValueError('Unknown or weakened hardware profile')
     return spec
 
 
@@ -30,7 +33,7 @@ def snapshot(torch):
 
 def judge(spec,actual,initializations):
     validate(spec)
-    checks=dict(name=bool(re.fullmatch(GPU_PATTERN,actual.get('gpu',''),flags=re.I)),
+    checks=dict(name=bool(re.fullmatch(PROFILES[spec['profile_id']][0],actual.get('gpu',''),flags=re.I)),
         torch=actual.get('torch')==spec['torch'],cuda_runtime=actual.get('cuda_runtime')==spec['cuda_runtime'],
         compute_capability=actual.get('compute_capability')==spec['compute_capability'],
         memory=30_000_000_000<=actual.get('memory_bytes',0)<=35_000_000_000,

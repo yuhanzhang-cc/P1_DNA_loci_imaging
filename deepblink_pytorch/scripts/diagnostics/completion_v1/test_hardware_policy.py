@@ -21,6 +21,22 @@ def actual():
 def initializations():return [dict(seed=s,paired_exact=True,historical_exact=True) for s in (42,43,44)]
 
 
+@pytest.mark.parametrize('name,cc,memory,passed',[
+    ('NVIDIA GeForce RTX 5090 D',[12,0],32,True),
+    ('NVIDIA GeForce RTX 5090D',[12,0],32,True),
+    ('NVIDIA GeForce RTX 5090',[12,0],32,False),
+    ('NVIDIA GeForce RTX 5090 D v2',[12,0],24,False),
+    ('NVIDIA GeForce RTX 5090 D',[8,9],32,False),
+    ('NVIDIA GeForce RTX 5090 D',[12,0],24,False),
+    ('NVIDIA GeForce RTX 4090',[8,9],24,False)])
+def test_5090d_profile_is_separate_and_specific(name,cc,memory,passed):
+    s=spec();s.update(profile_id='autodl_5090d_blackwell_transfer_v1',compute_capability=[12,0],experiment_track='rtx5090d_development_v1')
+    a=actual();a.update(gpu=name,compute_capability=cc,memory_bytes=memory*1024**3)
+    assert hp.judge(s,a,initializations())['passed']==passed
+    i=initializations();i[0]['historical_exact']=False
+    assert not hp.judge(s,a,i)['passed']
+
+
 @pytest.mark.parametrize('name',['NVIDIA vGPU-32GB','vGPU-32G','NVIDIA GeForce RTX 4080 SUPER','NVIDIA GeForce RTX 4080 SUPER 32GB'])
 def test_only_registered_aliases_pass(name):
     a=actual();a['gpu']=name

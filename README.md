@@ -140,3 +140,5 @@ Latest review-to-report preparation (2026-11-11): [overnight report](docs/next_s
 Latest approved training handoff (2026-11-11): [AutoDL start](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/AUTODL_START.md) and [review receipt/report](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/completion_20261111/REPORT.md).
 
 Separate vGPU32 handoff (2026-11-11; original 5090 package preserved): [vGPU start and hardware checks](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/vgpu32_20261111/AUTODL_START.md).
+
+RTX5090D 32GB handoff (2026-11-13; all older packages preserved): [5090D start](docs/next_stage_plan_20261025/baseline_cuda_analysis_20261102/diagnostics/rtx5090d_20261113/AUTODL_START.md).

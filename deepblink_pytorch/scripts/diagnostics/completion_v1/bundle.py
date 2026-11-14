@@ -105,7 +105,7 @@ explicit commands, because they require returned models and actual reviewed data
 ''',encoding='utf-8')
     if hardware_profile:
         (output/'08_hardware_preflight.sh').write_bytes(('#!/usr/bin/env bash\nset -euo pipefail\ncd "$(dirname "$0")"\n'+f'{py} {entry} hardware-preflight --root . --execute\n').encode())
-        with (output/'README.md').open('a',encoding='utf-8') as f:f.write('\nAlternate vGPU32 track: run 08_hardware_preflight.sh before 04_start.sh. It is also enforced automatically before training. Historical initializer hashes remain mandatory. This is not the original 5090 replication track.\n')
+        with (output/'README.md').open('a',encoding='utf-8') as f:f.write('\nAlternate hardware track: run 08_hardware_preflight.sh before 04_start.sh. It is also enforced automatically before training. Historical initializer hashes remain mandatory. This is not the original 5090 replication track.\n')
     return seal(output,extra=dict(real_approval_included=review_dir is not None,hardware_profile_id=read(hardware_profile)['profile_id'] if hardware_profile else None))
 
 

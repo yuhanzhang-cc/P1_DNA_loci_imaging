@@ -1,0 +1,18 @@
+{
+  "profile_id": "autodl_5090d_blackwell_transfer_v1",
+  "experiment_track": "rtx5090d_development_v1",
+  "torch": "2.11.0+cu128",
+  "cuda_runtime": "12.8",
+  "compute_capability": [
+    12,
+    0
+  ],
+  "require_historical_initializations": true,
+  "same_hardware_as_historical_baselines": false,
+  "historical_5090_archive_sha256": "130375662508e59f8407e91a8b37db8257ed77e7462e200a49abb47a4e6ede8e",
+  "authorization_source": "User explicitly requested a separate RTX5090D package on 2026-11-13; original research_decision.json remains unchanged.",
+  "inference_parity_policy": "All 14 frozen references on all 22 validation images: identical TP/FP/FN and per-image prediction counts; one-to-one prediction coordinate differences at most 0.005 px. Record score differences; do not refit thresholds.",
+  "comparison_policy": "P0-S0 is within the new hardware track. Contrasts against historical H0/R0/G0/Spotiflow_F are cross-hardware development references. Inference parity does not prove training equivalence.",
+  "formal_training_runs": 9,
+  "new_h0_training_authorized": false
+}
