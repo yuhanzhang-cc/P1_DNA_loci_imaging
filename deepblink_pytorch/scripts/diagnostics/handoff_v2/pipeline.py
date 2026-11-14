@@ -33,7 +33,8 @@ def plan(root):
 
 
 def expansion_tasks(screen,decision):
-    return [(m,s) for s in (43,44) for m in ("S0","P0")] if screen["passed"] and decision["auto_expand_if_gate_passes"] else []
+    full=decision.get("completion_strategy","gate_conditioned")=="full_registered_six"
+    return [(m,s) for s in (43,44) for m in ("S0","P0")] if (screen["passed"] or full) and decision["auto_expand_if_gate_passes"] else []
 
 
 def execute(root,resume=False,run_command=None):

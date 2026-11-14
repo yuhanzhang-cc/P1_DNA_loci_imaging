@@ -1,0 +1,218 @@
+{
+  "exports": [
+    {
+      "file": "fig01_supervision_schematic.svg",
+      "sha256": "7fb0cc4b5916ca8e123a23e30ffed9353563316b1ae49f0ea3e813242accf8d0",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "svg"
+    },
+    {
+      "file": "fig01_supervision_schematic.pdf",
+      "sha256": "945d8b75bf9ebcddf38d9d23b621dba868f0ec66b627f0633350c9af0b8ab5cf",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "pdf"
+    },
+    {
+      "file": "fig01_supervision_schematic.png",
+      "sha256": "f077a8f32aca577653bcf8cab1ae2dcbc56382aaf999007aca40283aded3ea15",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "png"
+    },
+    {
+      "file": "fig02_method_comparison.svg",
+      "sha256": "4b6f3c69878a5fc741f63b0f28e5d7f807196e97eb5b636ee1d23b6830ce2262",
+      "width_mm": 180.34,
+      "height_mm": 142.24,
+      "format": "svg"
+    },
+    {
+      "file": "fig02_method_comparison.pdf",
+      "sha256": "080d4b136ece71fe7d2a8efba269dadca21693cce36d5e9f6e52830e4e9e1969",
+      "width_mm": 180.34,
+      "height_mm": 142.24,
+      "format": "pdf"
+    },
+    {
+      "file": "fig02_method_comparison.png",
+      "sha256": "460eb1160784942c4a7a2621c0cfcc23ba8b26e6c22fadd070ba8cd8d0732ce9",
+      "width_mm": 180.34,
+      "height_mm": 142.24,
+      "format": "png"
+    },
+    {
+      "file": "fig03_sequential_ablation.svg",
+      "sha256": "0d7595a32d3fc4bca48ba8f761791d4b05fd04f9c593be2aed529117df8f839d",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "svg"
+    },
+    {
+      "file": "fig03_sequential_ablation.pdf",
+      "sha256": "3629ba79e2a43a23ed214ec5c792072e9204f5a23540a4748743c59ed44fae76",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "pdf"
+    },
+    {
+      "file": "fig03_sequential_ablation.png",
+      "sha256": "f00b1f321d152fb0fa811926ad20dd34a18aaac1ed1e1168f243fdaabba47efc",
+      "width_mm": 180.34,
+      "height_mm": 71.12,
+      "format": "png"
+    },
+    {
+      "file": "fig04_ranked_pr.svg",
+      "sha256": "26d498ca223eac6985f80bb802225f9a8bd5f70c0268b0fb8b535e4c530ef079",
+      "width_mm": 116.84,
+      "height_mm": 96.52,
+      "format": "svg"
+    },
+    {
+      "file": "fig04_ranked_pr.pdf",
+      "sha256": "5c813760725a992dcbcd90b45cd3494ef7c866a9645ca724e43b98bb17e5ad6f",
+      "width_mm": 116.84,
+      "height_mm": 96.52,
+      "format": "pdf"
+    },
+    {
+      "file": "fig04_ranked_pr.png",
+      "sha256": "9a75276a721f74fafc216d932b91099c33047edbe2914812b8644d428847db5a",
+      "width_mm": 116.84,
+      "height_mm": 96.52,
+      "format": "png"
+    },
+    {
+      "file": "fig05_common_tp_localization.svg",
+      "sha256": "c40536c0559883db3cabb22eed3764e542e89be6a14f2339b6e7e397ced645f0",
+      "width_mm": 137.16,
+      "height_mm": 86.36,
+      "format": "svg"
+    },
+    {
+      "file": "fig05_common_tp_localization.pdf",
+      "sha256": "bb62cc6b81973f480e2614a6bc39228a9b819543afeffbb5db64b2f9c1628b43",
+      "width_mm": 137.16,
+      "height_mm": 86.36,
+      "format": "pdf"
+    },
+    {
+      "file": "fig05_common_tp_localization.png",
+      "sha256": "73ab632fb46a365fe6f249b3d6117992bc3f5270d750d054e5790bc535b2ade9",
+      "width_mm": 137.16,
+      "height_mm": 86.36,
+      "format": "png"
+    }
+  ],
+  "input_sha256": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "matplotlib": "3.11.2",
+  "figure_source_sha256": "df8ae3fe6c366a7f1ae5fe165696719397323941813b2c57fb4fcf1e24ee6fcf",
+  "publisher": "TODO: target journal not selected",
+  "journal_compliance_claim": false,
+  "editable_svg_text": true,
+  "png_dpi": 300,
+  "biological_inference": false
+}

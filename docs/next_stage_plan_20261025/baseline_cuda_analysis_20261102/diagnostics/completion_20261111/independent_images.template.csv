@@ -1,0 +1,1 @@
+sample_id,image_file,label_file,image_sha256,label_sha256,height,width,coordinate_unit,dataset_role,biological_group_id,acquisition_id,source_container,collection_date,annotation_version,um_per_pixel

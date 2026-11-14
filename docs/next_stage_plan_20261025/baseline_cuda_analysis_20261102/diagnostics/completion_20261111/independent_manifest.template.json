@@ -1,0 +1,12 @@
+{
+  "dataset_role": "independent_test",
+  "synthetic_fixture": false,
+  "independence_reviewed": false,
+  "reviewer": "TODO: actual reviewer",
+  "reviewed_at": "TODO: actual date",
+  "independence_notes": "TODO: acquisition and biological separation from all historical data, including known source overlaps",
+  "images_csv": "independent_images.csv",
+  "images_csv_sha256": "TODO: calculated from real completed CSV",
+  "independence_evidence_file": "independence_review.md",
+  "independence_evidence_sha256": "TODO: calculated from actual provenance review"
+}

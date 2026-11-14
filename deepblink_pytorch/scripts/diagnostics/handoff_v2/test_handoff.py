@@ -59,6 +59,7 @@ def test_freeze_and_tamper_protection(frozen,tmp_path):
     marker=freeze.freeze(res,dec,out,cfg,synthetic=True)
     assert marker["formal_training_started"] is False and marker["human_review_completed"] is False
     assert read(out/"frozen_configs/P0.json")["supervision"]["radius_px"]==2
+    assert read(out/"frozen_configs/P0.json")["decision_status"].startswith('approved_exact_')
     with pytest.raises(ValueError,match="Synthetic"):freeze.verify_frozen(out)
     assert freeze.verify_frozen(out,True)[0]==marker
     (out/"blind_audit_responses.csv").write_text("changed")

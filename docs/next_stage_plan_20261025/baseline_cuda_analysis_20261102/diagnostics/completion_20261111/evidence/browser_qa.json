@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "synthetic_fixture": true,
+  "real_human_answers_entered": false,
+  "images_loaded": true,
+  "blank_export_blocked": true,
+  "real_DOM_answer_navigation_and_center": true,
+  "complete_60_export": true,
+  "python_csv_roundtrip": true,
+  "browser_exit_code": 0,
+  "review_packet_id": "61eba0012877eebf3ba6b44bbe078d9e43c2b477356c09d5597d1824885645d8"
+}
